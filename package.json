@@ -7,6 +7,8 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^4",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.5.4",
+    "date-fns": "^2.16.1",
     "express": "^4"
   },
   "devDependencies": {
@@ -14,5 +16,13 @@
   },
   "scripts": {
     "start": "cds run"
+  },
+  "cds": {
+    "requires": {
+      "incidentws": {
+        "kind": "odata",
+        "model": "srv/external/incidentws"
+      }
+    }
   }
 }

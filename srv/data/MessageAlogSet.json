@@ -1,0 +1,163 @@
+{
+  "d": {
+    "__count": "6",
+    "results": [
+      {
+        "__metadata": {
+          "id": "https://launchpad.support.sap.com/services/odata/incidentws/MessageAlogSet('002075129400001469512021')",
+          "uri": "https://launchpad.support.sap.com/services/odata/incidentws/MessageAlogSet('002075129400001469512021')",
+          "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageAlog"
+        },
+        "Uname": "S0001142741",
+        "Pointer": "002075129400001469512021",
+        "CrInsta": "0020751294",
+        "Aetstmp": "20210226124420",
+        "Lfnr": "00001",
+        "Service": "3",
+        "Servicetyp": "K",
+        "Aenam": "WC1_PI",
+        "Tabname": "/SVT/NM_TMH",
+        "Alobject": "STATUS",
+        "OldVal": "C",
+        "NewVal": "3",
+        "AeDate": "26.02.2021",
+        "AeTime": "13:44:20",
+        "DayTxt": "Friday",
+        "ActionTxt": "Status",
+        "OldTxt": "Sent to SAP",
+        "NewTxt": "SAP Proposed Solution",
+        "UserTimezone": "CET"
+      },
+      {
+        "__metadata": {
+          "id": "https://launchpad.support.sap.com/services/odata/incidentws/MessageAlogSet('002075129400001469512021')",
+          "uri": "https://launchpad.support.sap.com/services/odata/incidentws/MessageAlogSet('002075129400001469512021')",
+          "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageAlog"
+        },
+        "Uname": "S0001142741",
+        "Pointer": "002075129400001469512021",
+        "CrInsta": "0020751294",
+        "Aetstmp": "20210226124420",
+        "Lfnr": "00002",
+        "Service": "3",
+        "Servicetyp": "K",
+        "Aenam": "WC1_PI",
+        "Tabname": "/SVT/NM_T_NOTES",
+        "Alobject": "OBJECT",
+        "OldVal": "",
+        "NewVal": "0002213344",
+        "AeDate": "26.02.2021",
+        "AeTime": "13:44:20",
+        "DayTxt": "Friday",
+        "ActionTxt": "SAP Note add./rem.",
+        "OldTxt": "",
+        "NewTxt": "2213344",
+        "UserTimezone": "CET"
+      },
+      {
+        "__metadata": {
+          "id": "https://launchpad.support.sap.com/services/odata/incidentws/MessageAlogSet('002075129400001469512021')",
+          "uri": "https://launchpad.support.sap.com/services/odata/incidentws/MessageAlogSet('002075129400001469512021')",
+          "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageAlog"
+        },
+        "Uname": "S0001142741",
+        "Pointer": "002075129400001469512021",
+        "CrInsta": "0020751294",
+        "Aetstmp": "20210226124420",
+        "Lfnr": "00003",
+        "Service": "3",
+        "Servicetyp": "K",
+        "Aenam": "WC1_PI",
+        "Tabname": "/SVT/NM_T_TEXT",
+        "Alobject": "NOTETYPE",
+        "OldVal": "",
+        "NewVal": "01",
+        "AeDate": "26.02.2021",
+        "AeTime": "13:44:20",
+        "DayTxt": "Friday",
+        "ActionTxt": "Memo/Text changed",
+        "OldTxt": "",
+        "NewTxt": "Reply",
+        "UserTimezone": "CET"
+      },
+      {
+        "__metadata": {
+          "id": "https://launchpad.support.sap.com/services/odata/incidentws/MessageAlogSet('002075129400001469512021')",
+          "uri": "https://launchpad.support.sap.com/services/odata/incidentws/MessageAlogSet('002075129400001469512021')",
+          "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageAlog"
+        },
+        "Uname": "S0001142741",
+        "Pointer": "002075129400001469512021",
+        "CrInsta": "0020751294",
+        "Aetstmp": "20210226112324",
+        "Lfnr": "00001",
+        "Service": "3",
+        "Servicetyp": "K",
+        "Aenam": "S0021524776",
+        "Tabname": "/SVT/NM_TMH",
+        "Alobject": "COMPONENT",
+        "OldVal": "",
+        "NewVal": "0000034505",
+        "AeDate": "26.02.2021",
+        "AeTime": "12:23:24",
+        "DayTxt": "Friday",
+        "ActionTxt": "Component",
+        "OldTxt": "",
+        "NewTxt": "BC-JAS-COR",
+        "UserTimezone": "CET"
+      },
+      {
+        "__metadata": {
+          "id": "https://launchpad.support.sap.com/services/odata/incidentws/MessageAlogSet('002075129400001469512021')",
+          "uri": "https://launchpad.support.sap.com/services/odata/incidentws/MessageAlogSet('002075129400001469512021')",
+          "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageAlog"
+        },
+        "Uname": "S0001142741",
+        "Pointer": "002075129400001469512021",
+        "CrInsta": "0020751294",
+        "Aetstmp": "20210226112324",
+        "Lfnr": "00003",
+        "Service": "3",
+        "Servicetyp": "K",
+        "Aenam": "S0021524776",
+        "Tabname": "/SVT/NM_TMH",
+        "Alobject": "POINTER",
+        "OldVal": "",
+        "NewVal": "002075129400001469512021",
+        "AeDate": "26.02.2021",
+        "AeTime": "12:23:24",
+        "DayTxt": "Friday",
+        "ActionTxt": "Incident created",
+        "OldTxt": "",
+        "NewTxt": "0020751294 0000146951 2021",
+        "UserTimezone": "CET"
+      },
+      {
+        "__metadata": {
+          "id": "https://launchpad.support.sap.com/services/odata/incidentws/MessageAlogSet('002075129400001469512021')",
+          "uri": "https://launchpad.support.sap.com/services/odata/incidentws/MessageAlogSet('002075129400001469512021')",
+          "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageAlog"
+        },
+        "Uname": "S0001142741",
+        "Pointer": "002075129400001469512021",
+        "CrInsta": "0020751294",
+        "Aetstmp": "20210226112324",
+        "Lfnr": "00004",
+        "Service": "3",
+        "Servicetyp": "K",
+        "Aenam": "S0021524776",
+        "Tabname": "/SVT/NM_TMH",
+        "Alobject": "STATUS",
+        "OldVal": "1",
+        "NewVal": "C",
+        "AeDate": "26.02.2021",
+        "AeTime": "12:23:24",
+        "DayTxt": "Friday",
+        "ActionTxt": "Status",
+        "OldTxt": "Not Sent to SAP",
+        "NewTxt": "Sent to SAP",
+        "UserTimezone": "CET"
+      }
+    ]
+  }
+}

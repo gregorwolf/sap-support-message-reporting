@@ -1,0 +1,3192 @@
+{
+  "definitions": {
+    "incidentws": {
+      "kind": "service"
+    },
+    "incidentws.MessageHeaderSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Pointer": {
+          "key": true,
+          "type": "cds.String",
+          "length": 24
+        },
+        "Csinsta": {
+          "type": "cds.LargeString"
+        },
+        "Mnumm": {
+          "type": "cds.LargeString"
+        },
+        "Myear": {
+          "type": "cds.LargeString"
+        },
+        "Uname": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "Status": {
+          "type": "cds.LargeString"
+        },
+        "Priority": {
+          "type": "cds.LargeString"
+        },
+        "MnummNLZ": {
+          "type": "cds.LargeString"
+        },
+        "Component": {
+          "type": "cds.LargeString"
+        },
+        "Erftstmp": {
+          "type": "cds.Timestamp"
+        },
+        "Aetstmp": {
+          "type": "cds.Timestamp"
+        },
+        "Closetstmp": {
+          "type": "cds.Timestamp"
+        },
+        "Reporter": {
+          "type": "cds.LargeString"
+        },
+        "EnteredBy": {
+          "type": "cds.LargeString"
+        },
+        "LastChangedBy": {
+          "type": "cds.LargeString"
+        },
+        "Processor": {
+          "type": "cds.LargeString"
+        },
+        "Stext": {
+          "type": "cds.LargeString"
+        },
+        "Sprsl": {
+          "type": "cds.LargeString"
+        },
+        "InputType": {
+          "type": "cds.LargeString"
+        },
+        "Masterinst": {
+          "type": "cds.LargeString"
+        },
+        "ServicetypTxt": {
+          "type": "cds.LargeString"
+        },
+        "StatusTxt": {
+          "type": "cds.LargeString"
+        },
+        "PriorityTxt": {
+          "type": "cds.LargeString"
+        },
+        "CompKey": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "ComponentTxt": {
+          "type": "cds.LargeString"
+        },
+        "CompPath": {
+          "type": "cds.LargeString"
+        },
+        "Erfdate": {
+          "type": "cds.LargeString"
+        },
+        "Erftime": {
+          "type": "cds.LargeString"
+        },
+        "Aedate": {
+          "type": "cds.LargeString"
+        },
+        "Aetime": {
+          "type": "cds.LargeString"
+        },
+        "Closedate": {
+          "type": "cds.LargeString"
+        },
+        "Closetime": {
+          "type": "cds.LargeString"
+        },
+        "AutoConfirmDateText": {
+          "type": "cds.LargeString"
+        },
+        "AutoConfirmDate": {
+          "type": "cds.String",
+          "length": 8
+        },
+        "ReporterTxt": {
+          "type": "cds.LargeString"
+        },
+        "EnteredByTxt": {
+          "type": "cds.LargeString"
+        },
+        "LastChangedTxt": {
+          "type": "cds.LargeString"
+        },
+        "ProcessorTxt": {
+          "type": "cds.LargeString"
+        },
+        "SprslTxt": {
+          "type": "cds.LargeString"
+        },
+        "ContactsCnt": {
+          "type": "cds.Integer"
+        },
+        "TextsCnt": {
+          "type": "cds.Integer"
+        },
+        "AttxCnt": {
+          "type": "cds.Integer"
+        },
+        "NotesCnt": {
+          "type": "cds.Integer"
+        },
+        "AlogCnt": {
+          "type": "cds.Integer"
+        },
+        "AplanCnt": {
+          "type": "cds.Integer"
+        },
+        "LastText": {
+          "type": "cds.LargeString"
+        },
+        "LastTextType": {
+          "type": "cds.LargeString"
+        },
+        "LastTextTstmp": {
+          "type": "cds.Timestamp"
+        },
+        "LastTextDate": {
+          "type": "cds.LargeString"
+        },
+        "LastTextTime": {
+          "type": "cds.LargeString"
+        },
+        "TextActive": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "LastNoteNbr": {
+          "type": "cds.LargeString"
+        },
+        "LastNoteTxt": {
+          "type": "cds.LargeString"
+        },
+        "ProductTxt": {
+          "type": "cds.LargeString"
+        },
+        "LastUpdate": {
+          "type": "cds.LargeString"
+        },
+        "IncSource": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "Source": {
+          "type": "cds.LargeString"
+        },
+        "UserTimezone": {
+          "type": "cds.String",
+          "length": 6
+        },
+        "EUDPFlag": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "OverruleAuth": {
+          "type": "cds.Boolean"
+        },
+        "EditorType": {
+          "type": "cds.LargeString"
+        },
+        "DraftFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "AltCount": {
+          "type": "cds.Integer"
+        },
+        "ServicedFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "ServiceByCustText": {
+          "type": "cds.LargeString"
+        },
+        "Favorite": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Service": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "Servicetyp": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "FirstS2sap": {
+          "type": "cds.Decimal",
+          "precision": 15,
+          "scale": 0
+        },
+        "LastS2sap": {
+          "type": "cds.Decimal",
+          "precision": 15,
+          "scale": 0
+        },
+        "ProdRel": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Frontend": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "OpSystem": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "DbSystem": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "RampupFlag": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "DssClassified": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Customer": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "CustomerTxt": {
+          "type": "cds.LargeString"
+        },
+        "Installation": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "InstallationTxt": {
+          "type": "cds.LargeString"
+        },
+        "SystemNumber": {
+          "type": "cds.String",
+          "length": 18
+        },
+        "SystemId": {
+          "type": "cds.String",
+          "length": 8
+        },
+        "SystemType": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "SystemTxt": {
+          "type": "cds.LargeString"
+        },
+        "Product": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "ProductVersion": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "SuppPartner": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "SoftwPartner": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Swkla": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "APIKey": {
+          "type": "cds.String",
+          "length": 132
+        },
+        "Product1": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Product2": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Product3": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Help01": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "Help02": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "Help03": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "RespITSM": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "Searchterm": {
+          "type": "cds.LargeString"
+        },
+        "SaeStartTime": {
+          "type": "cds.String",
+          "length": 14
+        },
+        "SaeStatus": {
+          "type": "cds.String",
+          "length": 5
+        },
+        "SamStartTime": {
+          "type": "cds.String",
+          "length": 14
+        },
+        "SamStatus": {
+          "type": "cds.String",
+          "length": 5
+        },
+        "SamInfo": {
+          "type": "cds.LargeString"
+        },
+        "AffectedURL": {
+          "type": "cds.LargeString"
+        },
+        "RelevantID": {
+          "type": "cds.String",
+          "length": 200
+        },
+        "SWType": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "ProductSelected": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "DataProtection": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "MessageTexts": {
+          "type": "cds.Association",
+          "target": "incidentws.MessageTextsSet",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "MessageTexts",
+                "Pointer"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Pointer"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "incidentws.UserDataSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Susid": {
+          "key": true,
+          "type": "cds.String",
+          "length": 12
+        },
+        "PartnerUser": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Adrnr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "CloudFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "OnpremFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "UcFirst": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "OnecustFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "UcLast": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "OpenMsgFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "WarrantyUser": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Title": {
+          "type": "cds.String",
+          "length": 15
+        },
+        "FirstName": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "InstallationNbr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "InstallationTxt": {
+          "type": "cds.String",
+          "length": 60
+        },
+        "SWType": {
+          "type": "cds.String",
+          "length": 15
+        },
+        "LastName": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "NameText": {
+          "type": "cds.String",
+          "length": 60
+        },
+        "SystemNbr": {
+          "type": "cds.String",
+          "length": 18
+        },
+        "Email": {
+          "type": "cds.String",
+          "length": 60
+        },
+        "SystemTxt": {
+          "type": "cds.String",
+          "length": 60
+        },
+        "InternalUser": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Kunnr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "CustName": {
+          "type": "cds.String",
+          "length": 60
+        },
+        "Phone": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "Handy": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "TimeZone": {
+          "type": "cds.String",
+          "length": 6
+        },
+        "TimeZoneOffset": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "incidentws.MessageContactsSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Pointer": {
+          "key": true,
+          "type": "cds.String",
+          "length": 24
+        },
+        "Kunnr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "ContTyp": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "UserId": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "FirstName": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "LastName": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Email": {
+          "type": "cds.String",
+          "length": 60
+        },
+        "Telephone": {
+          "type": "cds.String",
+          "length": 30
+        },
+        "Mobil": {
+          "type": "cds.String",
+          "length": 30
+        },
+        "SmsNotif": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "EmailNotif": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "ContTypTxt": {
+          "type": "cds.LargeString"
+        },
+        "FullName": {
+          "type": "cds.LargeString"
+        },
+        "OpenMsgFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "TimeZone": {
+          "type": "cds.String",
+          "length": 6
+        }
+      }
+    },
+    "incidentws.MessageAuthSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Action": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Object": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Value": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "AuthResult": {
+          "type": "cds.LargeString"
+        },
+        "ResultTxt": {
+          "type": "cds.LargeString"
+        },
+        "ResultCode": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.HybridCheckSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Uname": {
+          "key": true,
+          "type": "cds.String",
+          "length": 12
+        },
+        "InternalUser": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "PartnerUser": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "OnPremFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "CloudFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "ChatParam": {
+          "type": "cds.LargeString"
+        },
+        "CustomerNbr": {
+          "type": "cds.LargeString"
+        },
+        "CustomerTxt": {
+          "type": "cds.LargeString"
+        },
+        "InstallationNbr": {
+          "type": "cds.LargeString"
+        },
+        "InstallationTxt": {
+          "type": "cds.LargeString"
+        },
+        "SystemNbr": {
+          "type": "cds.LargeString"
+        },
+        "SystemTxt": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.StatusSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "StatusKey": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5
+        },
+        "StatusTxt": {
+          "type": "cds.String",
+          "length": 40
+        }
+      }
+    },
+    "incidentws.SysParamSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Category": {
+          "key": true,
+          "type": "cds.String",
+          "length": 30
+        },
+        "Catvalue": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.F4HelpSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Type": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "KeyValue": {
+          "type": "cds.LargeString"
+        },
+        "KeyType": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "SWClass": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "SWType": {
+          "type": "cds.LargeString"
+        },
+        "Uname": {
+          "type": "cds.LargeString"
+        },
+        "Category": {
+          "type": "cds.LargeString"
+        },
+        "Name": {
+          "type": "cds.LargeString"
+        },
+        "Value": {
+          "type": "cds.LargeString"
+        },
+        "Desc1": {
+          "type": "cds.LargeString"
+        },
+        "Desc2": {
+          "type": "cds.LargeString"
+        },
+        "NotSelectFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "CustomerNbr": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.SysConnectSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Sysnr": {
+          "key": true,
+          "type": "cds.String",
+          "length": 18
+        },
+        "Pointer": {
+          "key": true,
+          "type": "cds.String",
+          "length": 24
+        },
+        "Uname": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "ConnectionOpen": {
+          "type": "cds.Boolean"
+        },
+        "AccessDataMaintained": {
+          "type": "cds.Boolean"
+        },
+        "AccessDataRestricted": {
+          "type": "cds.Boolean"
+        },
+        "AccessDataAuthorized": {
+          "type": "cds.Boolean"
+        },
+        "AccessDataError": {
+          "type": "cds.LargeString"
+        },
+        "SecureAreaURL": {
+          "type": "cds.LargeString"
+        },
+        "ConnectionJSON": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.UserInstallationsSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Uname": {
+          "key": true,
+          "type": "cds.String",
+          "length": 12
+        },
+        "Insta": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Name": {
+          "type": "cds.String",
+          "length": 30
+        },
+        "Ort": {
+          "type": "cds.String",
+          "length": 25
+        },
+        "Debit": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Opsys": {
+          "type": "cds.String",
+          "length": 8
+        },
+        "Dbsys": {
+          "type": "cds.String",
+          "length": 8
+        },
+        "Oprel": {
+          "type": "cds.String",
+          "length": 8
+        },
+        "Dbrel": {
+          "type": "cds.String",
+          "length": 8
+        },
+        "Intxt": {
+          "type": "cds.String",
+          "length": 30
+        },
+        "Swkla": {
+          "type": "cds.String",
+          "length": 6
+        }
+      }
+    },
+    "incidentws.MessageCSQSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Component": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Uname": {
+          "type": "cds.LargeString"
+        },
+        "CSQ": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.MessageAPlanSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Pointer": {
+          "key": true,
+          "type": "cds.String",
+          "length": 24
+        },
+        "CreatedOn": {
+          "type": "cds.LargeString"
+        },
+        "DueOn": {
+          "type": "cds.LargeString"
+        },
+        "UserTimezone": {
+          "type": "cds.String",
+          "length": 6
+        },
+        "StatusTxt": {
+          "type": "cds.LargeString"
+        },
+        "Responsible": {
+          "type": "cds.LargeString"
+        },
+        "ActionTxt": {
+          "type": "cds.LargeString"
+        },
+        "CreateTS": {
+          "type": "cds.Decimal",
+          "precision": 15,
+          "scale": 0
+        },
+        "DueTS": {
+          "type": "cds.Decimal",
+          "precision": 15,
+          "scale": 0
+        }
+      }
+    },
+    "incidentws.MessageSuggSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Pointer": {
+          "key": true,
+          "type": "cds.String",
+          "length": 24
+        },
+        "Csinsta": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Mnumm": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Myear": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "Uname": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "Stext": {
+          "type": "cds.LargeString"
+        },
+        "Aetstmp": {
+          "type": "cds.Decimal",
+          "precision": 15,
+          "scale": 0
+        },
+        "Searchterm": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.MessageTextsSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Pointer": {
+          "key": true,
+          "type": "cds.String",
+          "length": 24
+        },
+        "CrInsta": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Notetype": {
+          "type": "cds.String",
+          "length": 2
+        },
+        "Ertstmp": {
+          "type": "cds.Decimal",
+          "precision": 15,
+          "scale": 0
+        },
+        "Service": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "Servicetyp": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "Aenam": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "Aetstmp": {
+          "type": "cds.Decimal",
+          "precision": 15,
+          "scale": 0
+        },
+        "Textsperre": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Translation": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Valuation": {
+          "type": "cds.String",
+          "length": 30
+        },
+        "Searchhelp": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "Notetext": {
+          "type": "cds.LargeString"
+        },
+        "Notetypetxt": {
+          "type": "cds.LargeString"
+        },
+        "Createdate": {
+          "type": "cds.LargeString"
+        },
+        "Createtime": {
+          "type": "cds.LargeString"
+        },
+        "CreatedBy": {
+          "type": "cds.LargeString"
+        },
+        "Changedate": {
+          "type": "cds.LargeString"
+        },
+        "Changetime": {
+          "type": "cds.LargeString"
+        },
+        "ChangeBy": {
+          "type": "cds.LargeString"
+        },
+        "UserTimezone": {
+          "type": "cds.String",
+          "length": 6
+        },
+        "DraftFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "TextActive": {
+          "type": "cds.String",
+          "length": 1
+        }
+      }
+    },
+    "incidentws.MessageAttachmentsSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Pointer": {
+          "key": true,
+          "type": "cds.String",
+          "length": 24
+        },
+        "Hash": {
+          "type": "cds.LargeBinary"
+        },
+        "Hash40": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "Service": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "Servicetyp": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "Filename": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "Text": {
+          "type": "cds.String",
+          "length": 60
+        },
+        "Type": {
+          "type": "cds.String",
+          "length": 64
+        },
+        "Merftstmp": {
+          "type": "cds.Decimal",
+          "precision": 15,
+          "scale": 0
+        },
+        "Merfnam": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "Maetstmp": {
+          "type": "cds.Decimal",
+          "precision": 15,
+          "scale": 0
+        },
+        "Maenam": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "Internal": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Flag01": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Flag02": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Flag03": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Flag04": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Isurl": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Url": {
+          "type": "cds.String",
+          "length": 1022
+        },
+        "Cpocd": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Dprest": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "FilelengthTxt": {
+          "type": "cds.LargeString"
+        },
+        "CreatedBy": {
+          "type": "cds.LargeString"
+        },
+        "CreatedOn": {
+          "type": "cds.LargeString"
+        },
+        "UserTimezone": {
+          "type": "cds.String",
+          "length": 6
+        },
+        "DraftFlag": {
+          "type": "cds.String",
+          "length": 1
+        }
+      }
+    },
+    "incidentws.ProductSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ProdId": {
+          "key": true,
+          "type": "cds.String",
+          "length": 20
+        },
+        "Uname": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "InstNbr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "ProdTxt": {
+          "type": "cds.String",
+          "length": 60
+        },
+        "Sysnr": {
+          "type": "cds.String",
+          "length": 18
+        }
+      }
+    },
+    "incidentws.PrioritySet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Prio": {
+          "key": true,
+          "type": "cds.String",
+          "length": 2
+        },
+        "PrioTxt": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "PrioDesc": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.SubproductSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "CompKey": {
+          "key": true,
+          "type": "cds.String",
+          "length": 20
+        },
+        "Uname": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "Installation": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "SubproductId": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "SubproductTxt": {
+          "type": "cds.String",
+          "length": 60
+        },
+        "SubproductPath": {
+          "type": "cds.LargeString"
+        },
+        "PrioLimit": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "ChatDepartmentId": {
+          "type": "cds.LargeString"
+        },
+        "AllComp": {
+          "type": "cds.String",
+          "length": 1
+        }
+      }
+    },
+    "incidentws.MessageCoreSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Action": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "SaeDuration": {
+          "type": "cds.Integer"
+        },
+        "SaeStartTime": {
+          "type": "cds.Decimal",
+          "precision": 31,
+          "scale": 0
+        },
+        "SamDuration": {
+          "type": "cds.Integer"
+        },
+        "SamStartTime": {
+          "type": "cds.Decimal",
+          "precision": 31,
+          "scale": 0
+        },
+        "SamInfo": {
+          "type": "cds.LargeString"
+        },
+        "UserTimezone": {
+          "type": "cds.LargeString"
+        },
+        "Sysnr": {
+          "type": "cds.String",
+          "length": 18
+        },
+        "Component": {
+          "type": "cds.LargeString"
+        },
+        "ShortText": {
+          "type": "cds.String",
+          "length": 120
+        },
+        "LongText": {
+          "type": "cds.LargeString"
+        },
+        "BiText": {
+          "type": "cds.LargeString"
+        },
+        "ReproText": {
+          "type": "cds.LargeString"
+        },
+        "Priority": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Uname": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "Pointer": {
+          "type": "cds.String",
+          "length": 24
+        },
+        "MnummNLZ": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "DraftFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "DataProtection": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "DSSClassified": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Language": {
+          "type": "cds.LargeString"
+        },
+        "ContactStr": {
+          "type": "cds.LargeString"
+        },
+        "AttxStr": {
+          "type": "cds.LargeString"
+        },
+        "ValueStr": {
+          "type": "cds.LargeString"
+        },
+        "RetCode": {
+          "type": "cds.Integer"
+        },
+        "ResultTxt": {
+          "type": "cds.LargeString"
+        },
+        "TextActive": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "AffectedURL": {
+          "type": "cds.LargeString"
+        },
+        "RelevantID": {
+          "type": "cds.String",
+          "length": 200
+        },
+        "ProductSelected": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "KMdata": {
+          "type": "cds.LargeString"
+        },
+        "EEAPath": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.MessageNoteSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Pointer": {
+          "key": true,
+          "type": "cds.String",
+          "length": 24
+        },
+        "NoteNbr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "NoteShortTxt": {
+          "type": "cds.LargeString"
+        },
+        "LatestNotesFlag": {
+          "type": "cds.Boolean"
+        },
+        "CategoryDes": {
+          "type": "cds.LargeString"
+        },
+        "Notetype": {
+          "type": "cds.LargeString"
+        },
+        "Abstract": {
+          "type": "cds.LargeString"
+        },
+        "ComponetName": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "ComponentPath": {
+          "type": "cds.LargeString"
+        },
+        "ReleasedOnDate": {
+          "type": "cds.LargeString"
+        },
+        "CreatedOn": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.MessageAlogSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Pointer": {
+          "key": true,
+          "type": "cds.String",
+          "length": 24
+        },
+        "CrInsta": {
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
+        "Aetstmp": {
+          "key": true,
+          "type": "cds.Decimal",
+          "precision": 15,
+          "scale": 0
+        },
+        "Lfnr": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5
+        },
+        "Service": {
+          "key": true,
+          "type": "cds.String",
+          "length": 3
+        },
+        "Uname": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "Servicetyp": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "Aenam": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "Tabname": {
+          "type": "cds.String",
+          "length": 30
+        },
+        "Alobject": {
+          "type": "cds.String",
+          "length": 30
+        },
+        "OldVal": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "NewVal": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "AeDate": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "AeTime": {
+          "type": "cds.String",
+          "length": 8
+        },
+        "DayTxt": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "NameTxt": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "ActionTxt": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "OldTxt": {
+          "type": "cds.String",
+          "length": 45
+        },
+        "NewTxt": {
+          "type": "cds.String",
+          "length": 45
+        },
+        "UserTimezone": {
+          "type": "cds.String",
+          "length": 6
+        }
+      }
+    },
+    "incidentws.MessagePCCSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Pointer": {
+          "key": true,
+          "type": "cds.String",
+          "length": 24
+        },
+        "LaunchFlag": {
+          "type": "cds.String",
+          "length": 1
+        }
+      }
+    },
+    "incidentws.CompF4HelpSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Uname": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "ShortText": {
+          "type": "cds.LargeString"
+        },
+        "LongText": {
+          "type": "cds.LargeString"
+        },
+        "SWType": {
+          "type": "cds.LargeString"
+        },
+        "Category": {
+          "type": "cds.LargeString"
+        },
+        "CompKey": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "CompName": {
+          "type": "cds.LargeString"
+        },
+        "CompDesc": {
+          "type": "cds.LargeString"
+        },
+        "CompPath": {
+          "type": "cds.LargeString"
+        },
+        "PrioLimit": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "NotSelectable": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Installation": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "ChatDepartmentId": {
+          "type": "cds.LargeString"
+        },
+        "HasChild": {
+          "type": "cds.String",
+          "length": 1
+        }
+      }
+    },
+    "incidentws.CompSearchSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "SearchText": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "SWType": {
+          "type": "cds.LargeString"
+        },
+        "CompKey": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "CompName": {
+          "type": "cds.LargeString"
+        },
+        "CompDesc": {
+          "type": "cds.LargeString"
+        },
+        "PrioLimit": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "NotSelectable": {
+          "type": "cds.LargeString"
+        },
+        "Installation": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "ChatDepartmentId": {
+          "type": "cds.LargeString"
+        },
+        "CompPath": {
+          "type": "cds.LargeString"
+        },
+        "MatchScore": {
+          "type": "cds.Decimal",
+          "precision": 7,
+          "scale": 2
+        },
+        "AllComp": {
+          "type": "cds.String",
+          "length": 1
+        }
+      }
+    },
+    "incidentws.SystemSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "SystemNumber": {
+          "key": true,
+          "type": "cds.String",
+          "length": 18
+        },
+        "SystemID": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "SystemTxt": {
+          "type": "cds.LargeString"
+        },
+        "Uname": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "Source": {
+          "type": "cds.LargeString"
+        },
+        "PartnerSupported": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Customer": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "CustomerTxt": {
+          "type": "cds.LargeString"
+        },
+        "Installation": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "InstallationTxt": {
+          "type": "cds.LargeString"
+        },
+        "Priority": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Status": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "LastUpdate": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.TopNoteSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Number": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Title": {
+          "type": "cds.LargeString"
+        },
+        "Component": {
+          "type": "cds.LargeString"
+        },
+        "ComponentName": {
+          "type": "cds.LargeString"
+        },
+        "ComponentText": {
+          "type": "cds.LargeString"
+        },
+        "Priority": {
+          "type": "cds.LargeString"
+        },
+        "Category": {
+          "type": "cds.LargeString"
+        },
+        "Rating": {
+          "type": "cds.Integer"
+        },
+        "Abstract": {
+          "type": "cds.LargeString"
+        },
+        "NoteTypeKey": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "NoteType": {
+          "type": "cds.LargeString"
+        },
+        "ReleasedOn": {
+          "type": "cds.LargeString"
+        },
+        "SystemNumber": {
+          "type": "cds.LargeString"
+        },
+        "Uname": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.InstallationSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "InstNbr": {
+          "key": true,
+          "type": "cds.String",
+          "length": 18
+        },
+        "InstTxt": {
+          "type": "cds.LargeString"
+        },
+        "Uname": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "Source": {
+          "type": "cds.LargeString"
+        },
+        "Customer": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Priority": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Status": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "LastUpdate": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.MessageDSS": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Kunnr": {
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
+        "Insnr": {
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
+        "Sysnr": {
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
+        "DSSClassified": {
+          "type": "cds.String",
+          "length": 1
+        }
+      }
+    },
+    "incidentws.SystemSearchSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Uname": {
+          "key": true,
+          "type": "cds.String",
+          "length": 12
+        },
+        "CustomerNbr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "ProductNbr": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "ProductTxt": {
+          "type": "cds.LargeString"
+        },
+        "ProductVerNbr": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "ProductVerTxt": {
+          "type": "cds.LargeString"
+        },
+        "InstallationNbr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "SearchTxt": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "MatchScore": {
+          "type": "cds.Decimal",
+          "precision": 7,
+          "scale": 2
+        },
+        "SystemNbr": {
+          "type": "cds.String",
+          "length": 18
+        },
+        "SystemId": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "SystemName": {
+          "type": "cds.LargeString"
+        },
+        "SystemType": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "SupportPartnerNbr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "SupportPartnerName": {
+          "type": "cds.String",
+          "length": 60
+        },
+        "SupportPartnerURL": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "NotSelectable": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "CustomerName": {
+          "type": "cds.String",
+          "length": 60
+        },
+        "InstallationName": {
+          "type": "cds.String",
+          "length": 60
+        },
+        "SWClass": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "SWType": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "DPRest": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "DataCenter": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "DataCenterText": {
+          "type": "cds.LargeString"
+        },
+        "SystemTypePrio": {
+          "type": "cds.Integer"
+        },
+        "LongSystemID": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "CloudURL": {
+          "type": "cds.LargeString"
+        },
+        "LeadingProduct": {
+          "type": "cds.LargeString"
+        },
+        "IsFavorite": {
+          "type": "cds.String",
+          "length": 1
+        }
+      }
+    },
+    "incidentws.CustProdInstSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Uname": {
+          "key": true,
+          "type": "cds.String",
+          "length": 12
+        },
+        "CustNbr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "CustName": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "ProdNbr": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "ProdName": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "InstNbr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "InstName": {
+          "type": "cds.String",
+          "length": 100
+        }
+      }
+    },
+    "incidentws.RampUpSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Sysnr": {
+          "key": true,
+          "type": "cds.String",
+          "length": 18
+        },
+        "RampUpFlag": {
+          "type": "cds.String",
+          "length": 10
+        }
+      }
+    },
+    "incidentws.CitrixChatSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Description": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Reporter": {
+          "key": true,
+          "type": "cds.String",
+          "length": 12
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "Additional": {
+          "type": "cds.LargeString"
+        },
+        "BusinessImpact": {
+          "type": "cds.LargeString"
+        },
+        "Step2Repro": {
+          "type": "cds.LargeString"
+        },
+        "CreatedAt": {
+          "type": "cds.LargeString"
+        },
+        "ChatGuid": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.SysTypeSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Uname": {
+          "key": true,
+          "type": "cds.String",
+          "length": 12
+        },
+        "CustomerNbr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "ProductNbr": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "InstallationNbr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Sytyp": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Descr": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.CompAdvisorSuggSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Uname": {
+          "key": true,
+          "type": "cds.String",
+          "length": 12
+        },
+        "ShortText": {
+          "type": "cds.LargeString"
+        },
+        "LongText": {
+          "type": "cds.LargeString"
+        },
+        "SWType": {
+          "type": "cds.LargeString"
+        },
+        "Category": {
+          "type": "cds.LargeString"
+        },
+        "CompKey": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "CompName": {
+          "type": "cds.LargeString"
+        },
+        "CompDesc": {
+          "type": "cds.LargeString"
+        },
+        "PrioLimit": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "NotSelectable": {
+          "type": "cds.LargeString"
+        },
+        "Installation": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "ChatDepartmentId": {
+          "type": "cds.String",
+          "length": 20
+        }
+      }
+    },
+    "incidentws.FavoriteIncidentSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Pointer": {
+          "key": true,
+          "type": "cds.String",
+          "length": 24
+        },
+        "Value": {
+          "type": "cds.String",
+          "length": 1
+        }
+      }
+    },
+    "incidentws.GigyaCompSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "CompKey": {
+          "key": true,
+          "type": "cds.String",
+          "length": 20
+        },
+        "Uname": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "CompName": {
+          "type": "cds.LargeString"
+        },
+        "CompDesc": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.IncidentHeaderSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Pointer": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "InboxType": {
+          "type": "cds.LargeString"
+        },
+        "IncidentNumberText": {
+          "type": "cds.LargeString"
+        },
+        "SubjectText": {
+          "type": "cds.LargeString"
+        },
+        "StatusKey": {
+          "type": "cds.LargeString"
+        },
+        "StatusText": {
+          "type": "cds.LargeString"
+        },
+        "PriorityKey": {
+          "type": "cds.LargeString"
+        },
+        "PriorityText": {
+          "type": "cds.LargeString"
+        },
+        "InstallationNbr": {
+          "type": "cds.LargeString"
+        },
+        "InstallationText": {
+          "type": "cds.LargeString"
+        },
+        "SystemId": {
+          "type": "cds.LargeString"
+        },
+        "ComponentName": {
+          "type": "cds.LargeString"
+        },
+        "ComponentDes": {
+          "type": "cds.LargeString"
+        },
+        "ReporterId": {
+          "type": "cds.LargeString"
+        },
+        "ReporterName": {
+          "type": "cds.LargeString"
+        },
+        "CustomerNumber": {
+          "type": "cds.LargeString"
+        },
+        "CustomerText": {
+          "type": "cds.LargeString"
+        },
+        "CreatedOn": {
+          "type": "cds.LargeString"
+        },
+        "CreatedOnDate": {
+          "type": "cds.LargeString"
+        },
+        "CreatedOnTime": {
+          "type": "cds.LargeString"
+        },
+        "UpdatedOn": {
+          "type": "cds.LargeString"
+        },
+        "UpdatedOnDate": {
+          "type": "cds.LargeString"
+        },
+        "UpdatedOnTime": {
+          "type": "cds.LargeString"
+        },
+        "AutoConfirmOn": {
+          "type": "cds.LargeString"
+        },
+        "AutoConfirmOnDate": {
+          "type": "cds.LargeString"
+        },
+        "Timezone": {
+          "type": "cds.LargeString"
+        },
+        "DraftFlag": {
+          "type": "cds.LargeString"
+        },
+        "ServiceTyp": {
+          "type": "cds.LargeString"
+        },
+        "Service": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.InstallationRelatedSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Insnr": {
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
+        "SWType": {
+          "type": "cds.LargeString"
+        },
+        "SWClass": {
+          "type": "cds.String",
+          "length": 12
+        }
+      }
+    },
+    "incidentws.IncidentInstSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "InstNbr": {
+          "key": true,
+          "type": "cds.String",
+          "length": 18
+        },
+        "InstTxt": {
+          "type": "cds.LargeString"
+        },
+        "CustomerNbr": {
+          "type": "cds.LargeString"
+        },
+        "CustomerText": {
+          "type": "cds.LargeString"
+        },
+        "Inactive": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "InactiveTxt": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.IncidentReporterSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ReporterId": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "ReporterName": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.SaECheckSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Pointer": {
+          "key": true,
+          "type": "cds.String",
+          "length": 24
+        },
+        "SaEFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Processor": {
+          "type": "cds.LargeString"
+        },
+        "ExpertArea": {
+          "type": "cds.LargeString"
+        },
+        "SaEDetails": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.CompPredictionSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Uname": {
+          "key": true,
+          "type": "cds.String",
+          "length": 12
+        },
+        "Type": {
+          "type": "cds.LargeString"
+        },
+        "ShortText": {
+          "type": "cds.LargeString"
+        },
+        "LongText": {
+          "type": "cds.LargeString"
+        },
+        "SWType": {
+          "type": "cds.LargeString"
+        },
+        "Category": {
+          "type": "cds.LargeString"
+        },
+        "CompKey": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "CompName": {
+          "type": "cds.LargeString"
+        },
+        "CompDesc": {
+          "type": "cds.LargeString"
+        },
+        "CompPath": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "PrioLimit": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "NotSelectable": {
+          "type": "cds.LargeString"
+        },
+        "Installation": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "ChatDepartmentId": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "SystemNr": {
+          "type": "cds.LargeString"
+        },
+        "NodePath": {
+          "type": "cds.LargeString"
+        },
+        "NodeAdvice": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.AllowedFileTypesSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Service": {
+          "key": true,
+          "type": "cds.String",
+          "length": 3
+        },
+        "ServiceType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 3
+        },
+        "FileType": {
+          "type": "cds.LargeString"
+        },
+        "IsAllowed": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.AttachmentSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Identifier": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Url": {
+          "type": "cds.LargeString"
+        },
+        "DataString": {
+          "type": "cds.LargeString"
+        },
+        "FileName": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.SysProductSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ProdId": {
+          "key": true,
+          "type": "cds.String",
+          "length": 20
+        },
+        "Uname": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "InstNbr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "ProdTxt": {
+          "type": "cds.String",
+          "length": 60
+        },
+        "Sysnr": {
+          "type": "cds.String",
+          "length": 18
+        }
+      }
+    },
+    "incidentws.ServiceMailSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Servicename": {
+          "key": true,
+          "type": "cds.String",
+          "length": 12
+        },
+        "Title": {
+          "type": "cds.LargeString"
+        },
+        "Subtitle": {
+          "type": "cds.LargeString"
+        },
+        "Description": {
+          "type": "cds.LargeString"
+        },
+        "Link": {
+          "type": "cds.LargeString"
+        },
+        "Priority": {
+          "type": "cds.LargeString"
+        },
+        "Application": {
+          "type": "cds.String",
+          "length": 16
+        },
+        "Error": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.SaMCheckSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Pointer": {
+          "key": true,
+          "type": "cds.String",
+          "length": 24
+        },
+        "SaMSource": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "SaMFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Processor": {
+          "type": "cds.LargeString"
+        },
+        "ExpertArea": {
+          "type": "cds.LargeString"
+        },
+        "SaMDetails": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.SysProductEnhSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "KeyPath": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "InstNbr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Sysnr": {
+          "type": "cds.String",
+          "length": 18
+        },
+        "Start_Node_PPMS_ID": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "Path_PPMS_ID": {
+          "type": "cds.LargeString"
+        },
+        "Node_ID": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Parent_Node_ID": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Node_Name": {
+          "type": "cds.LargeString"
+        },
+        "Full_Path": {
+          "type": "cds.LargeString"
+        },
+        "Drill_State": {
+          "type": "cds.LargeString"
+        },
+        "Node_Level": {
+          "type": "cds.LargeString"
+        },
+        "ComponentKey": {
+          "type": "cds.LargeString"
+        },
+        "ComponentName": {
+          "type": "cds.LargeString"
+        },
+        "Expert_Area": {
+          "type": "cds.LargeString"
+        },
+        "ShowProduct": {
+          "type": "cds.Boolean"
+        },
+        "SortDet": {
+          "type": "cds.Integer64"
+        },
+        "Pilot": {
+          "type": "cds.Boolean"
+        },
+        "AddSearchTerms": {
+          "type": "cds.LargeString"
+        },
+        "AddComponents": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.ExpertAreaF4HelpSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Uname": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "ExpertAreaID": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.ACRFSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Key": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Data": {
+          "type": "cds.LargeString"
+        },
+        "Timestamp": {
+          "type": "cds.LargeString"
+        },
+        "Filter": {
+          "type": "cds.LargeString"
+        },
+        "Table": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.EEA_TopicsSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "NodeID": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "NodePath": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Score": {
+          "type": "cds.LargeString"
+        },
+        "NodePathName": {
+          "type": "cds.LargeString"
+        },
+        "Techname": {
+          "type": "cds.LargeString"
+        },
+        "NodeName": {
+          "type": "cds.LargeString"
+        },
+        "NodeType": {
+          "type": "cds.LargeString"
+        },
+        "NodeTypeName": {
+          "type": "cds.LargeString"
+        },
+        "NodeClustertype": {
+          "type": "cds.LargeString"
+        },
+        "PPMSID": {
+          "type": "cds.LargeString"
+        },
+        "Nexus_area": {
+          "type": "cds.LargeString"
+        },
+        "Cloudsystemrole": {
+          "type": "cds.LargeString"
+        },
+        "Component_key": {
+          "type": "cds.LargeString"
+        },
+        "Component_name": {
+          "type": "cds.LargeString"
+        },
+        "Created_at": {
+          "type": "cds.Integer64"
+        },
+        "Created_by": {
+          "type": "cds.LargeString"
+        },
+        "Changed_at": {
+          "type": "cds.Integer64"
+        },
+        "Changed_by": {
+          "type": "cds.LargeString"
+        },
+        "Status": {
+          "type": "cds.LargeString"
+        },
+        "Sortdet": {
+          "type": "cds.Integer"
+        },
+        "Semantic": {
+          "type": "cds.LargeString"
+        },
+        "Product_type": {
+          "type": "cds.LargeString"
+        },
+        "Information": {
+          "type": "cds.LargeString"
+        },
+        "SearchTerms": {
+          "type": "cds.LargeString"
+        },
+        "Action": {
+          "type": "cds.LargeString"
+        },
+        "Rel": {
+          "type": "cds.Association",
+          "target": "incidentws.EEA_Topics_relSet",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "Rel",
+                "NodeID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "NodeID"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Rel",
+                "NodePath"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "NodePath"
+              ]
+            }
+          ]
+        },
+        "Attr": {
+          "type": "cds.Association",
+          "target": "incidentws.EEA_Topics_attrSet",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "Attr",
+                "NodeID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "NodeID"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Attr",
+                "NodePath"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "NodePath"
+              ]
+            }
+          ]
+        },
+        "Km": {
+          "type": "cds.Association",
+          "target": "incidentws.EEA_Topics_kmSet",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "Km",
+                "NodePath"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "NodePath"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Km",
+                "NodeID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "NodeID"
+              ]
+            }
+          ]
+        },
+        "Ext": {
+          "type": "cds.Association",
+          "target": "incidentws.EEA_Topics_extSet",
+          "on": [
+            {
+              "ref": [
+                "Ext",
+                "NodePath"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "NodePath"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Ext",
+                "NodeID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "NodeID"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "incidentws.EEA_MaintainSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "KeyPath": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "InstNbr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Sysnr": {
+          "type": "cds.String",
+          "length": 18
+        },
+        "Start_Node_PPMS_ID": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "Node_ID": {
+          "type": "cds.LargeString"
+        },
+        "Parent_Node_ID": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "Node_Name": {
+          "type": "cds.LargeString"
+        },
+        "Full_Path": {
+          "type": "cds.LargeString"
+        },
+        "Drill_State": {
+          "type": "cds.LargeString"
+        },
+        "Node_Level": {
+          "type": "cds.LargeString"
+        },
+        "ComponentKey": {
+          "type": "cds.LargeString"
+        },
+        "ComponentName": {
+          "type": "cds.LargeString"
+        },
+        "ShowProduct": {
+          "type": "cds.Boolean"
+        },
+        "ShowProductText": {
+          "type": "cds.LargeString"
+        },
+        "SortDet": {
+          "type": "cds.Integer64"
+        },
+        "Inactive": {
+          "type": "cds.LargeString"
+        },
+        "NodeStatus": {
+          "type": "cds.LargeString"
+        },
+        "Node_Semantic": {
+          "type": "cds.LargeString"
+        },
+        "Node_Type": {
+          "type": "cds.LargeString"
+        },
+        "Node_PPMS_ID": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "Inherit_PPMS_ID": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "NoBuffer": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.EEA_Topics_extSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "NodeID": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "NodePath": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "StartNodes": {
+          "type": "cds.LargeString"
+        },
+        "DestComponents": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.EEA_Topics_kmSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "NodeID": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "NodePath": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "KM_Type_ID": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Counter": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "KM_Type": {
+          "type": "cds.LargeString"
+        },
+        "URL": {
+          "type": "cds.LargeString"
+        },
+        "URL_Short_Text": {
+          "type": "cds.LargeString"
+        },
+        "URL_Long_Text": {
+          "type": "cds.LargeString"
+        },
+        "URL_Domain": {
+          "type": "cds.LargeString"
+        },
+        "URL_Visibility": {
+          "type": "cds.LargeString"
+        },
+        "URL_Info": {
+          "type": "cds.LargeString"
+        },
+        "Condition": {
+          "type": "cds.LargeString"
+        },
+        "Status": {
+          "type": "cds.LargeString"
+        },
+        "Auth": {
+          "type": "cds.LargeString"
+        },
+        "Sortdet": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "incidentws.EEA_Topics_attrSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "NodeID": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "NodePath": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "TypeID": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Counter": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Type": {
+          "type": "cds.LargeString"
+        },
+        "Value": {
+          "type": "cds.LargeString"
+        },
+        "Condition": {
+          "type": "cds.LargeString"
+        },
+        "Status": {
+          "type": "cds.LargeString"
+        },
+        "Grouping": {
+          "type": "cds.LargeString"
+        },
+        "Auth": {
+          "type": "cds.LargeString"
+        },
+        "Sortdet": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "incidentws.EEA_EdgeSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Parent_ID": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Child_ID": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Created_at": {
+          "type": "cds.Integer64"
+        },
+        "Created_by": {
+          "type": "cds.LargeString"
+        },
+        "Changed_at": {
+          "type": "cds.Integer64"
+        },
+        "Changed_by": {
+          "type": "cds.LargeString"
+        },
+        "Status": {
+          "type": "cds.LargeString"
+        },
+        "Semantic": {
+          "type": "cds.LargeString"
+        },
+        "Action": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.CloudSysStatusSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Uname": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "SystemNbr": {
+          "key": true,
+          "type": "cds.String",
+          "length": 18
+        },
+        "CustomerNbr": {
+          "type": "cds.String",
+          "length": 10
+        },
+        "EventID": {
+          "type": "cds.LargeString"
+        },
+        "Type": {
+          "type": "cds.LargeString"
+        },
+        "TypeText": {
+          "type": "cds.LargeString"
+        },
+        "EventStartTime": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.EEA_PermissionSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "User": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Level": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.ExpertChatCheckSetSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Pointer": {
+          "key": true,
+          "type": "cds.String",
+          "length": 24
+        },
+        "Component": {
+          "type": "cds.LargeString"
+        },
+        "SWType": {
+          "type": "cds.LargeString"
+        },
+        "IncidentStatus": {
+          "type": "cds.LargeString"
+        },
+        "IsDsDevelopment": {
+          "type": "cds.Boolean"
+        },
+        "BoldAvtive": {
+          "type": "cds.Boolean"
+        },
+        "ChatOnIncident": {
+          "type": "cds.Boolean"
+        },
+        "IncidentAge": {
+          "type": "cds.Integer"
+        },
+        "IncidentPriority": {
+          "type": "cds.LargeString"
+        },
+        "ExpertAreaDes": {
+          "type": "cds.LargeString"
+        },
+        "NexusAreaDes": {
+          "type": "cds.LargeString"
+        },
+        "NexusAreaId": {
+          "type": "cds.LargeString"
+        },
+        "ProcessorAvailable": {
+          "type": "cds.Boolean"
+        },
+        "Processor": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.EEA_Topics_relSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "NodeID": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "NodePath": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "RelType": {
+          "type": "cds.LargeString"
+        },
+        "RelID": {
+          "type": "cds.LargeString"
+        },
+        "RelName": {
+          "type": "cds.LargeString"
+        },
+        "Status": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.EEA_ValuesSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Key": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Data": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.EEA_PathSearchSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Path": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Component": {
+          "type": "cds.LargeString"
+        },
+        "Selectable": {
+          "type": "cds.Boolean"
+        }
+      }
+    },
+    "incidentws.ReadNoteSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Number": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Data": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.ERCD_SystemsSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "KunNr": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "InsNr": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "SysNr": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "OpenCon": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "FromTS": {
+          "type": "cds.Timestamp"
+        },
+        "ToTS": {
+          "type": "cds.Timestamp"
+        },
+        "SysID": {
+          "type": "cds.LargeString"
+        },
+        "Dpres": {
+          "type": "cds.LargeString"
+        },
+        "LOP": {
+          "type": "cds.LargeString"
+        },
+        "AppServers": {
+          "type": "cds.LargeString"
+        },
+        "UploadTS": {
+          "type": "cds.Timestamp"
+        }
+      }
+    }
+  }
+}
