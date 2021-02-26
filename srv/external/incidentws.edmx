@@ -444,6 +444,10 @@
       <EntityType Name="MessageAlog" sap:content-version="1">
         <Key>
           <PropertyRef Name="Pointer" />
+          <PropertyRef Name="CrInsta" />
+          <PropertyRef Name="Aetstmp" />
+          <PropertyRef Name="Lfnr" />
+          <PropertyRef Name="Service" />
         </Key>
         <Property Name="Uname" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Pointer" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Message Pointer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
