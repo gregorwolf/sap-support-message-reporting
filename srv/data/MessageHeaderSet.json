@@ -9,11 +9,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751294",
+        "Status": "3",
         "Erftstmp": "\/Date(1614342204000)\/",
         "Aetstmp": "\/Date(1614347060000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "BC-JAS-COR",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129400001469512021",
         "SystemType": "PROD",
         "SWType": "ONPREM"
@@ -25,11 +28,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751294",
+        "Status": "C",
         "Erftstmp": "\/Date(1613559229000)\/",
         "Aetstmp": "\/Date(1614270191000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Low",
         "CompKey": "SCM-IBP-MDS",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129400001176052021",
         "SystemType": "TEST",
         "SWType": "ONPREM"
@@ -41,11 +47,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751294",
+        "Status": "C",
         "Erftstmp": "\/Date(1614028978000)\/",
         "Aetstmp": "\/Date(1614242276000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "High",
         "CompKey": "RE-FX-LA",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129400001303952021",
         "SystemType": "DEVELOP",
         "SWType": "ONPREM"
@@ -57,11 +66,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751295",
+        "Status": "S",
         "Erftstmp": "\/Date(1599235181000)\/",
         "Aetstmp": "\/Date(1614080020000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "PY-DE-NT-TX",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129500006215692020",
         "SystemType": "DEVELOP",
         "SWType": "ONPREM"
@@ -73,11 +85,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020283766",
+        "Status": "C",
         "Erftstmp": "\/Date(1613644386000)\/",
         "Aetstmp": "\/Date(1613644812000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "PP-MRP-BD",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002028376600001143892021",
         "SystemType": "P",
         "SWType": "ONPREM"
@@ -89,11 +104,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751294",
+        "Status": "S",
         "Erftstmp": "\/Date(1613151740000)\/",
         "Aetstmp": "\/Date(1613643677000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "PY-DE-FP-MV",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129400001092382021",
         "SystemType": "DEVELOP",
         "SWType": "ONPREM"
@@ -105,11 +123,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020283766",
+        "Status": "3",
         "Erftstmp": "\/Date(1612365133000)\/",
         "Aetstmp": "\/Date(1613403865000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "High",
         "CompKey": "BC-IAM-IDS",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002028376600000763052021",
         "SystemType": "T",
         "SWType": "ONPREM"
@@ -121,11 +142,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751295",
+        "Status": "5",
         "Erftstmp": "\/Date(1609767191000)\/",
         "Aetstmp": "\/Date(1613307842000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "SD-BIL-RB",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129500000020312021",
         "SystemType": "TEST",
         "SWType": "ONPREM"
@@ -137,11 +161,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751295",
+        "Status": "C",
         "Erftstmp": "\/Date(1613048246000)\/",
         "Aetstmp": "\/Date(1613068213000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "High",
         "CompKey": "SCM-EWM-IF-ERP-DLP",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129500001031732021",
         "SystemType": "PROD",
         "SWType": "ONPREM"
@@ -153,11 +180,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020283766",
+        "Status": "3",
         "Erftstmp": "\/Date(1611549091000)\/",
         "Aetstmp": "\/Date(1612976369000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "High",
         "CompKey": "SV-PERF",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002028376600000492372021",
         "SystemType": "P",
         "SWType": "ONPREM"
@@ -169,11 +199,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751294",
+        "Status": "5",
         "Erftstmp": "\/Date(1611740380000)\/",
         "Aetstmp": "\/Date(1612882796000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "BC-JAS-SEC-CPG",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129400000588722021",
         "SystemType": "PROD",
         "SWType": "ONPREM"
@@ -185,11 +218,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751295",
+        "Status": "R",
         "Erftstmp": "\/Date(1598961176000)\/",
         "Aetstmp": "\/Date(1612204334000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "SCM-IBP-XLS-UI",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129500006099622020",
         "SystemType": "TEST",
         "SWType": "ONPREM"
@@ -201,11 +237,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751295",
+        "Status": "5",
         "Erftstmp": "\/Date(1611044831000)\/",
         "Aetstmp": "\/Date(1611941114000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "SD-BIL",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129500000408782021",
         "SystemType": "PROD",
         "SWType": "ONPREM"
@@ -217,11 +256,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751295",
+        "Status": "5",
         "Erftstmp": "\/Date(1607955697000)\/",
         "Aetstmp": "\/Date(1611672558000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "BC-OP-LNX-LENOVO",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129500008672762020",
         "SystemType": "PROD",
         "SWType": "ONPREM"
@@ -233,11 +275,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020283766",
+        "Status": "5",
         "Erftstmp": "\/Date(1610944949000)\/",
         "Aetstmp": "\/Date(1610945650000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "BC-CST-DP",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002028376600000316322021",
         "SystemType": "P",
         "SWType": "ONPREM"
@@ -249,11 +294,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020283766",
+        "Status": "5",
         "Erftstmp": "\/Date(1610536014000)\/",
         "Aetstmp": "\/Date(1610727554000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "BC-JAS-ADM-MON",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002028376600000229822021",
         "SystemType": "D",
         "SWType": "ONPREM"
@@ -265,11 +313,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751294",
+        "Status": "5",
         "Erftstmp": "\/Date(1605617258000)\/",
         "Aetstmp": "\/Date(1610720296000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "SCM-IBP-XLS-UI",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129400007739322020",
         "SystemType": "TEST",
         "SWType": "ONPREM"
@@ -281,11 +332,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751295",
+        "Status": "5",
         "Erftstmp": "\/Date(1609732483000)\/",
         "Aetstmp": "\/Date(1610642235000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "MM-SRV-BPI",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129500000008632021",
         "SystemType": "TEST",
         "SWType": "ONPREM"
@@ -297,11 +351,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751294",
+        "Status": "S",
         "Erftstmp": "\/Date(1584630492000)\/",
         "Aetstmp": "\/Date(1609776725000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "PY-DE-FP-PJ",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129400002016222020",
         "SystemType": "DEVELOP",
         "SWType": "ONPREM"
@@ -313,11 +370,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751294",
+        "Status": "1",
         "Erftstmp": "\/Date(1597250232000)\/",
         "Aetstmp": "\/Date(1597250404000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "PY-DE",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129400005238032020",
         "SystemType": "PROD",
         "SWType": "ONPREM"
@@ -329,11 +389,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751295",
+        "Status": "1",
         "Erftstmp": "\/Date(1591958697000)\/",
         "Aetstmp": "\/Date(1591958697000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "High",
         "CompKey": "CA-GTF-CSC-EDO-HU",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129500003970742020",
         "SystemType": "TEST",
         "SWType": "ONPREM"
@@ -345,11 +408,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751294",
+        "Status": "1",
         "Erftstmp": "\/Date(1585236976000)\/",
         "Aetstmp": "\/Date(1585236976000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129400002175062020",
         "SystemType": "DEVELOP",
         "SWType": "ONPREM"
@@ -361,11 +427,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751294",
+        "Status": "1",
         "Erftstmp": "\/Date(1530289521000)\/",
         "Aetstmp": "\/Date(1530289521000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "FIN-FSCM-BNK",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129400003367962018",
         "SystemType": "PROD",
         "SWType": "ONPREM"
@@ -377,11 +446,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751294",
+        "Status": "C",
         "Erftstmp": "\/Date(1478174603000)\/",
         "Aetstmp": "\/Date(1508251564000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Low",
         "CompKey": "XX-CSC-UA",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129400003883362016",
         "SystemType": "DEVELOP",
         "SWType": "ONPREM"
@@ -393,11 +465,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751295",
+        "Status": "1",
         "Erftstmp": "\/Date(1480669958000)\/",
         "Aetstmp": "\/Date(1480669958000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Very High",
         "CompKey": "",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129500004489082016",
         "SystemType": "TEST",
         "SWType": "ONPREM"
@@ -409,11 +484,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751294",
+        "Status": "1",
         "Erftstmp": "\/Date(1480503229000)\/",
         "Aetstmp": "\/Date(1480503229000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "BC-INS",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129400004348222016",
         "SystemType": "DEVELOP",
         "SWType": "ONPREM"
@@ -425,11 +503,14 @@
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader"
         },
         "Csinsta": "0020751294",
+        "Status": "1",
         "Erftstmp": "\/Date(1479144006000)\/",
         "Aetstmp": "\/Date(1479144006000)\/",
         "Closetstmp": "\/Date(0000)\/",
         "PriorityTxt": "Medium",
         "CompKey": "FI-BL-PT-PR",
+        "LastUpdate": "",
+        "Source": "LOCAL",
         "Pointer": "002075129400004064932016",
         "SystemType": "PROD",
         "SWType": "ONPREM"
