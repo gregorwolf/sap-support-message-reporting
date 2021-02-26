@@ -1,7 +1,15 @@
-namespace my.bookshop;
+namespace sap.incident.reporting;
 
-entity Books {
-  key ID : Integer;
-  title  : String;
-  stock  : Integer;
+using { incidentws as external } from '../srv/external/incidentws.csn';
+
+@cds.persistence.skip : false
+@cds.persistence.table
+entity MessageHeaderSet: external.MessageHeaderSet {
+
+}
+
+@cds.persistence.skip : false
+@cds.persistence.table
+entity MessageAlogSet: external.MessageAlogSet {
+
 }

@@ -15,7 +15,7 @@
     "sqlite3": "5.0.0"
   },
   "scripts": {
-    "start": "cds run"
+    "start": "cds run --with-mocks --in-memory"
   },
   "cds": {
     "requires": {

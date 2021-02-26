@@ -1,0 +1,8 @@
+### Read Entities
+GET http://localhost:4004/reporting
+
+###
+GET http://localhost:4004/reporting/MessageHeaderSet
+
+###
+GET http://localhost:4004/reporting/MessageAlogSet
