@@ -4,4 +4,5 @@ service ReportingService {
     @readonly entity MessageHeaderSet as projection on reporting.MessageHeaderSet;
     @readonly entity MessageAlogSet as projection on reporting.MessageAlogSet;
     action loadData();
+    action loadDataAxios();
 }
