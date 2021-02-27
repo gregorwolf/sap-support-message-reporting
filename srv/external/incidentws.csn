@@ -1386,6 +1386,11 @@
       "kind": "entity",
       "@cds.persistence.skip": true,
       "elements": {
+        "Uname": {
+          "key": true,
+          "type": "cds.String",
+          "length": 12
+        },
         "Pointer": {
           "key": true,
           "type": "cds.String",
@@ -1412,15 +1417,13 @@
           "type": "cds.String",
           "length": 3
         },
-        "Uname": {
-          "type": "cds.String",
-          "length": 12
-        },
         "Servicetyp": {
+          "key": true,
           "type": "cds.String",
           "length": 3
         },
         "Aenam": {
+          "key": true,
           "type": "cds.String",
           "length": 12
         },
