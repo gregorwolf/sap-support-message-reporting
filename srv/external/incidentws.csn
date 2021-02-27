@@ -381,6 +381,12 @@
           "type": "cds.String",
           "length": 10
         },
+        "AaEPQuesUUID": {
+          "type": "cds.LargeString"
+        },
+        "AaEPQuesStatus": {
+          "type": "cds.LargeString"
+        },
         "MessageTexts": {
           "type": "cds.Association",
           "target": "incidentws.MessageTextsSet",
@@ -1326,6 +1332,10 @@
         },
         "EEAPath": {
           "type": "cds.LargeString"
+        },
+        "RepCase": {
+          "type": "cds.String",
+          "length": 1
         }
       }
     },
@@ -2616,50 +2626,26 @@
         "Action": {
           "type": "cds.LargeString"
         },
-        "Rel": {
+        "Ext": {
           "type": "cds.Association",
-          "target": "incidentws.EEA_Topics_relSet",
-          "cardinality": {
-            "max": "*"
-          },
+          "target": "incidentws.EEA_Topics_extSet",
           "on": [
             {
               "ref": [
-                "Rel",
-                "NodeID"
+                "Ext",
+                "NodePath"
               ]
             },
             "=",
             {
               "ref": [
-                "NodeID"
+                "NodePath"
               ]
             },
             "and",
             {
               "ref": [
-                "Rel",
-                "NodePath"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "NodePath"
-              ]
-            }
-          ]
-        },
-        "Attr": {
-          "type": "cds.Association",
-          "target": "incidentws.EEA_Topics_attrSet",
-          "cardinality": {
-            "max": "*"
-          },
-          "on": [
-            {
-              "ref": [
-                "Attr",
+                "Ext",
                 "NodeID"
               ]
             },
@@ -2667,19 +2653,6 @@
             {
               "ref": [
                 "NodeID"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "Attr",
-                "NodePath"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "NodePath"
               ]
             }
           ]
@@ -2718,26 +2691,50 @@
             }
           ]
         },
-        "Ext": {
+        "Attr": {
           "type": "cds.Association",
-          "target": "incidentws.EEA_Topics_extSet",
+          "target": "incidentws.EEA_Topics_attrSet",
+          "cardinality": {
+            "max": "*"
+          },
           "on": [
             {
               "ref": [
-                "Ext",
-                "NodePath"
+                "Attr",
+                "NodeID"
               ]
             },
             "=",
             {
               "ref": [
-                "NodePath"
+                "NodeID"
               ]
             },
             "and",
             {
               "ref": [
-                "Ext",
+                "Attr",
+                "NodePath"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "NodePath"
+              ]
+            }
+          ]
+        },
+        "Rel": {
+          "type": "cds.Association",
+          "target": "incidentws.EEA_Topics_relSet",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "Rel",
                 "NodeID"
               ]
             },
@@ -2745,6 +2742,53 @@
             {
               "ref": [
                 "NodeID"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Rel",
+                "NodePath"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "NodePath"
+              ]
+            }
+          ]
+        },
+        "EEA_Topics_tfSet": {
+          "type": "cds.Association",
+          "target": "incidentws.EEA_Topics_tfSet",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "EEA_Topics_tfSet",
+                "NodeID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "NodeID"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "EEA_Topics_tfSet",
+                "NodePath"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "NodePath"
               ]
             }
           ]
@@ -2827,6 +2871,9 @@
         },
         "NoBuffer": {
           "type": "cds.LargeString"
+        },
+        "Languages": {
+          "type": "cds.LargeString"
         }
       }
     },
@@ -2902,6 +2949,9 @@
         },
         "Sortdet": {
           "type": "cds.Integer"
+        },
+        "TF": {
+          "type": "cds.LargeString"
         }
       }
     },
@@ -3185,6 +3235,66 @@
         },
         "UploadTS": {
           "type": "cds.Timestamp"
+        }
+      }
+    },
+    "incidentws.SNTokenSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Pointer": {
+          "key": true,
+          "type": "cds.String",
+          "length": 24
+        },
+        "Uname": {
+          "key": true,
+          "type": "cds.String",
+          "length": 12
+        },
+        "Token": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.EEA_Topics_tfSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "NodeID": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "NodePath": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Condition": {
+          "type": "cds.LargeString"
+        },
+        "NoteNr": {
+          "type": "cds.LargeString"
+        },
+        "Score": {
+          "type": "cds.Integer"
+        },
+        "EndDate": {
+          "type": "cds.Integer64"
+        },
+        "Type": {
+          "type": "cds.LargeString"
+        },
+        "URL": {
+          "type": "cds.LargeString"
+        },
+        "ShortText": {
+          "type": "cds.LargeString"
+        },
+        "LongText": {
+          "type": "cds.LargeString"
+        },
+        "MassData": {
+          "type": "cds.LargeString"
         }
       }
     }

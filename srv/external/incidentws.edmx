@@ -114,6 +114,8 @@
         <Property Name="SWType" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Software Type" sap:creatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="ProductSelected" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Product Numer selected on UI" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="DataProtection" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Data Protection" sap:sortable="false" sap:filterable="false" />
+        <Property Name="AaEPQuesUUID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Question UUID(Directly)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="AaEPQuesStatus" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Status of AaEP question" sap:sortable="false" />
         <NavigationProperty Name="MessageTexts" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.MessageHeaderMessageTexts" FromRole="FromRole_MessageHeaderMessageTexts" ToRole="ToRole_MessageHeaderMessageTexts" />
       </EntityType>
       <EntityType Name="UserData" sap:content-version="1">
@@ -424,6 +426,7 @@
         <Property Name="ProductSelected" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="KMdata" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="EEAPath" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="RepCase" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Replication Case" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
       </EntityType>
       <EntityType Name="MessageNote" sap:content-version="1">
         <Key>
@@ -902,10 +905,11 @@
         <Property Name="Information" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="SearchTerms" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Action" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-        <NavigationProperty Name="Rel" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_rel_ass" FromRole="FromRole_EEA_Topics_rel_ass" ToRole="ToRole_EEA_Topics_rel_ass" />
-        <NavigationProperty Name="Attr" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_attr_ass" FromRole="FromRole_EEA_Topics_attr_ass" ToRole="ToRole_EEA_Topics_attr_ass" />
-        <NavigationProperty Name="Km" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_km_ass" FromRole="FromRole_EEA_Topics_km_ass" ToRole="ToRole_EEA_Topics_km_ass" />
         <NavigationProperty Name="Ext" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_ext_ass" FromRole="FromRole_EEA_Topics_ext_ass" ToRole="ToRole_EEA_Topics_ext_ass" />
+        <NavigationProperty Name="Km" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_km_ass" FromRole="FromRole_EEA_Topics_km_ass" ToRole="ToRole_EEA_Topics_km_ass" />
+        <NavigationProperty Name="Attr" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_attr_ass" FromRole="FromRole_EEA_Topics_attr_ass" ToRole="ToRole_EEA_Topics_attr_ass" />
+        <NavigationProperty Name="Rel" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_rel_ass" FromRole="FromRole_EEA_Topics_rel_ass" ToRole="ToRole_EEA_Topics_rel_ass" />
+        <NavigationProperty Name="EEA_Topics_tfSet" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_tf_ass" FromRole="FromRole_EEA_Topics_tf_ass" ToRole="ToRole_EEA_Topics_tf_ass" />
       </EntityType>
       <EntityType Name="EEA_Maintain" sap:content-version="1">
         <Key>
@@ -933,6 +937,7 @@
         <Property Name="Node_PPMS_ID" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Inherit_PPMS_ID" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="NoBuffer" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Languages" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
       </EntityType>
       <EntityType Name="EEA_Topics_ext" sap:content-version="1">
         <Key>
@@ -966,6 +971,7 @@
         <Property Name="Status" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Auth" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Sortdet" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="TF" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
       </EntityType>
       <EntityType Name="EEA_Topics_attr" sap:content-version="1">
         <Key>
@@ -1093,6 +1099,32 @@
         <Property Name="AppServers" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="UploadTS" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
       </EntityType>
+      <EntityType Name="SNToken" sap:content-version="1">
+        <Key>
+          <PropertyRef Name="Pointer" />
+          <PropertyRef Name="Uname" />
+        </Key>
+        <Property Name="Pointer" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Message Pointer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Uname" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Uname" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Token" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Token" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+      </EntityType>
+      <EntityType Name="EEA_Topics_tf" sap:content-version="1">
+        <Key>
+          <PropertyRef Name="NodeID" />
+          <PropertyRef Name="NodePath" />
+        </Key>
+        <Property Name="NodeID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="NodePath" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Condition" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="NoteNr" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Score" Type="Edm.Float" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="EndDate" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Type" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="URL" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ShortText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="LongText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="MassData" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+      </EntityType>
       <Association Name="EEA_Topics_ext_ass" sap:content-version="1">
         <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics" Multiplicity="1" Role="FromRole_EEA_Topics_ext_ass" />
         <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_ext" Multiplicity="1" Role="ToRole_EEA_Topics_ext_ass" />
@@ -1144,6 +1176,20 @@
             <PropertyRef Name="NodePath" />
           </Principal>
           <Dependent Role="ToRole_EEA_Topics_rel_ass">
+            <PropertyRef Name="NodeID" />
+            <PropertyRef Name="NodePath" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="EEA_Topics_tf_ass" sap:content-version="1">
+        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics" Multiplicity="1" Role="FromRole_EEA_Topics_tf_ass" />
+        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_tf" Multiplicity="*" Role="ToRole_EEA_Topics_tf_ass" />
+        <ReferentialConstraint>
+          <Principal Role="FromRole_EEA_Topics_tf_ass">
+            <PropertyRef Name="NodeID" />
+            <PropertyRef Name="NodePath" />
+          </Principal>
+          <Dependent Role="ToRole_EEA_Topics_tf_ass">
             <PropertyRef Name="NodeID" />
             <PropertyRef Name="NodePath" />
           </Dependent>
@@ -1226,6 +1272,8 @@
         <EntitySet Name="EEA_PathSearchSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_PathSearch" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
         <EntitySet Name="ReadNoteSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.ReadNote" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
         <EntitySet Name="ERCD_SystemsSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.ERCD_Systems" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="SNTokenSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.SNToken" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_Topics_tfSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_tf" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
         <AssociationSet Name="EEA_Topics_rel_assSet" Association="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_rel_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
           <End EntitySet="EEA_TopicsSet" Role="FromRole_EEA_Topics_rel_ass" />
           <End EntitySet="EEA_Topics_relSet" Role="ToRole_EEA_Topics_rel_ass" />
@@ -1242,10 +1290,25 @@
           <End EntitySet="EEA_TopicsSet" Role="FromRole_EEA_Topics_attr_ass" />
           <End EntitySet="EEA_Topics_attrSet" Role="ToRole_EEA_Topics_attr_ass" />
         </AssociationSet>
+        <AssociationSet Name="EEA_Topics_tf_assSet" Association="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_tf_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+          <End EntitySet="EEA_TopicsSet" Role="FromRole_EEA_Topics_tf_ass" />
+          <End EntitySet="EEA_Topics_tfSet" Role="ToRole_EEA_Topics_tf_ass" />
+        </AssociationSet>
         <AssociationSet Name="EEA_Topics_km_assSet" Association="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_km_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
           <End EntitySet="EEA_TopicsSet" Role="FromRole_EEA_Topics_km_ass" />
           <End EntitySet="EEA_Topics_kmSet" Role="ToRole_EEA_Topics_km_ass" />
         </AssociationSet>
+        <FunctionImport Name="AaEPStatusUpdate" ReturnType="/SVT/NGMSG_WEBSERVICES_SRV.SysParam" EntitySet="SysParamSet" m:HttpMethod="POST" sap:action-for="/SVT/NGMSG_WEBSERVICES_SRV.SysParam">
+          <Parameter Name="IncidentID" Type="Edm.String" Mode="In" />
+          <Parameter Name="QuestionStatus" Type="Edm.String" Mode="In" />
+          <Parameter Name="QuestionUUID" Type="Edm.String" Mode="In" />
+          <Parameter Name="ExpireDate" Type="Edm.String" Mode="In" />
+        </FunctionImport>
+        <FunctionImport Name="AaEPRelationshipSave" ReturnType="/SVT/NGMSG_WEBSERVICES_SRV.SysParam" EntitySet="SysParamSet" m:HttpMethod="POST" sap:action-for="/SVT/NGMSG_WEBSERVICES_SRV.SysParam">
+          <Parameter Name="IncidentID" Type="Edm.String" Mode="In" />
+          <Parameter Name="QuestionUUID" Type="Edm.String" Mode="In" />
+          <Parameter Name="CreationDate" Type="Edm.String" Mode="In" />
+        </FunctionImport>
       </EntityContainer>
       <atom:link rel="self" href="https://launchpad.support.sap.com/services/odata/incidentws/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
       <atom:link rel="latest-version" href="https://launchpad.support.sap.com/services/odata/incidentws/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
