@@ -15,6 +15,7 @@ Content-Type: application/json
 
 ###
 GET http://localhost:4004/reporting/MessageHeaderSet
+    ?$top=2
 ###
 GET http://localhost:4004/reporting/MessageHeaderSet/$count
 ###
@@ -22,3 +23,11 @@ GET http://localhost:4004/reporting/MessageAlogSet
 
 ###
 GET http://localhost:4004/reporting/MessageAlogSet/$count
+
+###
+GET http://localhost:4004/reporting/MessageHeaderSet
+    ?$apply=groupby((PriorityTxt),aggregate(count with sum as Total))
+
+###
+GET http://localhost:4004/reporting/MessageHeaderSet
+    ?$apply=groupby((StatusTxt),aggregate(count with sum as Total))

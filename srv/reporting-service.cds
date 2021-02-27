@@ -6,3 +6,10 @@ service ReportingService {
     action loadData();
     action loadDataAxios();
 }
+
+annotate ReportingService.MessageHeaderSet with {
+    PriorityTxt @Analytics : { Dimension: true };
+    StatusTxt @Analytics : { Dimension: true };
+    count @Aggregation.default: #SUM;
+    count @Analytics : { Measure: true };
+};
