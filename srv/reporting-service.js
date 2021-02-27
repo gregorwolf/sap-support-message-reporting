@@ -31,7 +31,9 @@ module.exports = cds.service.impl(async (srv) =>  {
     DEBUG && DEBUG(`Entries in the MessageHeaderSet ${responseMessageHeaderSet.length}`);
     // Store them locally
     const resultsetMessageHeaderSet = await db.run([INSERT.into(dbMessageHeaderSet).rows(responseMessageHeaderSet)])
-    responseMessageHeaderSet.forEach(async (value) => {
+    DEBUG && DEBUG(`Added entities of type MessageHeaderSet ${resultsetMessageHeaderSet[0].affectedRows}`);
+    for (let index = 0; index < responseMessageHeaderSet.length; index++) {
+      let value = responseMessageHeaderSet[index]
       DEBUG && DEBUG(`Read Pointer ${value.Pointer}`);
       let axiosResponseMessageAlogSet = await instance.get(`/services/odata/incidentws/MessageAlogSet?$filter=(Pointer eq '${value.Pointer}')&$format=json`)
       axiosResponseMessageAlogSet.data.d.results.forEach(cleanObject);
@@ -39,8 +41,9 @@ module.exports = cds.service.impl(async (srv) =>  {
       DEBUG && DEBUG(`${responseMessageAlogSet.length} entries for Pointer ${value.Pointer}`);
       if(responseMessageAlogSet.length > 0) {
         let resultsetMessageAlogSet = await db.run([INSERT.into(dbMessageAlogSet).rows(responseMessageAlogSet)])
+        DEBUG && DEBUG(`Added entities of type MessageAlogSet ${resultsetMessageAlogSet[0].affectedRows}`);
       }
-    })
+    }
   })
 
   srv.on("loadData", async (req) => {
@@ -59,15 +62,18 @@ module.exports = cds.service.impl(async (srv) =>  {
     DEBUG && DEBUG(`Entries in the MessageHeaderSet ${responseMessageHeaderSet.length}`);
     // Store them locally
     const resultsetMessageHeaderSet = await db.run([INSERT.into(dbMessageHeaderSet).rows(responseMessageHeaderSet)])
-    responseMessageHeaderSet.forEach(async (value) => {
+    DEBUG && DEBUG(`${responseMessageAlogSet.length} entries for Pointer ${value.Pointer}`);
+    for (let index = 0; index < responseMessageHeaderSet.length; index++) {
+      let value = responseMessageHeaderSet[index]
       DEBUG && DEBUG(`Read Pointer ${value.Pointer}`);
-      const cqnMessageAlogSet = SELECT.from(MessageAlogSet).where('Pointer =', value.Pointer)
-      const responseMessageAlogSet = await incidentws.run(cqnMessageAlogSet)
+      let cqnMessageAlogSet = SELECT.from(MessageAlogSet).where('Pointer =', value.Pointer)
+      let responseMessageAlogSet = await incidentws.run(cqnMessageAlogSet)
       DEBUG && DEBUG(`${responseMessageAlogSet.length} entries for Pointer ${value.Pointer}`);
       if(responseMessageAlogSet.length > 0) {
-        const resultsetMessageAlogSet = await db.run([INSERT.into(dbMessageAlogSet).rows(responseMessageAlogSet)])
+        let resultsetMessageAlogSet = await db.run([INSERT.into(dbMessageAlogSet).rows(responseMessageAlogSet)])
+        DEBUG && DEBUG(`Added entities of type MessageAlogSet ${resultsetMessageAlogSet[0].affectedRows}`);
       }
-    })
+    }
   })
 })
 
