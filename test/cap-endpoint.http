@@ -2,6 +2,12 @@
 GET http://localhost:4004/reporting
 
 ###
+POST http://localhost:4004/reporting/loadData
+Content-Type: application/json
+
+{}
+
+###
 GET http://localhost:4004/reporting/MessageHeaderSet
 
 ###
