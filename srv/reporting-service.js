@@ -73,13 +73,13 @@ module.exports = cds.service.impl(async (srv) =>  {
 
 function getCookie() {
   var cookie = "";
-  if (process.env.VCAP_APPLICATION) {
-    const VCAP_APPLICATION = JSON.parse(process.env.VCAP_APPLICATION)
-    if (VCAP_APPLICATION.cookie) {
-      cookie = VCAP_APPLICATION.cookie
+  if (process.env.OSS_COOKIE) {
+    const OSS_COOKIE = JSON.parse(process.env.OSS_COOKIE)
+    if (OSS_COOKIE.cookie) {
+      cookie = OSS_COOKIE.cookie
     }
   } else {
-    console.error("VCAP_APPLICATION not set")
+    console.error("OSS_COOKIE not set")
   }
   return cookie
 }
