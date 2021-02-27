@@ -14,11 +14,10 @@ module.exports = cds.service.impl(async (srv) =>  {
   const { MessageHeaderSet: dbMessageHeaderSet, MessageAlogSet: dbMessageAlogSet } = db.entities
 
   srv.on("loadDataAxios", async (req) => {
-    const dbtx = db.transaction(req)
     const axios = require('axios');
 
-    dbtx.run(DELETE.from(dbMessageHeaderSet))
-    dbtx.run(DELETE.from(dbMessageAlogSet))
+    db.run(DELETE.from(dbMessageHeaderSet))
+    db.run(DELETE.from(dbMessageAlogSet))
 
     var cookie = getCookie()
     const instance = axios.create({
@@ -31,25 +30,22 @@ module.exports = cds.service.impl(async (srv) =>  {
     const responseMessageHeaderSet = response.data.d.results
     DEBUG && DEBUG(`Entries in the MessageHeaderSet ${responseMessageHeaderSet.length}`);
     // Store them locally
-    const resultsetMessageHeaderSet = await dbtx.run([INSERT.into(dbMessageHeaderSet).rows(responseMessageHeaderSet)])
+    const resultsetMessageHeaderSet = await db.run([INSERT.into(dbMessageHeaderSet).rows(responseMessageHeaderSet)])
     responseMessageHeaderSet.forEach(async (value) => {
       DEBUG && DEBUG(`Read Pointer ${value.Pointer}`);
-      const axiosResponseMessageAlogSet = await instance.get('/services/odata/incidentws/MessageAlogSet?$filter=(Pointer%20eq%20%27002075129400001469512021%27)&$format=json')
+      let axiosResponseMessageAlogSet = await instance.get(`/services/odata/incidentws/MessageAlogSet?$filter=(Pointer eq '${value.Pointer}')&$format=json`)
       axiosResponseMessageAlogSet.data.d.results.forEach(cleanObject);
-      const responseMessageAlogSet = axiosResponseMessageAlogSet.data.d.results
+      let responseMessageAlogSet = axiosResponseMessageAlogSet.data.d.results
       DEBUG && DEBUG(`${responseMessageAlogSet.length} entries for Pointer ${value.Pointer}`);
       if(responseMessageAlogSet.length > 0) {
-        const resultsetMessageAlogSet = await dbtx.run([INSERT.into(dbMessageAlogSet).rows(responseMessageAlogSet)])
+        let resultsetMessageAlogSet = await db.run([INSERT.into(dbMessageAlogSet).rows(responseMessageAlogSet)])
       }
     })
   })
 
   srv.on("loadData", async (req) => {
-    const dbtx = db.transaction(req)
-    const exttx = incidentws.transaction(req)
-
-    dbtx.run(DELETE.from(dbMessageHeaderSet))
-    dbtx.run(DELETE.from(dbMessageAlogSet))
+    db.run(DELETE.from(dbMessageHeaderSet))
+    db.run(DELETE.from(dbMessageAlogSet))
     // TODO get count to allow packetized requets
     /*
     const cqnCountMessageHeaderSet = SELECT.from(MessageHeaderSet) // How To do a count with CQN?
@@ -59,21 +55,19 @@ module.exports = cds.service.impl(async (srv) =>  {
     // Read Incidents from OSS
     const cqnMessageHeaderSet = SELECT.from(MessageHeaderSet) // .limit(2)
     // TODO: Add cookie to this request
-    const responseMessageHeaderSet = await exttx.run(cqnMessageHeaderSet)
+    const responseMessageHeaderSet = await incidentws.run(cqnMessageHeaderSet)
     DEBUG && DEBUG(`Entries in the MessageHeaderSet ${responseMessageHeaderSet.length}`);
     // Store them locally
-    const resultsetMessageHeaderSet = await dbtx.run([INSERT.into(dbMessageHeaderSet).rows(responseMessageHeaderSet)])
+    const resultsetMessageHeaderSet = await db.run([INSERT.into(dbMessageHeaderSet).rows(responseMessageHeaderSet)])
     responseMessageHeaderSet.forEach(async (value) => {
       DEBUG && DEBUG(`Read Pointer ${value.Pointer}`);
       const cqnMessageAlogSet = SELECT.from(MessageAlogSet).where('Pointer =', value.Pointer)
-      const responseMessageAlogSet = await exttx.run(cqnMessageAlogSet)
+      const responseMessageAlogSet = await incidentws.run(cqnMessageAlogSet)
       DEBUG && DEBUG(`${responseMessageAlogSet.length} entries for Pointer ${value.Pointer}`);
       if(responseMessageAlogSet.length > 0) {
-        const resultsetMessageAlogSet = await dbtx.run([INSERT.into(dbMessageAlogSet).rows(responseMessageAlogSet)])
+        const resultsetMessageAlogSet = await db.run([INSERT.into(dbMessageAlogSet).rows(responseMessageAlogSet)])
       }
     })
-
-    // console.log(resultset);
   })
 })
 
