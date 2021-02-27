@@ -15,6 +15,10 @@ Content-Type: application/json
 
 ###
 GET http://localhost:4004/reporting/MessageHeaderSet
-
+###
+GET http://localhost:4004/reporting/MessageHeaderSet/$count
 ###
 GET http://localhost:4004/reporting/MessageAlogSet
+
+###
+GET http://localhost:4004/reporting/MessageAlogSet/$count
