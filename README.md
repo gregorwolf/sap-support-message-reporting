@@ -48,4 +48,4 @@ To load data from OSS add the following section to the *default-env.json* file i
   }
 ```
 
-replace `<Your Cookie>` with the content of your cookie that you then start the project with `npm start` and execute the *loadDataAxios* request in the *test/cap-endpoint.http* file.
+replace `<Your Cookie>` with the content of [your cookie that you've got from your browser](#update-mock-data-with-your-own-incidents). Then start the project with `npm start` and execute the *loadDataAxios* request in the *test/cap-endpoint.http* file.
