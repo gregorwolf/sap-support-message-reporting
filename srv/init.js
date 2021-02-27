@@ -1,7 +1,7 @@
 const cds = require("@sap/cds");
 const { format } = require("date-fns");
 
-const thisApplication = "sap-support-message-report";
+const thisApplication = "sap-support-message-reporting";
 const DEBUG = cds.debug(thisApplication);
 
 const MessageHeaderSetData = require("./data/MessageHeaderSet.json");
