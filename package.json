@@ -24,6 +24,10 @@
         "model": "srv/external/incidentws",
         "destination": "OSS",
         "path": "/services/odata/incidentws"
+      },
+      "db": {
+        "kind": "sqlite",
+        "model": "*"
       }
     }
   }
