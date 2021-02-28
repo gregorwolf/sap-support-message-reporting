@@ -25,6 +25,19 @@ annotate reporting.MessageHeaderSet with @(UI : {
       Role    : #Axis1
     }]
   },
+  Chart #PriorityTxt  : {
+    ChartType           : #Column,
+    Dimensions          : [PriorityTxt],
+    DimensionAttributes : [{
+      Dimension : PriorityTxt,
+      Role      : #Category
+    }],
+    Measures            : [numberOfMessages],
+    MeasureAttributes   : [{
+      Measure : numberOfMessages,
+      Role    : #Axis1
+    }]
+  },
   PresentationVariant : {Visualizations : [
     '@UI.Chart',
     '@UI.LineItem'

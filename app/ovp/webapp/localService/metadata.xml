@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Analytics" Namespace="com.sap.vocabularies.Analytics.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ReportingService" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="MessageAlogSet" EntityType="ReportingService.MessageAlogSet" sap:semantics="aggregate"/>
+                <EntitySet Name="MessageHeaderSet" EntityType="ReportingService.MessageHeaderSet" sap:semantics="aggregate"/>
+                <EntitySet Name="PriorityTxtVH" EntityType="ReportingService.PriorityTxtVH"/>
+                <EntitySet Name="StatusTxtVH" EntityType="ReportingService.StatusTxtVH"/>
+                <EntitySet Name="StatusVH" EntityType="ReportingService.StatusVH"/>
+                <FunctionImport Name="loadData" m:HttpMethod="POST"/>
+                <FunctionImport Name="loadDataAxios" m:HttpMethod="POST"/>
+            </EntityContainer>
+            <EntityType Name="MessageAlogSet" sap:semantics="aggregate">
+                <Key>
+                    <PropertyRef Name="ID__"/>
+                </Key>
+                <Property Name="ID__" Type="Edm.String" Nullable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Uname" Type="Edm.String" MaxLength="12"/>
+                <Property Name="Pointer" Type="Edm.String" MaxLength="24"/>
+                <Property Name="CrInsta" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Aetstmp" Type="Edm.Decimal" Scale="0" Precision="15"/>
+                <Property Name="Lfnr" Type="Edm.String" MaxLength="5"/>
+                <Property Name="Service" Type="Edm.String" MaxLength="3"/>
+                <Property Name="Servicetyp" Type="Edm.String" MaxLength="3"/>
+                <Property Name="Aenam" Type="Edm.String" MaxLength="12"/>
+                <Property Name="Tabname" Type="Edm.String" MaxLength="30"/>
+                <Property Name="Alobject" Type="Edm.String" MaxLength="30"/>
+                <Property Name="OldVal" Type="Edm.String" MaxLength="50"/>
+                <Property Name="NewVal" Type="Edm.String" MaxLength="50"/>
+                <Property Name="AeDate" Type="Edm.String" MaxLength="10"/>
+                <Property Name="AeTime" Type="Edm.String" MaxLength="8"/>
+                <Property Name="DayTxt" Type="Edm.String" MaxLength="20"/>
+                <Property Name="NameTxt" Type="Edm.String" MaxLength="40"/>
+                <Property Name="ActionTxt" Type="Edm.String" MaxLength="20"/>
+                <Property Name="OldTxt" Type="Edm.String" MaxLength="45"/>
+                <Property Name="NewTxt" Type="Edm.String" MaxLength="45"/>
+                <Property Name="UserTimezone" Type="Edm.String" MaxLength="6"/>
+                <Property Name="numberOfLogs" Type="Edm.Int32" sap:aggregation-role="measure"/>
+            </EntityType>
+            <EntityType Name="MessageHeaderSet" sap:semantics="aggregate">
+                <Key>
+                    <PropertyRef Name="ID__"/>
+                </Key>
+                <Property Name="ID__" Type="Edm.String" Nullable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pointer" Type="Edm.String" MaxLength="24"/>
+                <Property Name="Csinsta" Type="Edm.String"/>
+                <Property Name="Mnumm" Type="Edm.String"/>
+                <Property Name="Myear" Type="Edm.String"/>
+                <Property Name="Uname" Type="Edm.String" MaxLength="12"/>
+                <Property Name="Status" Type="Edm.String" sap:aggregation-role="dimension" sap:label="Status"/>
+                <Property Name="Priority" Type="Edm.String"/>
+                <Property Name="MnummNLZ" Type="Edm.String"/>
+                <Property Name="Component" Type="Edm.String"/>
+                <Property Name="Erftstmp" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="Aetstmp" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="Closetstmp" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="Reporter" Type="Edm.String"/>
+                <Property Name="EnteredBy" Type="Edm.String"/>
+                <Property Name="LastChangedBy" Type="Edm.String"/>
+                <Property Name="Processor" Type="Edm.String"/>
+                <Property Name="Stext" Type="Edm.String"/>
+                <Property Name="Sprsl" Type="Edm.String"/>
+                <Property Name="InputType" Type="Edm.String"/>
+                <Property Name="Masterinst" Type="Edm.String"/>
+                <Property Name="ServicetypTxt" Type="Edm.String"/>
+                <Property Name="StatusTxt" Type="Edm.String" sap:aggregation-role="dimension" sap:label="Status Text"/>
+                <Property Name="PriorityTxt" Type="Edm.String" sap:aggregation-role="dimension" sap:label="Priority Text"/>
+                <Property Name="CompKey" Type="Edm.String" MaxLength="20"/>
+                <Property Name="ComponentTxt" Type="Edm.String"/>
+                <Property Name="CompPath" Type="Edm.String"/>
+                <Property Name="Erfdate" Type="Edm.String"/>
+                <Property Name="Erftime" Type="Edm.String"/>
+                <Property Name="Aedate" Type="Edm.String"/>
+                <Property Name="Aetime" Type="Edm.String"/>
+                <Property Name="Closedate" Type="Edm.String"/>
+                <Property Name="Closetime" Type="Edm.String"/>
+                <Property Name="AutoConfirmDateText" Type="Edm.String"/>
+                <Property Name="AutoConfirmDate" Type="Edm.String" MaxLength="8"/>
+                <Property Name="ReporterTxt" Type="Edm.String"/>
+                <Property Name="EnteredByTxt" Type="Edm.String"/>
+                <Property Name="LastChangedTxt" Type="Edm.String"/>
+                <Property Name="ProcessorTxt" Type="Edm.String"/>
+                <Property Name="SprslTxt" Type="Edm.String"/>
+                <Property Name="ContactsCnt" Type="Edm.Int32"/>
+                <Property Name="TextsCnt" Type="Edm.Int32"/>
+                <Property Name="AttxCnt" Type="Edm.Int32"/>
+                <Property Name="NotesCnt" Type="Edm.Int32"/>
+                <Property Name="AlogCnt" Type="Edm.Int32"/>
+                <Property Name="AplanCnt" Type="Edm.Int32"/>
+                <Property Name="LastText" Type="Edm.String"/>
+                <Property Name="LastTextType" Type="Edm.String"/>
+                <Property Name="LastTextTstmp" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="LastTextDate" Type="Edm.String"/>
+                <Property Name="LastTextTime" Type="Edm.String"/>
+                <Property Name="TextActive" Type="Edm.String" MaxLength="1"/>
+                <Property Name="LastNoteNbr" Type="Edm.String"/>
+                <Property Name="LastNoteTxt" Type="Edm.String"/>
+                <Property Name="ProductTxt" Type="Edm.String"/>
+                <Property Name="LastUpdate" Type="Edm.String"/>
+                <Property Name="IncSource" Type="Edm.String" MaxLength="3"/>
+                <Property Name="Source" Type="Edm.String"/>
+                <Property Name="UserTimezone" Type="Edm.String" MaxLength="6"/>
+                <Property Name="EUDPFlag" Type="Edm.String" MaxLength="10"/>
+                <Property Name="OverruleAuth" Type="Edm.Boolean"/>
+                <Property Name="EditorType" Type="Edm.String"/>
+                <Property Name="DraftFlag" Type="Edm.String" MaxLength="1"/>
+                <Property Name="AltCount" Type="Edm.Int32"/>
+                <Property Name="ServicedFlag" Type="Edm.String" MaxLength="1"/>
+                <Property Name="ServiceByCustText" Type="Edm.String"/>
+                <Property Name="Favorite" Type="Edm.String" MaxLength="1"/>
+                <Property Name="Service" Type="Edm.String" MaxLength="3"/>
+                <Property Name="Servicetyp" Type="Edm.String" MaxLength="3"/>
+                <Property Name="FirstS2sap" Type="Edm.Decimal" Scale="0" Precision="15"/>
+                <Property Name="LastS2sap" Type="Edm.Decimal" Scale="0" Precision="15"/>
+                <Property Name="ProdRel" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Frontend" Type="Edm.String" MaxLength="10"/>
+                <Property Name="OpSystem" Type="Edm.String" MaxLength="10"/>
+                <Property Name="DbSystem" Type="Edm.String" MaxLength="10"/>
+                <Property Name="RampupFlag" Type="Edm.String" MaxLength="10"/>
+                <Property Name="DssClassified" Type="Edm.String" MaxLength="1"/>
+                <Property Name="Customer" Type="Edm.String" MaxLength="10"/>
+                <Property Name="CustomerTxt" Type="Edm.String"/>
+                <Property Name="Installation" Type="Edm.String" MaxLength="10"/>
+                <Property Name="InstallationTxt" Type="Edm.String"/>
+                <Property Name="SystemNumber" Type="Edm.String" MaxLength="18"/>
+                <Property Name="SystemId" Type="Edm.String" MaxLength="8"/>
+                <Property Name="SystemType" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SystemTxt" Type="Edm.String"/>
+                <Property Name="Product" Type="Edm.String" MaxLength="20"/>
+                <Property Name="ProductVersion" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SuppPartner" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SoftwPartner" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Swkla" Type="Edm.String" MaxLength="12"/>
+                <Property Name="APIKey" Type="Edm.String" MaxLength="132"/>
+                <Property Name="Product1" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Product2" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Product3" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Help01" Type="Edm.String" MaxLength="20"/>
+                <Property Name="Help02" Type="Edm.String" MaxLength="20"/>
+                <Property Name="Help03" Type="Edm.String" MaxLength="20"/>
+                <Property Name="RespITSM" Type="Edm.String" MaxLength="4"/>
+                <Property Name="Searchterm" Type="Edm.String"/>
+                <Property Name="SaeStartTime" Type="Edm.String" MaxLength="14"/>
+                <Property Name="SaeStatus" Type="Edm.String" MaxLength="5"/>
+                <Property Name="SamStartTime" Type="Edm.String" MaxLength="14"/>
+                <Property Name="SamStatus" Type="Edm.String" MaxLength="5"/>
+                <Property Name="SamInfo" Type="Edm.String"/>
+                <Property Name="AffectedURL" Type="Edm.String"/>
+                <Property Name="RelevantID" Type="Edm.String" MaxLength="200"/>
+                <Property Name="SWType" Type="Edm.String" MaxLength="12"/>
+                <Property Name="ProductSelected" Type="Edm.String" MaxLength="40"/>
+                <Property Name="DataProtection" Type="Edm.String" MaxLength="10"/>
+                <Property Name="AaEPQuesUUID" Type="Edm.String"/>
+                <Property Name="AaEPQuesStatus" Type="Edm.String"/>
+                <Property Name="numberOfMessages" Type="Edm.Int32" sap:aggregation-role="measure" sap:label="Number of Messages"/>
+            </EntityType>
+            <EntityType Name="PriorityTxtVH">
+                <Key>
+                    <PropertyRef Name="PriorityTxt"/>
+                </Key>
+                <Property Name="PriorityTxt" Type="Edm.String" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="StatusTxtVH">
+                <Key>
+                    <PropertyRef Name="StatusTxt"/>
+                </Key>
+                <Property Name="StatusTxt" Type="Edm.String" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="StatusVH">
+                <Key>
+                    <PropertyRef Name="Status"/>
+                </Key>
+                <Property Name="Status" Type="Edm.String" Nullable="false"/>
+            </EntityType>
+            <Annotations Target="ReportingService.EntityContainer/MessageAlogSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record Type="Aggregation.ApplySupportedType">
+                        <PropertyValue Property="PropertyRestrictions" Bool="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ReportingService.MessageAlogSet/ID__" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ReportingService.MessageAlogSet/numberOfLogs" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Aggregation.default" EnumMember="Aggregation.defaultType/SUM"/>
+                <Annotation Term="Analytics.Measure" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ReportingService.MessageHeaderSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.Chart">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="StatusTxt"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>StatusTxt</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="numberOfMessages"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>numberOfMessages</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Status"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="StatusTxt"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="PriorityTxt"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="numberOfMessages"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.PresentationVariant">
+                    <Record Type="UI.PresentationVariantType">
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.Chart</AnnotationPath>
+                                <AnnotationPath>@UI.LineItem</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Status</PropertyPath>
+                        <PropertyPath>StatusTxt</PropertyPath>
+                        <PropertyPath>PriorityTxt</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ReportingService.EntityContainer/MessageHeaderSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record Type="Aggregation.ApplySupportedType">
+                        <PropertyValue Property="PropertyRestrictions" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.PresentationVariant">
+                    <Record Type="UI.PresentationVariantType">
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.Chart</AnnotationPath>
+                                <AnnotationPath>@UI.LineItem</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ReportingService.MessageHeaderSet/ID__" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ReportingService.MessageHeaderSet/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Analytics.Dimension" Bool="true"/>
+                <Annotation Term="Common.Label" String="Status"/>
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Label" String="Status"/>
+                        <PropertyValue Property="CollectionPath" String="StatusVH"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Status"/>
+                                    <PropertyValue Property="ValueListProperty" String="Status"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ReportingService.MessageHeaderSet/StatusTxt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Analytics.Dimension" Bool="true"/>
+                <Annotation Term="Common.Label" String="Status Text"/>
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Label" String="Status Text"/>
+                        <PropertyValue Property="CollectionPath" String="StatusTxtVH"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="StatusTxt"/>
+                                    <PropertyValue Property="ValueListProperty" String="StatusTxt"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ReportingService.MessageHeaderSet/PriorityTxt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Analytics.Dimension" Bool="true"/>
+                <Annotation Term="Common.Label" String="Priority Text"/>
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Label" String="Priority Text"/>
+                        <PropertyValue Property="CollectionPath" String="PriorityTxtVH"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="PriorityTxt"/>
+                                    <PropertyValue Property="ValueListProperty" String="PriorityTxt"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ReportingService.MessageHeaderSet/numberOfMessages" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Aggregation.default" EnumMember="Aggregation.defaultType/SUM"/>
+                <Annotation Term="Analytics.Measure" Bool="true"/>
+                <Annotation Term="Common.Label" String="Number of Messages"/>
+            </Annotations>
+            <Annotations Target="ReportingService.EntityContainer/PriorityTxtVH" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ReportingService.EntityContainer/StatusTxtVH" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ReportingService.EntityContainer/StatusVH" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
