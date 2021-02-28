@@ -4,13 +4,15 @@ annotate reporting.MessageHeaderSet with {
   PriorityTxt @(ValueList.entity : 'PriorityTxtVH', );
   StatusTxt   @(ValueList.entity : 'StatusTxtVH', );
   Status      @(ValueList.entity : 'StatusVH', );
+  SystemId    @(ValueList.entity : 'SystemIdVH', );
 };
 
 annotate reporting.MessageHeaderSet with @(UI : {
   SelectionFields     : [
     Status,
     StatusTxt,
-    PriorityTxt
+    PriorityTxt,
+    SystemId
   ],
   Chart               : {
     ChartType           : #Column,
@@ -30,6 +32,19 @@ annotate reporting.MessageHeaderSet with @(UI : {
     Dimensions          : [PriorityTxt],
     DimensionAttributes : [{
       Dimension : PriorityTxt,
+      Role      : #Category
+    }],
+    Measures            : [numberOfMessages],
+    MeasureAttributes   : [{
+      Measure : numberOfMessages,
+      Role    : #Axis1
+    }]
+  },
+  Chart #SystemId     : {
+    ChartType           : #Donut,
+    Dimensions          : [SystemId],
+    DimensionAttributes : [{
+      Dimension : SystemId,
       Role      : #Category
     }],
     Measures            : [numberOfMessages],

@@ -130,6 +130,15 @@
           "entitySet": "MessageHeaderSet",
           "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#PriorityTxt"
         }
+      },
+      "chart03": {
+        "model": "mainService",
+        "template": "sap.ovp.cards.charts.analytical",
+        "settings": {
+          "title": "System ID",
+          "entitySet": "MessageHeaderSet",
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#SystemId"
+        }
       }
     }
   }

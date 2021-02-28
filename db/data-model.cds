@@ -18,6 +18,8 @@ annotate MessageHeaderSet with {
   Status      @(title : '{i18n>Status}');
   @Analytics.Dimension : true
   StatusTxt   @(title : '{i18n>StatusTxt}');
+  @Analytics.Dimension : true
+  SystemId   @(title : '{i18n>SystemId}');
 };
 
 @cds.persistence.skip                            : false
@@ -54,4 +56,13 @@ view StatusView as select distinct Status from MessageHeaderSet;
 @cds.odata.valuelist
 entity StatusVH {
   key Status : external.MessageHeaderSet : Status;
+};
+
+view SystemIdView as select distinct SystemId from MessageHeaderSet;
+
+// Search Help for SystemId solved with custom logic
+@readonly
+@cds.odata.valuelist
+entity SystemIdVH {
+  key SystemId : external.MessageHeaderSet : SystemId;
 };
