@@ -1,17 +1,32 @@
 namespace sap.incident.reporting;
 
-using { incidentws as external } from '../srv/external/incidentws.csn';
+using {incidentws as external} from '../srv/external/incidentws.csn';
 
-@cds.persistence.skip : false
+@cds.persistence.skip                            : false
 @cds.persistence.table
-entity MessageHeaderSet: external.MessageHeaderSet {
-    count: Integer default 1
+@Aggregation.ApplySupported.PropertyRestrictions : true
+entity MessageHeaderSet : external.MessageHeaderSet {
+  @Analytics.Measure   : true
+  @Aggregation.default : #SUM
+  numberOfMessages : Integer default 1 @(title : '{i18n>numberOfMessages}');
 }
 
-@cds.persistence.skip : false
+annotate MessageHeaderSet with {
+  @Analytics.Dimension : true
+  PriorityTxt @(title : '{i18n>PriorityTxt}');
+  @Analytics.Dimension : true
+  Status      @(title : '{i18n>Status}');
+  @Analytics.Dimension : true
+  StatusTxt   @(title : '{i18n>StatusTxt}');
+};
+
+@cds.persistence.skip                            : false
 @cds.persistence.table
-entity MessageAlogSet: external.MessageAlogSet {
-    count: Integer default 1
+@Aggregation.ApplySupported.PropertyRestrictions : true
+entity MessageAlogSet : external.MessageAlogSet {
+  @Analytics.Measure   : true
+  @Aggregation.default : #SUM
+  numberOfLogs : Integer default 1
 }
 
 view PriorityTxtView as select distinct PriorityTxt from MessageHeaderSet;
@@ -19,8 +34,8 @@ view PriorityTxtView as select distinct PriorityTxt from MessageHeaderSet;
 // Search Help for PriorityTxt solved with custom logic
 @readonly
 @cds.odata.valuelist
-entity PriorityTxt {
-  key PriorityTxt: external.MessageHeaderSet:PriorityTxt;
+entity PriorityTxtVH {
+  key PriorityTxt : external.MessageHeaderSet : PriorityTxt;
 };
 
 view StatusTxtView as select distinct StatusTxt from MessageHeaderSet;
@@ -28,6 +43,15 @@ view StatusTxtView as select distinct StatusTxt from MessageHeaderSet;
 // Search Help for StatusTxt solved with custom logic
 @readonly
 @cds.odata.valuelist
-entity StatusTxt {
-  key StatusTxt: external.MessageHeaderSet:StatusTxt;
+entity StatusTxtVH {
+  key StatusTxt : external.MessageHeaderSet : StatusTxt;
+};
+
+view StatusView as select distinct Status from MessageHeaderSet;
+
+// Search Help for Status solved with custom logic
+@readonly
+@cds.odata.valuelist
+entity StatusVH {
+  key Status : external.MessageHeaderSet : Status;
 };

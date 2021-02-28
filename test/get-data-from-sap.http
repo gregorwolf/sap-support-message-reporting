@@ -5,7 +5,7 @@ GET https://launchpad.support.sap.com/services/odata/incidentws/MessageHeaderSet
   &$skip=0
   &$top=10
   &$format=json
-  &$select=Source,Status,Csinsta,CompKey,PriorityTxt,Pointer,SystemType,SWType,Erftstmp,Aetstmp,Closetstmp,LastUpdate,Erfdate,Erftime,Aedate,Aetime,Closedate,Closetime,AutoConfirmDateText,AutoConfirmDate,FirstS2sap,LastS2sap
+  &$select=Source,Status,StatusTxt,Csinsta,CompKey,PriorityTxt,Pointer,SystemType,SWType,Erftstmp,Aetstmp,Closetstmp,LastUpdate,Erfdate,Erftime,Aedate,Aetime,Closedate,Closetime,AutoConfirmDateText,AutoConfirmDate,FirstS2sap,LastS2sap
 Cookie: {{$dotenv cookie}}
 # Basic Auth doesn't work
 #Authorization: Basic {{$dotenv username}}:{{$dotenv password}}

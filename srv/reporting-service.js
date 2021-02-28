@@ -15,15 +15,20 @@ module.exports = cds.service.impl(async (srv) =>  {
     MessageHeaderSet: dbMessageHeaderSet, 
     MessageAlogSet: dbMessageAlogSet, 
     PriorityTxtView,
-    StatusTxtView 
+    StatusTxtView,
+    StatusView
   } = db.entities
 
-  srv.on ('READ', "PriorityTxt", async req => {
+  srv.on ('READ', "PriorityTxtVH", async req => {
     return SELECT.from(PriorityTxtView)
   })
 
-  srv.on ('READ', "StatusTxt", async req => {
+  srv.on ('READ', "StatusTxtVH", async req => {
     return SELECT.from(StatusTxtView)
+  })
+
+  srv.on ('READ', "StatusVH", async req => {
+    return SELECT.from(StatusView)
   })
 
   srv.on("loadDataAxios", async (req) => {
