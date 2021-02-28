@@ -13,3 +13,21 @@ entity MessageHeaderSet: external.MessageHeaderSet {
 entity MessageAlogSet: external.MessageAlogSet {
     count: Integer default 1
 }
+
+view PriorityTxtView as select distinct PriorityTxt from MessageHeaderSet;
+
+// Search Help for PriorityTxt solved with custom logic
+@readonly
+@cds.odata.valuelist
+entity PriorityTxt {
+  key PriorityTxt: external.MessageHeaderSet:PriorityTxt;
+};
+
+view StatusTxtView as select distinct StatusTxt from MessageHeaderSet;
+
+// Search Help for StatusTxt solved with custom logic
+@readonly
+@cds.odata.valuelist
+entity StatusTxt {
+  key StatusTxt: external.MessageHeaderSet:StatusTxt;
+};

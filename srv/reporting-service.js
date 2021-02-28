@@ -11,7 +11,20 @@ module.exports = cds.service.impl(async (srv) =>  {
   const { MessageHeaderSet, MessageAlogSet } = incidentws.entities
 
   const db = await cds.connect.to("db")
-  const { MessageHeaderSet: dbMessageHeaderSet, MessageAlogSet: dbMessageAlogSet } = db.entities
+  const { 
+    MessageHeaderSet: dbMessageHeaderSet, 
+    MessageAlogSet: dbMessageAlogSet, 
+    PriorityTxtView,
+    StatusTxtView 
+  } = db.entities
+
+  srv.on ('READ', "PriorityTxt", async req => {
+    return SELECT.from(PriorityTxtView)
+  })
+
+  srv.on ('READ', "StatusTxt", async req => {
+    return SELECT.from(StatusTxtView)
+  })
 
   srv.on("loadDataAxios", async (req) => {
     const axios = require('axios');
@@ -62,7 +75,7 @@ module.exports = cds.service.impl(async (srv) =>  {
     DEBUG && DEBUG(`Entries in the MessageHeaderSet ${responseMessageHeaderSet.length}`);
     // Store them locally
     const resultsetMessageHeaderSet = await db.run([INSERT.into(dbMessageHeaderSet).rows(responseMessageHeaderSet)])
-    DEBUG && DEBUG(`${responseMessageAlogSet.length} entries for Pointer ${value.Pointer}`);
+    DEBUG && DEBUG(`Added entities of type MessageHeaderSet ${resultsetMessageHeaderSet[0].affectedRows}`);
     for (let index = 0; index < responseMessageHeaderSet.length; index++) {
       let value = responseMessageHeaderSet[index]
       DEBUG && DEBUG(`Read Pointer ${value.Pointer}`);

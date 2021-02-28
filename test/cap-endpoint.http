@@ -31,3 +31,8 @@ GET http://localhost:4004/reporting/MessageHeaderSet
 ###
 GET http://localhost:4004/reporting/MessageHeaderSet
     ?$apply=groupby((StatusTxt),aggregate(count with sum as Total))
+
+###
+GET http://localhost:4004/reporting/PriorityTxt
+###
+GET http://localhost:4004/reporting/StatusTxt
