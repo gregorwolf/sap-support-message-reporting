@@ -6,7 +6,8 @@ service ReportingService {
     entity PriorityTxtVH as projection on reporting.PriorityTxtVH;
     entity StatusTxtVH as projection on reporting.StatusTxtVH;
     entity StatusVH as projection on reporting.StatusVH;
+    entity SystemIdVH as projection on reporting.SystemIdVH;
 
-    action loadData();
-    action loadDataAxios();
+    action loadDataFromMock();
+    action loadDataFromSAP();
 }

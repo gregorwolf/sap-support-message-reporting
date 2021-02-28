@@ -35,7 +35,7 @@ To load data from the mock service into sqlite please create a *default-env.json
 }
 ```
 
-then start the project with `npm start` and execute the *loadData* request in the *test/cap-endpoint.http* file.
+then start the project with `npm start` and execute the *loadDataFromMock* request in the *test/cap-endpoint.http* file.
 
 ## Load Data from SAP Service Marketplace
 
@@ -48,4 +48,4 @@ To load data from OSS add the following section to the *default-env.json* file i
   }
 ```
 
-replace `<Your Cookie>` with the content of [your cookie that you've got from your browser](#update-mock-data-with-your-own-incidents). Then start the project with `npm start` and execute the *loadDataAxios* request in the *test/cap-endpoint.http* file.
+replace `<Your Cookie>` with the content of [your cookie that you've got from your browser](#update-mock-data-with-your-own-incidents). Then start the project with `npm start` and execute the *loadDataFromSAP* request in the *test/cap-endpoint.http* file.

@@ -26,8 +26,8 @@
                 <EntitySet Name="PriorityTxtVH" EntityType="ReportingService.PriorityTxtVH"/>
                 <EntitySet Name="StatusTxtVH" EntityType="ReportingService.StatusTxtVH"/>
                 <EntitySet Name="StatusVH" EntityType="ReportingService.StatusVH"/>
-                <FunctionImport Name="loadData" m:HttpMethod="POST"/>
-                <FunctionImport Name="loadDataAxios" m:HttpMethod="POST"/>
+                <FunctionImport Name="loadDataFromMock" m:HttpMethod="POST"/>
+                <FunctionImport Name="loadDataFromSAP" m:HttpMethod="POST"/>
             </EntityContainer>
             <EntityType Name="MessageAlogSet" sap:semantics="aggregate">
                 <Key>

@@ -2,13 +2,13 @@
 GET http://localhost:4004/reporting
 
 ###
-POST http://localhost:4004/reporting/loadData
+POST http://localhost:4004/reporting/loadDataFromMock
 Content-Type: application/json
 
 {}
 
 ###
-POST http://localhost:4004/reporting/loadDataAxios
+POST http://localhost:4004/reporting/loadDataFromSAP
 Content-Type: application/json
 
 {}
@@ -39,7 +39,8 @@ GET http://localhost:4004/reporting/StatusTxtVH
 ###
 GET http://localhost:4004/reporting/StatusVH
 
-
+###
+GET http://localhost:4004/reporting/SystemIdVH
 ###
 GET http://localhost:4004/services/odata/reporting/MessageHeaderSet?$select=numberOfMessages&$inlinecount=allpages
 

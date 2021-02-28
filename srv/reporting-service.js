@@ -31,7 +31,12 @@ module.exports = cds.service.impl(async (srv) =>  {
     return SELECT.from(StatusView)
   })
 
-  srv.on("loadDataAxios", async (req) => {
+  srv.on ('READ', "SystemIdVH", async req => {
+    return SELECT.from(SystemIdView)
+  })
+  
+
+  srv.on("loadDataFromSAP", async (req) => {
     const axios = require('axios');
 
     db.run(DELETE.from(dbMessageHeaderSet))
@@ -44,27 +49,33 @@ module.exports = cds.service.impl(async (srv) =>  {
       headers: {'Cookie': cookie}
     })
     const response = await instance.get('/services/odata/incidentws/MessageHeaderSet?$inlinecount=allpages&$filter=((Source%20eq%20%27ALL%27)and%20(Status%20eq%20%273%27%20or%20Status%20eq%20%275%27%20or%20Status%20eq%20%27N%27%20or%20Status%20eq%20%27M%27%20or%20Status%20eq%20%27R%27%20or%20Status%20eq%20%27S%27%20or%20Status%20eq%20%27C%27%20or%20Status%20eq%20%271%27)%20and%20(LastUpdate%20eq%20%27ALL%27))&$skip=0&$top=10&$format=json')
-    response.data.d.results.forEach(cleanObject);
-    const responseMessageHeaderSet = response.data.d.results
-    DEBUG && DEBUG(`Entries in the MessageHeaderSet ${responseMessageHeaderSet.length}`);
-    // Store them locally
-    const resultsetMessageHeaderSet = await db.run([INSERT.into(dbMessageHeaderSet).rows(responseMessageHeaderSet)])
-    DEBUG && DEBUG(`Added entities of type MessageHeaderSet ${resultsetMessageHeaderSet[0].affectedRows}`);
-    for (let index = 0; index < responseMessageHeaderSet.length; index++) {
-      let value = responseMessageHeaderSet[index]
-      DEBUG && DEBUG(`Read Pointer ${value.Pointer}`);
-      let axiosResponseMessageAlogSet = await instance.get(`/services/odata/incidentws/MessageAlogSet?$filter=(Pointer eq '${value.Pointer}')&$format=json`)
-      axiosResponseMessageAlogSet.data.d.results.forEach(cleanObject);
-      let responseMessageAlogSet = axiosResponseMessageAlogSet.data.d.results
-      DEBUG && DEBUG(`${responseMessageAlogSet.length} entries for Pointer ${value.Pointer}`);
-      if(responseMessageAlogSet.length > 0) {
-        let resultsetMessageAlogSet = await db.run([INSERT.into(dbMessageAlogSet).rows(responseMessageAlogSet)])
-        DEBUG && DEBUG(`Added entities of type MessageAlogSet ${resultsetMessageAlogSet[0].affectedRows}`);
-      }
+    if(response.headers['com.sap.cloud.security.login'] === 'login-request') {
+      const error = 'Please update the cookie in your default-env.json file'
+      console.error(error)
+      throw({message: error})
+    } else {
+      response.data.d.results.forEach(cleanObject);
+      const responseMessageHeaderSet = response.data.d.results
+      DEBUG && DEBUG(`Entries in the MessageHeaderSet ${responseMessageHeaderSet.length}`);
+      // Store them locally
+      const resultsetMessageHeaderSet = await db.run([INSERT.into(dbMessageHeaderSet).rows(responseMessageHeaderSet)])
+      DEBUG && DEBUG(`Added entities of type MessageHeaderSet ${resultsetMessageHeaderSet[0].affectedRows}`);
+      for (let index = 0; index < responseMessageHeaderSet.length; index++) {
+        let value = responseMessageHeaderSet[index]
+        DEBUG && DEBUG(`Read Pointer ${value.Pointer}`);
+        let axiosResponseMessageAlogSet = await instance.get(`/services/odata/incidentws/MessageAlogSet?$filter=(Pointer eq '${value.Pointer}')&$format=json`)
+        axiosResponseMessageAlogSet.data.d.results.forEach(cleanObject);
+        let responseMessageAlogSet = axiosResponseMessageAlogSet.data.d.results
+        DEBUG && DEBUG(`${responseMessageAlogSet.length} entries for Pointer ${value.Pointer}`);
+        if(responseMessageAlogSet.length > 0) {
+          let resultsetMessageAlogSet = await db.run([INSERT.into(dbMessageAlogSet).rows(responseMessageAlogSet)])
+          DEBUG && DEBUG(`Added entities of type MessageAlogSet ${resultsetMessageAlogSet[0].affectedRows}`);
+        }
+      }  
     }
   })
 
-  srv.on("loadData", async (req) => {
+  srv.on("loadDataFromMock", async (req) => {
     db.run(DELETE.from(dbMessageHeaderSet))
     db.run(DELETE.from(dbMessageAlogSet))
     // TODO get count to allow packetized requets
