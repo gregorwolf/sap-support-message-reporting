@@ -20,6 +20,12 @@ GET http://localhost:4004/reporting/MessageHeaderSet
 GET http://localhost:4004/reporting/MessageHeaderSet/$count
 ###
 GET http://localhost:4004/reporting/MessageAlogSet
+    ?$top=2
+
+###
+GET http://localhost:4004/reporting/MessageAlogSet
+    ?$filter=(Pointer eq '002075129400001469512021')
+    &$orderby=Aetstmp
 
 ###
 GET http://localhost:4004/reporting/MessageAlogSet/$count

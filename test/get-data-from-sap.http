@@ -1,7 +1,7 @@
 ### Retrieve Messages from SAP
 GET https://launchpad.support.sap.com/services/odata/incidentws/MessageHeaderSet
   ?$inlinecount=allpages
-  &$filter=((Source%20eq%20%27ALL%27)and%20(Status%20eq%20%273%27%20or%20Status%20eq%20%275%27%20or%20Status%20eq%20%27N%27%20or%20Status%20eq%20%27M%27%20or%20Status%20eq%20%27R%27%20or%20Status%20eq%20%27S%27%20or%20Status%20eq%20%27C%27%20or%20Status%20eq%20%271%27)%20and%20(LastUpdate%20eq%20%27ALL%27))
+  &$filter=((Source eq 'ALL')and (Status eq '3' or Status eq '5' or Status eq 'N' or Status eq 'M' or Status eq 'R' or Status eq 'S' or Status eq 'C' or Status eq '1') and (LastUpdate eq 'ALL'))
   &$skip=0
   &$top=10
   &$format=json
@@ -12,7 +12,7 @@ Cookie: {{$dotenv cookie}}
 
 ###Retrieve Message Log from SAP
 GET https://launchpad.support.sap.com/services/odata/incidentws/MessageAlogSet
-  ?$filter=(Pointer%20eq%20%27002075129400001469512021%27)
+  ?$filter=(Pointer eq '002075129400001469512021')
   &$format=json
   &$select=Uname,Pointer,CrInsta,Aetstmp,Lfnr,Service,Servicetyp,Aenam,Tabname,Alobject,OldVal,NewVal,AeDate,AeTime,DayTxt,ActionTxt,OldTxt,NewTxt,UserTimezone
 Cookie: {{$dotenv cookie}}
