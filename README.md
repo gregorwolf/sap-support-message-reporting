@@ -1,6 +1,7 @@
 # SAP Support Message Reporting
 
 Replicate data from SAP Support Launchpad Incident OData service for local reporting.
+## Current functionality
 
 Currently two visualizations are implemented. An Overview Page:
 
@@ -9,6 +10,16 @@ Currently two visualizations are implemented. An Overview Page:
 and an Analytical List Page:
 
 ![Analytical List Page](assets/ALP.png)
+
+## TODO
+
+- [x] Load data from mock
+- [x] Load data SAP Service Marketplace
+- [ ] Add reporting for the event log (MessageAlogSet)
+- [ ] Find a user friendly way to maintain the Authentication Cookie
+- [ ] Deploy to SAP HANA Cloud & SAP BTP Cloud Foundry
+- [ ] Expose Data to SAP Analytics Cloud
+- [ ] Implement further reports in SAP Analytics Cloud
 
 ## Update Mock Data with your own Incidents
 
