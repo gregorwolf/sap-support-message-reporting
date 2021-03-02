@@ -2,6 +2,14 @@
 
 Replicate data from SAP Support Launchpad Incident OData service for local reporting.
 
+Currently two visualizations are implemented. An Overview Page:
+
+![Overview Page](assets/OVP.png)
+
+and an Analytical List Page:
+
+![Analytical List Page](assets/ALP.png)
+
 ## Update Mock Data with your own Incidents
 
 If you want to update the mock date in the srv/data folder with your own SAP Incidents, then open your Browser, activate the Development tools, switch to the network tab and then open the URL:
