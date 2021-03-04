@@ -15,11 +15,34 @@ and an Analytical List Page:
 
 - [x] Load data from mock
 - [x] Load data SAP Service Marketplace
+- [x] Docker Image
 - [ ] Add reporting for the event log (MessageAlogSet)
 - [ ] Find a user friendly way to maintain the Authentication Cookie
 - [ ] Deploy to SAP HANA Cloud & SAP BTP Cloud Foundry
 - [ ] Expose Data to SAP Analytics Cloud
 - [ ] Implement further reports in SAP Analytics Cloud
+
+## Run from Docker image
+
+First time start:
+
+`docker run --name sap-support-message-reporting -i -p 4004:4004 gregorwolf/sap-support-message-reporting:latest`
+
+[Load Data from Mock Service](#load-data-from-mock-service)
+
+Then open http://localhost:4004 in the browser.
+
+Stop:
+
+`docker stop sap-support-message-reporting`
+
+Start:
+
+`docker start -i sap-support-message-reporting`
+
+Remove:
+
+`docker rm sap-support-message-reporting`
 
 ## Update Mock Data with your own Incidents
 
