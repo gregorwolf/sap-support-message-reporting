@@ -38,6 +38,9 @@ jobs:
         name: Install npm dependencies
         run: npm ci
       - 
+        name: Install @sap/cds-dk globally
+        run: npm i -g @sap/cds-dk
+      - 
         name: cds build
         run: npm run build
       -
