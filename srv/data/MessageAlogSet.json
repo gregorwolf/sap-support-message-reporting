@@ -26,7 +26,8 @@
         "ActionTxt": "Status",
         "OldTxt": "Sent to SAP",
         "NewTxt": "SAP Proposed Solution",
-        "UserTimezone": "CET"
+        "UserTimezone": "CET",
+        "NameTxt": "SAP"
       },
       {
         "__metadata": {
@@ -52,7 +53,8 @@
         "ActionTxt": "SAP Note add./rem.",
         "OldTxt": "",
         "NewTxt": "2213344",
-        "UserTimezone": "CET"
+        "UserTimezone": "CET",
+        "NameTxt": "SAP"
       },
       {
         "__metadata": {
@@ -78,7 +80,8 @@
         "ActionTxt": "Memo/Text changed",
         "OldTxt": "",
         "NewTxt": "Reply",
-        "UserTimezone": "CET"
+        "UserTimezone": "CET",
+        "NameTxt": "SAP"
       },
       {
         "__metadata": {
@@ -104,7 +107,8 @@
         "ActionTxt": "Component",
         "OldTxt": "",
         "NewTxt": "BC-JAS-COR",
-        "UserTimezone": "CET"
+        "UserTimezone": "CET",
+        "NameTxt": "SAP"
       },
       {
         "__metadata": {
@@ -130,7 +134,8 @@
         "ActionTxt": "Incident created",
         "OldTxt": "",
         "NewTxt": "0020751294 0000146951 2021",
-        "UserTimezone": "CET"
+        "UserTimezone": "CET",
+        "NameTxt": "Customer"
       },
       {
         "__metadata": {
@@ -156,7 +161,8 @@
         "ActionTxt": "Status",
         "OldTxt": "Not Sent to SAP",
         "NewTxt": "Sent to SAP",
-        "UserTimezone": "CET"
+        "UserTimezone": "CET",
+        "NameTxt": "Customer"
       },
       {
         "__metadata": {
@@ -182,7 +188,8 @@
         "ActionTxt": "Status",
         "OldTxt": "Sent to SAP",
         "NewTxt": "SAP Proposed Solution",
-        "UserTimezone": "CET"
+        "UserTimezone": "CET",
+        "NameTxt": "SAP"
       },
       {
         "__metadata": {

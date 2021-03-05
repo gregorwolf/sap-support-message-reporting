@@ -9,7 +9,6 @@ annotate reporting.MessageHeaderSet with {
 
 annotate reporting.MessageHeaderSet with @(UI : {
   SelectionFields     : [
-    Status,
     StatusTxt,
     PriorityTxt,
     SystemId
@@ -58,9 +57,27 @@ annotate reporting.MessageHeaderSet with @(UI : {
     '@UI.LineItem'
   ]},
   LineItem            : [
+    {Value : StatusTxt},
+    {Value : PriorityTxt},
+    {Value : numberOfMessages}
+  ],
+  HeaderInfo          : {
+    TypeName       : '{i18n>Message}',
+    TypeNamePlural : '{i18n>Messages}',
+    Title          : {Value : Aedate},
+    Description    : {Value : Aedate}
+  },
+  Facets              : [{
+    $Type  : 'UI.ReferenceFacet',
+    Label  : '{i18n>Details}',
+    Target : '@UI.FieldGroup#Details'
+  }, ],
+  FieldGroup #Details : {Data : [
+    {Value : Aedate},
     {Value : Status},
     {Value : StatusTxt},
     {Value : PriorityTxt},
     {Value : numberOfMessages}
-  ]
+
+  ]}
 });

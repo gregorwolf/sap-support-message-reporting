@@ -39,6 +39,10 @@ GET http://localhost:4004/reporting/MessageHeaderSet
     ?$apply=groupby((StatusTxt),aggregate(count with sum as Total))
 
 ###
+GET http://localhost:4004/reporting/MessageAlogSet
+    ?$apply=groupby((NameTxt),aggregate(numberOfLogs with sum as TotalNumberOfLogs))
+
+###
 GET http://localhost:4004/reporting/PriorityTxtVH
 ###
 GET http://localhost:4004/reporting/StatusTxtVH
@@ -52,3 +56,6 @@ GET http://localhost:4004/services/odata/reporting/MessageHeaderSet?$select=numb
 
 ###
 GET http://localhost:4004/services/odata/reporting/MessageHeaderSet?$select=Status,numberOfMessages&$inlinecount=allpages
+
+###
+GET http://localhost:4004/services/odata/reporting/MessageHeaderSet(aggregation'{"key":{"StatusTxt":"Not%20Sent%20to%20SAP","PriorityTxt":"Very%20High"},"value":["StatusTxt","PriorityTxt","numberOfMessages"],"filter":"((((StatusTxt%20eq%20'Not%20Sent%20to%20SAP'))))"}')

@@ -19,7 +19,7 @@ annotate MessageHeaderSet with {
   @Analytics.Dimension : true
   StatusTxt   @(title : '{i18n>StatusTxt}');
   @Analytics.Dimension : true
-  SystemId   @(title : '{i18n>SystemId}');
+  SystemId    @(title : '{i18n>SystemId}');
 };
 
 @cds.persistence.skip                            : false
@@ -29,6 +29,15 @@ entity MessageAlogSet : external.MessageAlogSet {
   @Analytics.Measure   : true
   @Aggregation.default : #SUM
   numberOfLogs : Integer default 1
+}
+
+annotate MessageAlogSet with {
+  @Analytics.Dimension : true
+  Uname @(title : '{i18n>Uname}');
+  @Analytics.Dimension : true
+  Pointer;
+  @Analytics.Dimension : true
+  NameTxt;
 }
 
 view PriorityTxtView as select distinct PriorityTxt from MessageHeaderSet;
