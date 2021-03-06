@@ -17,11 +17,11 @@
                 "uri": "/services/odata/reporting/",
                 "type": "OData",
                 "settings": {
+                    "odataVersion": "2.0",
                     "annotations": [
                         "annotation"
                     ],
-                    "localUri": "localService/metadata.xml",
-                    "odataVersion": "2.0"
+                    "localUri": "localService/metadata.xml"
                 }
             },
             "annotation": {
@@ -29,7 +29,10 @@
                 "uri": "annotations/annotation.xml",
                 "settings": {
                     "localUri": "annotations/annotation.xml"
-                }
+                },
+                "isLocal": true,
+                "order": 1,
+                "isActive": true
             }
         },
         "offline": false,
@@ -96,7 +99,6 @@
                 "type": "sap.ui.model.resource.ResourceModel",
                 "uri": "i18n/ObjectPage/MessageHeaderSet/i18n.properties"
             },
-            
             "": {
                 "dataSource": "mainService",
                 "preload": true,
@@ -107,6 +109,13 @@
                     "metadataUrlParams": {
                         "sap-value-list": "none"
                     }
+                }
+            },
+            "mainService": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "defaultCountMode": "Inline"
                 }
             }
         },
@@ -149,7 +158,6 @@
                         "component": {
                             "name": "sap.suite.ui.generic.template.ObjectPage"
                         }
-                        
                     }
                 }
             }

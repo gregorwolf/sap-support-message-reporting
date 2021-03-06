@@ -119,7 +119,7 @@
         "settings": {
           "title": "Status",
           "entitySet": "MessageHeaderSet",
-          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart"
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#StatusTxt"
         }
       },
       "chart02": {
