@@ -2,15 +2,21 @@ namespace sap.incident.reporting;
 
 using {incidentws as external} from '../srv/external/incidentws.csn';
 
+// persist the re-used external enity
 @cds.persistence.skip                            : false
 @cds.persistence.table
+// analytical annotation
 @Aggregation.ApplySupported.PropertyRestrictions : true
+// reuse the imported data model
 entity MessageHeaderSet : external.MessageHeaderSet {
+  // add aditional field that is always filled with 1 to calculate the 
+  // number of messages in aggregations. This is our analytic measure
   @Analytics.Measure   : true
   @Aggregation.default : #SUM
   numberOfMessages : Integer default 1 @(title : '{i18n>numberOfMessages}');
 }
 
+// Annotate analytic dimensions
 annotate MessageHeaderSet with {
   @Analytics.Dimension : true
   PriorityTxt @(title : '{i18n>PriorityTxt}');
@@ -40,9 +46,10 @@ annotate MessageAlogSet with {
   NameTxt;
 }
 
+// View with distinct values for search help
 view PriorityTxtView as select distinct PriorityTxt from MessageHeaderSet;
 
-// Search Help for PriorityTxt solved with custom logic
+// Entity for search help is filled with custom logic
 @readonly
 @cds.odata.valuelist
 entity PriorityTxtVH {
