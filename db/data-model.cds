@@ -74,7 +74,7 @@ entity StatusVH {
   key Status : external.MessageHeaderSet : Status;
 };
 
-view SystemIdView as select distinct SystemId from MessageHeaderSet;
+view SystemIdView as select distinct SystemId from MessageHeaderSet where SystemId is not null;
 
 // Search Help for SystemId solved with custom logic
 @readonly

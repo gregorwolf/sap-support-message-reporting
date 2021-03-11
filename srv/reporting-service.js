@@ -16,7 +16,8 @@ module.exports = cds.service.impl(async (srv) =>  {
     MessageAlogSet: dbMessageAlogSet, 
     PriorityTxtView,
     StatusTxtView,
-    StatusView
+    StatusView,
+    SystemIdView
   } = db.entities
 
   srv.on ('READ', "PriorityTxtVH", async req => {
@@ -32,7 +33,8 @@ module.exports = cds.service.impl(async (srv) =>  {
   })
 
   srv.on ('READ', "SystemIdVH", async req => {
-    return SELECT.from(SystemIdView)
+    const systemIdVH = await SELECT.from(SystemIdView)
+    return systemIdVH
   })
   
 
