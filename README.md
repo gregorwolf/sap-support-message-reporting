@@ -17,7 +17,7 @@ and an Analytical List Page:
 - [x] Load data SAP Service Marketplace
 - [x] Docker Image
 - [ ] Add reporting for the event log (MessageAlogSet)
-- [ ] Find a user friendly way to maintain the Authentication Cookie
+- [ ] Find a user friendly way to maintain the Authentication Cookie. Using the SAP Passport (X.509 Client Certificate) would be a good option. Here [using SSL Certificate with Axios](https://stackoverflow.com/questions/51363855/how-to-configure-axios-to-use-ssl-certificate) might help.
 - [ ] Deploy to SAP HANA Cloud & SAP BTP Cloud Foundry
 - [ ] Expose Data to SAP Analytics Cloud
 - [ ] Implement further reports in SAP Analytics Cloud
