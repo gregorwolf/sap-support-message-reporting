@@ -1,0 +1,20 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "id": "https://launchpad.support.sap.com/services/odata/incidentws/MessageContactsSet('002075129400001469512021')",
+          "uri": "https://launchpad.support.sap.com/services/odata/incidentws/MessageContactsSet('002075129400001469512021')",
+          "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageContacts"
+        },
+        "Pointer": "002075129400001469512021",
+        "ContTyp": "REPORTER",
+        "UserId": "SUSER",
+        "SmsNotif": "X",
+        "EmailNotif": "X",
+        "ContTypTxt": "REPORTER",
+        "TimeZone": "CET"
+      }
+    ]
+  }
+}

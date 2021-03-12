@@ -28,24 +28,6 @@ annotate MessageHeaderSet with {
   SystemId    @(title : '{i18n>SystemId}');
 };
 
-@cds.persistence.skip                            : false
-@cds.persistence.table
-@Aggregation.ApplySupported.PropertyRestrictions : true
-entity MessageAlogSet : external.MessageAlogSet {
-  @Analytics.Measure   : true
-  @Aggregation.default : #SUM
-  numberOfLogs : Integer default 1
-}
-
-annotate MessageAlogSet with {
-  @Analytics.Dimension : true
-  Uname @(title : '{i18n>Uname}');
-  @Analytics.Dimension : true
-  Pointer;
-  @Analytics.Dimension : true
-  NameTxt;
-}
-
 // View with distinct values for search help
 view PriorityTxtView as select distinct PriorityTxt from MessageHeaderSet;
 
@@ -81,4 +63,45 @@ view SystemIdView as select distinct SystemId from MessageHeaderSet where System
 @cds.odata.valuelist
 entity SystemIdVH {
   key SystemId : external.MessageHeaderSet : SystemId;
+};
+
+@cds.persistence.skip                            : false
+@cds.persistence.table
+@Aggregation.ApplySupported.PropertyRestrictions : true
+entity MessageAlogSet : external.MessageAlogSet {
+  @Analytics.Measure   : true
+  @Aggregation.default : #SUM
+  numberOfLogs : Integer default 1
+}
+
+annotate MessageAlogSet with {
+  @Analytics.Dimension : true
+  Uname @(title : '{i18n>Uname}');
+  @Analytics.Dimension : true
+  Pointer;
+  @Analytics.Dimension : true
+  NameTxt;
+}
+
+@cds.persistence.skip                            : false
+@cds.persistence.table
+@Aggregation.ApplySupported.PropertyRestrictions : true
+entity MessageContactsSet : external.MessageContactsSet {
+  @Analytics.Measure   : true
+  @Aggregation.default : #SUM
+  numberOfContacts : Integer default 1  
+}
+
+annotate MessageContactsSet with {
+  @Analytics.Dimension : true
+  ContTypTxt;
+}
+
+view ContTypTxtView as select distinct ContTypTxt from MessageContactsSet;
+
+// Search Help for SystemId solved with custom logic
+@readonly
+@cds.odata.valuelist
+entity ContTypTxtVH {
+  key ContTypTxt : external.MessageContactsSet : ContTypTxt;
 };

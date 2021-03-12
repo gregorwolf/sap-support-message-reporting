@@ -18,6 +18,13 @@ GET https://launchpad.support.sap.com/services/odata/incidentws/MessageAlogSet
 Cookie: {{$dotenv cookie}}
 
 
+###Retrieve Message Contacts from SAP
+GET https://launchpad.support.sap.com/services/odata/incidentws/MessageContactsSet
+  ?$filter=(Pointer eq '002075129400001469512021')
+  &$format=json
+  &$select=Pointer,ContTyp,ContTypTxt,TimeZone,EmailNotif,SmsNotif
+Cookie: {{$dotenv cookie}}
+
 ### Retrieve Messages from CAP Mock
 GET http://localhost:4004/services/odata/incidentws/MessageHeaderSet
   ?$inlinecount=allpages

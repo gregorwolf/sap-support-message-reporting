@@ -162,6 +162,9 @@
         "LastTextTime": {
           "type": "cds.LargeString"
         },
+        "LastTextCreator": {
+          "type": "cds.LargeString"
+        },
         "TextActive": {
           "type": "cds.String",
           "length": 1
@@ -381,10 +384,7 @@
           "type": "cds.String",
           "length": 10
         },
-        "AaEPQuesUUID": {
-          "type": "cds.LargeString"
-        },
-        "AaEPQuesStatus": {
+        "BusinessImpactTxt": {
           "type": "cds.LargeString"
         },
         "MessageTexts": {
@@ -533,17 +533,19 @@
           "type": "cds.String",
           "length": 24
         },
-        "Kunnr": {
-          "type": "cds.String",
-          "length": 10
-        },
         "ContTyp": {
+          "key": true,
           "type": "cds.String",
           "length": 50
         },
         "UserId": {
+          "key": true,
           "type": "cds.String",
           "length": 12
+        },
+        "Kunnr": {
+          "type": "cds.String",
+          "length": 10
         },
         "FirstName": {
           "type": "cds.String",
@@ -1676,7 +1678,7 @@
           "type": "cds.LargeString"
         },
         "Rating": {
-          "type": "cds.Integer"
+          "type": "cds.LargeString"
         },
         "Abstract": {
           "type": "cds.LargeString"
@@ -3279,7 +3281,7 @@
           "type": "cds.LargeString"
         },
         "Score": {
-          "type": "cds.Integer"
+          "type": "cds.LargeString"
         },
         "EndDate": {
           "type": "cds.Integer64"
@@ -3297,6 +3299,134 @@
           "type": "cds.LargeString"
         },
         "MassData": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.AaEPSwitchSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Name": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Category": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Value": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.EEA_RESP_AreaSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Name": {
+          "type": "cds.LargeString"
+        },
+        "ParentId": {
+          "type": "cds.LargeString"
+        },
+        "AreaTypeId": {
+          "type": "cds.LargeString"
+        },
+        "Status": {
+          "type": "cds.LargeString"
+        },
+        "FKey": {
+          "type": "cds.LargeString"
+        },
+        "Level": {
+          "type": "cds.Integer"
+        },
+        "DrillState": {
+          "type": "cds.LargeString"
+        },
+        "Attr": {
+          "type": "cds.Association",
+          "target": "incidentws.EEA_RESP_AttrSet",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "Attr",
+                "AreaId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "incidentws.EEA_RESP_AttrSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "AttrId": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "AreaId": {
+          "type": "cds.LargeString"
+        },
+        "TypeId": {
+          "type": "cds.LargeString"
+        },
+        "TypeName": {
+          "type": "cds.LargeString"
+        },
+        "TypeType": {
+          "type": "cds.LargeString"
+        },
+        "Sort": {
+          "type": "cds.LargeString"
+        },
+        "Value": {
+          "type": "cds.LargeString"
+        },
+        "Area": {
+          "type": "cds.Association",
+          "target": "incidentws.EEA_RESP_AreaSet",
+          "on": [
+            {
+              "ref": [
+                "Area",
+                "Id"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "AreaId"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "incidentws.EEA_RESPSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Key": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Json": {
           "type": "cds.LargeString"
         }
       }

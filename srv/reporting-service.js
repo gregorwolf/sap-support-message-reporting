@@ -8,12 +8,13 @@ const DEBUG = cds.debug(thisApplication);
 
 module.exports = cds.service.impl(async (srv) =>  {
   const incidentws = await cds.connect.to("incidentws")
-  const { MessageHeaderSet, MessageAlogSet } = incidentws.entities
+  const { MessageHeaderSet, MessageAlogSet, MessageContactsSet } = incidentws.entities
 
   const db = await cds.connect.to("db")
   const { 
     MessageHeaderSet: dbMessageHeaderSet, 
     MessageAlogSet: dbMessageAlogSet, 
+    MessageContactsSet: dbMessageContactsSet,
     PriorityTxtView,
     StatusTxtView,
     StatusView,
@@ -43,6 +44,7 @@ module.exports = cds.service.impl(async (srv) =>  {
 
     db.run(DELETE.from(dbMessageHeaderSet))
     db.run(DELETE.from(dbMessageAlogSet))
+    db.run(DELETE.from(dbMessageContactsSet))
 
     var cookie = getCookie()
     const instance = axios.create({
@@ -65,6 +67,7 @@ module.exports = cds.service.impl(async (srv) =>  {
       for (let index = 0; index < responseMessageHeaderSet.length; index++) {
         let value = responseMessageHeaderSet[index]
         DEBUG && DEBUG(`Read Pointer ${value.Pointer}`);
+        // Read Action Log
         let axiosResponseMessageAlogSet = await instance.get(`/services/odata/incidentws/MessageAlogSet?$filter=(Pointer eq '${value.Pointer}')&$format=json`)
         axiosResponseMessageAlogSet.data.d.results.forEach(cleanObject);
         let responseMessageAlogSet = axiosResponseMessageAlogSet.data.d.results
@@ -72,6 +75,15 @@ module.exports = cds.service.impl(async (srv) =>  {
         if(responseMessageAlogSet.length > 0) {
           let resultsetMessageAlogSet = await db.run([INSERT.into(dbMessageAlogSet).rows(responseMessageAlogSet)])
           DEBUG && DEBUG(`Added entities of type MessageAlogSet ${resultsetMessageAlogSet[0].affectedRows}`);
+        }
+        // Read Contacts
+        let axiosResponseMessageContactsSet = await instance.get(`/services/odata/incidentws/MessageContactsSet?$filter=(Pointer eq '${value.Pointer}')&$format=json`)
+        axiosResponseMessageContactsSet.data.d.results.forEach(cleanObject);
+        let responseMessageContactsSet = axiosResponseMessageContactsSet.data.d.results
+        DEBUG && DEBUG(`${responseMessageContactsSet.length} entries for Pointer ${value.Pointer}`);
+        if(responseMessageContactsSet.length > 0) {
+          let resultsetMessageContactsSet = await db.run([INSERT.into(dbMessageContactsSet).rows(responseMessageContactsSet)])
+          DEBUG && DEBUG(`Added entities of type MessageContactsSet ${resultsetMessageContactsSet[0].affectedRows}`);
         }
       }  
     }
@@ -97,12 +109,21 @@ module.exports = cds.service.impl(async (srv) =>  {
     for (let index = 0; index < responseMessageHeaderSet.length; index++) {
       let value = responseMessageHeaderSet[index]
       DEBUG && DEBUG(`Read Pointer ${value.Pointer}`);
+      // Read Action Log
       let cqnMessageAlogSet = SELECT.from(MessageAlogSet).where('Pointer =', value.Pointer)
       let responseMessageAlogSet = await incidentws.run(cqnMessageAlogSet)
       DEBUG && DEBUG(`${responseMessageAlogSet.length} entries for Pointer ${value.Pointer}`);
       if(responseMessageAlogSet.length > 0) {
         let resultsetMessageAlogSet = await db.run([INSERT.into(dbMessageAlogSet).rows(responseMessageAlogSet)])
         DEBUG && DEBUG(`Added entities of type MessageAlogSet ${resultsetMessageAlogSet[0].affectedRows}`);
+      }
+      // Read Contacts
+      let cqnMessageContactsSet = SELECT.from(MessageContactsSet).where('Pointer =', value.Pointer)
+      let responseMessageContactsSet = await incidentws.run(cqnMessageContactsSet)
+      DEBUG && DEBUG(`${responseMessageContactsSet.length} entries for Pointer ${value.Pointer}`);
+      if(responseMessageContactsSet.length > 0) {
+        let resultsetMessageContactsSet = await db.run([INSERT.into(dbMessageContactsSet).rows(responseMessageContactsSet)])
+        DEBUG && DEBUG(`Added entities of type MessageContactsSet ${resultsetMessageContactsSet[0].affectedRows}`);
       }
     }
   })

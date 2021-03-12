@@ -6,16 +6,19 @@ const DEBUG = cds.debug(thisApplication);
 
 const MessageHeaderSetData = require("./data/MessageHeaderSet.json");
 const MessageAlogSetData = require("./data/MessageAlogSet.json")
+const MessageContactsSetData = require("./data/MessageContactsSet.json")
 
 module.exports = (db) => {
   const {
     MessageHeaderSet,
-    MessageAlogSet
+    MessageAlogSet,
+    MessageContactsSet
   } = db.entities("incidentws");
 
   const entityToData = new Map([
     [MessageHeaderSet, MessageHeaderSetData],
-    [MessageAlogSet, MessageAlogSetData]
+    [MessageAlogSet, MessageAlogSetData],
+    [MessageContactsSet, MessageContactsSetData]
   ]);
 
   entityToData.forEach((value, key) => {

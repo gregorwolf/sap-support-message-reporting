@@ -55,6 +55,7 @@
         <Property Name="LastTextTstmp" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Last Text Timestamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="LastTextDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Last Text Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="LastTextTime" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Last Text Time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="LastTextCreator" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Last Text Creator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="TextActive" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Text Active" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="LastNoteNbr" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Last Note Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="LastNoteTxt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Last Note Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
@@ -114,8 +115,7 @@
         <Property Name="SWType" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Software Type" sap:creatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="ProductSelected" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Product Numer selected on UI" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="DataProtection" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Data Protection" sap:sortable="false" sap:filterable="false" />
-        <Property Name="AaEPQuesUUID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Question UUID(Directly)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-        <Property Name="AaEPQuesStatus" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Status of AaEP question" sap:sortable="false" />
+        <Property Name="BusinessImpactTxt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Business Impact" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <NavigationProperty Name="MessageTexts" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.MessageHeaderMessageTexts" FromRole="FromRole_MessageHeaderMessageTexts" ToRole="ToRole_MessageHeaderMessageTexts" />
       </EntityType>
       <EntityType Name="UserData" sap:content-version="1">
@@ -153,6 +153,8 @@
       <EntityType Name="MessageContacts" sap:content-version="1">
         <Key>
           <PropertyRef Name="Pointer" />
+          <PropertyRef Name="ContTyp" />
+          <PropertyRef Name="UserId" />
         </Key>
         <Property Name="Pointer" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Message Pointer" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
         <Property Name="Kunnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Customer Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
@@ -548,7 +550,7 @@
         <Property Name="ComponentText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Priority" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Category" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-        <Property Name="Rating" Type="Edm.Float" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Rating" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Abstract" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="NoteTypeKey" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="NoteType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
@@ -1120,13 +1122,56 @@
         <Property Name="NodePath" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Condition" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="NoteNr" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-        <Property Name="Score" Type="Edm.Float" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Score" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="EndDate" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Type" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="URL" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="ShortText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="LongText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="MassData" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+      </EntityType>
+      <EntityType Name="AaEPSwitch" sap:content-version="1">
+        <Key>
+          <PropertyRef Name="Name" />
+          <PropertyRef Name="Category" />
+        </Key>
+        <Property Name="Name" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Category" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Category" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Value" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+      </EntityType>
+      <EntityType Name="EEA_RESP_Area" sap:content-version="1">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ParentId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="AreaTypeId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Status" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="FKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Level" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="DrillState" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <NavigationProperty Name="Attr" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_RESP_Area_ass" FromRole="FromRole_EEA_RESP_Area_ass" ToRole="ToRole_EEA_RESP_Area_ass" />
+      </EntityType>
+      <EntityType Name="EEA_RESP_Attr" sap:content-version="1">
+        <Key>
+          <PropertyRef Name="AttrId" />
+        </Key>
+        <Property Name="AttrId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="AreaId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="TypeId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="TypeName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="TypeType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Sort" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Value" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <NavigationProperty Name="Area" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_RESP_Area_ass" FromRole="ToRole_EEA_RESP_Area_ass" ToRole="FromRole_EEA_RESP_Area_ass" />
+      </EntityType>
+      <EntityType Name="EEA_RESP" sap:content-version="1">
+        <Key>
+          <PropertyRef Name="Key" />
+        </Key>
+        <Property Name="Key" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Json" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
       </EntityType>
       <Association Name="EEA_Topics_ext_ass" sap:content-version="1">
         <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics" Multiplicity="1" Role="FromRole_EEA_Topics_ext_ass" />
@@ -1195,6 +1240,18 @@
           <Dependent Role="ToRole_EEA_Topics_tf_ass">
             <PropertyRef Name="NodeID" />
             <PropertyRef Name="NodePath" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="EEA_RESP_Area_ass" sap:content-version="1">
+        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_RESP_Area" Multiplicity="1" Role="FromRole_EEA_RESP_Area_ass" />
+        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_RESP_Attr" Multiplicity="*" Role="ToRole_EEA_RESP_Area_ass" />
+        <ReferentialConstraint>
+          <Principal Role="FromRole_EEA_RESP_Area_ass">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="ToRole_EEA_RESP_Area_ass">
+            <PropertyRef Name="AreaId" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
@@ -1277,6 +1334,14 @@
         <EntitySet Name="ERCD_SystemsSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.ERCD_Systems" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
         <EntitySet Name="SNTokenSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.SNToken" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
         <EntitySet Name="EEA_Topics_tfSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_tf" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="AaEPSwitchSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.AaEPSwitch" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_RESP_AreaSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_RESP_Area" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_RESP_AttrSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_RESP_Attr" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_RESPSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_RESP" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <AssociationSet Name="EEA_RESP_Area_assSet" Association="/SVT/NGMSG_WEBSERVICES_SRV.EEA_RESP_Area_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+          <End EntitySet="EEA_RESP_AreaSet" Role="FromRole_EEA_RESP_Area_ass" />
+          <End EntitySet="EEA_RESP_AttrSet" Role="ToRole_EEA_RESP_Area_ass" />
+        </AssociationSet>
         <AssociationSet Name="EEA_Topics_rel_assSet" Association="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_rel_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
           <End EntitySet="EEA_TopicsSet" Role="FromRole_EEA_Topics_rel_ass" />
           <End EntitySet="EEA_Topics_relSet" Role="ToRole_EEA_Topics_rel_ass" />
@@ -1311,6 +1376,7 @@
           <Parameter Name="IncidentID" Type="Edm.String" Mode="In" />
           <Parameter Name="QuestionUUID" Type="Edm.String" Mode="In" />
           <Parameter Name="CreationDate" Type="Edm.String" Mode="In" />
+          <Parameter Name="Email" Type="Edm.String" Mode="In" />
         </FunctionImport>
       </EntityContainer>
       <atom:link rel="self" href="https://launchpad.support.sap.com/services/odata/incidentws/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
