@@ -2,7 +2,7 @@
   "name": "sap-support-message-reporting",
   "version": "0.0.1",
   "description": "SAP Support Message Reporting",
-  "repository": "<Add your repository here>",
+  "repository": "https://github.com/gregorwolf/sap-support-message-reporting",
   "license": "MIT",
   "private": false,
   "dependencies": {
