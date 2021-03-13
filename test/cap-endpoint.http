@@ -8,6 +8,12 @@ Content-Type: application/json
 {}
 
 ###
+POST https://sap-support-message-reporting.d423983.kyma.shoot.live.k8s-hana.ondemand.com/reporting/loadDataFromMock
+Content-Type: application/json
+
+{}
+
+###
 POST http://localhost:4004/reporting/loadDataFromSAP
 Content-Type: application/json
 

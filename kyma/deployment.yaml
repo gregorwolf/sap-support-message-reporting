@@ -1,0 +1,76 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sap-support-message-reporting
+  labels:
+    app: sap-support-message-reporting
+spec:
+  ports:
+    - name: http
+      port: 4004
+  selector:
+    app: sap-support-message-reporting
+    tier: frontend
+---
+apiVersion: gateway.kyma-project.io/v1alpha1
+kind: APIRule
+metadata:
+  labels:
+    app: sap-support-message-reporting
+  name: sap-support-message-reporting
+spec:
+  service:
+    host: sap-support-message-reporting
+    name: sap-support-message-reporting
+    port: 4004
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  rules:
+    - path: /.*
+      methods: ["GET", "PUT", "POST", "HEAD", "PATCH", "DELETE" ]
+      accessStrategies:
+        - handler: noop
+      mutators:
+        - handler: noop
+---
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: sap-support-message-reporting-secret
+    type: opaque
+    stringData:
+      VCAP_SERVICES: >
+        {          
+        }
+---
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: sap-support-message-reporting
+  labels:
+    app: sap-support-message-reporting
+spec:
+  selector:
+    matchLabels:
+      app: sap-support-message-reporting
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: sap-support-message-reporting
+        tier: frontend
+      annotations:
+        sidecar.istio.io/inject: "true"
+    spec:
+      containers:
+      - image: gregorwolf/sap-support-message-reporting:latest
+        name: sap-support-message-reporting
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 4004
+          name: http
+        envFrom:
+        - secretRef:
+            name: sap-support-message-reporting-secret

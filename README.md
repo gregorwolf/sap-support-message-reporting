@@ -95,3 +95,23 @@ To load data from OSS add the following section to the *default-env.json* file i
 ```
 
 replace `<Your Cookie>` with the content of [your cookie that you've got from your browser](#update-mock-data-with-your-own-incidents). Then start the project with `npm start` and execute the *loadDataFromSAP* request in the *test/cap-endpoint.http* file.
+
+## Deploy to Kyma
+
+Download the kubeconfig from your Kyma instance via the menu behind the account Icon in the upper right corner. Save it in *~/.kube/kubeconfig-kyma.yml*. Then run:
+
+`export KUBECONFIG=~/.kube/kubeconfig-kyma.yml`
+
+Please note that the token in the kubeconfig is [only valid for 8 hours](https://kyma-project.io/docs/components/security#details-iam-kubeconfig-service). So you might have to redo the download whenever you want to run the commands again.
+
+To keep this project separate from your other deployments I would suggest to create a namespace:
+
+`kubectl create namespace sap-support-message-reporting`
+
+Deploy the configuration:
+
+`kubectl -n sap-support-message-reporting apply -f kyma/deployment.yaml`
+
+Update the container:
+
+`kubectl -n sap-support-message-reporting rollout restart deployment/sap-support-message-reporting`
