@@ -1,6 +1,10 @@
 # SAP Support Message Reporting
 
 Replicate data from SAP Support Launchpad Incident OData service for local reporting.
+## Architecture
+
+![Architecture](assets/Architecture.png)
+
 ## Current functionality
 
 Currently two visualizations are implemented. An Overview Page:
