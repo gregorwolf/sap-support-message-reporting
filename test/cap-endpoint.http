@@ -38,11 +38,11 @@ GET http://localhost:4004/reporting/MessageAlogSet/$count
 
 ###
 GET http://localhost:4004/reporting/MessageHeaderSet
-    ?$apply=groupby((PriorityTxt),aggregate(count with sum as Total))
+    ?$apply=groupby((PriorityTxt),aggregate(numberOfMessages with sum as numberOfMessagesTotal))
 
 ###
 GET http://localhost:4004/reporting/MessageHeaderSet
-    ?$apply=groupby((StatusTxt),aggregate(count with sum as Total))
+    ?$apply=groupby((StatusTxt),aggregate(numberOfMessages with sum as numberOfMessagesTotal))
 
 ###
 GET http://localhost:4004/reporting/MessageAlogSet
