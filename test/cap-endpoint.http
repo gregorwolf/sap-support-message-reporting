@@ -2,6 +2,9 @@
 GET http://localhost:4004/reporting
 
 ###
+GET http://localhost:4004/reporting/$metadata
+
+###
 POST http://localhost:4004/reporting/loadDataFromMock
 Content-Type: application/json
 
@@ -22,6 +25,17 @@ Content-Type: application/json
 ###
 GET http://localhost:4004/reporting/MessageHeaderSet
     ?$top=2
+    &$select=Pointer
+    &$count=true
+    &$expand=to_MessageAlogSet($select=ActionTxt)
+
+###
+GET http://localhost:4004/reporting/MessageHeaderSet
+    ?$top=2
+    &$expand=to_MessageAlogSet($apply=groupby((Pointer),aggregate(numberOfLogs with sum as TotalNumberOfLogs)))
+### Returns
+# Allowed query option expected
+
 ###
 GET http://localhost:4004/reporting/MessageHeaderSet/$count
 ###

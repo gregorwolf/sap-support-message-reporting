@@ -2,7 +2,10 @@ using sap.incident.reporting as reporting from '../db/data-model';
 
 service ReportingService {
     // Main Entities
-    entity MessageHeaderSet as projection on reporting.MessageHeaderSet;
+    entity MessageHeaderSet as projection on reporting.MessageHeaderSet {
+        *,
+        to_MessageAlogSet : redirected to MessageAlogSet
+    };
     entity MessageAlogSet as projection on reporting.MessageAlogSet;
     entity MessageContactsSet as projection on reporting.MessageContactsSet;
 

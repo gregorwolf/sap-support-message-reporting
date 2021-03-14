@@ -14,6 +14,7 @@ entity MessageHeaderSet : external.MessageHeaderSet {
   @Analytics.Measure   : true
   @Aggregation.default : #SUM
   numberOfMessages : Integer default 1 @(title : '{i18n>numberOfMessages}');
+  to_MessageAlogSet : Association to many MessageAlogSet on to_MessageAlogSet.Pointer = $self.Pointer;
 }
 
 // Annotate analytic dimensions
@@ -71,7 +72,8 @@ entity SystemIdVH {
 entity MessageAlogSet : external.MessageAlogSet {
   @Analytics.Measure   : true
   @Aggregation.default : #SUM
-  numberOfLogs : Integer default 1
+  numberOfLogs : Integer default 1;
+  to_MessageHeaderSet: Association to one MessageHeaderSet
 }
 
 annotate MessageAlogSet with {
