@@ -1,0 +1,6 @@
+###
+# @name launchpad
+GET https://launchpad.support.sap.com/services/odata/incidentws/
+
+### Unfortunately REST Client can't parse HTML
+@action = {{launchpad.response.body.*}}
