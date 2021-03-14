@@ -49,7 +49,14 @@ GET http://localhost:4004/reporting/MessageAlogSet
     ?$apply=groupby((NameTxt),aggregate(numberOfLogs with sum as TotalNumberOfLogs))
 
 ###
+GET http://localhost:4004/reporting/MessageAlogSet
+    ?$apply=groupby((Pointer),aggregate(numberOfLogs with sum as TotalNumberOfLogs))
+
+###
 GET http://localhost:4004/reporting/MessageContactsSet
+
+###
+GET http://localhost:4004/reporting/MessageAlogView
 
 ###
 GET http://localhost:4004/reporting/PriorityTxtVH

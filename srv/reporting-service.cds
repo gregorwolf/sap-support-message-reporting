@@ -5,6 +5,12 @@ service ReportingService {
     entity MessageHeaderSet as projection on reporting.MessageHeaderSet;
     entity MessageAlogSet as projection on reporting.MessageAlogSet;
     entity MessageContactsSet as projection on reporting.MessageContactsSet;
+
+    @readonly 
+    entity MessageAlogView as SELECT 
+        from reporting.MessageAlogSet { sum( numberOfLogs ) as numberOfLogs:Integer, Pointer }  
+        group by Pointer;
+
     // Value Helps
     entity PriorityTxtVH as projection on reporting.PriorityTxtVH;
     entity StatusTxtVH as projection on reporting.StatusTxtVH;
