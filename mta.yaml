@@ -1,0 +1,49 @@
+## Generated mta.yaml based on template version 0.4.0
+## appName = sap-support-message-reporting
+## language=nodejs; multiTenant=false
+## approuter=
+_schema-version: '3.1'
+ID: sap-support-message-reporting
+version: 0.0.1
+description: "SAP Support Message Reporting"
+parameters:
+  enable-parallel-deployments: true
+   
+build-parameters:
+  before-all:
+   - builder: custom
+     commands:
+      - npm install --production
+      - cds build --production
+
+modules:
+  # --------------------- SERVER MODULE ------------------------
+  - name: sap-support-message-reporting-srv
+  # ------------------------------------------------------------
+    type: nodejs
+    path: gen/srv
+    build-parameters:
+      ignore: ["node_modules/"]
+    parameters:
+      memory: 256M
+      disk-quota: 1024M
+    provides:
+    - name: srv-api      # required by consumers of CAP services (e.g. approuter)
+      properties:
+        srv-url: ${default-url}
+  - name: sap-support-message-reporting-ui
+    type: nodejs
+    path: app
+    build-parameters:
+      ignore: ["node_modules/"]
+    parameters:
+      memory: 128M
+      disk-quota: 1024M
+    requires:
+     - name: srv-api
+       group: destinations
+       properties:
+          forwardAuthToken: true
+          strictSSL: false
+          name: srv_api
+          url: ~{srv-url}
