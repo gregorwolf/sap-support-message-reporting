@@ -16,7 +16,7 @@
     "npm-run-all": "^4.1.5"
   },
   "scripts": {
-    "start": "cds run --with-mocks --in-memory",
+    "start": "export NODE_ENV=development && cds run --with-mocks --in-memory",
     "build:docker": "run-s build build:docker:image",
     "build": "cds build",
     "build:docker:image": "docker build -t gregorwolf/sap-support-message-reporting:latest .",

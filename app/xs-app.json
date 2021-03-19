@@ -1,0 +1,23 @@
+{
+  "welcomeFile": "/index.html",
+  "authenticationMethod": "none",
+  "routes": [
+    {
+      "source": "/services/odata/reporting/(.*)$",
+      "target": "/services/odata/reporting/$1",
+      "destination": "srv_api",
+      "csrfProtection": true
+    },
+    {
+      "source": "/reporting/(.*)$",
+      "target": "/reporting/$1",
+      "destination": "srv_api",
+      "csrfProtection": true
+    },
+    {
+      "source": "^/(.*)$",
+      "target": "$1",
+      "localDir": "./"
+    }
+  ]
+}
