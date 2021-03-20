@@ -3,4 +3,24 @@
 GET https://launchpad.support.sap.com/services/odata/incidentws/
 
 ### Unfortunately REST Client can't parse HTML
-@action = {{launchpad.response.body.*}}
+@actionURL = "https://authn.hana.ondemand.com/saml2/sp/mds"
+@tenantId = ""
+@idpName = ""
+@requestUrl = ""
+@requestId = ""
+@relayState = ""
+@action = "sso"
+@signature = ""
+
+### SAML
+# @name saml
+POST {{actionURL}}
+Content-Type: application/x-www-form-urlencoded
+
+tenantId={{tenantId}}
+&idpName={{idpName}}
+&requestUrl={{requestUrl}}
+&requestId={{requestId}}
+&relayState={{relayState}}
+&action={{action}}
+&signature={{signature}}

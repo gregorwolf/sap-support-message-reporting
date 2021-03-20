@@ -8,11 +8,15 @@
   "dependencies": {
     "@sap/cds": "^4.6.5",
     "@sap/cds-odata-v2-adapter-proxy": "^1.5.10",
+    "cheerio": "^1.0.0-rc.5",
     "date-fns": "^2.19.0",
     "express": "^4",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "5.0.0",
+    "pino": "^6.11.2",
+    "qs": "^6.10.0"
   },
   "devDependencies": {
+    "pino-pretty": "^4.7.1",
     "npm-run-all": "^4.1.5"
   },
   "scripts": {

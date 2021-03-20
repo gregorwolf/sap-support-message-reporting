@@ -10,6 +10,13 @@
       "request": "launch",
       "type": "node-terminal",
       "skipFiles": [ "<node_internals>/**" ]
+    },
+    {
+      "command": "node test/saml-authentication.js",
+      "name": "SAML Auth",
+      "request": "launch",
+      "type": "node-terminal",
+      "skipFiles": [ "<node_internals>/**" ]
     }
   ]
 }
