@@ -22,11 +22,11 @@ const logger = pino({
 const httpsAgent = new https.Agent({
   rejectUnauthorized: false,
   cert: fs.readFileSync(
-    process.env.HTTPS_CLIENT_CERT || "/Users/gwolf/Downloads/S0001142741.pem"
+    process.env.HTTPS_CLIENT_CERT || "/Users/gwolf/Downloads/s-user.crt"
   ),
   key: fs.readFileSync(
     process.env.HTTPS_CLIENT_KEY ||
-      "/Users/gwolf/Downloads/S0001142741-decrypted.key"
+      "/Users/gwolf/Downloads/s-user-decrypted.key"
   ),
 });
 
