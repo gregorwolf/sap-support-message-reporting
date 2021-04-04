@@ -11,9 +11,9 @@
     "cheerio": "^1.0.0-rc.5",
     "date-fns": "^2.19.0",
     "express": "^4",
-    "sqlite3": "5.0.0",
     "pino": "^6.11.2",
-    "qs": "^6.10.0"
+    "qs": "^6.10.1",
+    "sqlite3": "5.0.0"
   },
   "devDependencies": {
     "pino-pretty": "^4.7.1",
