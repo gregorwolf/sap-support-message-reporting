@@ -16,6 +16,9 @@
       "name": "SAML Auth",
       "request": "launch",
       "type": "node-terminal",
+      "env": {
+        "xhttps_proxy": "http://127.0.0.1:8866"
+      },
       "skipFiles": [ "<node_internals>/**" ]
     }
   ]
