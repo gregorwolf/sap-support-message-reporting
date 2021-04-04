@@ -85,16 +85,35 @@ then start the project with `npm start` and execute the *loadDataFromMock* reque
 
 ## Load Data from SAP Service Marketplace
 
-To load data from OSS add the following section to the *default-env.json* file in the root folder:
+To load data from OSS add the following content to the *default-env.json* file in the root folder:
 
 ```JSON
-  ,
+{
+  "VCAP_SERVICES": {},
+  "destinations": [
+    {
+      "destination": "OSS",
+      "url": "https://launchpad.support.sap.com",
+      "credentials": {}
+    }
+  ],
   "OSS_COOKIE": {
     "cookie": "<Your Cookie>"
   }
+}
 ```
 
-replace `<Your Cookie>` with the content of [your cookie that you've got from your browser](#update-mock-data-with-your-own-incidents). Then start the project with `npm start` and execute the *loadDataFromSAP* request in the *test/cap-endpoint.http* file.
+you can now replace `<Your Cookie>` with the content of [your cookie that you've got from your browser](#update-mock-data-with-your-own-incidents). The other option is to use the SAP Passport (X.509 Client Certificate). At https://launchpad.support.sap.com/#/sappassport all S-Users can get their SAP Passport and install it into their local certificate store to Single Sign On (SSO) to the SAP Service Marketplace. [With this steps](https://www.ibm.com/support/knowledgecenter/SSVP8U_9.7.0/com.ibm.drlive.doc/topics/r_extratsslcert.html) the resulting PFX file can be prepared to be used with curl and NodeJS:
+
+```
+openssl pkcs12 -in s-user.pfx -nocerts -out s-user.key
+openssl pkcs12 -in s-user.pfx -clcerts -nokeys -out s-user.crt
+openssl rsa -in s-user.key -out s-user-decrypted.key
+```
+
+Then run `npm run update:cookie` to update the cookie in *default-env.json*.
+
+Then start the project with `npm start` and execute the *loadDataFromSAP* request in the *test/cap-endpoint.http* file.
 
 ## Deploy to Kyma
 

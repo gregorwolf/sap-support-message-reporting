@@ -29,3 +29,8 @@ mta_archives/
 # .idea
 
 .env
+
+# Certificates
+s-user.crt
+s-user.key
+s-user-decrypted.key

@@ -17,23 +17,18 @@ const logger = pino({
   level: process.env.LOG_LEVEL || "info",
   prettyPrint: prettyPrint,
   customLevels: {
-    cookies: 36,
-    sentcookie: 34,
-    saml: 28,
-    payload: 26,
+    cookies: 28,
+    sentcookie: 26,
+    saml: 24,
+    payload: 22,
   },
 });
 
 // Add Certificate for Authentication
 const httpsAgent = new https.Agent({
   rejectUnauthorized: false,
-  cert: fs.readFileSync(
-    process.env.HTTPS_CLIENT_CERT || "/Users/gwolf/Downloads/s-user.crt"
-  ),
-  key: fs.readFileSync(
-    process.env.HTTPS_CLIENT_KEY ||
-      "/Users/gwolf/Downloads/s-user-decrypted.key"
-  ),
+  cert: fs.readFileSync(process.env.HTTPS_CLIENT_CERT || "s-user.crt"),
+  key: fs.readFileSync(process.env.HTTPS_CLIENT_KEY || "s-user-decrypted.key"),
 });
 
 async function authStep1(parameters) {
@@ -115,7 +110,7 @@ async function authStep4(parameters) {
         Cookie: parameters.cookie,
       },
       data: qs.stringify(parameters.postParameters),
-      maxRedirects: 0
+      maxRedirects: 0,
     });
     logger.payload(`Step 4 response status:`);
     logger.payload(response.status);
@@ -124,7 +119,7 @@ async function authStep4(parameters) {
     return processResponse(response);
   } catch (error) {
     // a redirect is good. We need the cookies from this redirect
-    if(error.response.status === 302) {
+    if (error.response.status === 302) {
       return processResponse(error.response);
     }
     logger.error(error);
@@ -140,7 +135,7 @@ async function authStep5(parameters) {
       url: parameters.actionURL,
       headers: {
         Cookie: parameters.cookie,
-      }
+      },
     });
     logger.payload(`Step 5 response status:`);
     logger.payload(response.status);
@@ -183,6 +178,29 @@ function processResponse(response) {
 
   // logger.debug(parameters);
   return parameters;
+}
+
+function updateCookieInDefaultEnv(cookie) {
+  var filename = "default-env.json";
+  fs.readFile(filename, "utf-8", (err, data) => {
+    if (err) {
+      throw err;
+    }
+
+    // parse JSON object
+    const defaultEnv = JSON.parse(data.toString());
+
+    defaultEnv.OSS_COOKIE.cookie = cookie;
+
+    data = JSON.stringify(defaultEnv, null, 2);
+
+    fs.writeFile(filename, data, (err) => {
+      if (err) {
+        throw err;
+      }
+      console.log("JSON data is saved.");
+    });
+  });
 }
 
 async function getFromLaunchpad(path) {
@@ -235,6 +253,7 @@ async function getFromLaunchpad(path) {
       logger.cookies(resultStep5.cookies);
       logger.payload("Response from Step 5");
       logger.payload(resultStep5.data);
+      updateCookieInDefaultEnv(resultStep4.cookie);
     }
   } catch (error) {
     logger.error(error);

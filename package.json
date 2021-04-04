@@ -21,6 +21,7 @@
   },
   "scripts": {
     "start": "export NODE_ENV=development && cds run --with-mocks --in-memory",
+    "update:cookie": "node test/saml-authentication.js",
     "build:docker": "run-s build build:docker:image",
     "build": "cds build",
     "build:docker:image": "docker build -t gregorwolf/sap-support-message-reporting:latest .",
