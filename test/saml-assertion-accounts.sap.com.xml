@@ -1,0 +1,68 @@
+<Response xmlns="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:ns2="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:ns3="http://www.w3.org/2000/09/xmldsig#" xmlns:ns4="http://www.w3.org/2001/04/xmlenc#" Destination="https://authn.hana.ondemand.com/saml2/sp/acs/supportportal/supportportal" ID="RES-SSO-2e3decb0-3100-42b2-ac38-38f0c87d8555" InResponseTo="Sb0f11250-e36e-4a1c-8175-f9b9203ce4f2-3sT1oNI3cSVas5W2Y8QNXirm8aGKetKxqf2R8SAy0T4" IssueInstant="2021-03-20T15:12:27.196Z" Version="2.0">
+  <ns2:Issuer>https://accounts.sap.com</ns2:Issuer>
+  <Status>
+    <StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" />
+  </Status>
+  <Assertion xmlns="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:ns2="http://www.w3.org/2000/09/xmldsig#" xmlns:ns3="http://www.w3.org/2001/04/xmlenc#" ID="A-053275a1-b78d-45b5-8be9-bc027da6766e" IssueInstant="2021-03-20T15:12:27.196Z" Version="2.0">
+    <Issuer>https://accounts.sap.com</Issuer>
+    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      <ds:SignedInfo>
+        <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+        <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+        <ds:Reference URI="#A-053275a1-b78d-45b5-8be9-bc027da6766e">
+          <ds:Transforms>
+            <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+            <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+          </ds:Transforms>
+          <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+          <ds:DigestValue>bArmDAL+6bU6/JbKyVYH+xZinxY=</ds:DigestValue>
+        </ds:Reference>
+      </ds:SignedInfo>
+      <ds:SignatureValue>PR4dsDcW+UBwYv8sf5KVDMxwPptddkxMjQRsyzMdcXhtRZL7rGBicW7m0ECgl9hRdgueBfPHo/KqtaOtEjfav0LajqO4k94oNb1VOHBw2LonfBJa66xnyS3bJxyUwHc2mQRmWOlDhQYLuebUkniG0KXQORwVz3aMgFxG+Q9HtRECu3zmpEmRQWidQHR6j5FVdYHLKeOESr6mVSR7Vi5gzbw21E1zjBtOfTBUJAmfCenmmgP4AAwQc/sH/OyLGxurm+VC8zw22dNVW5DoY++Ha2UPZv0c7u7+69RFjJQo27wpSiyNyhUFrUMFQ3b7Y9U+JJFQ7izqqZzVc/uGjHoqxA==</ds:SignatureValue>
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIC9DCCAdygAwIBAQIGAW+kKxr9MA0GCSqGSIb3DQEBCwUAMDkxCzAJBgNVBAYTAkRFMQ8wDQYDVQQKEwZTQVAtU0UxGTAXBgNVBAMTEGFjY291bnRzLnNhcC5jb20wHhcNMjAwMTE0MTMwODA2WhcNMzAwMTE0MTMwODA2WjA5MQswCQYDVQQGEwJERTEPMA0GA1UEChMGU0FQLVNFMRkwFwYDVQQDExBhY2NvdW50cy5zYXAuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt5TbH3HZhE44A+lTM1lR7yfwzc1UegOZFWTyvVIIBops+1xZwNDt7kkUwqjja50TI00fISCAVQQ0TDKiVZt/jKE/Tt243CwA5Y5p0YxQ5FcLslNW3Gg5E3eEhPOjgbJaaLo69F2x4i1VIwaH4hU4xY/EKjFcCzuFFd0BL7FB81V0gJnjQHTaT1hhbnY7I8DWKn0Sm8p08fKOmnvJ+WD0OL/CzNuVQh9CTydo5c6dy4I7XoFc8e0uUnnrtT8DHTfJqu2RZTNI6pDXAcvw0PDOxEUvFCimRI8R/RvPMKyLTS6Fp6SL3+oAVUVShxWaTJxmMXdK7npSg/Jfr1E8k0+rPwIDAQABggIAADANBgkqhkiG9w0BAQsFAAOCAQEAcbwfGgQHZXGSTV/oNJzRdXtJA70XqG6G325srJfLtexvPWwYdK6mBWWXpytTNGQUUfx/G1uXRd5YTep5sWMctEUSf8NhtTxc14e3TW0L7/+16J3gruZtyKy91pJd/fP6ScTE8QYcNp+j55TIswah6qGbWvjyJp/n3+KoMvakMxY0lBnLkMN1pTu4QeIi6mXI/5KTxT+0b/1nxpR/z+tierNTfC31WH43OwAcZC0U/Q/tneEhZre0vDJGWM9eD+eljX2m6LwJxwT6IjvdCAe4gmUvkjjQwXASv3U9IxzMR2qOTHjR147zcGvXje06Jb8b94GpKebnLJVkxISp37J21g==</ds:X509Certificate>
+        </ds:X509Data>
+        <ds:KeyValue>
+          <ds:RSAKeyValue>
+            <ds:Modulus>t5TbH3HZhE44A+lTM1lR7yfwzc1UegOZFWTyvVIIBops+1xZwNDt7kkUwqjja50TI00fISCAVQQ0TDKiVZt/jKE/Tt243CwA5Y5p0YxQ5FcLslNW3Gg5E3eEhPOjgbJaaLo69F2x4i1VIwaH4hU4xY/EKjFcCzuFFd0BL7FB81V0gJnjQHTaT1hhbnY7I8DWKn0Sm8p08fKOmnvJ+WD0OL/CzNuVQh9CTydo5c6dy4I7XoFc8e0uUnnrtT8DHTfJqu2RZTNI6pDXAcvw0PDOxEUvFCimRI8R/RvPMKyLTS6Fp6SL3+oAVUVShxWaTJxmMXdK7npSg/Jfr1E8k0+rPw==</ds:Modulus>
+            <ds:Exponent>AQAB</ds:Exponent>
+          </ds:RSAKeyValue>
+        </ds:KeyValue>
+      </ds:KeyInfo>
+    </ds:Signature>
+    <Subject>
+      <NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified">S0001142741</NameID>
+      <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+        <SubjectConfirmationData InResponseTo="Sb0f11250-e36e-4a1c-8175-f9b9203ce4f2-3sT1oNI3cSVas5W2Y8QNXirm8aGKetKxqf2R8SAy0T4" NotOnOrAfter="2021-03-20T15:22:27.196Z" Recipient="https://authn.hana.ondemand.com/saml2/sp/acs/supportportal/supportportal" />
+      </SubjectConfirmation>
+    </Subject>
+    <Conditions NotBefore="2021-03-20T15:07:27.196Z" NotOnOrAfter="2021-03-20T15:22:27.196Z">
+      <AudienceRestriction>
+        <Audience>https://hana.ondemand.com/supportportal</Audience>
+      </AudienceRestriction>
+    </Conditions>
+    <AuthnStatement AuthnInstant="2021-03-20T15:12:27.196Z" SessionIndex="S-SP-12420aa0-5fab-4dcf-89b8-1d5690e231e0" SessionNotOnOrAfter="2021-03-21T03:12:27.196Z">
+      <AuthnContext>
+        <AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:X509</AuthnContextClassRef>
+      </AuthnContext>
+    </AuthnStatement>
+    <AttributeStatement>
+      <Attribute Name="uid">
+        <AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">S0001142741</AttributeValue>
+      </Attribute>
+      <Attribute Name="last_name">
+        <AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Wolf</AttributeValue>
+      </Attribute>
+      <Attribute Name="type">
+        <AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">customer</AttributeValue>
+      </Attribute>
+      <Attribute Name="first_name">
+        <AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Gregor</AttributeValue>
+      </Attribute>
+      <Attribute Name="email">
+        <AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">gregor.wolf@gmail.com</AttributeValue>
+      </Attribute>
+    </AttributeStatement>
+  </Assertion>
+</Response>
