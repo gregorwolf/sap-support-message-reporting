@@ -6,20 +6,20 @@
   "license": "MIT",
   "private": false,
   "engines": {
-    "node": "^12 || ^14"
+    "node": "^14"
   },
   "dependencies": {
-    "@sap/cds": "^5.1.4",
-    "@sap/cds-odata-v2-adapter-proxy": "^1.6.2",
-    "cheerio": "1.0.0-rc.9",
-    "date-fns": "^2.21.3",
+    "@sap/cds": "^5.1.5",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.7.4",
+    "cheerio": "1.0.0-rc.10",
+    "date-fns": "^2.22.1",
     "express": "^4.17.1",
     "pino": "^6.11.3",
     "qs": "^6.10.1",
     "sqlite3": "5.0.2"
   },
   "devDependencies": {
-    "pino-pretty": "^4.8.0",
+    "pino-pretty": "^5.0.2",
     "npm-run-all": "^4.1.5"
   },
   "scripts": {
