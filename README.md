@@ -1,6 +1,7 @@
 # SAP Support Message Reporting
 
 Replicate data from SAP Support Launchpad Incident OData service for local reporting.
+
 ## Architecture
 
 ![Architecture](assets/Architecture.png)
@@ -21,7 +22,7 @@ and an Analytical List Page:
 - [x] Load data SAP Service Marketplace
 - [x] Docker Image
 - [ ] Add reporting for the event log (MessageAlogSet)
-- [ ] Find a user friendly way to maintain the Authentication Cookie. Using the SAP Passport (X.509 Client Certificate) would be a good option. Here [using SSL Certificate with Axios](https://stackoverflow.com/questions/51363855/how-to-configure-axios-to-use-ssl-certificate) might help.
+- [x] Find a user friendly way to maintain the Authentication Cookie. Using the SAP Passport (X.509 Client Certificate) would be a good option. Here [using SSL Certificate with Axios](https://stackoverflow.com/questions/51363855/how-to-configure-axios-to-use-ssl-certificate) might help.
 - [ ] Deploy to SAP HANA Cloud & SAP BTP Cloud Foundry
 - [ ] Expose Data to SAP Analytics Cloud
 - [ ] Implement further reports in SAP Analytics Cloud
@@ -64,11 +65,11 @@ You find the Cookies. Copy the content of the Cookies header and add it's conten
 cookie=JTENANTSESSIONID_supportportal....
 ```
 
-When you've done that make sure that you've opened this project in VS Code and the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) is installed. Open the test/get-data-from-sap.http file and execute the first two requests. With the result you can fill the corresponding files in the srv/data folder. To protect the privacy only specific columns are selected. If you comment the lines starting with *&$select=* with a # you will get all data.
+When you've done that make sure that you've opened this project in VS Code and the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) is installed. Open the test/get-data-from-sap.http file and execute the first two requests. With the result you can fill the corresponding files in the srv/data folder. To protect the privacy only specific columns are selected. If you comment the lines starting with _&$select=_ with a # you will get all data.
 
 ## Load Data from Mock Service
 
-To load data from the mock service into sqlite please create a *default-env.json* file in the root folder with the following content:
+To load data from the mock service into sqlite please create a _default-env.json_ file in the root folder with the following content:
 
 ```JSON
 {
@@ -81,11 +82,11 @@ To load data from the mock service into sqlite please create a *default-env.json
 }
 ```
 
-then start the project with `npm start` and execute the *loadDataFromMock* request in the *test/cap-endpoint.http* file.
+then start the project with `npm start` and execute the _loadDataFromMock_ request in the _test/cap-endpoint.http_ file.
 
 ## Load Data from SAP Service Marketplace
 
-To load data from OSS add the following content to the *default-env.json* file in the root folder:
+To load data from OSS add the following content to the _default-env.json_ file in the root folder:
 
 ```JSON
 {
@@ -111,13 +112,13 @@ openssl pkcs12 -in s-user.pfx -clcerts -nokeys -out s-user.crt
 openssl rsa -in s-user.key -out s-user-decrypted.key
 ```
 
-Then run `npm run update:cookie` to update the cookie in *default-env.json*.
+Then run `npm run update:cookie` to update the cookie in _default-env.json_.
 
-Then start the project with `npm start` and execute the *loadDataFromSAP* request in the *test/cap-endpoint.http* file.
+Then start the project with `npm start` and execute the _loadDataFromSAP_ request in the _test/cap-endpoint.http_ file.
 
 ## Deploy to Kyma
 
-Download the kubeconfig from your Kyma instance via the menu behind the account Icon in the upper right corner. Save it in *~/.kube/kubeconfig-kyma.yml*. Then run:
+Download the kubeconfig from your Kyma instance via the menu behind the account Icon in the upper right corner. Save it in _~/.kube/kubeconfig-kyma.yml_. Then run:
 
 `export KUBECONFIG=~/.kube/kubeconfig-kyma.yml`
 
