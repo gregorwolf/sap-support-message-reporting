@@ -23,6 +23,6 @@ module.exports = (db) => {
     value.d.results.forEach(cleanObject);
     // write data to db
     DEBUG && DEBUG(`Write ${value.d.results.length} entries into ${key.name}`);
-    cds.run([INSERT.into(key).rows(value.d.results)]);
+    cds.run([INSERT(value.d.results).into(key)]);
   });
 };

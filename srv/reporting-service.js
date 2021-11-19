@@ -68,7 +68,7 @@ module.exports = cds.service.impl(async (srv) => {
         );
       // Store them locally
       const resultsetMessageHeaderSet = await db.run([
-        INSERT.into(dbMessageHeaderSet).rows(responseMessageHeaderSet),
+        INSERT(responseMessageHeaderSet).into(dbMessageHeaderSet),
       ]);
       DEBUG &&
         DEBUG(
@@ -89,7 +89,7 @@ module.exports = cds.service.impl(async (srv) => {
           );
         if (responseMessageAlogSet.length > 0) {
           let resultsetMessageAlogSet = await db.run([
-            INSERT.into(dbMessageAlogSet).rows(responseMessageAlogSet),
+            INSERT(responseMessageAlogSet).into(dbMessageAlogSet),
           ]);
           DEBUG &&
             DEBUG(
@@ -109,7 +109,7 @@ module.exports = cds.service.impl(async (srv) => {
           );
         if (responseMessageContactsSet.length > 0) {
           let resultsetMessageContactsSet = await db.run([
-            INSERT.into(dbMessageContactsSet).rows(responseMessageContactsSet),
+            INSERT(responseMessageContactsSet).into(dbMessageContactsSet),
           ]);
           DEBUG &&
             DEBUG(
@@ -139,7 +139,7 @@ module.exports = cds.service.impl(async (srv) => {
       );
     // Store them locally
     const resultsetMessageHeaderSet = await db.run([
-      INSERT.into(dbMessageHeaderSet).rows(responseMessageHeaderSet),
+      INSERT(responseMessageHeaderSet).into(dbMessageHeaderSet),
     ]);
     DEBUG &&
       DEBUG(
@@ -160,7 +160,7 @@ module.exports = cds.service.impl(async (srv) => {
         );
       if (responseMessageAlogSet.length > 0) {
         let resultsetMessageAlogSet = await db.run([
-          INSERT.into(dbMessageAlogSet).rows(responseMessageAlogSet),
+          INSERT(responseMessageAlogSet).into(dbMessageAlogSet),
         ]);
         DEBUG &&
           DEBUG(
@@ -181,7 +181,7 @@ module.exports = cds.service.impl(async (srv) => {
         );
       if (responseMessageContactsSet.length > 0) {
         let resultsetMessageContactsSet = await db.run([
-          INSERT.into(dbMessageContactsSet).rows(responseMessageContactsSet),
+          INSERT(responseMessageContactsSet).into(dbMessageContactsSet),
         ]);
         DEBUG &&
           DEBUG(
