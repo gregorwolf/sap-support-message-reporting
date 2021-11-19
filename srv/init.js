@@ -1,24 +1,21 @@
-const cds = require("@sap/cds")
-const { cleanObject } = require("./helper")
+const cds = require("@sap/cds");
+const { cleanObject } = require("./helper");
 
 const thisApplication = "sap-support-message-reporting";
 const DEBUG = cds.debug(thisApplication);
 
 const MessageHeaderSetData = require("./data/MessageHeaderSet.json");
-const MessageAlogSetData = require("./data/MessageAlogSet.json")
-const MessageContactsSetData = require("./data/MessageContactsSet.json")
+const MessageAlogSetData = require("./data/MessageAlogSet.json");
+const MessageContactsSetData = require("./data/MessageContactsSet.json");
 
 module.exports = (db) => {
-  const {
-    MessageHeaderSet,
-    MessageAlogSet,
-    MessageContactsSet
-  } = db.entities("incidentws");
+  const { MessageHeaderSet, MessageAlogSet, MessageContactsSet } =
+    db.entities("incidentws");
 
   const entityToData = new Map([
     [MessageHeaderSet, MessageHeaderSetData],
     [MessageAlogSet, MessageAlogSetData],
-    [MessageContactsSet, MessageContactsSetData]
+    [MessageContactsSet, MessageContactsSetData],
   ]);
 
   entityToData.forEach((value, key) => {
