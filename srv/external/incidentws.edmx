@@ -26,8 +26,8 @@
         <Property Name="InputType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Input Type (how message is entered)" sap:sortable="false" sap:filterable="false" />
         <Property Name="Masterinst" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Installation Number where the message was created" sap:sortable="false" sap:filterable="false" />
         <Property Name="ServicetypTxt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Servicetype Text" sap:sortable="false" sap:filterable="false" />
-        <Property Name="StatusTxt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Status Text" sap:sortable="false" sap:filterable="false" />
-        <Property Name="PriorityTxt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Priority Text" sap:sortable="false" sap:filterable="false" />
+        <Property Name="StatusTxt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Status Text" sap:sortable="false" sap:filterable="true" />
+        <Property Name="PriorityTxt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Priority Text" sap:sortable="false" sap:filterable="true" />
         <Property Name="CompKey" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Component Key" sap:sortable="false" sap:filterable="false" />
         <Property Name="ComponentTxt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Service Component Text" sap:sortable="false" sap:filterable="false" />
         <Property Name="CompPath" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Service Component Path" sap:sortable="false" sap:filterable="false" />
