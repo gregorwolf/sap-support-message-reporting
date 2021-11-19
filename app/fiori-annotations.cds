@@ -104,6 +104,7 @@ annotate reporting.MessageHeaderSet with @(UI : {
   LineItem                         : [
     {Value : StatusTxt},
     {Value : PriorityTxt},
+    {Value : SystemId},
     {Value : numberOfMessages}
   ],
   HeaderInfo                       : {
