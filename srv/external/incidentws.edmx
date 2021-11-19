@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
   <edmx:DataServices m:DataServiceVersion="2.0">
-    <Schema Namespace="/SVT/NGMSG_WEBSERVICES_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+    <Schema Namespace="SVT_NGMSG_WEBSERVICES_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
       <EntityType Name="MessageHeader" sap:content-version="1">
         <Key>
           <PropertyRef Name="Pointer" />
@@ -115,8 +115,15 @@
         <Property Name="SWType" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Software Type" sap:creatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="ProductSelected" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Product Numer selected on UI" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="DataProtection" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Data Protection" sap:sortable="false" sap:filterable="false" />
+        <Property Name="AaEPQuesUUID" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Question UUID(Directly)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="AaEPQuesStatus" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Status of AaEP question" sap:sortable="false" sap:filterable="false" />
+        <Property Name="AaEPQuesEmail" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="Email of AaEP question" sap:sortable="false" sap:filterable="false" />
+        <Property Name="QuesDateCreated" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Created date of AaEP question" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ExpirationDate" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Expire date of AaEP question" sap:sortable="false" sap:filterable="false" />
+        <Property Name="AaEPDraftFlag" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Flag of AaEP draft Incident" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="AaEPFlag" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Flag of AaEP draft Incident" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="BusinessImpactTxt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Business Impact" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-        <NavigationProperty Name="MessageTexts" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.MessageHeaderMessageTexts" FromRole="FromRole_MessageHeaderMessageTexts" ToRole="ToRole_MessageHeaderMessageTexts" />
+        <NavigationProperty Name="MessageTexts" Relationship="SVT_NGMSG_WEBSERVICES_SRV.MessageHeaderMessageTexts" FromRole="FromRole_MessageHeaderMessageTexts" ToRole="ToRole_MessageHeaderMessageTexts" />
       </EntityType>
       <EntityType Name="UserData" sap:content-version="1">
         <Key>
@@ -428,6 +435,7 @@
         <Property Name="ProductSelected" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="KMdata" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="EEAPath" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Source" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="RepCase" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Replication Case" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
       </EntityType>
       <EntityType Name="MessageNote" sap:content-version="1">
@@ -550,7 +558,7 @@
         <Property Name="ComponentText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Priority" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Category" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-        <Property Name="Rating" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Rating" Type="Edm.Double" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Abstract" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="NoteTypeKey" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="NoteType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
@@ -615,6 +623,8 @@
         <Property Name="CloudURL" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="LeadingProduct" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
         <Property Name="IsFavorite" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+        <Property Name="MainSystemNbr" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="MainSystemName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
       </EntityType>
       <EntityType Name="CustProdInst" sap:content-version="1">
         <Key>
@@ -672,9 +682,9 @@
         <Property Name="CompKey" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Char20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="CompName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="string" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="CompDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="string" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-        <Property Name="PrioLimit" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Not More Closely Defined Area, Possibly Used for Patchlevels" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="PrioLimit" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Undefined range (can be used for patch levels)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="NotSelectable" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="string" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-        <Property Name="Installation" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Character Field Length = 10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Installation" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Character Field with Length 10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="ChatDepartmentId" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Char20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
       </EntityType>
       <EntityType Name="FavoriteIncident" sap:content-version="1">
@@ -777,9 +787,9 @@
         <Property Name="CompName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="string" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="CompDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="string" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="CompPath" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Component Path" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-        <Property Name="PrioLimit" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Not More Closely Defined Area, Possibly Used for Patchlevels" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="PrioLimit" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Undefined range (can be used for patch levels)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="NotSelectable" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="string" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-        <Property Name="Installation" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Character Field Length = 10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Installation" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Character Field with Length 10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="ChatDepartmentId" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Char20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="SystemNr" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="NodePath" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
@@ -910,11 +920,11 @@
         <Property Name="Information" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="SearchTerms" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Action" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-        <NavigationProperty Name="Ext" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_ext_ass" FromRole="FromRole_EEA_Topics_ext_ass" ToRole="ToRole_EEA_Topics_ext_ass" />
-        <NavigationProperty Name="Km" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_km_ass" FromRole="FromRole_EEA_Topics_km_ass" ToRole="ToRole_EEA_Topics_km_ass" />
-        <NavigationProperty Name="Attr" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_attr_ass" FromRole="FromRole_EEA_Topics_attr_ass" ToRole="ToRole_EEA_Topics_attr_ass" />
-        <NavigationProperty Name="Rel" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_rel_ass" FromRole="FromRole_EEA_Topics_rel_ass" ToRole="ToRole_EEA_Topics_rel_ass" />
-        <NavigationProperty Name="EEA_Topics_tfSet" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_tf_ass" FromRole="FromRole_EEA_Topics_tf_ass" ToRole="ToRole_EEA_Topics_tf_ass" />
+        <NavigationProperty Name="Ext" Relationship="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_ext_ass" FromRole="FromRole_EEA_Topics_ext_ass" ToRole="ToRole_EEA_Topics_ext_ass" />
+        <NavigationProperty Name="Km" Relationship="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_km_ass" FromRole="FromRole_EEA_Topics_km_ass" ToRole="ToRole_EEA_Topics_km_ass" />
+        <NavigationProperty Name="Attr" Relationship="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_attr_ass" FromRole="FromRole_EEA_Topics_attr_ass" ToRole="ToRole_EEA_Topics_attr_ass" />
+        <NavigationProperty Name="Rel" Relationship="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_rel_ass" FromRole="FromRole_EEA_Topics_rel_ass" ToRole="ToRole_EEA_Topics_rel_ass" />
+        <NavigationProperty Name="EEA_Topics_tfSet" Relationship="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_tf_ass" FromRole="FromRole_EEA_Topics_tf_ass" ToRole="ToRole_EEA_Topics_tf_ass" />
       </EntityType>
       <EntityType Name="EEA_Maintain" sap:content-version="1">
         <Key>
@@ -953,6 +963,7 @@
         <Property Name="NodePath" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="StartNodes" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="DestComponents" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Channels" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
       </EntityType>
       <EntityType Name="EEA_Topics_km" sap:content-version="1">
         <Key>
@@ -1120,15 +1131,20 @@
         </Key>
         <Property Name="NodeID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="NodePath" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="PPMSID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Condition" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="NoteNr" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-        <Property Name="Score" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Score" Type="Edm.Double" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="EndDate" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Type" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Subtype" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="URL" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="ShortText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="LongText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="MassData" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ComponentID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ComponentName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Options" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
       </EntityType>
       <EntityType Name="AaEPSwitch" sap:content-version="1">
         <Key>
@@ -1151,7 +1167,9 @@
         <Property Name="FKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Level" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="DrillState" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-        <NavigationProperty Name="Attr" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_RESP_Area_ass" FromRole="FromRole_EEA_RESP_Area_ass" ToRole="ToRole_EEA_RESP_Area_ass" />
+        <Property Name="Task" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="SearchBy" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <NavigationProperty Name="Attr" Relationship="SVT_NGMSG_WEBSERVICES_SRV.EEA_RESP_Area_ass" FromRole="FromRole_EEA_RESP_Area_ass" ToRole="ToRole_EEA_RESP_Area_ass" />
       </EntityType>
       <EntityType Name="EEA_RESP_Attr" sap:content-version="1">
         <Key>
@@ -1164,7 +1182,8 @@
         <Property Name="TypeType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Sort" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Value" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-        <NavigationProperty Name="Area" Relationship="/SVT/NGMSG_WEBSERVICES_SRV.EEA_RESP_Area_ass" FromRole="ToRole_EEA_RESP_Area_ass" ToRole="FromRole_EEA_RESP_Area_ass" />
+        <Property Name="InheritDepth" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <NavigationProperty Name="Area" Relationship="SVT_NGMSG_WEBSERVICES_SRV.EEA_RESP_Area_ass" FromRole="ToRole_EEA_RESP_Area_ass" ToRole="FromRole_EEA_RESP_Area_ass" />
       </EntityType>
       <EntityType Name="EEA_RESP" sap:content-version="1">
         <Key>
@@ -1173,79 +1192,164 @@
         <Property Name="Key" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Json" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
       </EntityType>
+      <EntityType Name="EEA_RESP_Channel" sap:content-version="1">
+        <Key>
+          <PropertyRef Name="AreaId" />
+          <PropertyRef Name="Channel" />
+        </Key>
+        <Property Name="AreaId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Channel" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Status" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Source" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Info" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+      </EntityType>
+      <EntityType Name="EEA_RESP_ChannelTasks" sap:content-version="1">
+        <Key>
+          <PropertyRef Name="Path" />
+        </Key>
+        <Property Name="Path" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Data" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ChatData" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+      </EntityType>
+      <EntityType Name="EEA_RESP_Comp" sap:content-version="1">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ParentId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Level" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="DrillState" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="NodeId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ComponentKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ComponentName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ComponentSelect" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Source" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="IsArea" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="PsArea" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="DevArea" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="MainArea" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="DocuArea" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+      </EntityType>
+      <EntityType Name="EEA_RESP_ChannelUser" sap:content-version="1">
+        <Key>
+          <PropertyRef Name="ChannelTypeID" />
+          <PropertyRef Name="UserID" />
+        </Key>
+        <Property Name="ChannelTypeID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="UserID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="MaxPerWeek" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="MaxPerDay" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ChandeAt" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ChangedBy" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+      </EntityType>
+      <EntityType Name="EEA_RESP_ChannelQual" sap:content-version="1">
+        <Key>
+          <PropertyRef Name="ChannelTypeID" />
+          <PropertyRef Name="RespAreaID" />
+          <PropertyRef Name="UserID" />
+        </Key>
+        <Property Name="ChannelTypeID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="RespAreaID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="UserID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ChangedAt" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ChangedBy" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+      </EntityType>
+      <EntityType Name="EEA" sap:content-version="1">
+        <Key>
+          <PropertyRef Name="Type" />
+        </Key>
+        <Property Name="Type" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="In" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Out" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+      </EntityType>
+      <EntityType Name="ChannelCheck" sap:content-version="1">
+        <Key>
+          <PropertyRef Name="Component" />
+          <PropertyRef Name="System" />
+        </Key>
+        <Property Name="Component" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="System" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ProductFunctionPath" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="IncidentID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ChannelType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="RespArea" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Active" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Details" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+      </EntityType>
       <Association Name="EEA_Topics_ext_ass" sap:content-version="1">
-        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics" Multiplicity="1" Role="FromRole_EEA_Topics_ext_ass" />
-        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_ext" Multiplicity="1" Role="ToRole_EEA_Topics_ext_ass" />
+        <End Type="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics" Multiplicity="1" Role="FromRole_EEA_Topics_ext_ass" />
+        <End Type="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_ext" Multiplicity="1" Role="ToRole_EEA_Topics_ext_ass" />
         <ReferentialConstraint>
           <Principal Role="FromRole_EEA_Topics_ext_ass">
-            <PropertyRef Name="NodePath" />
             <PropertyRef Name="NodeID" />
+            <PropertyRef Name="NodePath" />
           </Principal>
           <Dependent Role="ToRole_EEA_Topics_ext_ass">
-            <PropertyRef Name="NodePath" />
             <PropertyRef Name="NodeID" />
+            <PropertyRef Name="NodePath" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
       <Association Name="EEA_Topics_km_ass" sap:content-version="1">
-        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics" Multiplicity="1" Role="FromRole_EEA_Topics_km_ass" />
-        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_km" Multiplicity="*" Role="ToRole_EEA_Topics_km_ass" />
+        <End Type="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics" Multiplicity="1" Role="FromRole_EEA_Topics_km_ass" />
+        <End Type="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_km" Multiplicity="*" Role="ToRole_EEA_Topics_km_ass" />
         <ReferentialConstraint>
           <Principal Role="FromRole_EEA_Topics_km_ass">
-            <PropertyRef Name="NodePath" />
             <PropertyRef Name="NodeID" />
+            <PropertyRef Name="NodePath" />
           </Principal>
           <Dependent Role="ToRole_EEA_Topics_km_ass">
-            <PropertyRef Name="NodePath" />
             <PropertyRef Name="NodeID" />
+            <PropertyRef Name="NodePath" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
       <Association Name="EEA_Topics_attr_ass" sap:content-version="1">
-        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics" Multiplicity="1" Role="FromRole_EEA_Topics_attr_ass" />
-        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_attr" Multiplicity="*" Role="ToRole_EEA_Topics_attr_ass" />
+        <End Type="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics" Multiplicity="1" Role="FromRole_EEA_Topics_attr_ass" />
+        <End Type="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_attr" Multiplicity="*" Role="ToRole_EEA_Topics_attr_ass" />
         <ReferentialConstraint>
           <Principal Role="FromRole_EEA_Topics_attr_ass">
-            <PropertyRef Name="NodeID" />
             <PropertyRef Name="NodePath" />
+            <PropertyRef Name="NodeID" />
           </Principal>
           <Dependent Role="ToRole_EEA_Topics_attr_ass">
-            <PropertyRef Name="NodeID" />
             <PropertyRef Name="NodePath" />
+            <PropertyRef Name="NodeID" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
       <Association Name="EEA_Topics_rel_ass" sap:content-version="1">
-        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics" Multiplicity="1" Role="FromRole_EEA_Topics_rel_ass" />
-        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_rel" Multiplicity="*" Role="ToRole_EEA_Topics_rel_ass" />
+        <End Type="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics" Multiplicity="1" Role="FromRole_EEA_Topics_rel_ass" />
+        <End Type="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_rel" Multiplicity="*" Role="ToRole_EEA_Topics_rel_ass" />
         <ReferentialConstraint>
           <Principal Role="FromRole_EEA_Topics_rel_ass">
-            <PropertyRef Name="NodeID" />
             <PropertyRef Name="NodePath" />
+            <PropertyRef Name="NodeID" />
           </Principal>
           <Dependent Role="ToRole_EEA_Topics_rel_ass">
-            <PropertyRef Name="NodeID" />
             <PropertyRef Name="NodePath" />
+            <PropertyRef Name="NodeID" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
       <Association Name="EEA_Topics_tf_ass" sap:content-version="1">
-        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics" Multiplicity="1" Role="FromRole_EEA_Topics_tf_ass" />
-        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_tf" Multiplicity="*" Role="ToRole_EEA_Topics_tf_ass" />
+        <End Type="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics" Multiplicity="1" Role="FromRole_EEA_Topics_tf_ass" />
+        <End Type="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_tf" Multiplicity="*" Role="ToRole_EEA_Topics_tf_ass" />
         <ReferentialConstraint>
           <Principal Role="FromRole_EEA_Topics_tf_ass">
-            <PropertyRef Name="NodeID" />
             <PropertyRef Name="NodePath" />
+            <PropertyRef Name="NodeID" />
           </Principal>
           <Dependent Role="ToRole_EEA_Topics_tf_ass">
-            <PropertyRef Name="NodeID" />
             <PropertyRef Name="NodePath" />
+            <PropertyRef Name="NodeID" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
       <Association Name="EEA_RESP_Area_ass" sap:content-version="1">
-        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_RESP_Area" Multiplicity="1" Role="FromRole_EEA_RESP_Area_ass" />
-        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.EEA_RESP_Attr" Multiplicity="*" Role="ToRole_EEA_RESP_Area_ass" />
+        <End Type="SVT_NGMSG_WEBSERVICES_SRV.EEA_RESP_Area" Multiplicity="1" Role="FromRole_EEA_RESP_Area_ass" />
+        <End Type="SVT_NGMSG_WEBSERVICES_SRV.EEA_RESP_Attr" Multiplicity="*" Role="ToRole_EEA_RESP_Area_ass" />
         <ReferentialConstraint>
           <Principal Role="FromRole_EEA_RESP_Area_ass">
             <PropertyRef Name="Id" />
@@ -1256,8 +1360,8 @@
         </ReferentialConstraint>
       </Association>
       <Association Name="MessageHeaderMessageTexts" sap:content-version="1">
-        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader" Multiplicity="1" Role="FromRole_MessageHeaderMessageTexts" />
-        <End Type="/SVT/NGMSG_WEBSERVICES_SRV.MessageTexts" Multiplicity="*" Role="ToRole_MessageHeaderMessageTexts" />
+        <End Type="SVT_NGMSG_WEBSERVICES_SRV.MessageHeader" Multiplicity="1" Role="FromRole_MessageHeaderMessageTexts" />
+        <End Type="SVT_NGMSG_WEBSERVICES_SRV.MessageTexts" Multiplicity="*" Role="ToRole_MessageHeaderMessageTexts" />
         <ReferentialConstraint>
           <Principal Role="FromRole_MessageHeaderMessageTexts">
             <PropertyRef Name="Pointer" />
@@ -1267,116 +1371,123 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <EntityContainer Name="/SVT/NGMSG_WEBSERVICES_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
-        <EntitySet Name="MessageHeaderSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.MessageHeader" sap:deletable="false" sap:searchable="true" sap:content-version="1" />
-        <EntitySet Name="UserDataSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.UserData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-        <EntitySet Name="MessageContactsSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.MessageContacts" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-        <EntitySet Name="MessageAuthSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.MessageAuth" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="HybridCheckSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.HybridCheck" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="StatusSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.Status" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="SysParamSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.SysParam" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-        <EntitySet Name="F4HelpSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.F4Help" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="SysConnectSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.SysConnect" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="UserInstallationsSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.UserInstallations" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-        <EntitySet Name="MessageCSQSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.MessageCSQ" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="MessageAPlanSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.MessageAPlan" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="MessageSuggSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.MessageSugg" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="MessageTextsSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.MessageTexts" sap:deletable="false" sap:searchable="true" sap:content-version="1" />
-        <EntitySet Name="MessageAttachmentsSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.MessageAttachments" sap:deletable="false" sap:searchable="true" sap:content-version="1" />
-        <EntitySet Name="ProductSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.Product" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="PrioritySet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.Priority" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="SubproductSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.Subproduct" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="MessageCoreSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.MessageCore" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="MessageNoteSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.MessageNote" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="MessageAlogSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.MessageAlog" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-        <EntitySet Name="MessagePCCSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.MessagePCC" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="CompF4HelpSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.CompF4Help" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="CompSearchSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.CompSearch" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="SystemSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.System" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="TopNoteSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.TopNote" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="InstallationSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.Installation" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="MessageDSS" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.MessageDSS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="SystemSearchSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.SystemSearch" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="CustProdInstSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.CustProdInst" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="RampUpSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.RampUp" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="CitrixChatSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.CitrixChat" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="SysTypeSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.SysType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="CompAdvisorSuggSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.CompAdvisorSugg" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="FavoriteIncidentSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.FavoriteIncident" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="GigyaCompSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.GigyaComp" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="IncidentHeaderSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.IncidentHeader" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="InstallationRelatedSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.InstallationRelated" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="IncidentInstSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.IncidentInst" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="IncidentReporterSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.IncidentReporter" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="SaECheckSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.SaECheck" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="CompPredictionSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.CompPrediction" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="AllowedFileTypesSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.AllowedFileTypes" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="AttachmentSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.Attachment" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="SysProductSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.SysProduct" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="ServiceMailSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.ServiceMail" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="SaMCheckSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.SaMCheck" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="SysProductEnhSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.SysProductEnh" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="ExpertAreaF4HelpSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.ExpertAreaF4Help" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="ACRFSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.ACRF" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="EEA_TopicsSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="EEA_MaintainSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Maintain" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="EEA_Topics_extSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_ext" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="EEA_Topics_kmSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_km" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="EEA_Topics_attrSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_attr" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="EEA_EdgeSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Edge" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="CloudSysStatusSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.CloudSysStatus" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="EEA_PermissionSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Permission" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="ExpertChatCheckSetSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.ExpertChatCheckSet" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="EEA_Topics_relSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_rel" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="EEA_ValuesSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Values" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="EEA_PathSearchSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_PathSearch" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="ReadNoteSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.ReadNote" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="ERCD_SystemsSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.ERCD_Systems" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="SNTokenSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.SNToken" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="EEA_Topics_tfSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_tf" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="AaEPSwitchSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.AaEPSwitch" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="EEA_RESP_AreaSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_RESP_Area" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="EEA_RESP_AttrSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_RESP_Attr" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <EntitySet Name="EEA_RESPSet" EntityType="/SVT/NGMSG_WEBSERVICES_SRV.EEA_RESP" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-        <AssociationSet Name="EEA_RESP_Area_assSet" Association="/SVT/NGMSG_WEBSERVICES_SRV.EEA_RESP_Area_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+      <EntityContainer Name="SVT_NGMSG_WEBSERVICES_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+        <EntitySet Name="MessageHeaderSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.MessageHeader" sap:deletable="false" sap:searchable="true" sap:content-version="1" />
+        <EntitySet Name="UserDataSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.UserData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
+        <EntitySet Name="MessageContactsSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.MessageContacts" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
+        <EntitySet Name="MessageAuthSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.MessageAuth" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="HybridCheckSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.HybridCheck" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="StatusSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.Status" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="SysParamSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.SysParam" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
+        <EntitySet Name="F4HelpSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.F4Help" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="SysConnectSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.SysConnect" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="UserInstallationsSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.UserInstallations" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
+        <EntitySet Name="MessageCSQSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.MessageCSQ" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="MessageAPlanSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.MessageAPlan" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="MessageSuggSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.MessageSugg" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="MessageTextsSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.MessageTexts" sap:deletable="false" sap:searchable="true" sap:content-version="1" />
+        <EntitySet Name="MessageAttachmentsSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.MessageAttachments" sap:deletable="false" sap:searchable="true" sap:content-version="1" />
+        <EntitySet Name="ProductSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.Product" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="PrioritySet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.Priority" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="SubproductSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.Subproduct" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="MessageCoreSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.MessageCore" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="MessageNoteSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.MessageNote" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="MessageAlogSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.MessageAlog" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
+        <EntitySet Name="MessagePCCSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.MessagePCC" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="CompF4HelpSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.CompF4Help" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="CompSearchSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.CompSearch" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="SystemSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.System" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="TopNoteSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.TopNote" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="InstallationSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.Installation" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="MessageDSS" EntityType="SVT_NGMSG_WEBSERVICES_SRV.MessageDSS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="SystemSearchSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.SystemSearch" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="CustProdInstSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.CustProdInst" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="RampUpSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.RampUp" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="CitrixChatSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.CitrixChat" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="SysTypeSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.SysType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="CompAdvisorSuggSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.CompAdvisorSugg" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="FavoriteIncidentSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.FavoriteIncident" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="GigyaCompSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.GigyaComp" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="IncidentHeaderSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.IncidentHeader" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="InstallationRelatedSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.InstallationRelated" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="IncidentInstSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.IncidentInst" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="IncidentReporterSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.IncidentReporter" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="SaECheckSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.SaECheck" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="CompPredictionSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.CompPrediction" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="AllowedFileTypesSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.AllowedFileTypes" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="AttachmentSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.Attachment" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="SysProductSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.SysProduct" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="ServiceMailSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.ServiceMail" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="SaMCheckSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.SaMCheck" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="SysProductEnhSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.SysProductEnh" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="ExpertAreaF4HelpSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.ExpertAreaF4Help" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="ACRFSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.ACRF" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_TopicsSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_MaintainSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_Maintain" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_Topics_extSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_ext" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_Topics_kmSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_km" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_Topics_attrSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_attr" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_EdgeSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_Edge" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="CloudSysStatusSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.CloudSysStatus" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_PermissionSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_Permission" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="ExpertChatCheckSetSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.ExpertChatCheckSet" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_Topics_relSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_rel" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_ValuesSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_Values" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_PathSearchSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_PathSearch" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="ReadNoteSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.ReadNote" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="ERCD_SystemsSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.ERCD_Systems" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="SNTokenSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.SNToken" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_Topics_tfSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_tf" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="AaEPSwitchSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.AaEPSwitch" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_RESP_AreaSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_RESP_Area" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_RESP_AttrSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_RESP_Attr" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_RESPSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_RESP" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_RESP_ChannelSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_RESP_Channel" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_RESP_ChannelTasksSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_RESP_ChannelTasks" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_RESP_CompSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_RESP_Comp" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_RESP_ChannelUserSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_RESP_ChannelUser" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_RESP_ChannelQualSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_RESP_ChannelQual" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEASet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="ChannelCheckSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.ChannelCheck" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <AssociationSet Name="EEA_RESP_Area_assSet" Association="SVT_NGMSG_WEBSERVICES_SRV.EEA_RESP_Area_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
           <End EntitySet="EEA_RESP_AreaSet" Role="FromRole_EEA_RESP_Area_ass" />
           <End EntitySet="EEA_RESP_AttrSet" Role="ToRole_EEA_RESP_Area_ass" />
         </AssociationSet>
-        <AssociationSet Name="EEA_Topics_rel_assSet" Association="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_rel_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+        <AssociationSet Name="EEA_Topics_rel_assSet" Association="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_rel_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
           <End EntitySet="EEA_TopicsSet" Role="FromRole_EEA_Topics_rel_ass" />
           <End EntitySet="EEA_Topics_relSet" Role="ToRole_EEA_Topics_rel_ass" />
         </AssociationSet>
-        <AssociationSet Name="EEA_Topics_ext_assSet" Association="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_ext_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+        <AssociationSet Name="EEA_Topics_ext_assSet" Association="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_ext_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
           <End EntitySet="EEA_TopicsSet" Role="FromRole_EEA_Topics_ext_ass" />
           <End EntitySet="EEA_Topics_extSet" Role="ToRole_EEA_Topics_ext_ass" />
         </AssociationSet>
-        <AssociationSet Name="MessageHeaderMessageTexts" Association="/SVT/NGMSG_WEBSERVICES_SRV.MessageHeaderMessageTexts" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+        <AssociationSet Name="MessageHeaderMessageTexts" Association="SVT_NGMSG_WEBSERVICES_SRV.MessageHeaderMessageTexts" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
           <End EntitySet="MessageHeaderSet" Role="FromRole_MessageHeaderMessageTexts" />
           <End EntitySet="MessageTextsSet" Role="ToRole_MessageHeaderMessageTexts" />
         </AssociationSet>
-        <AssociationSet Name="EEA_Topics_attr_assSet" Association="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_attr_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+        <AssociationSet Name="EEA_Topics_attr_assSet" Association="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_attr_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
           <End EntitySet="EEA_TopicsSet" Role="FromRole_EEA_Topics_attr_ass" />
           <End EntitySet="EEA_Topics_attrSet" Role="ToRole_EEA_Topics_attr_ass" />
         </AssociationSet>
-        <AssociationSet Name="EEA_Topics_tf_assSet" Association="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_tf_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+        <AssociationSet Name="EEA_Topics_tf_assSet" Association="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_tf_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
           <End EntitySet="EEA_TopicsSet" Role="FromRole_EEA_Topics_tf_ass" />
           <End EntitySet="EEA_Topics_tfSet" Role="ToRole_EEA_Topics_tf_ass" />
         </AssociationSet>
-        <AssociationSet Name="EEA_Topics_km_assSet" Association="/SVT/NGMSG_WEBSERVICES_SRV.EEA_Topics_km_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+        <AssociationSet Name="EEA_Topics_km_assSet" Association="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics_km_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
           <End EntitySet="EEA_TopicsSet" Role="FromRole_EEA_Topics_km_ass" />
           <End EntitySet="EEA_Topics_kmSet" Role="ToRole_EEA_Topics_km_ass" />
         </AssociationSet>
-        <FunctionImport Name="AaEPStatusUpdate" ReturnType="/SVT/NGMSG_WEBSERVICES_SRV.SysParam" EntitySet="SysParamSet" m:HttpMethod="POST" sap:action-for="/SVT/NGMSG_WEBSERVICES_SRV.SysParam">
-          <Parameter Name="IncidentID" Type="Edm.String" Mode="In" />
-          <Parameter Name="QuestionStatus" Type="Edm.String" Mode="In" />
-          <Parameter Name="QuestionUUID" Type="Edm.String" Mode="In" />
+        <FunctionImport Name="AaEPStatusUpdate" ReturnType="SVT_NGMSG_WEBSERVICES_SRV.SysParam" EntitySet="SysParamSet" m:HttpMethod="POST" sap:action-for="SVT_NGMSG_WEBSERVICES_SRV.SysParam">
           <Parameter Name="ExpireDate" Type="Edm.String" Mode="In" />
-        </FunctionImport>
-        <FunctionImport Name="AaEPRelationshipSave" ReturnType="/SVT/NGMSG_WEBSERVICES_SRV.SysParam" EntitySet="SysParamSet" m:HttpMethod="POST" sap:action-for="/SVT/NGMSG_WEBSERVICES_SRV.SysParam">
-          <Parameter Name="IncidentID" Type="Edm.String" Mode="In" />
           <Parameter Name="QuestionUUID" Type="Edm.String" Mode="In" />
-          <Parameter Name="CreationDate" Type="Edm.String" Mode="In" />
+          <Parameter Name="QuestionStatus" Type="Edm.String" Mode="In" />
+          <Parameter Name="IncidentID" Type="Edm.String" Mode="In" />
+        </FunctionImport>
+        <FunctionImport Name="AaEPRelationshipSave" ReturnType="SVT_NGMSG_WEBSERVICES_SRV.SysParam" EntitySet="SysParamSet" m:HttpMethod="POST" sap:action-for="SVT_NGMSG_WEBSERVICES_SRV.SysParam">
           <Parameter Name="Email" Type="Edm.String" Mode="In" />
+          <Parameter Name="CreationDate" Type="Edm.String" Mode="In" />
+          <Parameter Name="QuestionUUID" Type="Edm.String" Mode="In" />
+          <Parameter Name="IncidentID" Type="Edm.String" Mode="In" />
         </FunctionImport>
       </EntityContainer>
       <atom:link rel="self" href="https://launchpad.support.sap.com/services/odata/incidentws/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />

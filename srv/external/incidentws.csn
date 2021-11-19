@@ -1,11 +1,15 @@
 {
+  "meta": {
+    "creator": "cds-dk 4.5.2"
+  },
+  "$version": "2.0",
   "definitions": {
     "incidentws": {
-      "kind": "service"
+      "kind": "service",
+      "@cds.external": true
     },
     "incidentws.MessageHeaderSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Pointer": {
           "key": true,
@@ -38,13 +42,13 @@
           "type": "cds.LargeString"
         },
         "Erftstmp": {
-          "type": "cds.Timestamp"
+          "type": "cds.DateTime"
         },
         "Aetstmp": {
-          "type": "cds.Timestamp"
+          "type": "cds.DateTime"
         },
         "Closetstmp": {
-          "type": "cds.Timestamp"
+          "type": "cds.DateTime"
         },
         "Reporter": {
           "type": "cds.LargeString"
@@ -154,7 +158,7 @@
           "type": "cds.LargeString"
         },
         "LastTextTstmp": {
-          "type": "cds.Timestamp"
+          "type": "cds.DateTime"
         },
         "LastTextDate": {
           "type": "cds.LargeString"
@@ -384,10 +388,39 @@
           "type": "cds.String",
           "length": 10
         },
+        "AaEPQuesUUID": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "AaEPQuesStatus": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "AaEPQuesEmail": {
+          "type": "cds.String",
+          "length": 241
+        },
+        "QuesDateCreated": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "ExpirationDate": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "AaEPDraftFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "AaEPFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
         "BusinessImpactTxt": {
           "type": "cds.LargeString"
         },
         "MessageTexts": {
+          "doc": "Please add  an ON condition",
           "type": "cds.Association",
           "target": "incidentws.MessageTextsSet",
           "cardinality": {
@@ -412,7 +445,6 @@
     },
     "incidentws.UserDataSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Susid": {
           "key": true,
@@ -526,7 +558,6 @@
     },
     "incidentws.MessageContactsSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Pointer": {
           "key": true,
@@ -593,7 +624,6 @@
     },
     "incidentws.MessageAuthSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Action": {
           "key": true,
@@ -620,7 +650,6 @@
     },
     "incidentws.HybridCheckSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Uname": {
           "key": true,
@@ -668,7 +697,6 @@
     },
     "incidentws.StatusSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "StatusKey": {
           "key": true,
@@ -683,7 +711,6 @@
     },
     "incidentws.SysParamSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Category": {
           "key": true,
@@ -693,11 +720,46 @@
         "Catvalue": {
           "type": "cds.LargeString"
         }
+      },
+      "actions": {
+        "AaEPStatusUpdate": {
+          "kind": "action",
+          "params": {
+            "QuestionUUID": {
+              "type": "cds.LargeString"
+            },
+            "QuestionStatus": {
+              "type": "cds.LargeString"
+            },
+            "IncidentID": {
+              "type": "cds.LargeString"
+            }
+          },
+          "returns": {
+            "type": "incidentws.SysParamSet"
+          }
+        },
+        "AaEPRelationshipSave": {
+          "kind": "action",
+          "params": {
+            "CreationDate": {
+              "type": "cds.LargeString"
+            },
+            "QuestionUUID": {
+              "type": "cds.LargeString"
+            },
+            "IncidentID": {
+              "type": "cds.LargeString"
+            }
+          },
+          "returns": {
+            "type": "incidentws.SysParamSet"
+          }
+        }
       }
     },
     "incidentws.F4HelpSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Type": {
           "key": true,
@@ -746,7 +808,6 @@
     },
     "incidentws.SysConnectSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Sysnr": {
           "key": true,
@@ -787,7 +848,6 @@
     },
     "incidentws.UserInstallationsSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Uname": {
           "key": true,
@@ -838,7 +898,6 @@
     },
     "incidentws.MessageCSQSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Component": {
           "key": true,
@@ -854,7 +913,6 @@
     },
     "incidentws.MessageAPlanSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Pointer": {
           "key": true,
@@ -894,7 +952,6 @@
     },
     "incidentws.MessageSuggSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Pointer": {
           "key": true,
@@ -932,7 +989,6 @@
     },
     "incidentws.MessageTextsSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Pointer": {
           "key": true,
@@ -1025,7 +1081,6 @@
     },
     "incidentws.MessageAttachmentsSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Pointer": {
           "key": true,
@@ -1134,7 +1189,6 @@
     },
     "incidentws.ProductSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "ProdId": {
           "key": true,
@@ -1161,7 +1215,6 @@
     },
     "incidentws.PrioritySet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Prio": {
           "key": true,
@@ -1179,7 +1232,6 @@
     },
     "incidentws.SubproductSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "CompKey": {
           "key": true,
@@ -1220,7 +1272,6 @@
     },
     "incidentws.MessageCoreSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Action": {
           "key": true,
@@ -1335,6 +1386,9 @@
         "EEAPath": {
           "type": "cds.LargeString"
         },
+        "Source": {
+          "type": "cds.LargeString"
+        },
         "RepCase": {
           "type": "cds.String",
           "length": 1
@@ -1343,7 +1397,6 @@
     },
     "incidentws.MessageNoteSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Pointer": {
           "key": true,
@@ -1386,7 +1439,6 @@
     },
     "incidentws.MessageAlogSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Uname": {
           "key": true,
@@ -1481,7 +1533,6 @@
     },
     "incidentws.MessagePCCSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Pointer": {
           "key": true,
@@ -1496,7 +1547,6 @@
     },
     "incidentws.CompF4HelpSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Uname": {
           "key": true,
@@ -1550,7 +1600,6 @@
     },
     "incidentws.CompSearchSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "SearchText": {
           "key": true,
@@ -1599,7 +1648,6 @@
     },
     "incidentws.SystemSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "SystemNumber": {
           "key": true,
@@ -1653,7 +1701,6 @@
     },
     "incidentws.TopNoteSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Number": {
           "key": true,
@@ -1678,7 +1725,7 @@
           "type": "cds.LargeString"
         },
         "Rating": {
-          "type": "cds.LargeString"
+          "type": "cds.Double"
         },
         "Abstract": {
           "type": "cds.LargeString"
@@ -1703,7 +1750,6 @@
     },
     "incidentws.InstallationSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "InstNbr": {
           "key": true,
@@ -1739,7 +1785,6 @@
     },
     "incidentws.MessageDSS": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Kunnr": {
           "key": true,
@@ -1764,7 +1809,6 @@
     },
     "incidentws.SystemSearchSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Uname": {
           "key": true,
@@ -1876,12 +1920,18 @@
         "IsFavorite": {
           "type": "cds.String",
           "length": 1
+        },
+        "MainSystemNbr": {
+          "type": "cds.String",
+          "length": 18
+        },
+        "MainSystemName": {
+          "type": "cds.LargeString"
         }
       }
     },
     "incidentws.CustProdInstSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Uname": {
           "key": true,
@@ -1916,7 +1966,6 @@
     },
     "incidentws.RampUpSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Sysnr": {
           "key": true,
@@ -1931,7 +1980,6 @@
     },
     "incidentws.CitrixChatSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Description": {
           "key": true,
@@ -1965,7 +2013,6 @@
     },
     "incidentws.SysTypeSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Uname": {
           "key": true,
@@ -1995,7 +2042,6 @@
     },
     "incidentws.CompAdvisorSuggSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Uname": {
           "key": true,
@@ -2043,7 +2089,6 @@
     },
     "incidentws.FavoriteIncidentSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Pointer": {
           "key": true,
@@ -2058,7 +2103,6 @@
     },
     "incidentws.GigyaCompSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "CompKey": {
           "key": true,
@@ -2079,7 +2123,6 @@
     },
     "incidentws.IncidentHeaderSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Pointer": {
           "key": true,
@@ -2173,7 +2216,6 @@
     },
     "incidentws.InstallationRelatedSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Insnr": {
           "key": true,
@@ -2191,7 +2233,6 @@
     },
     "incidentws.IncidentInstSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "InstNbr": {
           "key": true,
@@ -2218,7 +2259,6 @@
     },
     "incidentws.IncidentReporterSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "ReporterId": {
           "key": true,
@@ -2231,7 +2271,6 @@
     },
     "incidentws.SaECheckSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Pointer": {
           "key": true,
@@ -2255,7 +2294,6 @@
     },
     "incidentws.CompPredictionSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Uname": {
           "key": true,
@@ -2319,7 +2357,6 @@
     },
     "incidentws.AllowedFileTypesSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Service": {
           "key": true,
@@ -2341,7 +2378,6 @@
     },
     "incidentws.AttachmentSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Identifier": {
           "key": true,
@@ -2360,7 +2396,6 @@
     },
     "incidentws.SysProductSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "ProdId": {
           "key": true,
@@ -2387,7 +2422,6 @@
     },
     "incidentws.ServiceMailSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Servicename": {
           "key": true,
@@ -2420,7 +2454,6 @@
     },
     "incidentws.SaMCheckSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Pointer": {
           "key": true,
@@ -2448,7 +2481,6 @@
     },
     "incidentws.SysProductEnhSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "KeyPath": {
           "key": true,
@@ -2517,7 +2549,6 @@
     },
     "incidentws.ExpertAreaF4HelpSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Uname": {
           "key": true,
@@ -2530,7 +2561,6 @@
     },
     "incidentws.ACRFSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Key": {
           "key": true,
@@ -2552,7 +2582,6 @@
     },
     "incidentws.EEA_TopicsSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "NodeID": {
           "key": true,
@@ -2632,37 +2661,39 @@
           "type": "cds.LargeString"
         },
         "Ext": {
+          "doc": "Please add  an ON condition",
           "type": "cds.Association",
           "target": "incidentws.EEA_Topics_extSet",
           "on": [
             {
               "ref": [
                 "Ext",
-                "NodePath"
+                "NodeID"
               ]
             },
             "=",
             {
               "ref": [
-                "NodePath"
+                "NodeID"
               ]
             },
             "and",
             {
               "ref": [
                 "Ext",
-                "NodeID"
+                "NodePath"
               ]
             },
             "=",
             {
               "ref": [
-                "NodeID"
+                "NodePath"
               ]
             }
           ]
         },
         "Km": {
+          "doc": "Please add  an ON condition",
           "type": "cds.Association",
           "target": "incidentws.EEA_Topics_kmSet",
           "cardinality": {
@@ -2672,31 +2703,32 @@
             {
               "ref": [
                 "Km",
-                "NodePath"
+                "NodeID"
               ]
             },
             "=",
             {
               "ref": [
-                "NodePath"
+                "NodeID"
               ]
             },
             "and",
             {
               "ref": [
                 "Km",
-                "NodeID"
+                "NodePath"
               ]
             },
             "=",
             {
               "ref": [
-                "NodeID"
+                "NodePath"
               ]
             }
           ]
         },
         "Attr": {
+          "doc": "Please add  an ON condition",
           "type": "cds.Association",
           "target": "incidentws.EEA_Topics_attrSet",
           "cardinality": {
@@ -2706,31 +2738,32 @@
             {
               "ref": [
                 "Attr",
-                "NodeID"
+                "NodePath"
               ]
             },
             "=",
             {
               "ref": [
-                "NodeID"
+                "NodePath"
               ]
             },
             "and",
             {
               "ref": [
                 "Attr",
-                "NodePath"
+                "NodeID"
               ]
             },
             "=",
             {
               "ref": [
-                "NodePath"
+                "NodeID"
               ]
             }
           ]
         },
         "Rel": {
+          "doc": "Please add  an ON condition",
           "type": "cds.Association",
           "target": "incidentws.EEA_Topics_relSet",
           "cardinality": {
@@ -2740,31 +2773,32 @@
             {
               "ref": [
                 "Rel",
-                "NodeID"
+                "NodePath"
               ]
             },
             "=",
             {
               "ref": [
-                "NodeID"
+                "NodePath"
               ]
             },
             "and",
             {
               "ref": [
                 "Rel",
-                "NodePath"
+                "NodeID"
               ]
             },
             "=",
             {
               "ref": [
-                "NodePath"
+                "NodeID"
               ]
             }
           ]
         },
         "EEA_Topics_tfSet": {
+          "doc": "Please add  an ON condition",
           "type": "cds.Association",
           "target": "incidentws.EEA_Topics_tfSet",
           "cardinality": {
@@ -2774,26 +2808,26 @@
             {
               "ref": [
                 "EEA_Topics_tfSet",
-                "NodeID"
+                "NodePath"
               ]
             },
             "=",
             {
               "ref": [
-                "NodeID"
+                "NodePath"
               ]
             },
             "and",
             {
               "ref": [
                 "EEA_Topics_tfSet",
-                "NodePath"
+                "NodeID"
               ]
             },
             "=",
             {
               "ref": [
-                "NodePath"
+                "NodeID"
               ]
             }
           ]
@@ -2802,7 +2836,6 @@
     },
     "incidentws.EEA_MaintainSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "KeyPath": {
           "key": true,
@@ -2884,7 +2917,6 @@
     },
     "incidentws.EEA_Topics_extSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "NodeID": {
           "key": true,
@@ -2899,12 +2931,14 @@
         },
         "DestComponents": {
           "type": "cds.LargeString"
+        },
+        "Channels": {
+          "type": "cds.LargeString"
         }
       }
     },
     "incidentws.EEA_Topics_kmSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "NodeID": {
           "key": true,
@@ -2962,7 +2996,6 @@
     },
     "incidentws.EEA_Topics_attrSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "NodeID": {
           "key": true,
@@ -3005,7 +3038,6 @@
     },
     "incidentws.EEA_EdgeSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Parent_ID": {
           "key": true,
@@ -3040,7 +3072,6 @@
     },
     "incidentws.CloudSysStatusSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Uname": {
           "key": true,
@@ -3071,7 +3102,6 @@
     },
     "incidentws.EEA_PermissionSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "User": {
           "key": true,
@@ -3084,7 +3114,6 @@
     },
     "incidentws.ExpertChatCheckSetSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Pointer": {
           "key": true,
@@ -3134,7 +3163,6 @@
     },
     "incidentws.EEA_Topics_relSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "NodeID": {
           "key": true,
@@ -3160,7 +3188,6 @@
     },
     "incidentws.EEA_ValuesSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Key": {
           "key": true,
@@ -3173,7 +3200,6 @@
     },
     "incidentws.EEA_PathSearchSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Path": {
           "key": true,
@@ -3189,7 +3215,6 @@
     },
     "incidentws.ReadNoteSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Number": {
           "key": true,
@@ -3202,7 +3227,6 @@
     },
     "incidentws.ERCD_SystemsSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "KunNr": {
           "key": true,
@@ -3221,10 +3245,10 @@
           "type": "cds.LargeString"
         },
         "FromTS": {
-          "type": "cds.Timestamp"
+          "type": "cds.DateTime"
         },
         "ToTS": {
-          "type": "cds.Timestamp"
+          "type": "cds.DateTime"
         },
         "SysID": {
           "type": "cds.LargeString"
@@ -3239,13 +3263,12 @@
           "type": "cds.LargeString"
         },
         "UploadTS": {
-          "type": "cds.Timestamp"
+          "type": "cds.DateTime"
         }
       }
     },
     "incidentws.SNTokenSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Pointer": {
           "key": true,
@@ -3264,7 +3287,6 @@
     },
     "incidentws.EEA_Topics_tfSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "NodeID": {
           "key": true,
@@ -3274,6 +3296,9 @@
           "key": true,
           "type": "cds.LargeString"
         },
+        "PPMSID": {
+          "type": "cds.LargeString"
+        },
         "Condition": {
           "type": "cds.LargeString"
         },
@@ -3281,12 +3306,15 @@
           "type": "cds.LargeString"
         },
         "Score": {
-          "type": "cds.LargeString"
+          "type": "cds.Double"
         },
         "EndDate": {
           "type": "cds.Integer64"
         },
         "Type": {
+          "type": "cds.LargeString"
+        },
+        "Subtype": {
           "type": "cds.LargeString"
         },
         "URL": {
@@ -3300,12 +3328,20 @@
         },
         "MassData": {
           "type": "cds.LargeString"
+        },
+        "ComponentID": {
+          "type": "cds.LargeString"
+        },
+        "ComponentName": {
+          "type": "cds.LargeString"
+        },
+        "Options": {
+          "type": "cds.LargeString"
         }
       }
     },
     "incidentws.AaEPSwitchSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Name": {
           "key": true,
@@ -3322,7 +3358,6 @@
     },
     "incidentws.EEA_RESP_AreaSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Id": {
           "key": true,
@@ -3349,7 +3384,14 @@
         "DrillState": {
           "type": "cds.LargeString"
         },
+        "Task": {
+          "type": "cds.LargeString"
+        },
+        "SearchBy": {
+          "type": "cds.LargeString"
+        },
         "Attr": {
+          "doc": "Please add  an ON condition",
           "type": "cds.Association",
           "target": "incidentws.EEA_RESP_AttrSet",
           "cardinality": {
@@ -3374,7 +3416,6 @@
     },
     "incidentws.EEA_RESP_AttrSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "AttrId": {
           "key": true,
@@ -3398,7 +3439,11 @@
         "Value": {
           "type": "cds.LargeString"
         },
+        "InheritDepth": {
+          "type": "cds.Integer"
+        },
         "Area": {
+          "doc": "Please add  an ON condition",
           "type": "cds.Association",
           "target": "incidentws.EEA_RESP_AreaSet",
           "on": [
@@ -3420,13 +3465,194 @@
     },
     "incidentws.EEA_RESPSet": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
       "elements": {
         "Key": {
           "key": true,
           "type": "cds.LargeString"
         },
         "Json": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.EEA_RESP_ChannelSet": {
+      "kind": "entity",
+      "elements": {
+        "AreaId": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Channel": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Status": {
+          "type": "cds.LargeString"
+        },
+        "Source": {
+          "type": "cds.LargeString"
+        },
+        "Info": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.EEA_RESP_ChannelTasksSet": {
+      "kind": "entity",
+      "elements": {
+        "Path": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Data": {
+          "type": "cds.LargeString"
+        },
+        "ChatData": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.EEA_RESP_CompSet": {
+      "kind": "entity",
+      "elements": {
+        "Id": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "Name": {
+          "type": "cds.LargeString"
+        },
+        "ParentId": {
+          "type": "cds.LargeString"
+        },
+        "Level": {
+          "type": "cds.Integer"
+        },
+        "DrillState": {
+          "type": "cds.LargeString"
+        },
+        "NodeId": {
+          "type": "cds.LargeString"
+        },
+        "ComponentKey": {
+          "type": "cds.LargeString"
+        },
+        "ComponentName": {
+          "type": "cds.LargeString"
+        },
+        "ComponentSelect": {
+          "type": "cds.LargeString"
+        },
+        "Source": {
+          "type": "cds.LargeString"
+        },
+        "IsArea": {
+          "type": "cds.LargeString"
+        },
+        "PsArea": {
+          "type": "cds.LargeString"
+        },
+        "DevArea": {
+          "type": "cds.LargeString"
+        },
+        "MainArea": {
+          "type": "cds.LargeString"
+        },
+        "DocuArea": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.EEA_RESP_ChannelUserSet": {
+      "kind": "entity",
+      "elements": {
+        "ChannelTypeID": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "UserID": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "MaxPerWeek": {
+          "type": "cds.Integer"
+        },
+        "MaxPerDay": {
+          "type": "cds.Integer"
+        },
+        "ChandeAt": {
+          "type": "cds.Integer64"
+        },
+        "ChangedBy": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.EEA_RESP_ChannelQualSet": {
+      "kind": "entity",
+      "elements": {
+        "ChannelTypeID": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "RespAreaID": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "UserID": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "ChangedAt": {
+          "type": "cds.Integer64"
+        },
+        "ChangedBy": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.EEASet": {
+      "kind": "entity",
+      "elements": {
+        "Type": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "In": {
+          "type": "cds.LargeString"
+        },
+        "Out": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "incidentws.ChannelCheckSet": {
+      "kind": "entity",
+      "elements": {
+        "Component": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "System": {
+          "key": true,
+          "type": "cds.LargeString"
+        },
+        "ProductFunctionPath": {
+          "type": "cds.LargeString"
+        },
+        "IncidentID": {
+          "type": "cds.LargeString"
+        },
+        "ChannelType": {
+          "type": "cds.LargeString"
+        },
+        "RespArea": {
+          "type": "cds.LargeString"
+        },
+        "Active": {
+          "type": "cds.LargeString"
+        },
+        "Details": {
           "type": "cds.LargeString"
         }
       }

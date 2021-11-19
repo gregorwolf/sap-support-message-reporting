@@ -35,7 +35,7 @@
   "cds": {
     "requires": {
       "incidentws": {
-        "kind": "odata",
+        "kind": "odata-v2",
         "model": "srv/external/incidentws",
         "destination": "OSS",
         "path": "/services/odata/incidentws"
