@@ -27,22 +27,9 @@ and an Analytical List Page:
 - [ ] Expose Data to SAP Analytics Cloud
 - [ ] Implement further reports in SAP Analytics Cloud
 
-## Load Data from Mock Service
+## Start the project with sample data
 
-To load data from the mock service into sqlite please create a _default-env.json_ file in the root folder with the following content:
-
-```JSON
-{
-  "destinations": [
-    {
-      "destination": "OSS",
-      "url": "http://localhost:4004"
-    }
-  ]
-}
-```
-
-then start the project with `npm start` and execute the _loadDataFromMock_ request in the _test/cap-endpoint.http_ file.
+To run the project with sample data you can directly use `npm start`.
 
 ## Load Data from SAP Service Marketplace
 
@@ -78,7 +65,7 @@ Then run `npm run update:cookie` to update the cookie in _default-env.json_.
 
 Then start the project with `npm start` and execute the _loadDataFromSAP_ request in the _test/cap-endpoint.http_ file.
 
-### Getting Cookie using the browser developer tools 
+### Getting Cookie using the browser developer tools
 
 If you want to update the mock date in the srv/data folder with your own SAP Incidents, then open your Browser, activate the Development tools, switch to the network tab and then open the URL:
 
