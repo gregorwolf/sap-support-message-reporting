@@ -9,8 +9,9 @@ const MessageAlogSetData = require("./data/MessageAlogSet.json");
 const MessageContactsSetData = require("./data/MessageContactsSet.json");
 
 module.exports = (db) => {
-  const { MessageHeaderSet, MessageAlogSet, MessageContactsSet } =
-    db.entities("incidentws");
+  const { MessageHeaderSet, MessageAlogSet, MessageContactsSet } = db.entities(
+    "sap.incident.reporting"
+  );
 
   const entityToData = new Map([
     [MessageHeaderSet, MessageHeaderSetData],
