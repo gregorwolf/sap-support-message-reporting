@@ -30,7 +30,8 @@
         "FirstS2sap": "20210226122324",
         "LastS2sap": "20210226122324",
         "SystemType": "PROD",
-        "SWType": "ONPREM"
+        "SWType": "ONPREM",
+        "Stext": "Incident 1"
       },
       {
         "__metadata": {
@@ -60,7 +61,8 @@
         "FirstS2sap": "20210217105349",
         "LastS2sap": "20210225162311",
         "SystemType": "TEST",
-        "SWType": "ONPREM"
+        "SWType": "ONPREM",
+        "Stext": "Incident 2"
       },
       {
         "__metadata": {
@@ -90,7 +92,8 @@
         "FirstS2sap": "20210222212258",
         "LastS2sap": "20210222212258",
         "SystemType": "DEVELOP",
-        "SWType": "ONPREM"
+        "SWType": "ONPREM",
+        "Stext": "Incident 3"
       },
       {
         "__metadata": {
@@ -120,7 +123,8 @@
         "FirstS2sap": "20200904160944",
         "LastS2sap": "20200904160944",
         "SystemType": "DEVELOP",
-        "SWType": "ONPREM"
+        "SWType": "ONPREM",
+        "Stext": "Incident 4"
       },
       {
         "__metadata": {
@@ -481,7 +485,8 @@
         "LastS2sap": "20210115134309",
         "SystemType": "D",
         "SWType": "ONPREM",
-        "SystemId": "DEF"
+        "SystemId": "DEF",
+        "Stext": "Incident 5"
       },
       {
         "__metadata": {
