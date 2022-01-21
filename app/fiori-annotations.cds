@@ -1,6 +1,14 @@
 using {sap.incident.reporting as reporting} from '../db/data-model';
 
 annotate reporting.MessageHeaderSet with {
+  @Common : {
+    SemanticObject : 'Incident',
+    Text           : {
+      $value              : Stext,
+      @UI.TextArrangement : #TextLast
+    }
+  }
+  Pointer;
   @Common : {ValueList #PriorityTxtVisualFilter : {
     $Type                        : 'Common.ValueListType',
     CollectionPath               : 'MessageHeaderSet',
@@ -42,6 +50,7 @@ annotate reporting.MessageHeaderSet with {
 
 annotate reporting.MessageHeaderSet with @(UI : {
   SelectionFields                  : [
+    Pointer,
     StatusTxt,
     PriorityTxt,
     SystemId
@@ -102,6 +111,11 @@ annotate reporting.MessageHeaderSet with @(UI : {
     }]
   },
   LineItem                         : [
+    {
+      $Type          : 'UI.DataFieldForIntentBasedNavigation',
+      SemanticObject : 'Incident',
+      Action         : 'display'
+    },
     {Value : Pointer},
     {Value : StatusTxt},
     {Value : PriorityTxt},
