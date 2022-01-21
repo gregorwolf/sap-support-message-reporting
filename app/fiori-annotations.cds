@@ -102,6 +102,7 @@ annotate reporting.MessageHeaderSet with @(UI : {
     }]
   },
   LineItem                         : [
+    {Value : Pointer},
     {Value : StatusTxt},
     {Value : PriorityTxt},
     {Value : SystemId},
@@ -119,6 +120,7 @@ annotate reporting.MessageHeaderSet with @(UI : {
     Target : '@UI.FieldGroup#Details'
   }, ],
   FieldGroup #Details              : {Data : [
+    {Value : Pointer},
     {Value : Aedate},
     {Value : Status},
     {Value : StatusTxt},
