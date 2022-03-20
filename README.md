@@ -124,3 +124,7 @@ Deploy the configuration:
 Update the container:
 
 `kubectl -n sap-support-message-reporting rollout restart deployment/sap-support-message-reporting`
+
+If you want to delete the deployment, then run:
+
+`kubectl -n sap-support-message-reporting delete -f kyma/deployment.yaml`
