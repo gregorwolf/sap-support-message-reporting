@@ -33,4 +33,5 @@ mta_archives/
 # Certificates
 s-user.crt
 s-user.key
+s-user.pfx
 s-user-decrypted.key
