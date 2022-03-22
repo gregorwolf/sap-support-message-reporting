@@ -1,0 +1,2745 @@
+{
+  "meta": {
+    "creator": "cds-dk 4.8.2"
+  },
+  "$version": "2.0",
+  "definitions": {
+    "snogwsnnf": {
+      "kind": "service",
+      "@cds.external": true,
+      "@m.IsDefaultEntityContainer": "true",
+      "@sap.supported.formats": "atom json xlsx"
+    },
+    "snogwsnnf.confirm": {
+      "kind": "function",
+      "params": {
+        "Number": {
+          "type": "cds.Integer64"
+        }
+      },
+      "returns": {
+        "type": "snogwsnnf.Header"
+      }
+    },
+    "snogwsnnf.relevant": {
+      "kind": "function",
+      "params": {
+        "Number": {
+          "type": "cds.Integer64"
+        }
+      },
+      "returns": {
+        "type": "snogwsnnf.Header"
+      }
+    },
+    "snogwsnnf.ManualActions": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Number": {
+          "key": true,
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Text": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Visible": {
+          "type": "cds.Boolean",
+          "@sap.unicode": "false",
+          "@sap.label": "Indicator",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Doc": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Doc",
+          "on": [
+            {
+              "ref": [
+                "Doc",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Doc",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "snogwsnnf.CorrInstructions": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "SoftCompName": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "PakId": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Count": {
+          "type": "cds.Integer",
+          "@sap.unicode": "false",
+          "@sap.label": "Signed INT2 / int16",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Doc": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Doc",
+          "on": [
+            {
+              "ref": [
+                "Doc",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Doc",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "snogwsnnf.SoftComponents": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "SoftCompName": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "From": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "To": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Subsequent": {
+          "type": "cds.Boolean",
+          "@sap.unicode": "false",
+          "@sap.label": "Indicator",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Doc": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Doc",
+          "on": [
+            {
+              "ref": [
+                "Doc",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Doc",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "snogwsnnf.CorrectionsInfo": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Index": {
+          "key": true,
+          "type": "cds.Integer",
+          "@sap.unicode": "false",
+          "@sap.label": "Signed INT2 / int16",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "ManualActions": {
+          "type": "cds.Integer",
+          "@sap.unicode": "false",
+          "@sap.label": "Signed INT2 / int16",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "CorrectionInstructions": {
+          "type": "cds.Integer",
+          "@sap.unicode": "false",
+          "@sap.label": "Signed INT2 / int16",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Preconditions": {
+          "type": "cds.Integer",
+          "@sap.unicode": "false",
+          "@sap.label": "Signed INT2 / int16",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "ManualActionsState": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "CorrectionsInstructionsState": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "PreconditionsState": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Doc": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Doc",
+          "on": [
+            {
+              "ref": [
+                "Doc",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Doc",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "snogwsnnf.SupportPackages": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "SCV": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "SP": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Level": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "DownloadURL": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "snogwsnnf.Patches": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "SCV": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "SP": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Level": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "DownloadURL": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "snogwsnnf.Longtexts": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "TextID": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Title": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Text": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Doc": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Doc",
+          "on": [
+            {
+              "ref": [
+                "Doc",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Doc",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "snogwsnnf.ReferencedBy": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "RefNumber": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RefTitle": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Component": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "CreatedOn": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LastLogin": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RefType": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RefUrl": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RefKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "snogwsnnf.ReferencesTo": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "RefNumber": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RefTitle": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Component": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "CreatedOn": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LastLogin": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RefType": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RefUrl": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RefKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "snogwsnnf.SideCauSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "RefNumber": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RefTitle": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Component": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "CreatedOn": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LastLogin": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RefType": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RefUrl": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RefKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "snogwsnnf.SideSolSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "RefNumber": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RefTitle": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Component": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "CreatedOn": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LastLogin": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RefType": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RefUrl": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RefKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "snogwsnnf.Products": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Name": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Doc": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Doc",
+          "on": [
+            {
+              "ref": [
+                "Doc",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Doc",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "snogwsnnf.Preconditions": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "PreNumber": {
+          "key": true,
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "SoftwareComponent": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RelFrom": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RelTo": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "PreTitle": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "PreComponentName": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "PreComponentText": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Doc": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Doc",
+          "on": [
+            {
+              "ref": [
+                "Doc",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Doc",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "snogwsnnf.Header": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Number": {
+          "key": true,
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "ReleaseType": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Type": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "TypeKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Language": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageMaster": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageMasterKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Title": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "ComponentName": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "ComponentText": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Version": {
+          "type": "cds.Integer",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "ReleasedOn": {
+          "type": "cds.DateTime",
+          "@odata.type": "Edm.DateTime",
+          "@odata.precision": 0,
+          "@sap.unicode": "false",
+          "@sap.label": "Time Stamp",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Status": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Priority": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Category": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Favorite": {
+          "type": "cds.String",
+          "length": 1,
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "TranslationOutdated": {
+          "type": "cds.Boolean",
+          "@sap.unicode": "false",
+          "@sap.label": "Indicator",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Rating": {
+          "type": "cds.Boolean",
+          "@sap.unicode": "false",
+          "@sap.label": "Indicator",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Worklist": {
+          "type": "cds.Boolean",
+          "@sap.unicode": "false",
+          "@sap.label": "Indicator",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "snogwsnnf.Doc": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Number": {
+          "key": true,
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "ManualActions": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.ManualActions",
+          "on": [
+            {
+              "ref": [
+                "ManualActions",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "ManualActions",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        },
+        "CorrInstructions": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.CorrInstructions",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "CorrInstructions",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "CorrInstructions",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        },
+        "SoftComponents": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.SoftComponents",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "SoftComponents",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "SoftComponents",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            }
+          ]
+        },
+        "CorrectionsInfos": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.CorrectionsInfo",
+          "on": [
+            {
+              "ref": [
+                "CorrectionsInfos",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "CorrectionsInfos",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            }
+          ]
+        },
+        "SupportPackages": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.SupportPackages",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "SupportPackages",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "SupportPackages",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        },
+        "Patches": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Patches",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "Patches",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Patches",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        },
+        "ReferencedBy": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.ReferencedBy",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "ReferencedBy",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "ReferencedBy",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        },
+        "Products": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Products",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "Products",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Products",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        },
+        "Preconditions": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Preconditions",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "Preconditions",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Preconditions",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        },
+        "Longtext": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Longtexts",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "Longtext",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Longtext",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        },
+        "ReferencesTo": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.ReferencesTo",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "ReferencesTo",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "ReferencesTo",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        },
+        "Languages": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Languages",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "Languages",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Languages",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        },
+        "SideCau": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.SideCauSet",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "SideCau",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "SideCau",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        },
+        "SideSol": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.SideSolSet",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "SideSol",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "SideSol",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            }
+          ]
+        },
+        "Attributes": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Attributes",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "Attributes",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Attributes",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            }
+          ]
+        },
+        "Attach": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.AttachSet",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "Attach",
+                "Languagekey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Attach",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        },
+        "CVSSInfo": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.CVSSInfo",
+          "on": [
+            {
+              "ref": [
+                "CVSSInfo",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "CVSSInfo",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        },
+        "RatingInfo": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.RatingInfo",
+          "on": [
+            {
+              "ref": [
+                "RatingInfo",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "RatingInfo",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        },
+        "Versions": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.VersionSet",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "Versions",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Versions",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        },
+        "CVSS": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.CVSSSet",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "CVSS",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "CVSS",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "snogwsnnf.Languages": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "OtherLanguageKey": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "OtherLanguageText": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "URL": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "IsOutdated": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "IsHT": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Doc": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Doc",
+          "on": [
+            {
+              "ref": [
+                "Doc",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Doc",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "snogwsnnf.Attributes": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "GroupKey": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Name": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Value": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "snogwsnnf.AttachSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "FileName": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Languagekey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "FileSize": {
+          "type": "cds.Integer",
+          "@sap.unicode": "false",
+          "@sap.label": "Signed INT2 / int16",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "FileLink": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "MimeType": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "snogwsnnf.RatingInfo": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Number": {
+          "key": true,
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "OverallCount": {
+          "type": "cds.Integer",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "OverallCount1": {
+          "type": "cds.Integer",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "OverallCount2": {
+          "type": "cds.Integer",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "OverallCount3": {
+          "type": "cds.Integer",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "OverallCount4": {
+          "type": "cds.Integer",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "OverallCount5": {
+          "type": "cds.Integer",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Threshhold": {
+          "type": "cds.Integer",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "OverallValue": {
+          "type": "cds.Double",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "YesOrNo": {
+          "type": "cds.Boolean",
+          "@sap.unicode": "false",
+          "@sap.label": "Indicator",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Feedback": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "YourRating": {
+          "type": "cds.Integer",
+          "@sap.unicode": "false",
+          "@sap.label": "Signed INT2 / int16",
+          "@sap.creatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "RatedHelpful": {
+          "type": "cds.Integer",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Answers": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.RatingAnswerSet",
+          "cardinality": {
+            "max": "*"
+          },
+          "on": [
+            {
+              "ref": [
+                "Answers",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Answers",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            }
+          ]
+        },
+        "Doc": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Doc",
+          "on": [
+            {
+              "ref": [
+                "Doc",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Doc",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "snogwsnnf.VersionSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "NumVersion": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "snogwsnnf.RatingAnswerSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Number": {
+          "key": true,
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Key": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Title": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Description": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Value": {
+          "type": "cds.Boolean",
+          "@sap.unicode": "false",
+          "@sap.label": "Indicator",
+          "@sap.creatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "snogwsnnf.CVSSSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Key": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Number": {
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Value": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Name": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Doc": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Doc",
+          "on": [
+            {
+              "ref": [
+                "Doc",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Doc",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "snogwsnnf.CVSSInfo": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Number": {
+          "key": true,
+          "type": "cds.Integer64",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "LanguageKey": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Score": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Vector": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Version": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Doc": {
+          "@cds.ambiguous": "missing on condition?",
+          "type": "cds.Association",
+          "target": "snogwsnnf.Doc",
+          "on": [
+            {
+              "ref": [
+                "Doc",
+                "LanguageKey"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "LanguageKey"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Doc",
+                "Number"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "Number"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

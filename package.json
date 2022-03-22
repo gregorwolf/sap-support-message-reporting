@@ -34,6 +34,10 @@
   },
   "cds": {
     "requires": {
+      "db": {
+        "kind": "sqlite",
+        "model": "*"
+      },
       "incidentws": {
         "kind": "odata-v2",
         "model": "srv/external/incidentws",
@@ -42,9 +46,13 @@
           "destination": "OSS"
         }
       },
-      "db": {
-        "kind": "sqlite",
-        "model": "*"
+      "snogwsnnf": {
+        "kind": "odata-v2",
+        "model": "srv/external/snogwsnnf",
+        "path": "/services/odata/svt/snogwsnnf",
+        "credentials": {
+          "destination": "OSS"
+        }
       }
     }
   }
