@@ -1,16 +1,20 @@
 {
   "meta": {
-    "creator": "cds-dk 4.6.2"
+    "creator": "cds-dk 4.8.2"
   },
   "$version": "2.0",
   "definitions": {
     "incidentws": {
       "kind": "service",
-      "@cds.external": true
+      "@cds.external": true,
+      "@m.IsDefaultEntityContainer": "true",
+      "@sap.supported.formats": "atom json xlsx"
     },
     "incidentws.MessageHeaderSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.deletable": "false",
+      "@sap.searchable": "true",
       "@sap.content.version": "1",
       "elements": {
         "Pointer": {
@@ -83,18 +87,24 @@
         },
         "Erftstmp": {
           "type": "cds.DateTime",
+          "@odata.type": "Edm.DateTime",
+          "@odata.precision": 0,
           "@sap.unicode": "false",
           "@sap.label": "Time Stamp",
           "@sap.sortable": "false"
         },
         "Aetstmp": {
           "type": "cds.DateTime",
+          "@odata.type": "Edm.DateTime",
+          "@odata.precision": 0,
           "@sap.unicode": "false",
           "@sap.label": "Time Stamp",
           "@sap.sortable": "false"
         },
         "Closetstmp": {
           "type": "cds.DateTime",
+          "@odata.type": "Edm.DateTime",
+          "@odata.precision": 0,
           "@sap.unicode": "false",
           "@sap.label": "Time Stamp",
           "@sap.sortable": "false",
@@ -360,6 +370,8 @@
         },
         "LastTextTstmp": {
           "type": "cds.DateTime",
+          "@odata.type": "Edm.DateTime",
+          "@odata.precision": 0,
           "@sap.unicode": "false",
           "@sap.label": "Last Text Timestamp",
           "@sap.creatable": "false",
@@ -893,6 +905,14 @@
           "@sap.sortable": "false",
           "@sap.filterable": "false"
         },
+        "AaEPSessStatus": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.unicode": "false",
+          "@sap.label": "Status of AaEP session",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
         "AaEPQuesStatus": {
           "type": "cds.String",
           "length": 40,
@@ -955,7 +975,7 @@
           "@sap.filterable": "false"
         },
         "MessageTexts": {
-          "doc": "Please add  an ON condition",
+          "@cds.ambiguous": "missing on condition?",
           "type": "cds.Association",
           "target": "incidentws.MessageTextsSet",
           "cardinality": {
@@ -981,6 +1001,10 @@
     "incidentws.UserDataSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Susid": {
@@ -1258,6 +1282,10 @@
     "incidentws.MessageContactsSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Pointer": {
@@ -1414,6 +1442,11 @@
     "incidentws.MessageAuthSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Action": {
@@ -1472,6 +1505,11 @@
     "incidentws.HybridCheckSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Uname": {
@@ -1581,6 +1619,11 @@
     "incidentws.StatusSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "StatusKey": {
@@ -1607,6 +1650,10 @@
     "incidentws.SysParamSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Category": {
@@ -1634,6 +1681,9 @@
         "AaEPStatusUpdate": {
           "kind": "action",
           "params": {
+            "ExpireDate": {
+              "type": "cds.LargeString"
+            },
             "QuestionUUID": {
               "type": "cds.LargeString"
             },
@@ -1670,6 +1720,11 @@
     "incidentws.F4HelpSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Type": {
@@ -1785,6 +1840,11 @@
     "incidentws.SysConnectSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Sysnr": {
@@ -1881,6 +1941,10 @@
     "incidentws.UserInstallationsSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Uname": {
@@ -1999,6 +2063,11 @@
     "incidentws.MessageCSQSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Component": {
@@ -2031,6 +2100,11 @@
     "incidentws.MessageAPlanSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Pointer": {
@@ -2117,6 +2191,11 @@
     "incidentws.MessageSuggSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Pointer": {
@@ -2196,6 +2275,8 @@
     "incidentws.MessageTextsSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.deletable": "false",
+      "@sap.searchable": "true",
       "@sap.content.version": "1",
       "elements": {
         "Pointer": {
@@ -2427,6 +2508,8 @@
     "incidentws.MessageAttachmentsSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.deletable": "false",
+      "@sap.searchable": "true",
       "@sap.content.version": "1",
       "elements": {
         "Pointer": {
@@ -2441,7 +2524,8 @@
           "@sap.filterable": "false"
         },
         "Hash": {
-          "type": "cds.LargeBinary",
+          "type": "cds.Binary",
+          "length": 20,
           "@sap.unicode": "false",
           "@sap.label": "Hash Value",
           "@sap.creatable": "false",
@@ -2693,6 +2777,11 @@
     "incidentws.ProductSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "ProdId": {
@@ -2746,6 +2835,11 @@
     "incidentws.PrioritySet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Prio": {
@@ -2780,6 +2874,11 @@
     "incidentws.SubproductSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "CompKey": {
@@ -2866,6 +2965,9 @@
     "incidentws.MessageCoreSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Action": {
@@ -3165,6 +3267,11 @@
     "incidentws.MessageNoteSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Pointer": {
@@ -3265,6 +3372,10 @@
     "incidentws.MessageAlogSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Uname": {
@@ -3481,6 +3592,11 @@
     "incidentws.MessagePCCSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Pointer": {
@@ -3507,6 +3623,11 @@
     "incidentws.CompF4HelpSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Uname": {
@@ -3632,6 +3753,11 @@
     "incidentws.CompSearchSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "SearchText": {
@@ -3742,6 +3868,11 @@
     "incidentws.SystemSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "SystemNumber": {
@@ -3862,6 +3993,11 @@
     "incidentws.TopNoteSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Number": {
@@ -3981,6 +4117,11 @@
     "incidentws.InstallationSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "InstNbr": {
@@ -4058,6 +4199,11 @@
     "incidentws.MessageDSS": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Kunnr": {
@@ -4104,6 +4250,11 @@
     "incidentws.SystemSearchSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Uname": {
@@ -4380,6 +4531,11 @@
     "incidentws.CustProdInstSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Uname": {
@@ -4451,6 +4607,11 @@
     "incidentws.RampUpSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Sysnr": {
@@ -4477,6 +4638,10 @@
     "incidentws.CitrixChatSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Description": {
@@ -4552,6 +4717,11 @@
     "incidentws.SysTypeSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Uname": {
@@ -4613,6 +4783,11 @@
     "incidentws.CompAdvisorSuggSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Uname": {
@@ -4734,6 +4909,11 @@
     "incidentws.FavoriteIncidentSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Pointer": {
@@ -4762,6 +4942,11 @@
     "incidentws.GigyaCompSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "CompKey": {
@@ -4798,12 +4983,26 @@
           "@sap.updatable": "false",
           "@sap.sortable": "false",
           "@sap.filterable": "false"
+        },
+        "PrioLimit": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
         }
       }
     },
     "incidentws.IncidentHeaderSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Pointer": {
@@ -5038,6 +5237,11 @@
     "incidentws.InstallationRelatedSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Insnr": {
@@ -5072,6 +5276,11 @@
     "incidentws.IncidentInstSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "InstNbr": {
@@ -5130,6 +5339,11 @@
     "incidentws.IncidentReporterSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "ReporterId": {
@@ -5156,6 +5370,11 @@
     "incidentws.SaECheckSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Pointer": {
@@ -5211,6 +5430,11 @@
     "incidentws.CompPredictionSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Uname": {
@@ -5374,6 +5598,11 @@
     "incidentws.AllowedFileTypesSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Service": {
@@ -5414,6 +5643,11 @@
     "incidentws.AttachmentSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Identifier": {
@@ -5458,6 +5692,11 @@
     "incidentws.SysProductSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "ProdId": {
@@ -5511,6 +5750,11 @@
     "incidentws.ServiceMailSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Servicename": {
@@ -5567,6 +5811,11 @@
     "incidentws.SaMCheckSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Pointer": {
@@ -5632,6 +5881,11 @@
     "incidentws.SysProductEnhSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "KeyPath": {
@@ -5799,6 +6053,11 @@
     "incidentws.ExpertAreaF4HelpSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Uname": {
@@ -5822,6 +6081,11 @@
     "incidentws.ACRFSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Key": {
@@ -5870,6 +6134,11 @@
     "incidentws.EEA_TopicsSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "NodeID": {
@@ -6075,7 +6344,7 @@
           "@sap.filterable": "false"
         },
         "Ext": {
-          "doc": "Please add  an ON condition",
+          "@cds.ambiguous": "missing on condition?",
           "type": "cds.Association",
           "target": "incidentws.EEA_Topics_extSet",
           "on": [
@@ -6107,7 +6376,7 @@
           ]
         },
         "Km": {
-          "doc": "Please add  an ON condition",
+          "@cds.ambiguous": "missing on condition?",
           "type": "cds.Association",
           "target": "incidentws.EEA_Topics_kmSet",
           "cardinality": {
@@ -6142,7 +6411,7 @@
           ]
         },
         "Attr": {
-          "doc": "Please add  an ON condition",
+          "@cds.ambiguous": "missing on condition?",
           "type": "cds.Association",
           "target": "incidentws.EEA_Topics_attrSet",
           "cardinality": {
@@ -6177,7 +6446,7 @@
           ]
         },
         "Rel": {
-          "doc": "Please add  an ON condition",
+          "@cds.ambiguous": "missing on condition?",
           "type": "cds.Association",
           "target": "incidentws.EEA_Topics_relSet",
           "cardinality": {
@@ -6212,7 +6481,7 @@
           ]
         },
         "EEA_Topics_tfSet": {
-          "doc": "Please add  an ON condition",
+          "@cds.ambiguous": "missing on condition?",
           "type": "cds.Association",
           "target": "incidentws.EEA_Topics_tfSet",
           "cardinality": {
@@ -6251,6 +6520,11 @@
     "incidentws.EEA_MaintainSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "KeyPath": {
@@ -6450,6 +6724,11 @@
     "incidentws.EEA_Topics_extSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "NodeID": {
@@ -6499,6 +6778,11 @@
     "incidentws.EEA_Topics_kmSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "NodeID": {
@@ -6639,6 +6923,11 @@
     "incidentws.EEA_Topics_attrSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "NodeID": {
@@ -6739,6 +7028,11 @@
     "incidentws.EEA_EdgeSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Parent_ID": {
@@ -6820,6 +7114,11 @@
     "incidentws.CloudSysStatusSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Uname": {
@@ -6884,6 +7183,11 @@
     "incidentws.EEA_PermissionSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "User": {
@@ -6908,6 +7212,11 @@
     "incidentws.ExpertChatCheckSetSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Pointer": {
@@ -7010,6 +7319,11 @@
     "incidentws.EEA_Topics_relSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "NodeID": {
@@ -7067,6 +7381,11 @@
     "incidentws.EEA_ValuesSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Key": {
@@ -7091,6 +7410,11 @@
     "incidentws.EEA_PathSearchSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Path": {
@@ -7124,6 +7448,11 @@
     "incidentws.ReadNoteSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Number": {
@@ -7148,6 +7477,11 @@
     "incidentws.ERCD_SystemsSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "KunNr": {
@@ -7188,6 +7522,8 @@
         },
         "FromTS": {
           "type": "cds.DateTime",
+          "@odata.type": "Edm.DateTime",
+          "@odata.precision": 0,
           "@sap.unicode": "false",
           "@sap.label": "Time Stamp",
           "@sap.creatable": "false",
@@ -7197,6 +7533,8 @@
         },
         "ToTS": {
           "type": "cds.DateTime",
+          "@odata.type": "Edm.DateTime",
+          "@odata.precision": 0,
           "@sap.unicode": "false",
           "@sap.label": "Time Stamp",
           "@sap.creatable": "false",
@@ -7238,6 +7576,8 @@
         },
         "UploadTS": {
           "type": "cds.DateTime",
+          "@odata.type": "Edm.DateTime",
+          "@odata.precision": 0,
           "@sap.unicode": "false",
           "@sap.label": "Time Stamp",
           "@sap.creatable": "false",
@@ -7250,6 +7590,11 @@
     "incidentws.SNTokenSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Pointer": {
@@ -7288,6 +7633,11 @@
     "incidentws.EEA_Topics_tfSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "NodeID": {
@@ -7425,6 +7775,11 @@
     "incidentws.AaEPSwitchSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Name": {
@@ -7461,6 +7816,11 @@
     "incidentws.EEA_RESP_AreaSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Id": {
@@ -7546,7 +7906,7 @@
           "@sap.filterable": "false"
         },
         "Attr": {
-          "doc": "Please add  an ON condition",
+          "@cds.ambiguous": "missing on condition?",
           "type": "cds.Association",
           "target": "incidentws.EEA_RESP_AttrSet",
           "cardinality": {
@@ -7572,6 +7932,11 @@
     "incidentws.EEA_RESP_AttrSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "AttrId": {
@@ -7641,7 +8006,7 @@
           "@sap.filterable": "false"
         },
         "Area": {
-          "doc": "Please add  an ON condition",
+          "@cds.ambiguous": "missing on condition?",
           "type": "cds.Association",
           "target": "incidentws.EEA_RESP_AreaSet",
           "on": [
@@ -7664,6 +8029,11 @@
     "incidentws.EEA_RESPSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Key": {
@@ -7688,6 +8058,11 @@
     "incidentws.EEA_RESP_ChannelSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "AreaId": {
@@ -7737,6 +8112,11 @@
     "incidentws.EEA_RESP_ChannelTasksSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Path": {
@@ -7769,6 +8149,11 @@
     "incidentws.EEA_RESP_CompSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Id": {
@@ -7898,6 +8283,11 @@
     "incidentws.EEA_RESP_ChannelUserSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "ChannelTypeID": {
@@ -7957,6 +8347,11 @@
     "incidentws.EEA_RESP_ChannelQualSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "ChannelTypeID": {
@@ -8007,6 +8402,11 @@
     "incidentws.EEASet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Type": {
@@ -8039,6 +8439,11 @@
     "incidentws.ChannelCheckSet": {
       "kind": "entity",
       "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
       "@sap.content.version": "1",
       "elements": {
         "Component": {
@@ -8100,6 +8505,129 @@
           "@sap.filterable": "false"
         },
         "Details": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Slots": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "incidentws.ACRFPPMSSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "CL_KEY": {
+          "key": true,
+          "type": "cds.String",
+          "length": 10,
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "PPMS_KEY": {
+          "type": "cds.String",
+          "length": 20,
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "del_flag": {
+          "type": "cds.String",
+          "length": 1,
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "incidentws.EEA_BuiltInSupportSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "SystemNumber": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "ComponentName": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "KMContent": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Categorization": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "incidentws.EEA_S4M_PredictiveSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "InputParams": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "OutputParams": {
           "type": "cds.LargeString",
           "@sap.unicode": "false",
           "@sap.creatable": "false",

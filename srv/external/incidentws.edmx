@@ -2,6 +2,7 @@
 <edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
   <edmx:DataServices m:DataServiceVersion="2.0">
     <Schema Namespace="SVT_NGMSG_WEBSERVICES_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm" />
       <EntityType Name="MessageHeader" sap:content-version="1">
         <Key>
           <PropertyRef Name="Pointer" />
@@ -26,8 +27,8 @@
         <Property Name="InputType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Input Type (how message is entered)" sap:sortable="false" sap:filterable="false" />
         <Property Name="Masterinst" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Installation Number where the message was created" sap:sortable="false" sap:filterable="false" />
         <Property Name="ServicetypTxt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Servicetype Text" sap:sortable="false" sap:filterable="false" />
-        <Property Name="StatusTxt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Status Text" sap:sortable="false" sap:filterable="true" />
-        <Property Name="PriorityTxt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Priority Text" sap:sortable="false" sap:filterable="true" />
+        <Property Name="StatusTxt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Status Text" sap:sortable="false" sap:filterable="false" />
+        <Property Name="PriorityTxt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Priority Text" sap:sortable="false" sap:filterable="false" />
         <Property Name="CompKey" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Component Key" sap:sortable="false" sap:filterable="false" />
         <Property Name="ComponentTxt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Service Component Text" sap:sortable="false" sap:filterable="false" />
         <Property Name="CompPath" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Service Component Path" sap:sortable="false" sap:filterable="false" />
@@ -116,6 +117,7 @@
         <Property Name="ProductSelected" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Product Numer selected on UI" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="DataProtection" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Data Protection" sap:sortable="false" sap:filterable="false" />
         <Property Name="AaEPQuesUUID" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Question UUID(Directly)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="AaEPSessStatus" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Status of AaEP session" sap:sortable="false" sap:filterable="false" />
         <Property Name="AaEPQuesStatus" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Status of AaEP question" sap:sortable="false" sap:filterable="false" />
         <Property Name="AaEPQuesEmail" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="Email of AaEP question" sap:sortable="false" sap:filterable="false" />
         <Property Name="QuesDateCreated" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Created date of AaEP question" sap:sortable="false" sap:filterable="false" />
@@ -341,7 +343,7 @@
           <PropertyRef Name="Pointer" />
         </Key>
         <Property Name="Pointer" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Message Pointer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-        <Property Name="Hash" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:label="Hash Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Hash" Type="Edm.Binary" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Hash Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Hash40" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Hash40" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Service" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Service" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Servicetyp" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Serv. Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
@@ -702,6 +704,7 @@
         <Property Name="CompKey" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="CompName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="CompDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="PrioLimit" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
       </EntityType>
       <EntityType Name="IncidentHeader" sap:content-version="1">
         <Key>
@@ -1276,6 +1279,32 @@
         <Property Name="RespArea" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Active" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
         <Property Name="Details" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Slots" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+      </EntityType>
+      <EntityType Name="ACRFPPMS" sap:content-version="1">
+        <Key>
+          <PropertyRef Name="CL_KEY" />
+        </Key>
+        <Property Name="CL_KEY" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="PPMS_KEY" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="del_flag" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+      </EntityType>
+      <EntityType Name="EEA_BuiltInSupport" sap:content-version="1">
+        <Key>
+          <PropertyRef Name="SystemNumber" />
+          <PropertyRef Name="ComponentName" />
+        </Key>
+        <Property Name="SystemNumber" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="ComponentName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="KMContent" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="Categorization" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+      </EntityType>
+      <EntityType Name="EEA_S4M_Predictive" sap:content-version="1">
+        <Key>
+          <PropertyRef Name="InputParams" />
+        </Key>
+        <Property Name="InputParams" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+        <Property Name="OutputParams" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
       </EntityType>
       <Association Name="EEA_Topics_ext_ass" sap:content-version="1">
         <End Type="SVT_NGMSG_WEBSERVICES_SRV.EEA_Topics" Multiplicity="1" Role="FromRole_EEA_Topics_ext_ass" />
@@ -1449,6 +1478,9 @@
         <EntitySet Name="EEA_RESP_ChannelQualSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_RESP_ChannelQual" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
         <EntitySet Name="EEASet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
         <EntitySet Name="ChannelCheckSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.ChannelCheck" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="ACRFPPMSSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.ACRFPPMS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_BuiltInSupportSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_BuiltInSupport" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+        <EntitySet Name="EEA_S4M_PredictiveSet" EntityType="SVT_NGMSG_WEBSERVICES_SRV.EEA_S4M_Predictive" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
         <AssociationSet Name="EEA_RESP_Area_assSet" Association="SVT_NGMSG_WEBSERVICES_SRV.EEA_RESP_Area_ass" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
           <End EntitySet="EEA_RESP_AreaSet" Role="FromRole_EEA_RESP_Area_ass" />
           <End EntitySet="EEA_RESP_AttrSet" Role="ToRole_EEA_RESP_Area_ass" />
@@ -1478,6 +1510,7 @@
           <End EntitySet="EEA_Topics_kmSet" Role="ToRole_EEA_Topics_km_ass" />
         </AssociationSet>
         <FunctionImport Name="AaEPStatusUpdate" ReturnType="SVT_NGMSG_WEBSERVICES_SRV.SysParam" EntitySet="SysParamSet" m:HttpMethod="POST" sap:action-for="SVT_NGMSG_WEBSERVICES_SRV.SysParam">
+          <Parameter Name="AaEPUISessionStatus" Type="Edm.String" Mode="In" />
           <Parameter Name="ExpireDate" Type="Edm.String" Mode="In" />
           <Parameter Name="QuestionUUID" Type="Edm.String" Mode="In" />
           <Parameter Name="QuestionStatus" Type="Edm.String" Mode="In" />
