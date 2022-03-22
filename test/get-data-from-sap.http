@@ -1,3 +1,6 @@
+### Retrieve Metadata from SAP
+GET https://launchpad.support.sap.com/services/odata/incidentws/$metadata
+Cookie: {{$dotenv cookie}}
 ### Retrieve Messages from SAP
 GET https://launchpad.support.sap.com/services/odata/incidentws/MessageHeaderSet
   ?$inlinecount=allpages
