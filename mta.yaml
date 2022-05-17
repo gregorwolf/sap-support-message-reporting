@@ -18,7 +18,7 @@ build-parameters:
 
 modules:
   # --------------------- SERVER MODULE ------------------------
-  - name: sap-support-message-reporting-srv
+  - name: reporting-srv
   # ------------------------------------------------------------
     type: nodejs
     path: gen/srv
@@ -27,11 +27,13 @@ modules:
     parameters:
       memory: 256M
       disk-quota: 1024M
+#      routes:
+#        - route: https://${app-name}-${space}.${default-domain}
     provides:
     - name: srv-api      # required by consumers of CAP services (e.g. approuter)
       properties:
         srv-url: ${default-url}
-  - name: sap-support-message-reporting-ui
+  - name: reporting-ui
     type: nodejs
     path: app
     build-parameters:
