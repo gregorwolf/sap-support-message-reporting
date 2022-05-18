@@ -1,0 +1,57 @@
+name: build-cloud-foundry
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: pwd
+        run: pwd
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          cache: 'npm'
+      - name: Check node version
+        run: node --version
+      - name: Install MTA Build Tool
+        run: npm install -g mbt
+      - name: Install Packages
+        run: npm install ci
+      - name: MTA build
+        uses: SAP/project-piper-action@master
+        with:
+          command: mtaBuild
+      - name: Upload archive file
+        uses: actions/upload-artifact@v2
+        with:
+           name: mta
+           path: sap-support-message-reporting-cf.mtar
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment: 
+      name: dev
+      # url: 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: mta
+      - name: Display structure of downloaded files
+        run: ls -R
+      - name: cloudFoundryDeploy
+        uses: SAP/project-piper-action@master
+        with:
+          command: cloudFoundryDeploy
+        env:
+          PIPER_username: ${{ secrets.PIPER_USERNAME }}
+          PIPER_password: ${{ secrets.PIPER_PASSWORD }}
