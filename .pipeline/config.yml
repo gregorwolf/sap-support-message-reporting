@@ -9,3 +9,4 @@ steps:
     org: dev-azure
     space: dev
     cfNativeDeployParameters: -f
+    deployTool: mtaDeployPlugin
