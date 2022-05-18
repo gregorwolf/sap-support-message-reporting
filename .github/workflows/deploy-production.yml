@@ -1,0 +1,33 @@
+name: deploy-production
+
+on:
+  workflow_dispatch
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: 
+      name: production
+      # url: 
+    env:
+      CF_API: https://api.cf.eu20.hana.ondemand.com/
+      CF_ORG: dev-azure
+      CF_SPACE: production
+      CF_USERNAME: ${{ secrets.PIPER_USERNAME }}
+      CF_PASSWORD: ${{ secrets.PIPER_PASSWORD }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Download CF artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: build-mta-cf.yml
+          workflow_conclusion: success
+          name: mta
+      - name: Display structure of downloaded files
+        run: ls -R
+      - name: CF Deploy
+        id: deploy
+        uses: ./.github/actions/cf-deploy
+        with:
+          createspace: false
+          mtafile: ./sap-support-message-reporting-cf.mtar
