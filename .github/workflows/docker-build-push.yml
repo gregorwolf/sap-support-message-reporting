@@ -3,7 +3,9 @@ name: ci
 on:
   push:
     branches:
-      - build
+      - main
+    paths-ignore:
+      - '.github/**'
 
 jobs:
   main:
