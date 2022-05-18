@@ -40,6 +40,12 @@ jobs:
     environment: 
       name: dev
       # url: 
+    env:
+      CF_API: https://api.cf.eu20.hana.ondemand.com/
+      CF_ORG: dev-azure
+      CF_SPACE: dev
+      CF_USERNAME: ${{ secrets.PIPER_USERNAME }}
+      CF_PASSWORD: ${{ secrets.PIPER_PASSWORD }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -48,10 +54,19 @@ jobs:
           name: mta
       - name: Display structure of downloaded files
         run: ls -R
-      - name: cloudFoundryDeploy
-        uses: SAP/project-piper-action@master
+      - name: CF Deploy
+        id: deploy
+        uses: ./.github/actions/cf-deploy
         with:
-          command: cloudFoundryDeploy
-        env:
-          PIPER_username: ${{ secrets.PIPER_USERNAME }}
-          PIPER_password: ${{ secrets.PIPER_PASSWORD }}
+          createspace: false
+          mtafile: ./sap-support-message-reporting-cf.mtar
+#          findurl_command: 'cf html5-list -di sflight-destination-service -u'
+
+# Can't get it to work as CF CLI with deploy plugin needs to be installed
+#      - name: cloudFoundryDeploy
+#        uses: SAP/project-piper-action@master
+#        with:
+#          command: cloudFoundryDeploy
+#        env:
+#          PIPER_username: ${{ secrets.PIPER_USERNAME }}
+#          PIPER_password: ${{ secrets.PIPER_PASSWORD }}
