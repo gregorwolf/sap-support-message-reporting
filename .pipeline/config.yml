@@ -1,0 +1,11 @@
+general:
+steps:
+  mtaBuild:
+    platform: 'CF'
+    mtarName: sap-support-message-reporting-cf.mtar
+  cloudFoundryDeploy:
+    apiEndpoint: https://api.cf.eu20.hana.ondemand.com/
+    mtaPath: ./sap-support-message-reporting-cf.mtar
+    org: dev-azure
+    space: dev
+    cfNativeDeployParameters: -f
