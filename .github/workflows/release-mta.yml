@@ -1,0 +1,55 @@
+name: release-mta-qa-deploy
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    name: Upload Release Asset
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download CF artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: build-mta-cf.yml
+          workflow_conclusion: success
+          name: mta
+      - name: Display structure of downloaded files
+        run: ls -R
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            sap-support-message-reporting-cf.mtar
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: release
+    environment: 
+      name: qa
+      # url: 
+    env:
+      CF_API: https://api.cf.eu20.hana.ondemand.com/
+      CF_ORG: dev-azure
+      CF_SPACE: qa
+      CF_USERNAME: ${{ secrets.PIPER_USERNAME }}
+      CF_PASSWORD: ${{ secrets.PIPER_PASSWORD }}
+    steps:
+      - name: Download CF artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: build-mta-cf.yml
+          workflow_conclusion: success
+          name: mta
+      - name: Display structure of downloaded files
+        run: ls -R
+      - name: CF Deploy
+        id: deploy
+        uses: ./.github/actions/cf-deploy
+        with:
+          createspace: false
+          mtafile: ./sap-support-message-reporting-cf.mtar
