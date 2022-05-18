@@ -61,7 +61,7 @@ openssl pkcs12 -in s-user.pfx -clcerts -nokeys -out s-user.crt
 openssl rsa -in s-user.key -out s-user-decrypted.key
 ```
 
-Then run `npm run update:cookie` to update the cookie in _default-env.json_.
+Then run `npm run cookie:update` to update the cookie in _default-env.json_.
 
 Then start the project with `npm start` and execute the _loadDataFromSAP_ request in the _test/cap-endpoint.http_ file.
 
