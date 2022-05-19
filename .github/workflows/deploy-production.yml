@@ -17,12 +17,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Download CF artifact
-        uses: dawidd6/action-download-artifact@v2
+      - name: Download latest release
+        uses: dsaltares/fetch-gh-release-asset@master
         with:
-          workflow: build-mta-cf.yml
-          workflow_conclusion: success
-          name: mta
+          file: sap-support-message-reporting-cf.mtar
+#      - name: Download CF artifact
+#        uses: dawidd6/action-download-artifact@v2
+#        with:
+#          workflow: build-mta-cf.yml
+#          workflow_conclusion: success
+#          name: mta
       - name: Display structure of downloaded files
         run: ls -R
       - name: CF Deploy
