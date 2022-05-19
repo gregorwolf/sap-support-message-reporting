@@ -1,4 +1,4 @@
-name: release-mta-qa-deploy
+name: cf-release-and-deploy-qa
 
 on:
   push:

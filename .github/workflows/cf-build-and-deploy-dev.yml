@@ -1,4 +1,4 @@
-name: build-cloud-foundry
+name: cf-build-and-deploy-dev
 
 on:
   push:

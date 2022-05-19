@@ -1,4 +1,4 @@
-name: deploy-production
+name: cf-deploy-production
 
 on:
   workflow_dispatch
