@@ -35,7 +35,8 @@
     "push:docker": "docker push gregorwolf/sap-support-message-reporting:latest",
     "deploy:cf": "cf deploy mta_archives/sap-support-message-reporting_0.0.1.mtar",
     "start:docker": "docker run --name sap-support-message-reporting -d -p 4004:4004 gregorwolf/sap-support-message-reporting:latest",
-    "stop:docker": "docker stop sap-support-message-reporting"
+    "stop:docker": "docker stop sap-support-message-reporting",
+    "undeploy": "cf undeploy sap-support-message-reporting --delete-service-keys --delete-services --delete-service-brokers"
   },
   "cds": {
     "requires": {
