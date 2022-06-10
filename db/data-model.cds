@@ -7,6 +7,9 @@ using {incidentws as external} from '../srv/external/incidentws.csn';
 @cds.persistence.table
 // analytical annotation
 @Aggregation.ApplySupported.PropertyRestrictions : true
+// With this annotation the Fiori Application Generator also works
+// with the CAP Project and shows the entity in the drop-down
+@Aggregation.ApplySupported.Transformations      : true
 // reuse the imported data model
 entity MessageHeaderSet : external.MessageHeaderSet {
   // add aditional field that is always filled with 1 to calculate the
