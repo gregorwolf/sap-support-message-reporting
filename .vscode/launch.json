@@ -9,17 +9,18 @@
       "name": "cds run",
       "request": "launch",
       "type": "node-terminal",
-      "skipFiles": [ "<node_internals>/**" ]
+      "skipFiles": ["<node_internals>/**"]
     },
     {
       "command": "node test/saml-authentication.js",
       "name": "SAML Auth",
       "request": "launch",
       "type": "node-terminal",
+      "localRoot": "${workspaceFolder}",
       "env": {
         "xhttps_proxy": "http://127.0.0.1:8866"
       },
-      "skipFiles": [ "<node_internals>/**" ]
+      "skipFiles": ["<node_internals>/**"]
     }
   ]
 }
