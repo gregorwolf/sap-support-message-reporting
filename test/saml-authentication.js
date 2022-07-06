@@ -7,22 +7,26 @@ const qs = require("qs");
 
 axios.defaults.withCredentials = true;
 
-var prettyPrint = false;
-
-if (process.env.LOG_AS_TEXT !== "false") {
-  prettyPrint = true;
-}
-
-const logger = pino({
+var pinoConf = {
   level: process.env.LOG_LEVEL || "info",
-  prettyPrint: prettyPrint,
   customLevels: {
     cookies: 28,
     sentcookie: 26,
     saml: 24,
     payload: 22,
   },
-});
+};
+
+if (process.env.LOG_AS_TEXT !== "false") {
+  pinoConf.transport = {
+    target: "pino-pretty",
+    options: {
+      colorize: true,
+    },
+  };
+}
+
+const logger = pino(pinoConf);
 
 // Add Certificate for Authentication
 const httpsAgent = new https.Agent({
