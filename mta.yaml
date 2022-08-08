@@ -33,6 +33,8 @@ modules:
     - name: srv-api      # required by consumers of CAP services (e.g. approuter)
       properties:
         srv-url: ${default-url}
+    requires:
+     - name: reporting-logging
   - name: reporting-ui
     type: nodejs
     path: app
@@ -42,6 +44,7 @@ modules:
       memory: 128M
       disk-quota: 1024M
     requires:
+     - name: reporting-logging
      - name: srv-api
        group: destinations
        properties:
@@ -49,3 +52,10 @@ modules:
           strictSSL: false
           name: srv_api
           url: ~{srv-url}
+
+resources:
+  - name: reporting-logging
+    type: org.cloudfoundry.managed-service
+    parameters:
+       service: application-logs
+       service-plan: lite
