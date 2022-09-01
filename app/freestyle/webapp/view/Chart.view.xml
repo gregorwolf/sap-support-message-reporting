@@ -1,7 +1,48 @@
 <mvc:View controllerName="freestyle.controller.Chart"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:layout="sap.ui.layout"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
-        <content />
+        <content>
+            <layout:FixFlex id='chartFixFlex' minFlexSize="250">
+                <layout:flexContent>
+                    <viz:Popover id="idPopOver"></viz:Popover>
+                    <viz:VizFrame id="idVizFrame"
+                        uiConfig="{applicationSet:'fiori'}"
+                        height='100%'
+                        width="100%"
+                        vizType='stacked_column'>
+                        <viz:dataset>
+                            <viz.data:FlattenedDataset data="{
+                                    path: '/MessageHeaderSet',
+                                    parameters: {
+                                        select : 'Status,numberOfMessages'
+                                    }
+                                }">
+                                <viz.data:dimensions>
+                                    <viz.data:DimensionDefinition name="Status"
+                                        value="{Status}" />
+                                </viz.data:dimensions>
+                                <viz.data:measures>
+                                    <viz.data:MeasureDefinition name="numberOfMessages"
+                                        value="{numberOfMessages}" />
+                                </viz.data:measures>
+                            </viz.data:FlattenedDataset>
+                        </viz:dataset>
+
+                        <viz:feeds>
+                            <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                                values="numberOfMessages" />
+                            <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+                                values="Status" />
+                        </viz:feeds>
+                    </viz:VizFrame>
+                </layout:flexContent>
+            </layout:FixFlex>
+        </content>
     </Page>
 </mvc:View>
