@@ -51,6 +51,7 @@ annotate reporting.MessageHeaderSet with {
 annotate reporting.MessageHeaderSet with @(UI : {
   SelectionFields                  : [
     Pointer,
+    Status,
     StatusTxt,
     PriorityTxt,
     SystemId
@@ -117,6 +118,7 @@ annotate reporting.MessageHeaderSet with @(UI : {
       Action         : 'display'
     },
     {Value : Pointer},
+    {Value : Status},
     {Value : StatusTxt},
     {Value : PriorityTxt},
     {Value : SystemId},

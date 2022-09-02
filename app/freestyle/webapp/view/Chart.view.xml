@@ -10,34 +10,45 @@
         <content>
             <layout:FixFlex id='chartFixFlex' minFlexSize="250">
                 <layout:flexContent>
-                    <viz:Popover id="idPopOver"></viz:Popover>
                     <viz:VizFrame id="idVizFrame"
                         uiConfig="{applicationSet:'fiori'}"
                         height='100%'
                         width="100%"
+                        selectData="onClickHandler"
                         vizType='stacked_column'>
                         <viz:dataset>
-                            <viz.data:FlattenedDataset data="{
+                            <viz.data:FlattenedDataset
+                                id="idFlattenedDataset"
+                                data="{
                                     path: '/MessageHeaderSet',
                                     parameters: {
                                         select : 'Status,numberOfMessages'
                                     }
                                 }">
                                 <viz.data:dimensions>
-                                    <viz.data:DimensionDefinition name="Status"
+                                    <viz.data:DimensionDefinition
+                                        id="statusDimensionDefinition"
+                                        name="Status"
                                         value="{Status}" />
                                 </viz.data:dimensions>
                                 <viz.data:measures>
-                                    <viz.data:MeasureDefinition name="numberOfMessages"
+                                    <viz.data:MeasureDefinition
+                                        id="numberOfMessagesDimensionDefinition"
+                                        name="numberOfMessages"
                                         value="{numberOfMessages}" />
                                 </viz.data:measures>
                             </viz.data:FlattenedDataset>
                         </viz:dataset>
-
                         <viz:feeds>
-                            <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                            <viz.feeds:FeedItem
+                                id="numberOfMessagesFeedItem"
+                                uid="valueAxis"
+                                type="Measure"
                                 values="numberOfMessages" />
-                            <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+                            <viz.feeds:FeedItem
+                                id="statusFeedItem"
+                                uid="categoryAxis"
+                                type="Dimension"
                                 values="Status" />
                         </viz:feeds>
                     </viz:VizFrame>
