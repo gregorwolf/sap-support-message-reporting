@@ -11,9 +11,9 @@
   "main": "webapp/index.html",
   "dependencies": {},
   "devDependencies": {
-    "@ui5/cli": "^2.14.1",
-    "@sap/ux-ui5-tooling": "1",
-    "@sap/ux-ui5-fe-mockserver-middleware": "1"
+    "@sap/ux-ui5-fe-mockserver-middleware": "1",
+    "@sap/ux-ui5-tooling": "^1.7.5",
+    "@ui5/cli": "^2.14.11"
   },
   "scripts": {
     "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#freestyle-display\"",
