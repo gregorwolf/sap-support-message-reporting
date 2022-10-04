@@ -1,6 +1,6 @@
 {
   "meta": {
-    "creator": "cds-dk 4.8.2"
+    "creator": "cds-dk 6.1.2"
   },
   "$version": "2.0",
   "definitions": {
@@ -23,8 +23,8 @@
           "length": 24,
           "@sap.unicode": "false",
           "@sap.label": "Message Pointer",
-          "@sap.sortable": "true",
-          "@sap.filterable": "true"
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
         },
         "Csinsta": {
           "type": "cds.LargeString",
@@ -87,24 +87,24 @@
         },
         "Erftstmp": {
           "type": "cds.DateTime",
-          "@odata.type": "Edm.DateTime",
-          "@odata.precision": 0,
+          "@odata.Type": "Edm.DateTime",
+          "@odata.Precision": 0,
           "@sap.unicode": "false",
           "@sap.label": "Time Stamp",
           "@sap.sortable": "false"
         },
         "Aetstmp": {
           "type": "cds.DateTime",
-          "@odata.type": "Edm.DateTime",
-          "@odata.precision": 0,
+          "@odata.Type": "Edm.DateTime",
+          "@odata.Precision": 0,
           "@sap.unicode": "false",
           "@sap.label": "Time Stamp",
           "@sap.sortable": "false"
         },
         "Closetstmp": {
           "type": "cds.DateTime",
-          "@odata.type": "Edm.DateTime",
-          "@odata.precision": 0,
+          "@odata.Type": "Edm.DateTime",
+          "@odata.Precision": 0,
           "@sap.unicode": "false",
           "@sap.label": "Time Stamp",
           "@sap.sortable": "false",
@@ -177,14 +177,14 @@
           "@sap.unicode": "false",
           "@sap.label": "Status Text",
           "@sap.sortable": "false",
-          "@sap.filterable": "true"
+          "@sap.filterable": "false"
         },
         "PriorityTxt": {
           "type": "cds.LargeString",
           "@sap.unicode": "false",
           "@sap.label": "Priority Text",
           "@sap.sortable": "false",
-          "@sap.filterable": "true"
+          "@sap.filterable": "false"
         },
         "CompKey": {
           "type": "cds.String",
@@ -370,8 +370,8 @@
         },
         "LastTextTstmp": {
           "type": "cds.DateTime",
-          "@odata.type": "Edm.DateTime",
-          "@odata.precision": 0,
+          "@odata.Type": "Edm.DateTime",
+          "@odata.Precision": 0,
           "@sap.unicode": "false",
           "@sap.label": "Last Text Timestamp",
           "@sap.creatable": "false",
@@ -823,6 +823,15 @@
           "length": 5,
           "@sap.unicode": "false",
           "@sap.label": "SAE Status",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "SaeGuid": {
+          "type": "cds.UUID",
+          "@sap.unicode": "false",
+          "@sap.label": "SaE Guid",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
           "@sap.sortable": "false",
           "@sap.filterable": "false"
         },
@@ -1681,6 +1690,9 @@
         "AaEPStatusUpdate": {
           "kind": "action",
           "params": {
+            "AaEPUISessionStatus": {
+              "type": "cds.LargeString"
+            },
             "ExpireDate": {
               "type": "cds.LargeString"
             },
@@ -1701,6 +1713,9 @@
         "AaEPRelationshipSave": {
           "kind": "action",
           "params": {
+            "Email": {
+              "type": "cds.LargeString"
+            },
             "CreationDate": {
               "type": "cds.LargeString"
             },
@@ -2991,6 +3006,14 @@
           "type": "cds.Decimal",
           "precision": 31,
           "scale": 0,
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "SaeAction": {
+          "type": "cds.LargeString",
           "@sap.unicode": "false",
           "@sap.creatable": "false",
           "@sap.updatable": "false",
@@ -4366,7 +4389,7 @@
         },
         "SystemType": {
           "type": "cds.String",
-          "length": 10,
+          "length": 40,
           "@sap.unicode": "false",
           "@sap.creatable": "false",
           "@sap.updatable": "false",
@@ -4472,6 +4495,15 @@
           "type": "cds.Integer",
           "@sap.unicode": "false",
           "@sap.label": "Signed INT2 / int16",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "IsCloud": {
+          "type": "cds.String",
+          "length": 1,
+          "@sap.unicode": "false",
           "@sap.creatable": "false",
           "@sap.updatable": "false",
           "@sap.sortable": "false",
@@ -6703,6 +6735,14 @@
           "@sap.sortable": "false",
           "@sap.filterable": "false"
         },
+        "Inherit_PPMS_ID_ID": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
         "NoBuffer": {
           "type": "cds.LargeString",
           "@sap.unicode": "false",
@@ -6712,6 +6752,30 @@
           "@sap.filterable": "false"
         },
         "Languages": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "HideRP": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "AttrFilter": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "SearchRoot": {
           "type": "cds.LargeString",
           "@sap.unicode": "false",
           "@sap.creatable": "false",
@@ -7522,8 +7586,8 @@
         },
         "FromTS": {
           "type": "cds.DateTime",
-          "@odata.type": "Edm.DateTime",
-          "@odata.precision": 0,
+          "@odata.Type": "Edm.DateTime",
+          "@odata.Precision": 0,
           "@sap.unicode": "false",
           "@sap.label": "Time Stamp",
           "@sap.creatable": "false",
@@ -7533,8 +7597,8 @@
         },
         "ToTS": {
           "type": "cds.DateTime",
-          "@odata.type": "Edm.DateTime",
-          "@odata.precision": 0,
+          "@odata.Type": "Edm.DateTime",
+          "@odata.Precision": 0,
           "@sap.unicode": "false",
           "@sap.label": "Time Stamp",
           "@sap.creatable": "false",
@@ -7576,8 +7640,8 @@
         },
         "UploadTS": {
           "type": "cds.DateTime",
-          "@odata.type": "Edm.DateTime",
-          "@odata.precision": 0,
+          "@odata.Type": "Edm.DateTime",
+          "@odata.Precision": 0,
           "@sap.unicode": "false",
           "@sap.label": "Time Stamp",
           "@sap.creatable": "false",
@@ -7675,6 +7739,14 @@
           "@sap.filterable": "false"
         },
         "NoteNr": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "NoteType": {
           "type": "cds.LargeString",
           "@sap.unicode": "false",
           "@sap.creatable": "false",
@@ -7865,6 +7937,14 @@
           "@sap.filterable": "false"
         },
         "FKey": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "OrgKey": {
           "type": "cds.LargeString",
           "@sap.unicode": "false",
           "@sap.creatable": "false",
@@ -8480,6 +8560,14 @@
           "@sap.sortable": "false",
           "@sap.filterable": "false"
         },
+        "IncidentTitle": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
         "ChannelType": {
           "type": "cds.LargeString",
           "@sap.unicode": "false",
@@ -8513,6 +8601,23 @@
           "@sap.filterable": "false"
         },
         "Slots": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "BookingGuid": {
+          "type": "cds.UUID",
+          "@sap.unicode": "false",
+          "@sap.label": "UUID",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Timezone": {
           "type": "cds.LargeString",
           "@sap.unicode": "false",
           "@sap.creatable": "false",
@@ -8628,6 +8733,59 @@
           "@sap.filterable": "false"
         },
         "OutputParams": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "incidentws.ChannelRecommenderSet": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "ChannelID": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "Rank": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "ChannelText": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "ChannelData": {
+          "type": "cds.LargeString",
+          "@sap.unicode": "false",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "ProductFunctionPath": {
           "type": "cds.LargeString",
           "@sap.unicode": "false",
           "@sap.creatable": "false",
