@@ -7,7 +7,7 @@
           "groups": [
             {
               "id": "SAPIncidentReporting",
-              "title": "SAP Incident Reporting",
+              "title": "SAP Incident Reporting OData V2",
               "isPreset": true,
               "isVisible": true,
               "isGroupLocked": false,
@@ -49,6 +49,24 @@
                   }
                 }
               ]
+            },
+            {
+              "id": "SAPIncidentReportingV4",
+              "title": "SAP Incident Reporting OData V4",
+              "isPreset": true,
+              "isVisible": true,
+              "isGroupLocked": false,
+              "tiles": [
+                {
+                  "id": "v2alp",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "title": "Analytical List Page",
+                    "info": "",
+                    "targetURL": "#SupportIncident-analyzeV4"
+                  }
+                }
+              ]
             }
           ]
         }
@@ -63,6 +81,20 @@
       "adapter": {
         "config": {
           "inbounds": {
+            "alpV4": {
+              "semanticObject": "SupportIncident",
+              "action": "analyzeV4",
+              "title": "Analytical List Page",
+              "signature": {
+                "parameters": {},
+                "additionalParameters": "allowed"
+              },
+              "resolutionResult": {
+                "applicationType": "SAPUI5",
+                "additionalInformation": "SAPUI5.Component=test.alpv4",
+                "url": "./alpv4/webapp"
+              }
+            },
             "v2lrop": {
               "semanticObject": "Incident",
               "action": "display",
