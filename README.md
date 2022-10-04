@@ -78,7 +78,7 @@ You need to login with your SAP User. Open the details of the request and look f
 You find the Cookies. Copy the content of the Cookies header and add it's content to a file named .env in the test folder. The Content should look like that:
 
 ```
-cookie=JTENANTSESSIONID_supportportal....
+cookie="JTENANTSESSIONID_supportportal...."
 ```
 
 When you've done that make sure that you've opened this project in VS Code and the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) is installed. Open the test/get-data-from-sap.http file and execute the first two requests. With the result you can fill the corresponding files in the srv/data folder. To protect the privacy only specific columns are selected. If you comment the lines starting with _&$select=_ with a # you will get all data.
