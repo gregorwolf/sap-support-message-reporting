@@ -135,6 +135,13 @@
             "settings": {
               "entitySet": "MessageHeaderSet",
               "variantManagement": "Page",
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "AnalyticalTable"
+                  }
+                }
+              },
               "navigation": {
                 "MessageHeaderSet": {
                   "detail": {
