@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
+        <edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml">
+        <edmx:Include Alias="Analytics" Namespace="com.sap.vocabularies.Analytics.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+        <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="ReportingService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="MessageHeaderSet" EntityType="ReportingService.MessageHeaderSet">
+                    <NavigationPropertyBinding Path="to_MessageAlogSet" Target="MessageAlogSet"/>
+                </EntitySet>
+                <EntitySet Name="MessageAlogSet" EntityType="ReportingService.MessageAlogSet">
+                    <NavigationPropertyBinding Path="to_MessageHeaderSet" Target="MessageHeaderSet"/>
+                </EntitySet>
+                <EntitySet Name="MessageContactsSet" EntityType="ReportingService.MessageContactsSet"/>
+                <EntitySet Name="MessageAlogView" EntityType="ReportingService.MessageAlogView"/>
+                <EntitySet Name="PriorityTxtVH" EntityType="ReportingService.PriorityTxtVH"/>
+                <EntitySet Name="StatusTxtVH" EntityType="ReportingService.StatusTxtVH"/>
+                <EntitySet Name="StatusVH" EntityType="ReportingService.StatusVH"/>
+                <EntitySet Name="SystemIdVH" EntityType="ReportingService.SystemIdVH"/>
+                <ActionImport Name="loadDataFromMock" Action="ReportingService.loadDataFromMock"/>
+                <ActionImport Name="loadDataFromSAP" Action="ReportingService.loadDataFromSAP"/>
+            </EntityContainer>
+            <EntityType Name="MessageHeaderSet">
+                <Key>
+                    <PropertyRef Name="Pointer"/>
+                </Key>
+                <Property Name="Pointer" Type="Edm.String" MaxLength="24" Nullable="false"/>
+                <Property Name="Csinsta" Type="Edm.String"/>
+                <Property Name="Mnumm" Type="Edm.String"/>
+                <Property Name="Myear" Type="Edm.String"/>
+                <Property Name="Uname" Type="Edm.String" MaxLength="12"/>
+                <Property Name="Status" Type="Edm.String"/>
+                <Property Name="Priority" Type="Edm.String"/>
+                <Property Name="MnummNLZ" Type="Edm.String"/>
+                <Property Name="Component" Type="Edm.String"/>
+                <Property Name="Erftstmp" Type="Edm.DateTimeOffset"/>
+                <Property Name="Aetstmp" Type="Edm.DateTimeOffset"/>
+                <Property Name="Closetstmp" Type="Edm.DateTimeOffset"/>
+                <Property Name="Reporter" Type="Edm.String"/>
+                <Property Name="EnteredBy" Type="Edm.String"/>
+                <Property Name="LastChangedBy" Type="Edm.String"/>
+                <Property Name="Processor" Type="Edm.String"/>
+                <Property Name="Stext" Type="Edm.String"/>
+                <Property Name="Sprsl" Type="Edm.String"/>
+                <Property Name="InputType" Type="Edm.String"/>
+                <Property Name="Masterinst" Type="Edm.String"/>
+                <Property Name="ServicetypTxt" Type="Edm.String"/>
+                <Property Name="StatusTxt" Type="Edm.String"/>
+                <Property Name="PriorityTxt" Type="Edm.String"/>
+                <Property Name="CompKey" Type="Edm.String" MaxLength="20"/>
+                <Property Name="ComponentTxt" Type="Edm.String"/>
+                <Property Name="CompPath" Type="Edm.String"/>
+                <Property Name="Erfdate" Type="Edm.String"/>
+                <Property Name="Erftime" Type="Edm.String"/>
+                <Property Name="Aedate" Type="Edm.String"/>
+                <Property Name="Aetime" Type="Edm.String"/>
+                <Property Name="Closedate" Type="Edm.String"/>
+                <Property Name="Closetime" Type="Edm.String"/>
+                <Property Name="AutoConfirmDateText" Type="Edm.String"/>
+                <Property Name="AutoConfirmDate" Type="Edm.String" MaxLength="8"/>
+                <Property Name="ReporterTxt" Type="Edm.String"/>
+                <Property Name="EnteredByTxt" Type="Edm.String"/>
+                <Property Name="LastChangedTxt" Type="Edm.String"/>
+                <Property Name="ProcessorTxt" Type="Edm.String"/>
+                <Property Name="SprslTxt" Type="Edm.String"/>
+                <Property Name="ContactsCnt" Type="Edm.Int32"/>
+                <Property Name="TextsCnt" Type="Edm.Int32"/>
+                <Property Name="AttxCnt" Type="Edm.Int32"/>
+                <Property Name="NotesCnt" Type="Edm.Int32"/>
+                <Property Name="AlogCnt" Type="Edm.Int32"/>
+                <Property Name="AplanCnt" Type="Edm.Int32"/>
+                <Property Name="LastText" Type="Edm.String"/>
+                <Property Name="LastTextType" Type="Edm.String"/>
+                <Property Name="LastTextTstmp" Type="Edm.DateTimeOffset"/>
+                <Property Name="LastTextDate" Type="Edm.String"/>
+                <Property Name="LastTextTime" Type="Edm.String"/>
+                <Property Name="LastTextCreator" Type="Edm.String"/>
+                <Property Name="TextActive" Type="Edm.String" MaxLength="1"/>
+                <Property Name="LastNoteNbr" Type="Edm.String"/>
+                <Property Name="LastNoteTxt" Type="Edm.String"/>
+                <Property Name="ProductTxt" Type="Edm.String"/>
+                <Property Name="LastUpdate" Type="Edm.String"/>
+                <Property Name="IncSource" Type="Edm.String" MaxLength="3"/>
+                <Property Name="Source" Type="Edm.String"/>
+                <Property Name="UserTimezone" Type="Edm.String" MaxLength="6"/>
+                <Property Name="EUDPFlag" Type="Edm.String" MaxLength="10"/>
+                <Property Name="OverruleAuth" Type="Edm.Boolean"/>
+                <Property Name="EditorType" Type="Edm.String"/>
+                <Property Name="DraftFlag" Type="Edm.String" MaxLength="1"/>
+                <Property Name="AltCount" Type="Edm.Int32"/>
+                <Property Name="ServicedFlag" Type="Edm.String" MaxLength="1"/>
+                <Property Name="ServiceByCustText" Type="Edm.String"/>
+                <Property Name="Favorite" Type="Edm.String" MaxLength="1"/>
+                <Property Name="Service" Type="Edm.String" MaxLength="3"/>
+                <Property Name="Servicetyp" Type="Edm.String" MaxLength="3"/>
+                <Property Name="FirstS2sap" Type="Edm.Decimal" Scale="0" Precision="15"/>
+                <Property Name="LastS2sap" Type="Edm.Decimal" Scale="0" Precision="15"/>
+                <Property Name="ProdRel" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Frontend" Type="Edm.String" MaxLength="10"/>
+                <Property Name="OpSystem" Type="Edm.String" MaxLength="10"/>
+                <Property Name="DbSystem" Type="Edm.String" MaxLength="10"/>
+                <Property Name="RampupFlag" Type="Edm.String" MaxLength="10"/>
+                <Property Name="DssClassified" Type="Edm.String" MaxLength="1"/>
+                <Property Name="Customer" Type="Edm.String" MaxLength="10"/>
+                <Property Name="CustomerTxt" Type="Edm.String"/>
+                <Property Name="Installation" Type="Edm.String" MaxLength="10"/>
+                <Property Name="InstallationTxt" Type="Edm.String"/>
+                <Property Name="SystemNumber" Type="Edm.String" MaxLength="18"/>
+                <Property Name="SystemId" Type="Edm.String" MaxLength="8"/>
+                <Property Name="SystemType" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SystemTxt" Type="Edm.String"/>
+                <Property Name="Product" Type="Edm.String" MaxLength="20"/>
+                <Property Name="ProductVersion" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SuppPartner" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SoftwPartner" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Swkla" Type="Edm.String" MaxLength="12"/>
+                <Property Name="APIKey" Type="Edm.String" MaxLength="132"/>
+                <Property Name="Product1" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Product2" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Product3" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Help01" Type="Edm.String" MaxLength="20"/>
+                <Property Name="Help02" Type="Edm.String" MaxLength="20"/>
+                <Property Name="Help03" Type="Edm.String" MaxLength="20"/>
+                <Property Name="RespITSM" Type="Edm.String" MaxLength="4"/>
+                <Property Name="Searchterm" Type="Edm.String"/>
+                <Property Name="SaeStartTime" Type="Edm.String" MaxLength="14"/>
+                <Property Name="SaeStatus" Type="Edm.String" MaxLength="5"/>
+                <Property Name="SaeGuid" Type="Edm.Guid"/>
+                <Property Name="SamStartTime" Type="Edm.String" MaxLength="14"/>
+                <Property Name="SamStatus" Type="Edm.String" MaxLength="5"/>
+                <Property Name="SamInfo" Type="Edm.String"/>
+                <Property Name="AffectedURL" Type="Edm.String"/>
+                <Property Name="RelevantID" Type="Edm.String" MaxLength="200"/>
+                <Property Name="SWType" Type="Edm.String" MaxLength="12"/>
+                <Property Name="ProductSelected" Type="Edm.String" MaxLength="40"/>
+                <Property Name="DataProtection" Type="Edm.String" MaxLength="10"/>
+                <Property Name="AaEPQuesUUID" Type="Edm.String" MaxLength="40"/>
+                <Property Name="AaEPSessStatus" Type="Edm.String" MaxLength="40"/>
+                <Property Name="AaEPQuesStatus" Type="Edm.String" MaxLength="40"/>
+                <Property Name="AaEPQuesEmail" Type="Edm.String" MaxLength="241"/>
+                <Property Name="QuesDateCreated" Type="Edm.String" MaxLength="40"/>
+                <Property Name="ExpirationDate" Type="Edm.String" MaxLength="40"/>
+                <Property Name="AaEPDraftFlag" Type="Edm.String" MaxLength="1"/>
+                <Property Name="AaEPFlag" Type="Edm.String" MaxLength="1"/>
+                <Property Name="BusinessImpactTxt" Type="Edm.String"/>
+                <Property Name="numberOfMessages" Type="Edm.Int32" DefaultValue="1"/>
+                <NavigationProperty Name="to_MessageAlogSet" Type="Collection(ReportingService.MessageAlogSet)"/>
+            </EntityType>
+            <EntityType Name="MessageAlogSet">
+                <Key>
+                    <PropertyRef Name="Uname"/>
+                    <PropertyRef Name="Pointer"/>
+                    <PropertyRef Name="CrInsta"/>
+                    <PropertyRef Name="Aetstmp"/>
+                    <PropertyRef Name="Lfnr"/>
+                    <PropertyRef Name="Service"/>
+                    <PropertyRef Name="Servicetyp"/>
+                    <PropertyRef Name="Aenam"/>
+                </Key>
+                <Property Name="Uname" Type="Edm.String" MaxLength="12" Nullable="false"/>
+                <Property Name="Pointer" Type="Edm.String" MaxLength="24" Nullable="false"/>
+                <Property Name="CrInsta" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="Aetstmp" Type="Edm.Decimal" Scale="0" Precision="15" Nullable="false"/>
+                <Property Name="Lfnr" Type="Edm.String" MaxLength="5" Nullable="false"/>
+                <Property Name="Service" Type="Edm.String" MaxLength="3" Nullable="false"/>
+                <Property Name="Servicetyp" Type="Edm.String" MaxLength="3" Nullable="false"/>
+                <Property Name="Aenam" Type="Edm.String" MaxLength="12" Nullable="false"/>
+                <Property Name="Tabname" Type="Edm.String" MaxLength="30"/>
+                <Property Name="Alobject" Type="Edm.String" MaxLength="30"/>
+                <Property Name="OldVal" Type="Edm.String" MaxLength="50"/>
+                <Property Name="NewVal" Type="Edm.String" MaxLength="50"/>
+                <Property Name="AeDate" Type="Edm.String" MaxLength="10"/>
+                <Property Name="AeTime" Type="Edm.String" MaxLength="8"/>
+                <Property Name="DayTxt" Type="Edm.String" MaxLength="20"/>
+                <Property Name="NameTxt" Type="Edm.String" MaxLength="40"/>
+                <Property Name="ActionTxt" Type="Edm.String" MaxLength="20"/>
+                <Property Name="OldTxt" Type="Edm.String" MaxLength="45"/>
+                <Property Name="NewTxt" Type="Edm.String" MaxLength="45"/>
+                <Property Name="UserTimezone" Type="Edm.String" MaxLength="6"/>
+                <Property Name="numberOfLogs" Type="Edm.Int32" DefaultValue="1"/>
+                <NavigationProperty Name="to_MessageHeaderSet" Type="ReportingService.MessageHeaderSet">
+                    <ReferentialConstraint Property="to_MessageHeaderSet_Pointer" ReferencedProperty="Pointer"/>
+                </NavigationProperty>
+                <Property Name="to_MessageHeaderSet_Pointer" Type="Edm.String" MaxLength="24"/>
+            </EntityType>
+            <EntityType Name="MessageContactsSet">
+                <Key>
+                    <PropertyRef Name="Pointer"/>
+                    <PropertyRef Name="ContTyp"/>
+                    <PropertyRef Name="UserId"/>
+                </Key>
+                <Property Name="Pointer" Type="Edm.String" MaxLength="24" Nullable="false"/>
+                <Property Name="ContTyp" Type="Edm.String" MaxLength="50" Nullable="false"/>
+                <Property Name="UserId" Type="Edm.String" MaxLength="12" Nullable="false"/>
+                <Property Name="Kunnr" Type="Edm.String" MaxLength="10"/>
+                <Property Name="FirstName" Type="Edm.String" MaxLength="50"/>
+                <Property Name="LastName" Type="Edm.String" MaxLength="50"/>
+                <Property Name="Email" Type="Edm.String" MaxLength="60"/>
+                <Property Name="Telephone" Type="Edm.String" MaxLength="30"/>
+                <Property Name="Mobil" Type="Edm.String" MaxLength="30"/>
+                <Property Name="SmsNotif" Type="Edm.String" MaxLength="1"/>
+                <Property Name="EmailNotif" Type="Edm.String" MaxLength="1"/>
+                <Property Name="ContTypTxt" Type="Edm.String"/>
+                <Property Name="FullName" Type="Edm.String"/>
+                <Property Name="OpenMsgFlag" Type="Edm.String" MaxLength="1"/>
+                <Property Name="TimeZone" Type="Edm.String" MaxLength="6"/>
+                <Property Name="numberOfContacts" Type="Edm.Int32" DefaultValue="1"/>
+            </EntityType>
+            <EntityType Name="MessageAlogView">
+                <Property Name="numberOfLogs" Type="Edm.Int32"/>
+                <Property Name="Pointer" Type="Edm.String" MaxLength="24"/>
+            </EntityType>
+            <EntityType Name="PriorityTxtVH">
+                <Key>
+                    <PropertyRef Name="PriorityTxt"/>
+                </Key>
+                <Property Name="PriorityTxt" Type="Edm.String" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="StatusTxtVH">
+                <Key>
+                    <PropertyRef Name="StatusTxt"/>
+                </Key>
+                <Property Name="StatusTxt" Type="Edm.String" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="StatusVH">
+                <Key>
+                    <PropertyRef Name="Status"/>
+                </Key>
+                <Property Name="Status" Type="Edm.String" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="SystemIdVH">
+                <Key>
+                    <PropertyRef Name="SystemId"/>
+                </Key>
+                <Property Name="SystemId" Type="Edm.String" MaxLength="8" Nullable="false"/>
+            </EntityType>
+            <Action Name="loadDataFromMock" IsBound="false"/>
+            <Action Name="loadDataFromSAP" IsBound="false"/>
+            <Annotations Target="ReportingService.MessageHeaderSet">
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record Type="Aggregation.ApplySupportedType">
+                        <PropertyValue Property="PropertyRestrictions" Bool="true"/>
+                        <PropertyValue Property="Transformations" String="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ReportingService.EntityContainer/MessageHeaderSet">
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record Type="Aggregation.ApplySupportedType">
+                        <PropertyValue Property="PropertyRestrictions" Bool="true"/>
+                        <PropertyValue Property="Transformations" String="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ReportingService.MessageHeaderSet/Status">
+                <Annotation Term="Analytics.Dimension" Bool="true"/>
+                <Annotation Term="Common.Label" String="{i18n>Status}"/>
+                </Annotations>
+                <Annotations Target="ReportingService.MessageHeaderSet/StatusTxt">
+                    <Annotation Term="Analytics.Dimension" Bool="true"/>
+                    <Annotation Term="Common.Label" String="{i18n>StatusTxt}"/>
+                    </Annotations>
+                    <Annotations Target="ReportingService.MessageHeaderSet/PriorityTxt">
+                        <Annotation Term="Analytics.Dimension" Bool="true"/>
+                        <Annotation Term="Common.Label" String="{i18n>PriorityTxt}"/>
+                        </Annotations>
+                        <Annotations Target="ReportingService.MessageHeaderSet/SystemId">
+                            <Annotation Term="Analytics.Dimension" Bool="true"/>
+                            <Annotation Term="Common.Label" String="{i18n>SystemId}"/>
+                            </Annotations>
+                            <Annotations Target="ReportingService.MessageHeaderSet/numberOfMessages">
+                                <Annotation Term="Analytics.Measure" Bool="true"/>
+                                <Annotation Term="Common.Label" String="{i18n>numberOfMessages}"/>
+                                </Annotations>
+                                <Annotations Target="ReportingService.MessageAlogSet">
+                                    <Annotation Term="Aggregation.ApplySupported">
+                                        <Record Type="Aggregation.ApplySupportedType">
+                                            <PropertyValue Property="PropertyRestrictions" Bool="true"/>
+                                        </Record>
+                                    </Annotation>
+                                </Annotations>
+                                <Annotations Target="ReportingService.EntityContainer/MessageAlogSet">
+                                    <Annotation Term="Aggregation.ApplySupported">
+                                        <Record Type="Aggregation.ApplySupportedType">
+                                            <PropertyValue Property="PropertyRestrictions" Bool="true"/>
+                                        </Record>
+                                    </Annotation>
+                                </Annotations>
+                                <Annotations Target="ReportingService.MessageAlogSet/Uname">
+                                    <Annotation Term="Analytics.Dimension" Bool="true"/>
+                                    <Annotation Term="Common.Label" String="{i18n>Uname}"/>
+                                    </Annotations>
+                                    <Annotations Target="ReportingService.MessageAlogSet/Pointer">
+                                        <Annotation Term="Analytics.Dimension" Bool="true"/>
+                                    </Annotations>
+                                    <Annotations Target="ReportingService.MessageAlogSet/NameTxt">
+                                        <Annotation Term="Analytics.Dimension" Bool="true"/>
+                                    </Annotations>
+                                    <Annotations Target="ReportingService.MessageAlogSet/numberOfLogs">
+                                        <Annotation Term="Analytics.Measure" Bool="true"/>
+                                    </Annotations>
+                                    <Annotations Target="ReportingService.MessageContactsSet">
+                                        <Annotation Term="Aggregation.ApplySupported">
+                                            <Record Type="Aggregation.ApplySupportedType">
+                                                <PropertyValue Property="PropertyRestrictions" Bool="true"/>
+                                            </Record>
+                                        </Annotation>
+                                    </Annotations>
+                                    <Annotations Target="ReportingService.EntityContainer/MessageContactsSet">
+                                        <Annotation Term="Aggregation.ApplySupported">
+                                            <Record Type="Aggregation.ApplySupportedType">
+                                                <PropertyValue Property="PropertyRestrictions" Bool="true"/>
+                                            </Record>
+                                        </Annotation>
+                                    </Annotations>
+                                    <Annotations Target="ReportingService.MessageContactsSet/ContTypTxt">
+                                        <Annotation Term="Analytics.Dimension" Bool="true"/>
+                                    </Annotations>
+                                    <Annotations Target="ReportingService.MessageContactsSet/numberOfContacts">
+                                        <Annotation Term="Analytics.Measure" Bool="true"/>
+                                    </Annotations>
+                                    <Annotations Target="ReportingService.MessageAlogView">
+                                        <Annotation Term="Aggregation.ApplySupported">
+                                            <Record Type="Aggregation.ApplySupportedType">
+                                                <PropertyValue Property="PropertyRestrictions" Bool="true"/>
+                                            </Record>
+                                        </Annotation>
+                                    </Annotations>
+                                    <Annotations Target="ReportingService.EntityContainer/MessageAlogView">
+                                        <Annotation Term="Aggregation.ApplySupported">
+                                            <Record Type="Aggregation.ApplySupportedType">
+                                                <PropertyValue Property="PropertyRestrictions" Bool="true"/>
+                                            </Record>
+                                        </Annotation>
+                                        <Annotation Term="Capabilities.DeleteRestrictions">
+                                            <Record Type="Capabilities.DeleteRestrictionsType">
+                                                <PropertyValue Property="Deletable" Bool="false"/>
+                                            </Record>
+                                        </Annotation>
+                                        <Annotation Term="Capabilities.InsertRestrictions">
+                                            <Record Type="Capabilities.InsertRestrictionsType">
+                                                <PropertyValue Property="Insertable" Bool="false"/>
+                                            </Record>
+                                        </Annotation>
+                                        <Annotation Term="Capabilities.UpdateRestrictions">
+                                            <Record Type="Capabilities.UpdateRestrictionsType">
+                                                <PropertyValue Property="Updatable" Bool="false"/>
+                                            </Record>
+                                        </Annotation>
+                                    </Annotations>
+                                    <Annotations Target="ReportingService.MessageAlogView/numberOfLogs">
+                                        <Annotation Term="Core.Computed" Bool="true"/>
+                                    </Annotations>
+                                    <Annotations Target="ReportingService.MessageAlogView/Pointer">
+                                        <Annotation Term="Analytics.Dimension" Bool="true"/>
+                                    </Annotations>
+                                    <Annotations Target="ReportingService.EntityContainer/PriorityTxtVH">
+                                        <Annotation Term="Capabilities.DeleteRestrictions">
+                                            <Record Type="Capabilities.DeleteRestrictionsType">
+                                                <PropertyValue Property="Deletable" Bool="false"/>
+                                            </Record>
+                                        </Annotation>
+                                        <Annotation Term="Capabilities.InsertRestrictions">
+                                            <Record Type="Capabilities.InsertRestrictionsType">
+                                                <PropertyValue Property="Insertable" Bool="false"/>
+                                            </Record>
+                                        </Annotation>
+                                        <Annotation Term="Capabilities.UpdateRestrictions">
+                                            <Record Type="Capabilities.UpdateRestrictionsType">
+                                                <PropertyValue Property="Updatable" Bool="false"/>
+                                            </Record>
+                                        </Annotation>
+                                    </Annotations>
+                                    <Annotations Target="ReportingService.EntityContainer/StatusTxtVH">
+                                        <Annotation Term="Capabilities.DeleteRestrictions">
+                                            <Record Type="Capabilities.DeleteRestrictionsType">
+                                                <PropertyValue Property="Deletable" Bool="false"/>
+                                            </Record>
+                                        </Annotation>
+                                        <Annotation Term="Capabilities.InsertRestrictions">
+                                            <Record Type="Capabilities.InsertRestrictionsType">
+                                                <PropertyValue Property="Insertable" Bool="false"/>
+                                            </Record>
+                                        </Annotation>
+                                        <Annotation Term="Capabilities.UpdateRestrictions">
+                                            <Record Type="Capabilities.UpdateRestrictionsType">
+                                                <PropertyValue Property="Updatable" Bool="false"/>
+                                            </Record>
+                                        </Annotation>
+                                    </Annotations>
+                                    <Annotations Target="ReportingService.EntityContainer/StatusVH">
+                                        <Annotation Term="Capabilities.DeleteRestrictions">
+                                            <Record Type="Capabilities.DeleteRestrictionsType">
+                                                <PropertyValue Property="Deletable" Bool="false"/>
+                                            </Record>
+                                        </Annotation>
+                                        <Annotation Term="Capabilities.InsertRestrictions">
+                                            <Record Type="Capabilities.InsertRestrictionsType">
+                                                <PropertyValue Property="Insertable" Bool="false"/>
+                                            </Record>
+                                        </Annotation>
+                                        <Annotation Term="Capabilities.UpdateRestrictions">
+                                            <Record Type="Capabilities.UpdateRestrictionsType">
+                                                <PropertyValue Property="Updatable" Bool="false"/>
+                                            </Record>
+                                        </Annotation>
+                                    </Annotations>
+                                    <Annotations Target="ReportingService.EntityContainer/SystemIdVH">
+                                        <Annotation Term="Capabilities.DeleteRestrictions">
+                                            <Record Type="Capabilities.DeleteRestrictionsType">
+                                                <PropertyValue Property="Deletable" Bool="false"/>
+                                            </Record>
+                                        </Annotation>
+                                        <Annotation Term="Capabilities.InsertRestrictions">
+                                            <Record Type="Capabilities.InsertRestrictionsType">
+                                                <PropertyValue Property="Insertable" Bool="false"/>
+                                            </Record>
+                                        </Annotation>
+                                        <Annotation Term="Capabilities.UpdateRestrictions">
+                                            <Record Type="Capabilities.UpdateRestrictionsType">
+                                                <PropertyValue Property="Updatable" Bool="false"/>
+                                            </Record>
+                                        </Annotation>
+                                    </Annotations>
+                                </Schema>
+                            </edmx:DataServices>
+                        </edmx:Edmx>
