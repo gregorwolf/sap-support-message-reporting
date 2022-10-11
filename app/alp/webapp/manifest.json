@@ -18,7 +18,9 @@
         "type": "OData",
         "settings": {
           "odataVersion": "2.0",
-          "annotations": ["annotation"],
+          "annotations": [
+            "annotation"
+          ],
           "localUri": "localService/metadata.xml"
         }
       },
@@ -34,6 +36,21 @@
     "sourceTemplate": {
       "id": "ui5template.smartTemplate",
       "version": "1.40.12"
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "intent1": {
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          },
+          "semanticObject": "SAPIncidentReporting",
+          "action": "display",
+          "title": "{{flpTitle}}",
+          "info": "{{appInfo}}",
+          "subTitle": "{{appSubTitle}}"
+        }
+      }
     }
   },
   "sap.ui": {
@@ -51,7 +68,10 @@
       "tablet": true,
       "phone": true
     },
-    "supportedThemes": ["sap_hcb", "sap_belize"]
+    "supportedThemes": [
+      "sap_hcb",
+      "sap_belize"
+    ]
   },
   "sap.ui5": {
     "resources": {

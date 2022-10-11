@@ -17,7 +17,9 @@
         "uri": "/services/odata/reporting/",
         "type": "OData",
         "settings": {
-          "annotations": ["annotation"],
+          "annotations": [
+            "annotation"
+          ],
           "localUri": "localService/metadata.xml",
           "odataVersion": "2.0"
         }
@@ -34,6 +36,21 @@
     "sourceTemplate": {
       "id": "OVP.smartovptemplate",
       "version": "1.41.1"
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "v2-lrop-inbound": {
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          },
+          "semanticObject": "Incident",
+          "action": "ovp",
+          "title": "{{flpTitle}}",
+          "subTitle": "{{flpSubtitle}}",
+          "icon": ""
+        }
+      }
     }
   },
   "sap.ui": {
@@ -51,7 +68,10 @@
       "tablet": true,
       "phone": true
     },
-    "supportedThemes": ["sap_hcb", "sap_belize"]
+    "supportedThemes": [
+      "sap_hcb",
+      "sap_belize"
+    ]
   },
   "sap.ui5": {
     "resources": {
