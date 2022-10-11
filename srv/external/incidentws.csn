@@ -67,7 +67,8 @@
           "type": "cds.LargeString",
           "@sap.unicode": "false",
           "@sap.label": "Priority",
-          "@sap.sortable": "false"
+          "@sap.sortable": "true",
+          "@sap.filterable": "true"
         },
         "MnummNLZ": {
           "type": "cds.LargeString",
@@ -176,15 +177,15 @@
           "type": "cds.LargeString",
           "@sap.unicode": "false",
           "@sap.label": "Status Text",
-          "@sap.sortable": "false",
-          "@sap.filterable": "false"
+          "@sap.sortable": "true",
+          "@sap.filterable": "true"
         },
         "PriorityTxt": {
           "type": "cds.LargeString",
           "@sap.unicode": "false",
           "@sap.label": "Priority Text",
-          "@sap.sortable": "false",
-          "@sap.filterable": "false"
+          "@sap.sortable": "true",
+          "@sap.filterable": "true"
         },
         "CompKey": {
           "type": "cds.String",
@@ -679,7 +680,8 @@
           "length": 8,
           "@sap.unicode": "false",
           "@sap.label": "SAP System ID",
-          "@sap.sortable": "false"
+          "@sap.sortable": "true",
+          "@sap.filterable": "true"
         },
         "SystemType": {
           "type": "cds.String",
@@ -1651,8 +1653,8 @@
           "@sap.unicode": "false",
           "@sap.creatable": "false",
           "@sap.updatable": "false",
-          "@sap.sortable": "false",
-          "@sap.filterable": "false"
+          "@sap.sortable": "true",
+          "@sap.filterable": "true"
         }
       }
     },
@@ -2162,8 +2164,8 @@
           "@sap.unicode": "false",
           "@sap.creatable": "false",
           "@sap.updatable": "false",
-          "@sap.sortable": "false",
-          "@sap.filterable": "false"
+          "@sap.sortable": "true",
+          "@sap.filterable": "true"
         },
         "Responsible": {
           "type": "cds.LargeString",
@@ -5120,8 +5122,8 @@
           "@sap.unicode": "false",
           "@sap.creatable": "false",
           "@sap.updatable": "false",
-          "@sap.sortable": "false",
-          "@sap.filterable": "false"
+          "@sap.sortable": "true",
+          "@sap.filterable": "true"
         },
         "ComponentName": {
           "type": "cds.LargeString",
