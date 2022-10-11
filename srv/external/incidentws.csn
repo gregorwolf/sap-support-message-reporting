@@ -23,8 +23,8 @@
           "length": 24,
           "@sap.unicode": "false",
           "@sap.label": "Message Pointer",
-          "@sap.sortable": "false",
-          "@sap.filterable": "false"
+          "@sap.sortable": "true",
+          "@sap.filterable": "true"
         },
         "Csinsta": {
           "type": "cds.LargeString",
