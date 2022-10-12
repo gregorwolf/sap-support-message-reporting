@@ -49,17 +49,19 @@ annotate reporting.MessageHeaderSet with {
 };
 
 annotate reporting.MessageHeaderSet with @(UI : {
-  SelectionFields                  : [
+  SelectionFields     : [
     Pointer,
     Status,
     StatusTxt,
     PriorityTxt,
     SystemId
   ],
-  PresentationVariant #StatusTxt   : {Visualizations : ['@UI.Chart#StatusTxt', ], },
-  PresentationVariant #PriorityTxt : {Visualizations : ['@UI.Chart#PriorityTxt', ], },
-  PresentationVariant #SystemId    : {Visualizations : ['@UI.Chart#SystemId', ], },
-  Chart                            : {
+  PresentationVariant : {Visualizations : [
+    '@UI.Chart#StatusTxt',
+    '@UI.Chart#PriorityTxt',
+    '@UI.Chart#SystemId',
+  ], },
+  Chart               : {
     ChartType           : #Column,
     Dimensions          : [StatusTxt],
     DimensionAttributes : [{
@@ -72,7 +74,7 @@ annotate reporting.MessageHeaderSet with @(UI : {
       Role    : #Axis1
     }]
   },
-  Chart #StatusTxt                 : {
+  Chart #StatusTxt    : {
     ChartType           : #Column,
     Dimensions          : [StatusTxt],
     DimensionAttributes : [{
@@ -85,7 +87,7 @@ annotate reporting.MessageHeaderSet with @(UI : {
       Role    : #Axis1
     }]
   },
-  Chart #PriorityTxt               : {
+  Chart #PriorityTxt  : {
     ChartType           : #Column,
     Dimensions          : [PriorityTxt],
     DimensionAttributes : [{
@@ -98,7 +100,7 @@ annotate reporting.MessageHeaderSet with @(UI : {
       Role    : #Axis1
     }]
   },
-  Chart #SystemId                  : {
+  Chart #SystemId     : {
     ChartType           : #Donut,
     Dimensions          : [SystemId],
     DimensionAttributes : [{
@@ -111,7 +113,7 @@ annotate reporting.MessageHeaderSet with @(UI : {
       Role    : #Axis1
     }]
   },
-  LineItem                         : [
+  LineItem            : [
     {
       $Type          : 'UI.DataFieldForIntentBasedNavigation',
       SemanticObject : 'Incident',
@@ -124,18 +126,18 @@ annotate reporting.MessageHeaderSet with @(UI : {
     {Value : SystemId},
     {Value : numberOfMessages}
   ],
-  HeaderInfo                       : {
+  HeaderInfo          : {
     TypeName       : '{i18n>Message}',
     TypeNamePlural : '{i18n>Messages}',
     Title          : {Value : Aedate},
     Description    : {Value : Aedate}
   },
-  Facets                           : [{
+  Facets              : [{
     $Type  : 'UI.ReferenceFacet',
     Label  : '{i18n>Details}',
     Target : '@UI.FieldGroup#Details'
   }, ],
-  FieldGroup #Details              : {Data : [
+  FieldGroup #Details : {Data : [
     {Value : Pointer},
     {Value : Aedate},
     {Value : Status},
