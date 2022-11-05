@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": false,
   "engines": {
-    "node": "^14"
+    "node": "^16"
   },
   "dependencies": {
     "@sap-cloud-sdk/http-client": "^2.9.0",
