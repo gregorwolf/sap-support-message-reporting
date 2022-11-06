@@ -48,7 +48,13 @@
                     "action": "display",
                     "title": "{{flpTitle}}",
                     "subTitle": "{{flpSubtitle}}",
-                    "icon": ""
+                    "info": "{{flpInfo}}",
+                    "icon": "sap-icon://quality-issue",
+                    "indicatorDataSource": {
+                        "dataSource": "mainService",
+                        "path": "MessageHeaderSet/$count",
+                        "refresh": 1800
+                    }
                 }
             }
         }
