@@ -1,6 +1,6 @@
 FROM node:16-buster-slim
 
-RUN apt-get update && apt-get upgrade -y && nodejs -v && npm -v
+RUN apt-get update && apt-get upgrade -y && apt-get install python3 build-essential -y && nodejs -v && npm -v
 WORKDIR /usr/src/app
 COPY gen/srv/package.json .
 COPY package-lock.json .
