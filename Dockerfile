@@ -4,7 +4,8 @@ RUN apt-get update && apt-get upgrade -y && nodejs -v && npm -v
 WORKDIR /usr/src/app
 COPY gen/srv/package.json .
 COPY package-lock.json .
-RUN npm ci
+# Needed to get sqlite working on arm https://www.npmjs.com/package/sqlite3#source-install
+RUN npm install --build-from-source
 COPY gen/srv .
 COPY app app/
 RUN find app -name '*.cds' | xargs rm -f
