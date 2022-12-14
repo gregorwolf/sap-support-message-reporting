@@ -48,6 +48,9 @@
     "watch-alpv4lrop": "cds watch --open alpv4lrop/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
+    "features": {
+      "odata_new_parser": true
+    },
     "requires": {
       "db": {
         "kind": "sqlite",
