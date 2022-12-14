@@ -48,6 +48,17 @@ annotate reporting.MessageHeaderSet with {
   SystemId;
 };
 
+annotate reporting.MessageHeaderSet with @UI.PresentationVariant : {
+  GroupBy        : [ // default grouping in table
+  Status],
+  Total          : [ // default aggregation in table
+  numberOfMessages],
+  Visualizations : [
+    '@UI.Chart',
+    '@UI.LineItem',
+  ]
+};
+
 annotate reporting.MessageHeaderSet with @(UI : {
   SelectionFields                  : [
     Pointer,
@@ -112,13 +123,6 @@ annotate reporting.MessageHeaderSet with @(UI : {
     }]
   },
   LineItem                         : [
-    {
-      $Type          : 'UI.DataFieldForIntentBasedNavigation',
-      SemanticObject : 'Incident',
-      Action         : 'display'
-    },
-    {Value : Pointer},
-    {Value : Status},
     {Value : StatusTxt},
     {Value : PriorityTxt},
     {Value : SystemId},
