@@ -1,33 +1,33 @@
 {
-	"name": "alp",
-	"version": "0.0.1",
-	"private": true,
-	"sapux": true,
-	"description": "SAP Incident Reporting with CAP",
-	"keywords": [
-		"ui5",
-		"openui5",
-		"sapui5"
-	],
-	"main": "webapp/index.html",
-	"scripts": {
-		"start": "fiori run --open 'test/flpSandbox.html#masterDetail-display'",
-		"start-local": "fiori run --config ./ui5-local.yaml --open 'test/flpSandboxMockServer.html#masterDetail-display'",
-		"build": "ui5 build -a --clean-dest --include-task=generateManifestBundle generateCachebusterInfo",
-		"deploy": "fiori verify",
-		"deploy-config": "fiori add deploy-config",
-		"start-mock": "fiori run --open test/flpSandboxMockServer.html#masterDetail-display"
-	},
-	"devDependencies": {
-		"@ui5/cli": "2.14.7",
-		"@ui5/fs": "2.0.6",
-		"@ui5/logger": "2.0.1",
-		"@sap/ux-ui5-tooling": "1.5.3",
-		"@sap/ux-specification": "latest"
-	},
-	"ui5": {
-		"dependencies": [
-			"@sap/ux-ui5-tooling"
-		]
-	}
+  "name": "alp",
+  "version": "0.0.1",
+  "private": true,
+  "sapux": true,
+  "description": "SAP Incident Reporting with CAP",
+  "keywords": [
+    "ui5",
+    "openui5",
+    "sapui5"
+  ],
+  "main": "webapp/index.html",
+  "scripts": {
+    "start": "fiori run --open 'test/flpSandbox.html#masterDetail-display'",
+    "start-local": "fiori run --config ./ui5-local.yaml --open 'test/flpSandboxMockServer.html#masterDetail-display'",
+    "build": "ui5 build -a --clean-dest --include-task=generateManifestBundle generateCachebusterInfo",
+    "deploy": "fiori verify",
+    "deploy-config": "fiori add deploy-config",
+    "start-mock": "fiori run --open test/flpSandboxMockServer.html#masterDetail-display"
+  },
+  "devDependencies": {
+    "@ui5/cli": "2.14.17",
+    "@ui5/fs": "2.0.6",
+    "@ui5/logger": "2.0.1",
+    "@sap/ux-ui5-tooling": "1.8.3",
+    "@sap/ux-specification": "latest"
+  },
+  "ui5": {
+    "dependencies": [
+      "@sap/ux-ui5-tooling"
+    ]
+  }
 }
