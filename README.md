@@ -103,7 +103,9 @@ Start:
 
 Remove:
 
-`docker rm sap-support-message-reporting`
+```
+docker rm sap-support-message-reporting
+```
 
 ## Deploy to Kyma
 
