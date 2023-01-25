@@ -22,12 +22,12 @@
     "start-mock": "fiori run --open 'test/flpSandboxMockServer.html#v2lrop-tile'"
   },
   "devDependencies": {
-    "@sap/ux-specification": "^1.102.14",
-    "@sap/ux-ui5-tooling": "^1.8.3",
+    "@sap/ux-specification": "^1.102.15",
+    "@sap/ux-ui5-tooling": "^1.8.5",
     "@ui5/cli": "^2.14.17",
     "@ui5/fs": "^2.0.6",
     "@ui5/logger": "^2.0.1",
-    "rimraf": "3.0.2"
+    "rimraf": "4.1.2"
   },
   "ui5": {
     "dependencies": [

@@ -9,19 +9,19 @@
     "node": "^16"
   },
   "dependencies": {
-    "@sap-cloud-sdk/http-client": "^2.12.0",
-    "@sap/cds": "^6.3.2",
-    "@sap/cds-odata-v2-adapter-proxy": "^1.9.15",
+    "@sap-cloud-sdk/http-client": "^2.14.0",
+    "@sap/cds": "^6.4.1",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.9.18",
     "cheerio": "1.0.0-rc.12",
     "date-fns": "^2.29.3",
     "express": "^4.18.2",
-    "pino": "^8.7.0",
+    "pino": "^8.8.0",
     "qs": "^6.11.0",
     "sqlite3": "^5.1.4"
   },
   "devDependencies": {
-    "@sap/ux-specification": "^1.102.14",
-    "axios": "^0.27.2",
+    "@sap/ux-specification": "^1.102.15",
+    "axios": "^1.2.4",
     "cds-launchpad-plugin": "^1.0.8",
     "npm-run-all": "^4.1.5",
     "pino-pretty": "^9.1.1"
@@ -32,6 +32,8 @@
     "update:root": "npm update",
     "update:app": "cd app && npm update",
     "update:alp": "cd app/alp && npm update",
+    "update:alpv4": "cd app/alpv4 && npm update",
+    "update:alpv4lrop": "cd app/alpv4lrop && npm update",
     "update:freestyle": "cd app/freestyle && npm update",
     "update:lrop": "cd app/lrop && npm update",
     "update:ovp": "cd app/ovp && npm update",
