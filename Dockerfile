@@ -1,18 +1,17 @@
-FROM node:16-buster-slim
-
-RUN apt-get update && apt-get upgrade -y && apt-get install python3 build-essential -y && nodejs -v && npm -v
-WORKDIR /usr/src/app
+FROM node:16 AS build-env
+WORKDIR /app
 COPY gen/srv/package.json .
 COPY package-lock.json .
-# Needed to get sqlite working on arm https://www.npmjs.com/package/sqlite3#source-install
-RUN npm install --build-from-source
+
+RUN npm ci --only=production
+
 COPY gen/srv .
 COPY app app/
 RUN find app -name '*.cds' | xargs rm -f
 
+FROM gcr.io/distroless/nodejs:16
+COPY --from=build-env /app /app
+WORKDIR /app
 EXPOSE 4004
-# Not needed with node:14-buster-slim
-#RUN groupadd --gid 1000 node \
-#  && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
-USER node
-CMD [ "npm", "start" ]
+ENV NODE_ENV=development
+CMD ["node_modules/@sap/cds/bin/cds.js", "run", "--with-mocks", "--in-memory"]
