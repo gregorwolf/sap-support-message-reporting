@@ -27,7 +27,7 @@
     "pino-pretty": "^9.1.1"
   },
   "scripts": {
-    "start": "export NODE_ENV=development && cds run --with-mocks --in-memory",
+    "start": "export NODE_ENV=development && node node_modules/@sap/cds/bin/cds.js run --with-mocks --in-memory",
     "update": "run-p update:**",
     "update:root": "npm update",
     "update:app": "cd app && npm update",
