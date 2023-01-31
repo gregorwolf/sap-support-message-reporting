@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@sap-cloud-sdk/http-client": "^2.14.0",
-    "@sap/cds": "^6.4.1",
+    "@sap/cds": "^6.5.0",
     "@sap/cds-odata-v2-adapter-proxy": "^1.9.18",
     "cds-launchpad-plugin": "^1.0.8",
     "cheerio": "1.0.0-rc.12",
