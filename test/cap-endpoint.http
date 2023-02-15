@@ -61,6 +61,9 @@ GET http://localhost:4004/reporting/MessageHeaderSet
 
 ###
 GET http://localhost:4004/reporting/MessageHeaderSet
+    ?$apply=groupby((PriorityTxt),aggregate($count as childCount,numberOfMessages with sum as sumQuantity))
+###
+GET http://localhost:4004/reporting/MessageHeaderSet
     ?$apply=groupby((StatusTxt),aggregate(numberOfMessages with sum as numberOfMessagesTotal))
 
 ###
