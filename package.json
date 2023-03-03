@@ -9,22 +9,22 @@
     "node": "^16"
   },
   "dependencies": {
-    "@sap-cloud-sdk/http-client": "^2.14.0",
-    "@sap/cds": "^6.4.1",
-    "@sap/cds-odata-v2-adapter-proxy": "^1.9.18",
-    "cds-launchpad-plugin": "^1.0.8",
+    "@sap-cloud-sdk/http-client": "^2",
+    "@sap/cds": "^6",
+    "@sap/cds-odata-v2-adapter-proxy": "^1",
+    "cds-launchpad-plugin": "^1",
     "cheerio": "1.0.0-rc.12",
-    "date-fns": "^2.29.3",
-    "express": "^4.18.2",
-    "pino": "^8.8.0",
-    "qs": "^6.11.0",
-    "sqlite3": "^5.1.4"
+    "date-fns": "^2",
+    "express": "^4",
+    "pino": "^8",
+    "qs": "^6",
+    "sqlite3": "^5"
   },
   "devDependencies": {
     "@sap/ux-specification": "^1.102.15",
-    "axios": "^1.2.5",
-    "npm-run-all": "^4.1.5",
-    "pino-pretty": "^9.1.1"
+    "axios": "^1",
+    "npm-run-all": "^4",
+    "pino-pretty": "^9"
   },
   "scripts": {
     "start": "export NODE_ENV=development && node node_modules/@sap/cds/bin/cds.js run --with-mocks --in-memory",
