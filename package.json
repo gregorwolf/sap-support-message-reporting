@@ -24,7 +24,7 @@
     "@sap/ux-specification": "^1.102.15",
     "axios": "^1",
     "npm-run-all": "^4",
-    "pino-pretty": "^9"
+    "pino-pretty": "^10"
   },
   "scripts": {
     "start": "export NODE_ENV=development && node node_modules/@sap/cds/bin/cds.js run --with-mocks --in-memory",
