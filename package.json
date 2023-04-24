@@ -62,16 +62,20 @@
         "kind": "odata-v2",
         "model": "srv/external/incidentws",
         "path": "/services/odata/incidentws",
-        "credentials": {
-          "destination": "OSS"
+        "[hybrid,production]": {
+          "credentials": {
+            "destination": "OSS"
+          }
         }
       },
       "snogwsnnf": {
         "kind": "odata-v2",
         "model": "srv/external/snogwsnnf",
         "path": "/services/odata/svt/snogwsnnf",
-        "credentials": {
-          "destination": "OSS"
+        "[hybrid,production]": {
+          "credentials": {
+            "destination": "OSS"
+          }
         }
       }
     }
