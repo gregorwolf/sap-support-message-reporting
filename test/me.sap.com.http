@@ -1,0 +1,3 @@
+###
+GET https://me.sap.com/backend/odata/support/CaseList?$format=json&$top=10
+Cookie: {{$dotenv cookie}}

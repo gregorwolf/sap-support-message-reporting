@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="support.Service">
+            <EntityType Name="CaseActionLogs">
+                <Key>
+                    <PropertyRef Name="internalId" />
+                </Key>
+                <Property Name="internalId" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="changeOn" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="action" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="oldValue" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="newValue" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="updateBy" Type="Edm.String" Nullable="false"></Property>
+            </EntityType>
+            <EntityType Name="CaseActionPlans">
+                <Property Name="status" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="plannedNextStep" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="nextStatusUpdate" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="responsible" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="createdOn" Type="Edm.String" Nullable="false"></Property>
+            </EntityType>
+            <EntityType Name="CaseAlertIncident">
+                <Key>
+                    <PropertyRef Name="pointer" />
+                </Key>
+                <Property Name="pointer" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="createdAt" Type="Edm.String"></Property>
+                <Property Name="priorityTxt" Type="Edm.String"></Property>
+                <Property Name="reporter" Type="Edm.String"></Property>
+                <Property Name="statusTxt" Type="Edm.String"></Property>
+                <Property Name="subject" Type="Edm.String"></Property>
+                <Property Name="lastUpdate" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseAttachedSolutions">
+                <Key>
+                    <PropertyRef Name="ID" />
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="title" Type="Edm.String"></Property>
+                <Property Name="summary" Type="Edm.String"></Property>
+                <Property Name="component" Type="Edm.String"></Property>
+                <Property Name="type" Type="Edm.String"></Property>
+                <Property Name="category" Type="Edm.String"></Property>
+                <Property Name="created_on" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseAttachments">
+                <Key>
+                    <PropertyRef Name="url" />
+                </Key>
+                <Property Name="fileName" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="description" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="type" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="size" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="createdBy" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="createdOn" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="dataProtection" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="cpocd" Type="Edm.Boolean" Nullable="false"></Property>
+                <Property Name="status" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="url" Type="Edm.String" Nullable="false"></Property>
+            </EntityType>
+            <EntityType Name="CaseContacts">
+                <Key>
+                    <PropertyRef Name="ID" />
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="role" Type="Edm.String"></Property>
+                <Property Name="userId" Type="Edm.String"></Property>
+                <Property Name="contact" Type="Edm.String"></Property>
+                <Property Name="mobile" Type="Edm.String"></Property>
+                <Property Name="telephone" Type="Edm.String"></Property>
+                <Property Name="email" Type="Edm.String"></Property>
+                <Property Name="timezone" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseDetails">
+                <Key>
+                    <PropertyRef Name="ID" />
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="incidentNumber" Type="Edm.String"></Property>
+                <Property Name="incidentYear" Type="Edm.String"></Property>
+                <Property Name="subject" Type="Edm.String"></Property>
+                <Property Name="lastCommunication" Type="Edm.String"></Property>
+                <Property Name="lastCommunicationBy" Type="Edm.String"></Property>
+                <Property Name="component" Type="Edm.String"></Property>
+                <Property Name="componentName" Type="Edm.String"></Property>
+                <Property Name="classifiedContent" Type="Edm.String"></Property>
+                <Property Name="customer" Type="Edm.String"></Property>
+                <Property Name="customerNumber" Type="Edm.String"></Property>
+                <Property Name="lastChanged" Type="Edm.String"></Property>
+                <Property Name="createdAt" Type="Edm.String"></Property>
+                <Property Name="reporter" Type="Edm.String"></Property>
+                <Property Name="reporterId" Type="Edm.String"></Property>
+                <Property Name="priority" Type="Edm.String"></Property>
+                <Property Name="businessImpact" Type="Edm.String"></Property>
+                <Property Name="isFavorite" Type="Edm.Boolean"></Property>
+                <Property Name="affectedURL" Type="Edm.String"></Property>
+                <Property Name="relevantId" Type="Edm.String"></Property>
+                <Property Name="apiKey" Type="Edm.String"></Property>
+                <Property Name="swClass" Type="Edm.String"></Property>
+                <Property Name="swType" Type="Edm.String"></Property>
+                <Property Name="systemNumber" Type="Edm.String"></Property>
+                <Property Name="installationTxt" Type="Edm.String"></Property>
+                <Property Name="systemTxt" Type="Edm.String"></Property>
+                <Property Name="dataProtection" Type="Edm.String"></Property>
+                <Property Name="lastCommunicationByIsSapAgent" Type="Edm.Boolean"></Property>
+                <Property Name="statusTxt" Type="Edm.String"></Property>
+                <Property Name="status" Type="Edm.String"></Property>
+                <Property Name="incidentSource" Type="Edm.String"></Property>
+                <Property Name="overruleAuth" Type="Edm.Boolean"></Property>
+                <Property Name="installationNum" Type="Edm.String"></Property>
+                <Property Name="aaEPDraftFlag" Type="Edm.String"></Property>
+                <Property Name="aaEPFlag" Type="Edm.String"></Property>
+                <Property Name="aaEPQuesEmail" Type="Edm.String"></Property>
+                <Property Name="aaEPQuesStatus" Type="Edm.String"></Property>
+                <Property Name="aaEPQuesUUID" Type="Edm.String"></Property>
+                <Property Name="aaEPSessStatus" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseDiscussion">
+                <Key>
+                    <PropertyRef Name="internalId" />
+                </Key>
+                <Property Name="internalId" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="dateTime" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="userName" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="isCurrentUser" Type="Edm.Boolean" Nullable="false"></Property>
+                <Property Name="isSAPAgent" Type="Edm.Boolean" Nullable="false"></Property>
+                <Property Name="type" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="originalText" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="translatedText" Type="Edm.String"></Property>
+                <Property Name="sourceLanguage" Type="Edm.String"></Property>
+                <Property Name="targetLanguage" Type="Edm.String"></Property>
+                <Property Name="selectedLanguage" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseKBASolutions">
+                <Key>
+                    <PropertyRef Name="ID" />
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="title" Type="Edm.String"></Property>
+                <Property Name="summary" Type="Edm.String"></Property>
+                <Property Name="component" Type="Edm.String"></Property>
+                <Property Name="type" Type="Edm.String"></Property>
+                <Property Name="category" Type="Edm.String"></Property>
+                <Property Name="url" Type="Edm.String"></Property>
+                <Property Name="external_url" Type="Edm.String"></Property>
+                <Property Name="release_on" Type="Edm.String"></Property>
+                <Property Name="created_on" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseList">
+                <Key>
+                    <PropertyRef Name="pointer" />
+                </Key>
+                <Property Name="pointer" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="incidentNumber" Type="Edm.String"></Property>
+                <Property Name="source" Type="Edm.String"></Property>
+                <Property Name="statusId" Type="Edm.String"></Property>
+                <Property Name="lastUpdate" Type="Edm.String"></Property>
+                <Property Name="priorityId" Type="Edm.String"></Property>
+                <Property Name="createdAt" Type="Edm.Double"></Property>
+                <Property Name="updatedAt" Type="Edm.Double"></Property>
+                <Property Name="installationId" Type="Edm.String"></Property>
+                <Property Name="systemNumber" Type="Edm.String"></Property>
+                <Property Name="customerId" Type="Edm.String"></Property>
+                <Property Name="reporterId" Type="Edm.String"></Property>
+                <Property Name="sapNumber" Type="Edm.String"></Property>
+                <Property Name="sapYear" Type="Edm.String"></Property>
+                <Property Name="subject" Type="Edm.String"></Property>
+                <Property Name="respITSM" Type="Edm.String"></Property>
+                <Property Name="statusTxt" Type="Edm.String"></Property>
+                <Property Name="priorityTxt" Type="Edm.String"></Property>
+                <Property Name="installationTxt" Type="Edm.String"></Property>
+                <Property Name="systemId" Type="Edm.String"></Property>
+                <Property Name="systemTxt" Type="Edm.String"></Property>
+                <Property Name="componentId" Type="Edm.String"></Property>
+                <Property Name="componentKey" Type="Edm.String"></Property>
+                <Property Name="componentTxt" Type="Edm.String"></Property>
+                <Property Name="reporterTxt" Type="Edm.String"></Property>
+                <Property Name="customerTxt" Type="Edm.String"></Property>
+                <Property Name="creationDate" Type="Edm.String"></Property>
+                <Property Name="creationTime" Type="Edm.String"></Property>
+                <Property Name="createdBy" Type="Edm.String"></Property>
+                <Property Name="updateDate" Type="Edm.String"></Property>
+                <Property Name="updateTime" Type="Edm.String"></Property>
+                <Property Name="autoConfirmDateTxt" Type="Edm.String"></Property>
+                <Property Name="autoConfirmDate" Type="Edm.Double"></Property>
+                <Property Name="productId" Type="Edm.String"></Property>
+                <Property Name="productTxt" Type="Edm.String"></Property>
+                <Property Name="userTimezone" Type="Edm.String"></Property>
+                <Property Name="isFavorite" Type="Edm.Boolean" Nullable="false"></Property>
+                <Property Name="serviceType" Type="Edm.String"></Property>
+                <Property Name="aaEPDraftFlag" Type="Edm.String"></Property>
+                <Property Name="aaEPQuesStatus" Type="Edm.String"></Property>
+                <Property Name="aaEPSessStatus" Type="Edm.String"></Property>
+                <Property Name="quesDateCreated" Type="Edm.String"></Property>
+                <Property Name="quesExpirationDate" Type="Edm.String"></Property>
+                <Property Name="searchTerm" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseSystemInfo">
+                <Key>
+                    <PropertyRef Name="ID" />
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"></Property>
+                <Property Name="systemName" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="installationName" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="installationNum" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="isConnectionOpen" Type="Edm.Boolean" Nullable="false"></Property>
+                <Property Name="accessDataError" Type="Edm.String"></Property>
+                <Property Name="isAccessDataAuthorized" Type="Edm.Boolean" Nullable="false"></Property>
+                <Property Name="isAccessDataMaintained" Type="Edm.Boolean" Nullable="false"></Property>
+                <Property Name="isAccessDataRestricted" Type="Edm.Boolean" Nullable="false"></Property>
+                <Property Name="secureAreaURL" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="sysnr" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="reporter" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="dataProtection" Type="Edm.String"></Property>
+                <Property Name="affectedURL" Type="Edm.String"></Property>
+                <Property Name="relevantId" Type="Edm.String"></Property>
+                <Property Name="apiKey" Type="Edm.String"></Property>
+                <Property Name="swClass" Type="Edm.String"></Property>
+                <Property Name="classifiedContent" Type="Edm.String"></Property>
+                <Property Name="overruleAuth" Type="Edm.Boolean" Nullable="false"></Property>
+                <Property Name="RampUpFlag" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="ContractTypes">
+                <Key>
+                    <PropertyRef Name="ID" />
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="name" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="initials" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="total" Type="Edm.Int32" Nullable="false"></Property>
+            </EntityType>
+            <EntityType Name="OverviewContract">
+                <Key>
+                    <PropertyRef Name="contractNumber" />
+                </Key>
+                <Property Name="serviceName" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="contractNumber" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="contractType" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="contractTypeID" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="startDate" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="endDate" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="isFavorite" Type="Edm.Boolean" Nullable="false"></Property>
+            </EntityType>
+            <EntityType Name="Incidents">
+                <Key>
+                    <PropertyRef Name="pointer" />
+                </Key>
+                <Property Name="pointer" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="incidentID" Type="Edm.String"></Property>
+                <Property Name="productKey" Type="Edm.String"></Property>
+                <Property Name="system" Type="Edm.String"></Property>
+                <Property Name="subject" Type="Edm.String"></Property>
+                <Property Name="status" Type="Edm.String"></Property>
+                <Property Name="statusKey" Type="Edm.Int32"></Property>
+                <Property Name="reporterProfilePictureURL" Type="Edm.String"></Property>
+                <Property Name="reporter" Type="Edm.String"></Property>
+                <Property Name="isReportedByMe" Type="Edm.Boolean"></Property>
+                <Property Name="priorityKey" Type="Edm.Int32"></Property>
+                <Property Name="priorityText" Type="Edm.String"></Property>
+                <Property Name="lastChanged" Type="Edm.DateTimeOffset"></Property>
+                <Property Name="source" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="IncidentsOverview">
+                <Key>
+                    <PropertyRef Name="ID" />
+                    <PropertyRef Name="status" />
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="status" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="count" Type="Edm.Int32"></Property>
+                <Property Name="percentage" Type="Edm.Double"></Property>
+                <Property Name="reporter" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="ServiceRequest">
+                <Key>
+                    <PropertyRef Name="id" />
+                </Key>
+                <Property Name="id" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="area" Type="Edm.String"></Property>
+                <Property Name="sysId" Type="Edm.String"></Property>
+                <Property Name="number" Type="Edm.String"></Property>
+                <Property Name="requestFor" Type="Edm.String"></Property>
+                <Property Name="entity" Type="Edm.String"></Property>
+                <Property Name="type" Type="Edm.String"></Property>
+                <Property Name="title" Type="Edm.String"></Property>
+                <Property Name="chargeableService" Type="Edm.String"></Property>
+                <Property Name="topic" Type="Edm.String"></Property>
+                <Property Name="createdOn" Type="Edm.String"></Property>
+                <Property Name="createdBy" Type="Edm.String"></Property>
+                <Property Name="startsAt" Type="Edm.String"></Property>
+                <Property Name="status" Type="Edm.String"></Property>
+                <Property Name="hasPassword" Type="Edm.String"></Property>
+                <Property Name="technicalSystem" Type="Edm.String"></Property>
+                <Property Name="systemNumber" Type="Edm.String"></Property>
+                <Property Name="userPasswordList" Type="Edm.String"></Property>
+                <Property Name="createdByUserName" Type="Edm.String"></Property>
+                <Property Name="systemRole" Type="Edm.String"></Property>
+                <Property Name="isClassic" Type="Edm.Boolean"></Property>
+                <Property Name="isOpen" Type="Edm.Boolean" Nullable="false"></Property>
+            </EntityType>
+            <EntityType Name="CaseAppointments">
+                <Property Name="ID" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="type" Type="Edm.String"></Property>
+                <Property Name="reporter" Type="Edm.String"></Property>
+                <Property Name="startTime" Type="Edm.String"></Property>
+                <Property Name="endTime" Type="Edm.String"></Property>
+                <Property Name="title" Type="Edm.String"></Property>
+                <Property Name="status" Type="Edm.String"></Property>
+                <Property Name="teamsUrl" Type="Edm.String"></Property>
+                <Property Name="additionalInfo" Type="Edm.String"></Property>
+                <Property Name="pointer" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseQualtricsAuthW7">
+                <Property Name="w7pUrl" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="olproUrld" Type="Edm.String" Nullable="false"></Property>
+            </EntityType>
+            <EntityType Name="CaseContactsList">
+                <Key>
+                    <PropertyRef Name="ID" />
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="role" Type="Edm.String"></Property>
+                <Property Name="userId" Type="Edm.String"></Property>
+                <Property Name="contact" Type="Edm.String"></Property>
+                <Property Name="mobile" Type="Edm.String"></Property>
+                <Property Name="telephone" Type="Edm.String"></Property>
+                <Property Name="email" Type="Edm.String"></Property>
+                <Property Name="available" Type="Edm.Boolean"></Property>
+                <Property Name="timezone" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseText">
+                <Key>
+                    <PropertyRef Name="ID" />
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="name" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="EventAreaFilter">
+                <Key>
+                    <PropertyRef Name="keyValue" />
+                </Key>
+                <Property Name="keyValue" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="textValue" Type="Edm.String"></Property>
+                <Property Name="count" Type="Edm.Int32"></Property>
+            </EntityType>
+            <EntityType Name="EventCardStatusFilter">
+                <Key>
+                    <PropertyRef Name="keyValue" />
+                </Key>
+                <Property Name="keyValue" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="textValue" Type="Edm.String"></Property>
+                <Property Name="count" Type="Edm.Int32"></Property>
+            </EntityType>
+            <EntityType Name="F4Help">
+                <Key>
+                    <PropertyRef Name="Category" />
+                    <PropertyRef Name="Name" />
+                </Key>
+                <Property Name="Category" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="Name" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="Type" Type="Edm.String"></Property>
+                <Property Name="KeyValue" Type="Edm.String"></Property>
+                <Property Name="KeyType" Type="Edm.String"></Property>
+                <Property Name="SWClass" Type="Edm.String"></Property>
+                <Property Name="SWType" Type="Edm.String"></Property>
+                <Property Name="Uname" Type="Edm.String"></Property>
+                <Property Name="Value" Type="Edm.String"></Property>
+                <Property Name="Desc1" Type="Edm.String"></Property>
+                <Property Name="Desc2" Type="Edm.String"></Property>
+                <Property Name="NotSelectFlag" Type="Edm.String"></Property>
+                <Property Name="CustomerNbr" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="SystemSearch">
+                <Key>
+                    <PropertyRef Name="systemNumber" />
+                </Key>
+                <Property Name="systemNumber" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="uname" Type="Edm.String"></Property>
+                <Property Name="customerNumber" Type="Edm.String"></Property>
+                <Property Name="productNumber" Type="Edm.String"></Property>
+                <Property Name="productText" Type="Edm.String"></Property>
+                <Property Name="productVersionNumber" Type="Edm.String"></Property>
+                <Property Name="productVersionText" Type="Edm.String"></Property>
+                <Property Name="installationNumber" Type="Edm.String"></Property>
+                <Property Name="searchText" Type="Edm.String"></Property>
+                <Property Name="matchScore" Type="Edm.String"></Property>
+                <Property Name="systemId" Type="Edm.String"></Property>
+                <Property Name="systemName" Type="Edm.String"></Property>
+                <Property Name="systemType" Type="Edm.String"></Property>
+                <Property Name="supportPartnerNumber" Type="Edm.String"></Property>
+                <Property Name="supportPartnerName" Type="Edm.String"></Property>
+                <Property Name="supportPartnerURL" Type="Edm.String"></Property>
+                <Property Name="notSelectable" Type="Edm.String"></Property>
+                <Property Name="customerName" Type="Edm.String"></Property>
+                <Property Name="installationName" Type="Edm.String"></Property>
+                <Property Name="softwareClass" Type="Edm.String"></Property>
+                <Property Name="softwareType" Type="Edm.String"></Property>
+                <Property Name="dataProcessRestriction" Type="Edm.String"></Property>
+                <Property Name="dataCenterText" Type="Edm.String"></Property>
+                <Property Name="isSystemCloud" Type="Edm.String"></Property>
+                <Property Name="cloudURL" Type="Edm.String"></Property>
+                <Property Name="mainSystemNbr" Type="Edm.String"></Property>
+                <Property Name="mainSystemName" Type="Edm.String"></Property>
+                <Property Name="isOutOfRange" Type="Edm.Boolean"></Property>
+                <Property Name="isFavorite" Type="Edm.Boolean"></Property>
+                <Property Name="leadingProduct" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CreateCustomerAndSuser">
+                <Property Name="customerNumber" Type="Edm.String"></Property>
+                <Property Name="suser" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseList4Card">
+                <Key>
+                    <PropertyRef Name="incidentID" />
+                </Key>
+                <Property Name="incidentID" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="subject" Type="Edm.String"></Property>
+                <Property Name="status" Type="Edm.String"></Property>
+                <Property Name="statusKey" Type="Edm.String"></Property>
+                <Property Name="reporter" Type="Edm.String"></Property>
+                <Property Name="priorityKey" Type="Edm.String"></Property>
+                <Property Name="priorityText" Type="Edm.String"></Property>
+                <Property Name="lastChanged" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CloudSystemStatus">
+                <Key>
+                    <PropertyRef Name="uName" />
+                    <PropertyRef Name="systemNumber" />
+                </Key>
+                <Property Name="uName" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="systemNumber" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="customerNumber" Type="Edm.String"></Property>
+                <Property Name="eventID" Type="Edm.String"></Property>
+                <Property Name="type" Type="Edm.String"></Property>
+                <Property Name="typeText" Type="Edm.String"></Property>
+                <Property Name="eventStartTime" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="SystemProductInfo">
+                <Key>
+                    <PropertyRef Name="keyPath" />
+                </Key>
+                <Property Name="keyPath" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="installationNumber" Type="Edm.String"></Property>
+                <Property Name="systemNumber" Type="Edm.String"></Property>
+                <Property Name="startNodePPMSId" Type="Edm.String"></Property>
+                <Property Name="pathPPMSId" Type="Edm.String"></Property>
+                <Property Name="nodeId" Type="Edm.String"></Property>
+                <Property Name="parentNodeId" Type="Edm.String"></Property>
+                <Property Name="nodeName" Type="Edm.String"></Property>
+                <Property Name="fullPath" Type="Edm.String"></Property>
+                <Property Name="drillState" Type="Edm.String"></Property>
+                <Property Name="nodeLevel" Type="Edm.String"></Property>
+                <Property Name="componentKey" Type="Edm.String"></Property>
+                <Property Name="componentName" Type="Edm.String"></Property>
+                <Property Name="expertArea" Type="Edm.String"></Property>
+                <Property Name="showProduct" Type="Edm.Boolean"></Property>
+                <Property Name="sortDet" Type="Edm.String"></Property>
+                <Property Name="pilot" Type="Edm.Boolean"></Property>
+                <Property Name="addSearchTerm" Type="Edm.String"></Property>
+                <Property Name="addComponents" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CasePrioritySet">
+                <Key>
+                    <PropertyRef Name="priorityId" />
+                </Key>
+                <Property Name="priorityId" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="priorityTxt" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseStatusSet">
+                <Key>
+                    <PropertyRef Name="statusId" />
+                </Key>
+                <Property Name="statusId" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="statusTxt" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="IncidentReporterSet">
+                <Key>
+                    <PropertyRef Name="reporterId" />
+                </Key>
+                <Property Name="reporterId" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="reporterTxt" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseSystemSet">
+                <Key>
+                    <PropertyRef Name="systemNumber" />
+                </Key>
+                <Property Name="systemId" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="systemNumber" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="systemTxt" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="IncidentInstSet">
+                <Property Name="installationId" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="installationTxt" Type="Edm.String"></Property>
+                <Property Name="inactive" Type="Edm.String"></Property>
+                <Property Name="customerId" Type="Edm.String"></Property>
+                <Property Name="customerTxt" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseMessageTextsSet">
+                <Property Name="pointer" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="noteType" Type="Edm.String"></Property>
+                <Property Name="updateDate" Type="Edm.String"></Property>
+                <Property Name="noteText" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="ScheduleAnExpertBooking">
+                <Property Name="Date" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="Count" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="ScheduleAnExpertBookingTimeSlot">
+                <Property Name="Date" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="time" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="ScheduleAManagerBooking">
+                <Property Name="Date" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="Count" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="ScheduleAManagerBookingTimeSlot">
+                <Property Name="Date" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="time" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseChannelCheckSet">
+                <Property Name="pointer" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="component" Type="Edm.String"></Property>
+                <Property Name="system" Type="Edm.String"></Property>
+                <Property Name="productFunctionPath" Type="Edm.String"></Property>
+                <Property Name="channelType" Type="Edm.String"></Property>
+                <Property Name="respArea" Type="Edm.String"></Property>
+                <Property Name="active" Type="Edm.String"></Property>
+                <Property Name="details" Type="Edm.String"></Property>
+                <Property Name="slots" Type="Edm.String"></Property>
+                <Property Name="bookingGuid" Type="Edm.String"></Property>
+                <Property Name="timezone" Type="Edm.String"></Property>
+                <Property Name="incidentTitle" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseSuggestedSolutions">
+                <Key>
+                    <PropertyRef Name="ID" />
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="leadingProductId" Type="Edm.String"></Property>
+                <Property Name="leadingProduct" Type="Edm.String"></Property>
+                <Property Name="problemDescription" Type="Edm.String"></Property>
+                <Property Name="stepToReproduce" Type="Edm.String"></Property>
+                <Property Name="swClass" Type="Edm.String"></Property>
+                <Property Name="swType" Type="Edm.String"></Property>
+                <Property Name="systemId" Type="Edm.String"></Property>
+                <Property Name="installationNumber" Type="Edm.String"></Property>
+                <Property Name="inputTitle" Type="Edm.String"></Property>
+                <Property Name="summary" Type="Edm.String"></Property>
+                <Property Name="component" Type="Edm.String"></Property>
+                <Property Name="type" Type="Edm.String"></Property>
+                <Property Name="category" Type="Edm.String"></Property>
+                <Property Name="url" Type="Edm.String"></Property>
+                <Property Name="externalUrl" Type="Edm.String"></Property>
+                <Property Name="releasedAt" Type="Edm.String"></Property>
+                <Property Name="age" Type="Edm.String"></Property>
+                <Property Name="trending" Type="Edm.Boolean"></Property>
+                <Property Name="score" Type="Edm.String"></Property>
+                <Property Name="status" Type="Edm.String"></Property>
+                <Property Name="noteTitle" Type="Edm.String"></Property>
+                <Property Name="componentLong" Type="Edm.String"></Property>
+                <Property Name="systemNumber" Type="Edm.String"></Property>
+                <Property Name="productFunctionPathId" Type="Edm.String"></Property>
+                <Property Name="stepsToReproduce" Type="Edm.String"></Property>
+                <Property Name="firstEntry" Type="Edm.String"></Property>
+                <Property Name="lastEntry" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="ProductKnowledge">
+                <Key>
+                    <PropertyRef Name="useCaseId" />
+                    <PropertyRef Name="modelNumber" />
+                </Key>
+                <Property Name="useCaseId" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="modelNumber" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="componentKey" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="componentName" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="systemNumber" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="url" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="title" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="summary" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="category" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="kmNumber" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="domain" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="sortOrder" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="score" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="type" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="subtype" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="tag" Type="Edm.String" Nullable="false"></Property>
+            </EntityType>
+            <EntityType Name="UserSettingsTimeZone">
+                <Property Name="userTimezone" Type="Edm.String"></Property>
+                <Property Name="timeZoneDescription" Type="Edm.String"></Property>
+                <Property Name="timeZoneUTCsign" Type="Edm.String"></Property>
+                <Property Name="timeZoneUTCdiff" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseAuthPointersSet">
+                <Key>
+                    <PropertyRef Name="pointer" />
+                </Key>
+                <Property Name="pointer" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="updatedAt" Type="Edm.Double"></Property>
+                <Property Name="createdAt" Type="Edm.Double"></Property>
+                <Property Name="customerId" Type="Edm.String"></Property>
+                <Property Name="source" Type="Edm.String"></Property>
+                <Property Name="installationId" Type="Edm.String"></Property>
+                <Property Name="lastUpdate" Type="Edm.String"></Property>
+                <Property Name="priorityId" Type="Edm.String"></Property>
+                <Property Name="reporterId" Type="Edm.String"></Property>
+                <Property Name="respITSM" Type="Edm.String"></Property>
+                <Property Name="statusId" Type="Edm.String"></Property>
+                <Property Name="systemId" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseListAggregated">
+                <Key>
+                    <PropertyRef Name="pointer" />
+                </Key>
+                <Property Name="pointer" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="incidentNumber" Type="Edm.String"></Property>
+                <Property Name="source" Type="Edm.String"></Property>
+                <Property Name="statusId" Type="Edm.String"></Property>
+                <Property Name="lastUpdate" Type="Edm.String"></Property>
+                <Property Name="priorityId" Type="Edm.String"></Property>
+                <Property Name="createdAt" Type="Edm.Double"></Property>
+                <Property Name="updatedAt" Type="Edm.Double"></Property>
+                <Property Name="installationId" Type="Edm.String"></Property>
+                <Property Name="systemNumber" Type="Edm.String"></Property>
+                <Property Name="customerId" Type="Edm.String"></Property>
+                <Property Name="reporterId" Type="Edm.String"></Property>
+                <Property Name="sapNumber" Type="Edm.String"></Property>
+                <Property Name="sapYear" Type="Edm.String"></Property>
+                <Property Name="subject" Type="Edm.String"></Property>
+                <Property Name="respITSM" Type="Edm.String"></Property>
+                <Property Name="statusTxt" Type="Edm.String"></Property>
+                <Property Name="priorityTxt" Type="Edm.String"></Property>
+                <Property Name="installationTxt" Type="Edm.String"></Property>
+                <Property Name="systemId" Type="Edm.String"></Property>
+                <Property Name="systemTxt" Type="Edm.String"></Property>
+                <Property Name="componentId" Type="Edm.String"></Property>
+                <Property Name="componentKey" Type="Edm.String"></Property>
+                <Property Name="componentTxt" Type="Edm.String"></Property>
+                <Property Name="reporterTxt" Type="Edm.String"></Property>
+                <Property Name="customerTxt" Type="Edm.String"></Property>
+                <Property Name="creationDate" Type="Edm.String"></Property>
+                <Property Name="creationTime" Type="Edm.String"></Property>
+                <Property Name="createdBy" Type="Edm.String"></Property>
+                <Property Name="updateDate" Type="Edm.String"></Property>
+                <Property Name="updateTime" Type="Edm.String"></Property>
+                <Property Name="autoConfirmDateTxt" Type="Edm.String"></Property>
+                <Property Name="autoConfirmDate" Type="Edm.Double"></Property>
+                <Property Name="productId" Type="Edm.String"></Property>
+                <Property Name="productTxt" Type="Edm.String"></Property>
+                <Property Name="userTimezone" Type="Edm.String"></Property>
+                <Property Name="isFavorite" Type="Edm.Boolean" Nullable="false"></Property>
+                <Property Name="serviceType" Type="Edm.String"></Property>
+                <Property Name="aaEPDraftFlag" Type="Edm.String"></Property>
+                <Property Name="aaEPQuesStatus" Type="Edm.String"></Property>
+                <Property Name="aaEPSessStatus" Type="Edm.String"></Property>
+                <Property Name="quesDateCreated" Type="Edm.String"></Property>
+                <Property Name="quesExpirationDate" Type="Edm.String"></Property>
+                <Property Name="searchTerm" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseListW7">
+                <Key>
+                    <PropertyRef Name="pointer" />
+                </Key>
+                <Property Name="pointer" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="incidentNumber" Type="Edm.String"></Property>
+                <Property Name="source" Type="Edm.String"></Property>
+                <Property Name="statusId" Type="Edm.String"></Property>
+                <Property Name="lastUpdate" Type="Edm.String"></Property>
+                <Property Name="priorityId" Type="Edm.String"></Property>
+                <Property Name="createdAt" Type="Edm.Double"></Property>
+                <Property Name="updatedAt" Type="Edm.Double"></Property>
+                <Property Name="installationId" Type="Edm.String"></Property>
+                <Property Name="systemNumber" Type="Edm.String"></Property>
+                <Property Name="customerId" Type="Edm.String"></Property>
+                <Property Name="reporterId" Type="Edm.String"></Property>
+                <Property Name="sapNumber" Type="Edm.String"></Property>
+                <Property Name="sapYear" Type="Edm.String"></Property>
+                <Property Name="subject" Type="Edm.String"></Property>
+                <Property Name="respITSM" Type="Edm.String"></Property>
+                <Property Name="statusTxt" Type="Edm.String"></Property>
+                <Property Name="priorityTxt" Type="Edm.String"></Property>
+                <Property Name="installationTxt" Type="Edm.String"></Property>
+                <Property Name="systemId" Type="Edm.String"></Property>
+                <Property Name="systemTxt" Type="Edm.String"></Property>
+                <Property Name="componentId" Type="Edm.String"></Property>
+                <Property Name="componentKey" Type="Edm.String"></Property>
+                <Property Name="componentTxt" Type="Edm.String"></Property>
+                <Property Name="reporterTxt" Type="Edm.String"></Property>
+                <Property Name="customerTxt" Type="Edm.String"></Property>
+                <Property Name="creationDate" Type="Edm.String"></Property>
+                <Property Name="creationTime" Type="Edm.String"></Property>
+                <Property Name="createdBy" Type="Edm.String"></Property>
+                <Property Name="updateDate" Type="Edm.String"></Property>
+                <Property Name="updateTime" Type="Edm.String"></Property>
+                <Property Name="autoConfirmDateTxt" Type="Edm.String"></Property>
+                <Property Name="autoConfirmDate" Type="Edm.Double"></Property>
+                <Property Name="productId" Type="Edm.String"></Property>
+                <Property Name="productTxt" Type="Edm.String"></Property>
+                <Property Name="userTimezone" Type="Edm.String"></Property>
+                <Property Name="isFavorite" Type="Edm.Boolean" Nullable="false"></Property>
+                <Property Name="serviceType" Type="Edm.String"></Property>
+                <Property Name="aaEPDraftFlag" Type="Edm.String"></Property>
+                <Property Name="aaEPQuesStatus" Type="Edm.String"></Property>
+                <Property Name="aaEPSessStatus" Type="Edm.String"></Property>
+                <Property Name="quesDateCreated" Type="Edm.String"></Property>
+                <Property Name="quesExpirationDate" Type="Edm.String"></Property>
+                <Property Name="searchTerm" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseListServiceNow">
+                <Key>
+                    <PropertyRef Name="pointer" />
+                </Key>
+                <Property Name="pointer" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="incidentNumber" Type="Edm.String"></Property>
+                <Property Name="source" Type="Edm.String"></Property>
+                <Property Name="statusId" Type="Edm.String"></Property>
+                <Property Name="lastUpdate" Type="Edm.String"></Property>
+                <Property Name="priorityId" Type="Edm.String"></Property>
+                <Property Name="createdAt" Type="Edm.Double"></Property>
+                <Property Name="updatedAt" Type="Edm.Double"></Property>
+                <Property Name="installationId" Type="Edm.String"></Property>
+                <Property Name="systemNumber" Type="Edm.String"></Property>
+                <Property Name="customerId" Type="Edm.String"></Property>
+                <Property Name="reporterId" Type="Edm.String"></Property>
+                <Property Name="sapNumber" Type="Edm.String"></Property>
+                <Property Name="sapYear" Type="Edm.String"></Property>
+                <Property Name="subject" Type="Edm.String"></Property>
+                <Property Name="respITSM" Type="Edm.String"></Property>
+                <Property Name="statusTxt" Type="Edm.String"></Property>
+                <Property Name="priorityTxt" Type="Edm.String"></Property>
+                <Property Name="installationTxt" Type="Edm.String"></Property>
+                <Property Name="systemId" Type="Edm.String"></Property>
+                <Property Name="systemTxt" Type="Edm.String"></Property>
+                <Property Name="componentId" Type="Edm.String"></Property>
+                <Property Name="componentKey" Type="Edm.String"></Property>
+                <Property Name="componentTxt" Type="Edm.String"></Property>
+                <Property Name="reporterTxt" Type="Edm.String"></Property>
+                <Property Name="customerTxt" Type="Edm.String"></Property>
+                <Property Name="creationDate" Type="Edm.String"></Property>
+                <Property Name="creationTime" Type="Edm.String"></Property>
+                <Property Name="createdBy" Type="Edm.String"></Property>
+                <Property Name="updateDate" Type="Edm.String"></Property>
+                <Property Name="updateTime" Type="Edm.String"></Property>
+                <Property Name="autoConfirmDateTxt" Type="Edm.String"></Property>
+                <Property Name="autoConfirmDate" Type="Edm.Double"></Property>
+                <Property Name="productId" Type="Edm.String"></Property>
+                <Property Name="productTxt" Type="Edm.String"></Property>
+                <Property Name="userTimezone" Type="Edm.String"></Property>
+                <Property Name="isFavorite" Type="Edm.Boolean" Nullable="false"></Property>
+                <Property Name="serviceType" Type="Edm.String"></Property>
+                <Property Name="aaEPDraftFlag" Type="Edm.String"></Property>
+                <Property Name="aaEPQuesStatus" Type="Edm.String"></Property>
+                <Property Name="aaEPSessStatus" Type="Edm.String"></Property>
+                <Property Name="quesDateCreated" Type="Edm.String"></Property>
+                <Property Name="quesExpirationDate" Type="Edm.String"></Property>
+                <Property Name="searchTerm" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="ChannelRecommender">
+                <Property Name="channelId" Type="Edm.String"></Property>
+                <Property Name="rank" Type="Edm.String"></Property>
+                <Property Name="channelText" Type="Edm.String"></Property>
+                <Property Name="channelData" Type="Edm.String"></Property>
+                <Property Name="modelNumber" Type="Edm.String"></Property>
+                <Property Name="status" Type="Edm.String"></Property>
+                <Property Name="useCaseId" Type="Edm.String"></Property>
+                <Property Name="casePointer" Type="Edm.String"></Property>
+                <Property Name="caseTitle" Type="Edm.String"></Property>
+                <Property Name="caseDescription" Type="Edm.String"></Property>
+                <Property Name="priorityId" Type="Edm.String"></Property>
+                <Property Name="systemNumber" Type="Edm.String"></Property>
+                <Property Name="channelReason" Type="Edm.String"></Property>
+                <Property Name="tagId" Type="Edm.String"></Property>
+                <Property Name="areaId" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityType Name="CaseListUserPersonalization">
+                <Property Name="columns" Type="Edm.String"></Property>
+                <Property Name="sort" Type="Edm.String"></Property>
+                <Property Name="group" Type="Edm.String"></Property>
+                <Property Name="tab" Type="Edm.String"></Property>
+            </EntityType>
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="CaseActionLogs" EntityType="support.Service.CaseActionLogs"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseActionPlans" EntityType="support.Service.CaseActionPlans"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseAlertIncident" EntityType="support.Service.CaseAlertIncident"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseAttachedSolutions"
+                    EntityType="support.Service.CaseAttachedSolutions"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseAttachments" EntityType="support.Service.CaseAttachments"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseContacts" EntityType="support.Service.CaseContacts"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseDetails" EntityType="support.Service.CaseDetails"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseDiscussion" EntityType="support.Service.CaseDiscussion"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseKBASolutions" EntityType="support.Service.CaseKBASolutions"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseList" EntityType="support.Service.CaseList"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseSystemInfo" EntityType="support.Service.CaseSystemInfo"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="ContractTypes" EntityType="support.Service.ContractTypes"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="OverviewContract" EntityType="support.Service.OverviewContract"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="Incidents" EntityType="support.Service.Incidents"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="IncidentsOverview" EntityType="support.Service.IncidentsOverview"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="ServiceRequest" EntityType="support.Service.ServiceRequest"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseAppointments" EntityType="support.Service.CaseAppointments"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseQualtricsAuthW7"
+                    EntityType="support.Service.CaseQualtricsAuthW7"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseContactsList" EntityType="support.Service.CaseContactsList"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseText" EntityType="support.Service.CaseText"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="EventAreaFilter" EntityType="support.Service.EventAreaFilter"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="EventCardStatusFilter"
+                    EntityType="support.Service.EventCardStatusFilter"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="F4Help" EntityType="support.Service.F4Help"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="SystemSearch" EntityType="support.Service.SystemSearch"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CreateCustomerAndSuser"
+                    EntityType="support.Service.CreateCustomerAndSuser"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseList4Card" EntityType="support.Service.CaseList4Card"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CloudSystemStatus" EntityType="support.Service.CloudSystemStatus"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="SystemProductInfo" EntityType="support.Service.SystemProductInfo"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CasePrioritySet" EntityType="support.Service.CasePrioritySet"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseStatusSet" EntityType="support.Service.CaseStatusSet"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="IncidentReporterSet"
+                    EntityType="support.Service.IncidentReporterSet"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseSystemSet" EntityType="support.Service.CaseSystemSet"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="IncidentInstSet" EntityType="support.Service.IncidentInstSet"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseMessageTextsSet"
+                    EntityType="support.Service.CaseMessageTextsSet"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="ScheduleAnExpertBooking"
+                    EntityType="support.Service.ScheduleAnExpertBooking"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="ScheduleAnExpertBookingTimeSlot"
+                    EntityType="support.Service.ScheduleAnExpertBookingTimeSlot"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="ScheduleAManagerBooking"
+                    EntityType="support.Service.ScheduleAManagerBooking"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="ScheduleAManagerBookingTimeSlot"
+                    EntityType="support.Service.ScheduleAManagerBookingTimeSlot"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseChannelCheckSet"
+                    EntityType="support.Service.CaseChannelCheckSet"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseSuggestedSolutions"
+                    EntityType="support.Service.CaseSuggestedSolutions"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="ProductKnowledge" EntityType="support.Service.ProductKnowledge"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="UserSettingsTimeZone"
+                    EntityType="support.Service.UserSettingsTimeZone"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseAuthPointersSet"
+                    EntityType="support.Service.CaseAuthPointersSet"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseListAggregated" EntityType="support.Service.CaseListAggregated"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseListW7" EntityType="support.Service.CaseListW7"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseListServiceNow" EntityType="support.Service.CaseListServiceNow"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="ChannelRecommender" EntityType="support.Service.ChannelRecommender"
+                    IncludeInServiceDocument="false"></EntitySet>
+                <EntitySet Name="CaseListUserPersonalization"
+                    EntityType="support.Service.CaseListUserPersonalization"
+                    IncludeInServiceDocument="false"></EntitySet>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
