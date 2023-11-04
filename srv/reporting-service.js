@@ -53,7 +53,7 @@ module.exports = cds.service.impl(async (srv) => {
       headers: { Cookie: cookie },
     });
     const response = await instance.get(
-      "/services/odata/incidentws/MessageHeaderSet?$inlinecount=allpages&$filter=((Source%20eq%20%27ALL%27)and%20(Status%20eq%20%273%27%20or%20Status%20eq%20%275%27%20or%20Status%20eq%20%27N%27%20or%20Status%20eq%20%27M%27%20or%20Status%20eq%20%27R%27%20or%20Status%20eq%20%27S%27%20or%20Status%20eq%20%27C%27%20or%20Status%20eq%20%271%27)%20and%20(LastUpdate%20eq%20%27ALL%27))&$skip=0&$top=10&$format=json"
+      "/odata/v2/incidentws/MessageHeaderSet?$inlinecount=allpages&$filter=((Source%20eq%20%27ALL%27)and%20(Status%20eq%20%273%27%20or%20Status%20eq%20%275%27%20or%20Status%20eq%20%27N%27%20or%20Status%20eq%20%27M%27%20or%20Status%20eq%20%27R%27%20or%20Status%20eq%20%27S%27%20or%20Status%20eq%20%27C%27%20or%20Status%20eq%20%271%27)%20and%20(LastUpdate%20eq%20%27ALL%27))&$skip=0&$top=10&$format=json"
     );
     if (response.headers["com.sap.cloud.security.login"] === "login-request") {
       const error = "Please update the cookie in your default-env.json file";
@@ -79,7 +79,7 @@ module.exports = cds.service.impl(async (srv) => {
         DEBUG && DEBUG(`Read Pointer ${value.Pointer}`);
         // Read Action Log
         let axiosResponseMessageAlogSet = await instance.get(
-          `/services/odata/incidentws/MessageAlogSet?$filter=(Pointer eq '${value.Pointer}')&$format=json`
+          `/odata/v2/incidentws/MessageAlogSet?$filter=(Pointer eq '${value.Pointer}')&$format=json`
         );
         axiosResponseMessageAlogSet.data.d.results.forEach(cleanObject);
         let responseMessageAlogSet = axiosResponseMessageAlogSet.data.d.results;
@@ -98,7 +98,7 @@ module.exports = cds.service.impl(async (srv) => {
         }
         // Read Contacts
         let axiosResponseMessageContactsSet = await instance.get(
-          `/services/odata/incidentws/MessageContactsSet?$filter=(Pointer eq '${value.Pointer}')&$format=json`
+          `/odata/v2/incidentws/MessageContactsSet?$filter=(Pointer eq '${value.Pointer}')&$format=json`
         );
         axiosResponseMessageContactsSet.data.d.results.forEach(cleanObject);
         let responseMessageContactsSet =

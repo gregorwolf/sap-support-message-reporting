@@ -1,6 +1,6 @@
 ###
 # @name launchpad
-GET https://launchpad.support.sap.com/services/odata/incidentws/
+GET https://launchpad.support.sap.com/odata/v2/incidentws/
 
 ### Unfortunately REST Client can't parse HTML
 @actionURL = "https://authn.hana.ondemand.com/saml2/sp/mds"

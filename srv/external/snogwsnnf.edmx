@@ -1,28 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
     <edmx:DataServices m:DataServiceVersion="2.0">
-        <Schema Namespace="/SVT/SNO_GWS_NNF_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm" />
+        <Schema Namespace="/SVT/SNO_GWS_NNF_SRV" xml:lang="en" sap:schema-version="1"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" />
             <EntityType Name="ManualActions" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="Number" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Text" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Visible" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_ManualActions" FromRole="ToRole_Doc_ManualActions" ToRole="FromRole_Doc_ManualActions" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Text" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Visible" Type="Edm.Boolean" Nullable="false" sap:unicode="false"
+                    sap:label="Indicator" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_ManualActions"
+                    FromRole="ToRole_Doc_ManualActions" ToRole="FromRole_Doc_ManualActions" />
             </EntityType>
             <EntityType Name="CorrInstruction" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="SoftCompName" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="PakId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="SoftCompName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Count" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_CorrInstruction" FromRole="ToRole_Doc_CorrInstruction" ToRole="FromRole_Doc_CorrInstruction" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="PakId" Type="Edm.String" Nullable="false" MaxLength="10"
+                    sap:unicode="false" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="SoftCompName" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Count" Type="Edm.Int16" Nullable="false" sap:unicode="false"
+                    sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <NavigationProperty Name="Doc"
+                    Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_CorrInstruction"
+                    FromRole="ToRole_Doc_CorrInstruction" ToRole="FromRole_Doc_CorrInstruction" />
             </EntityType>
             <EntityType Name="SoftComponent" sap:content-version="1">
                 <Key>
@@ -30,28 +55,61 @@
                     <PropertyRef Name="From" />
                     <PropertyRef Name="To" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="SoftCompName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="From" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="To" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Subsequent" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_SoftComponent" FromRole="ToRole_Doc_SoftComponent" ToRole="FromRole_Doc_SoftComponent" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="SoftCompName" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="From" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="To" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Subsequent" Type="Edm.Boolean" Nullable="false" sap:unicode="false"
+                    sap:label="Indicator" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_SoftComponent"
+                    FromRole="ToRole_Doc_SoftComponent" ToRole="FromRole_Doc_SoftComponent" />
             </EntityType>
             <EntityType Name="CorrectionsInfo" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="Index" />
                 </Key>
-                <Property Name="Index" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="ManualActions" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="CorrectionInstructions" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Preconditions" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="ManualActionsState" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="CorrectionsInstructionsState" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="PreconditionsState" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_CorrectionsInfo" FromRole="ToRole_Doc_CorrectionsInfo" ToRole="FromRole_Doc_CorrectionsInfo" />
+                <Property Name="Index" Type="Edm.Int16" Nullable="false" sap:unicode="false"
+                    sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="ManualActions" Type="Edm.Int16" Nullable="false" sap:unicode="false"
+                    sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="CorrectionInstructions" Type="Edm.Int16" Nullable="false"
+                    sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+                    sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Preconditions" Type="Edm.Int16" Nullable="false" sap:unicode="false"
+                    sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="ManualActionsState" Type="Edm.String" Nullable="false"
+                    sap:unicode="false" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="CorrectionsInstructionsState" Type="Edm.String" Nullable="false"
+                    sap:unicode="false" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="PreconditionsState" Type="Edm.String" Nullable="false"
+                    sap:unicode="false" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <NavigationProperty Name="Doc"
+                    Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_CorrectionsInfo"
+                    FromRole="ToRole_Doc_CorrectionsInfo" ToRole="FromRole_Doc_CorrectionsInfo" />
             </EntityType>
             <EntityType Name="SpPatch" sap:content-version="1">
                 <Key>
@@ -59,48 +117,98 @@
                     <PropertyRef Name="SP" />
                     <PropertyRef Name="Level" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="SCV" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="SP" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Level" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="DownloadURL" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="SCV" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="SP" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Level" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="DownloadURL" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
             </EntityType>
             <EntityType Name="Longtext" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="TextID" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="TextID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Title" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Text" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Longtext" FromRole="ToRole_Doc_Longtext" ToRole="FromRole_Doc_Longtext" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="TextID" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Title" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Text" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Longtext"
+                    FromRole="ToRole_Doc_Longtext" ToRole="FromRole_Doc_Longtext" />
             </EntityType>
             <EntityType Name="Reference" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="RefNumber" />
                     <PropertyRef Name="RefTitle" />
                 </Key>
-                <Property Name="Component" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="CreatedOn" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LastLogin" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="RefNumber" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="RefType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="RefTitle" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="RefUrl" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="RefKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Component" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="CreatedOn" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LastLogin" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="RefNumber" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="RefType" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="RefTitle" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="RefUrl" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="RefKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
             </EntityType>
             <EntityType Name="Product" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="Name" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Name" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Product" FromRole="ToRole_Doc_Product" ToRole="FromRole_Doc_Product" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Name" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Product"
+                    FromRole="ToRole_Doc_Product" ToRole="FromRole_Doc_Product" />
             </EntityType>
             <EntityType Name="Precondition" sap:content-version="1">
                 <Key>
@@ -109,83 +217,190 @@
                     <PropertyRef Name="RelFrom" />
                     <PropertyRef Name="RelTo" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="PreNumber" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="PreTitle" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="PreComponentName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="PreComponentText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="SoftwareComponent" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="RelFrom" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="RelTo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Precondition" FromRole="ToRole_Doc_Precondition" ToRole="FromRole_Doc_Precondition" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="PreNumber" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="PreTitle" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="PreComponentName" Type="Edm.String" Nullable="false"
+                    sap:unicode="false" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="PreComponentText" Type="Edm.String" Nullable="false"
+                    sap:unicode="false" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="SoftwareComponent" Type="Edm.String" Nullable="false"
+                    sap:unicode="false" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="RelFrom" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="RelTo" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Precondition"
+                    FromRole="ToRole_Doc_Precondition" ToRole="FromRole_Doc_Precondition" />
             </EntityType>
             <EntityType Name="Header" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="Number" />
                     <PropertyRef Name="LanguageKey" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="ReleaseType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Type" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="TypeKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Language" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageMaster" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageMasterKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Title" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="ComponentName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="ComponentText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Version" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="ReleasedOn" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Status" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Priority" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Category" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Favorite" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="TranslationOutdated" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Rating" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Worklist" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="ReleaseType" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Type" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="TypeKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Language" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageMaster" Type="Edm.String" Nullable="false"
+                    sap:unicode="false" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="LanguageMasterKey" Type="Edm.String" Nullable="false"
+                    sap:unicode="false" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="Title" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="ComponentName" Type="Edm.String" Nullable="false"
+                    sap:unicode="false" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="ComponentText" Type="Edm.String" Nullable="false"
+                    sap:unicode="false" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="Version" Type="Edm.Int32" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="ReleasedOn" Type="Edm.DateTime" Precision="0" sap:unicode="false"
+                    sap:label="Time Stamp" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="Status" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Priority" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Category" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Favorite" Type="Edm.String" Nullable="false" MaxLength="1"
+                    sap:unicode="false" sap:creatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="TranslationOutdated" Type="Edm.Boolean" Nullable="false"
+                    sap:unicode="false" sap:label="Indicator" sap:creatable="false"
+                    sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Rating" Type="Edm.Boolean" Nullable="false" sap:unicode="false"
+                    sap:label="Indicator" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="Worklist" Type="Edm.Boolean" Nullable="false" sap:unicode="false"
+                    sap:label="Indicator" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
             </EntityType>
             <EntityType Name="Doc" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="Number" />
                     <PropertyRef Name="LanguageKey" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <NavigationProperty Name="ManualActions" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_ManualActions" FromRole="FromRole_Doc_ManualActions" ToRole="ToRole_Doc_ManualActions" />
-                <NavigationProperty Name="CorrInstructions" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_CorrInstruction" FromRole="FromRole_Doc_CorrInstruction" ToRole="ToRole_Doc_CorrInstruction" />
-                <NavigationProperty Name="SoftComponents" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_SoftComponent" FromRole="FromRole_Doc_SoftComponent" ToRole="ToRole_Doc_SoftComponent" />
-                <NavigationProperty Name="CorrectionsInfos" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_CorrectionsInfo" FromRole="FromRole_Doc_CorrectionsInfo" ToRole="ToRole_Doc_CorrectionsInfo" />
-                <NavigationProperty Name="SupportPackages" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_SupportPackage" FromRole="FromRole_Doc_SupportPackage" ToRole="ToRole_Doc_SupportPackage" />
-                <NavigationProperty Name="Patches" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Patch" FromRole="FromRole_Doc_Patch" ToRole="ToRole_Doc_Patch" />
-                <NavigationProperty Name="ReferencedBy" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_ReferencedBy" FromRole="FromRole_Doc_ReferencedBy" ToRole="ToRole_Doc_ReferencedBy" />
-                <NavigationProperty Name="Products" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Product" FromRole="FromRole_Doc_Product" ToRole="ToRole_Doc_Product" />
-                <NavigationProperty Name="Preconditions" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Precondition" FromRole="FromRole_Doc_Precondition" ToRole="ToRole_Doc_Precondition" />
-                <NavigationProperty Name="Longtext" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Longtext" FromRole="FromRole_Doc_Longtext" ToRole="ToRole_Doc_Longtext" />
-                <NavigationProperty Name="ReferencesTo" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_ReferencesTo" FromRole="FromRole_Doc_ReferencesTo" ToRole="ToRole_Doc_ReferencesTo" />
-                <NavigationProperty Name="Languages" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Language" FromRole="FromRole_Doc_Language" ToRole="ToRole_Doc_Language" />
-                <NavigationProperty Name="SideCau" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_SideCau" FromRole="FromRole_Doc_SideCau" ToRole="ToRole_Doc_SideCau" />
-                <NavigationProperty Name="SideSol" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_SideSol" FromRole="FromRole_Doc_SideSol" ToRole="ToRole_Doc_SideSol" />
-                <NavigationProperty Name="Attributes" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Attribute" FromRole="FromRole_Doc_Attribute" ToRole="ToRole_Doc_Attribute" />
-                <NavigationProperty Name="Attach" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Attach" FromRole="FromRole_Doc_Attach" ToRole="ToRole_Doc_Attach" />
-                <NavigationProperty Name="CVSSInfo" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_CVSSInfo" FromRole="FromRole_Doc_CVSSInfo" ToRole="ToRole_Doc_CVSSInfo" />
-                <NavigationProperty Name="RatingInfo" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_RatingInfo" FromRole="FromRole_Doc_RatingInfo" ToRole="ToRole_Doc_RatingInfo" />
-                <NavigationProperty Name="Versions" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Version" FromRole="FromRole_Doc_Version" ToRole="ToRole_Doc_Version" />
-                <NavigationProperty Name="CVSS" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_CVSS" FromRole="FromRole_Doc_CVSS" ToRole="ToRole_Doc_CVSS" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <NavigationProperty Name="ManualActions"
+                    Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_ManualActions"
+                    FromRole="FromRole_Doc_ManualActions" ToRole="ToRole_Doc_ManualActions" />
+                <NavigationProperty Name="CorrInstructions"
+                    Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_CorrInstruction"
+                    FromRole="FromRole_Doc_CorrInstruction" ToRole="ToRole_Doc_CorrInstruction" />
+                <NavigationProperty Name="SoftComponents"
+                    Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_SoftComponent"
+                    FromRole="FromRole_Doc_SoftComponent" ToRole="ToRole_Doc_SoftComponent" />
+                <NavigationProperty Name="CorrectionsInfos"
+                    Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_CorrectionsInfo"
+                    FromRole="FromRole_Doc_CorrectionsInfo" ToRole="ToRole_Doc_CorrectionsInfo" />
+                <NavigationProperty Name="SupportPackages"
+                    Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_SupportPackage"
+                    FromRole="FromRole_Doc_SupportPackage" ToRole="ToRole_Doc_SupportPackage" />
+                <NavigationProperty Name="Patches" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Patch"
+                    FromRole="FromRole_Doc_Patch" ToRole="ToRole_Doc_Patch" />
+                <NavigationProperty Name="ReferencedBy"
+                    Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_ReferencedBy"
+                    FromRole="FromRole_Doc_ReferencedBy" ToRole="ToRole_Doc_ReferencedBy" />
+                <NavigationProperty Name="Products" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Product"
+                    FromRole="FromRole_Doc_Product" ToRole="ToRole_Doc_Product" />
+                <NavigationProperty Name="Preconditions"
+                    Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Precondition"
+                    FromRole="FromRole_Doc_Precondition" ToRole="ToRole_Doc_Precondition" />
+                <NavigationProperty Name="Longtext" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Longtext"
+                    FromRole="FromRole_Doc_Longtext" ToRole="ToRole_Doc_Longtext" />
+                <NavigationProperty Name="ReferencesTo"
+                    Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_ReferencesTo"
+                    FromRole="FromRole_Doc_ReferencesTo" ToRole="ToRole_Doc_ReferencesTo" />
+                <NavigationProperty Name="Languages"
+                    Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Language"
+                    FromRole="FromRole_Doc_Language" ToRole="ToRole_Doc_Language" />
+                <NavigationProperty Name="SideCau" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_SideCau"
+                    FromRole="FromRole_Doc_SideCau" ToRole="ToRole_Doc_SideCau" />
+                <NavigationProperty Name="SideSol" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_SideSol"
+                    FromRole="FromRole_Doc_SideSol" ToRole="ToRole_Doc_SideSol" />
+                <NavigationProperty Name="Attributes"
+                    Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Attribute"
+                    FromRole="FromRole_Doc_Attribute" ToRole="ToRole_Doc_Attribute" />
+                <NavigationProperty Name="Attach" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Attach"
+                    FromRole="FromRole_Doc_Attach" ToRole="ToRole_Doc_Attach" />
+                <NavigationProperty Name="CVSSInfo" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_CVSSInfo"
+                    FromRole="FromRole_Doc_CVSSInfo" ToRole="ToRole_Doc_CVSSInfo" />
+                <NavigationProperty Name="RatingInfo"
+                    Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_RatingInfo"
+                    FromRole="FromRole_Doc_RatingInfo" ToRole="ToRole_Doc_RatingInfo" />
+                <NavigationProperty Name="Versions" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Version"
+                    FromRole="FromRole_Doc_Version" ToRole="ToRole_Doc_Version" />
+                <NavigationProperty Name="CVSS" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_CVSS"
+                    FromRole="FromRole_Doc_CVSS" ToRole="ToRole_Doc_CVSS" />
             </EntityType>
             <EntityType Name="Language" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="OtherLanguageKey" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="OtherLanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="OtherLanguageText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="URL" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="IsOutdated" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="IsHT" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Language" FromRole="ToRole_Doc_Language" ToRole="FromRole_Doc_Language" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="OtherLanguageKey" Type="Edm.String" Nullable="false"
+                    sap:unicode="false" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="OtherLanguageText" Type="Edm.String" Nullable="false"
+                    sap:unicode="false" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="URL" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="IsOutdated" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="IsHT" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_Language"
+                    FromRole="ToRole_Doc_Language" ToRole="FromRole_Doc_Language" />
             </EntityType>
             <EntityType Name="Attribute" sap:content-version="1">
                 <Key>
@@ -193,52 +408,107 @@
                     <PropertyRef Name="Name" />
                     <PropertyRef Name="Value" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="GroupKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Name" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Value" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="GroupKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Name" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Value" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
             </EntityType>
             <EntityType Name="Attach" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="FileName" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Languagekey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="FileName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="FileSize" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="FileLink" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="MimeType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Languagekey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="FileName" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="FileSize" Type="Edm.Int16" Nullable="false" sap:unicode="false"
+                    sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="FileLink" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="MimeType" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
             </EntityType>
             <EntityType Name="RatingInfo" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="Number" />
                     <PropertyRef Name="LanguageKey" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="OverallCount" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="OverallCount1" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="OverallCount2" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="OverallCount3" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="OverallCount4" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="OverallCount5" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Threshhold" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="OverallValue" Type="Edm.Double" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="YesOrNo" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Feedback" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="YourRating" Type="Edm.Int16" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="RatedHelpful" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <NavigationProperty Name="Answers" Relationship="/SVT/SNO_GWS_NNF_SRV.RatingInfo_Answers" FromRole="FromRole_RatingInfo_Answers" ToRole="ToRole_RatingInfo_Answers" />
-                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_RatingInfo" FromRole="ToRole_Doc_RatingInfo" ToRole="FromRole_Doc_RatingInfo" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="OverallCount" Type="Edm.Int32" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="OverallCount1" Type="Edm.Int32" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="OverallCount2" Type="Edm.Int32" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="OverallCount3" Type="Edm.Int32" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="OverallCount4" Type="Edm.Int32" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="OverallCount5" Type="Edm.Int32" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Threshhold" Type="Edm.Int32" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="OverallValue" Type="Edm.Double" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="YesOrNo" Type="Edm.Boolean" Nullable="false" sap:unicode="false"
+                    sap:label="Indicator" sap:creatable="false" sap:updatable="false"
+                    sap:sortable="false" sap:filterable="false" />
+                <Property Name="Feedback" Type="Edm.String" sap:unicode="false"
+                    sap:creatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="YourRating" Type="Edm.Int16" sap:unicode="false"
+                    sap:label="Signed INT2 / int16" sap:creatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="RatedHelpful" Type="Edm.Int32" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <NavigationProperty Name="Answers"
+                    Relationship="/SVT/SNO_GWS_NNF_SRV.RatingInfo_Answers"
+                    FromRole="FromRole_RatingInfo_Answers" ToRole="ToRole_RatingInfo_Answers" />
+                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_RatingInfo"
+                    FromRole="ToRole_Doc_RatingInfo" ToRole="FromRole_Doc_RatingInfo" />
             </EntityType>
             <EntityType Name="Version" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="NumVersion" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="NumVersion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="NumVersion" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false" />
             </EntityType>
             <EntityType Name="RatingAnswer" sap:content-version="1">
                 <Key>
@@ -246,39 +516,74 @@
                     <PropertyRef Name="LanguageKey" />
                     <PropertyRef Name="Key" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Key" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Title" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Value" Type="Edm.Boolean" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Key" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Title" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Value" Type="Edm.Boolean" sap:unicode="false" sap:label="Indicator"
+                    sap:creatable="false" sap:sortable="false" sap:filterable="false" />
             </EntityType>
             <EntityType Name="CVSS" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="Key" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Key" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Value" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Name" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_CVSS" FromRole="ToRole_Doc_CVSS" ToRole="FromRole_Doc_CVSS" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Key" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Value" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Name" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_CVSS"
+                    FromRole="ToRole_Doc_CVSS" ToRole="FromRole_Doc_CVSS" />
             </EntityType>
             <EntityType Name="CVSSInfo" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="Number" />
                     <PropertyRef Name="LanguageKey" />
                 </Key>
-                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Score" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Vector" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <Property Name="Version" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
-                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_CVSSInfo" FromRole="ToRole_Doc_CVSSInfo" ToRole="FromRole_Doc_CVSSInfo" />
+                <Property Name="Number" Type="Edm.Int64" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Score" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Vector" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <Property Name="Version" Type="Edm.String" Nullable="false" sap:unicode="false"
+                    sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                    sap:filterable="false" />
+                <NavigationProperty Name="Doc" Relationship="/SVT/SNO_GWS_NNF_SRV.Doc_CVSSInfo"
+                    FromRole="ToRole_Doc_CVSSInfo" ToRole="FromRole_Doc_CVSSInfo" />
             </EntityType>
             <Association Name="RatingInfo_Answers" sap:content-version="1">
-                <End Type="/SVT/SNO_GWS_NNF_SRV.RatingInfo" Multiplicity="1" Role="FromRole_RatingInfo_Answers" />
-                <End Type="/SVT/SNO_GWS_NNF_SRV.RatingAnswer" Multiplicity="*" Role="ToRole_RatingInfo_Answers" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.RatingInfo" Multiplicity="1"
+                    Role="FromRole_RatingInfo_Answers" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.RatingAnswer" Multiplicity="*"
+                    Role="ToRole_RatingInfo_Answers" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_RatingInfo_Answers">
                         <PropertyRef Name="Number" />
@@ -291,8 +596,10 @@
                 </ReferentialConstraint>
             </Association>
             <Association Name="Doc_CorrInstruction" sap:content-version="1">
-                <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1" Role="FromRole_Doc_CorrInstruction" />
-                <End Type="/SVT/SNO_GWS_NNF_SRV.CorrInstruction" Multiplicity="*" Role="ToRole_Doc_CorrInstruction" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1"
+                    Role="FromRole_Doc_CorrInstruction" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.CorrInstruction" Multiplicity="*"
+                    Role="ToRole_Doc_CorrInstruction" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Doc_CorrInstruction">
                         <PropertyRef Name="LanguageKey" />
@@ -305,8 +612,10 @@
                 </ReferentialConstraint>
             </Association>
             <Association Name="Doc_SoftComponent" sap:content-version="1">
-                <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1" Role="FromRole_Doc_SoftComponent" />
-                <End Type="/SVT/SNO_GWS_NNF_SRV.SoftComponent" Multiplicity="*" Role="ToRole_Doc_SoftComponent" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1"
+                    Role="FromRole_Doc_SoftComponent" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.SoftComponent" Multiplicity="*"
+                    Role="ToRole_Doc_SoftComponent" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Doc_SoftComponent">
                         <PropertyRef Name="Number" />
@@ -319,8 +628,10 @@
                 </ReferentialConstraint>
             </Association>
             <Association Name="Doc_CorrectionsInfo" sap:content-version="1">
-                <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1" Role="FromRole_Doc_CorrectionsInfo" />
-                <End Type="/SVT/SNO_GWS_NNF_SRV.CorrectionsInfo" Multiplicity="1" Role="ToRole_Doc_CorrectionsInfo" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1"
+                    Role="FromRole_Doc_CorrectionsInfo" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.CorrectionsInfo" Multiplicity="1"
+                    Role="ToRole_Doc_CorrectionsInfo" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Doc_CorrectionsInfo">
                         <PropertyRef Name="Number" />
@@ -333,8 +644,10 @@
                 </ReferentialConstraint>
             </Association>
             <Association Name="Doc_SupportPackage" sap:content-version="1">
-                <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1" Role="FromRole_Doc_SupportPackage" />
-                <End Type="/SVT/SNO_GWS_NNF_SRV.SpPatch" Multiplicity="*" Role="ToRole_Doc_SupportPackage" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1"
+                    Role="FromRole_Doc_SupportPackage" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.SpPatch" Multiplicity="*"
+                    Role="ToRole_Doc_SupportPackage" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Doc_SupportPackage">
                         <PropertyRef Name="LanguageKey" />
@@ -361,8 +674,10 @@
                 </ReferentialConstraint>
             </Association>
             <Association Name="Doc_ReferencedBy" sap:content-version="1">
-                <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1" Role="FromRole_Doc_ReferencedBy" />
-                <End Type="/SVT/SNO_GWS_NNF_SRV.Reference" Multiplicity="*" Role="ToRole_Doc_ReferencedBy" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1"
+                    Role="FromRole_Doc_ReferencedBy" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.Reference" Multiplicity="*"
+                    Role="ToRole_Doc_ReferencedBy" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Doc_ReferencedBy">
                         <PropertyRef Name="LanguageKey" />
@@ -389,8 +704,10 @@
                 </ReferentialConstraint>
             </Association>
             <Association Name="Doc_Precondition" sap:content-version="1">
-                <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1" Role="FromRole_Doc_Precondition" />
-                <End Type="/SVT/SNO_GWS_NNF_SRV.Precondition" Multiplicity="*" Role="ToRole_Doc_Precondition" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1"
+                    Role="FromRole_Doc_Precondition" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.Precondition" Multiplicity="*"
+                    Role="ToRole_Doc_Precondition" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Doc_Precondition">
                         <PropertyRef Name="LanguageKey" />
@@ -404,7 +721,8 @@
             </Association>
             <Association Name="Doc_Longtext" sap:content-version="1">
                 <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1" Role="FromRole_Doc_Longtext" />
-                <End Type="/SVT/SNO_GWS_NNF_SRV.Longtext" Multiplicity="*" Role="ToRole_Doc_Longtext" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.Longtext" Multiplicity="*"
+                    Role="ToRole_Doc_Longtext" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Doc_Longtext">
                         <PropertyRef Name="LanguageKey" />
@@ -417,8 +735,10 @@
                 </ReferentialConstraint>
             </Association>
             <Association Name="Doc_ReferencesTo" sap:content-version="1">
-                <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1" Role="FromRole_Doc_ReferencesTo" />
-                <End Type="/SVT/SNO_GWS_NNF_SRV.Reference" Multiplicity="*" Role="ToRole_Doc_ReferencesTo" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1"
+                    Role="FromRole_Doc_ReferencesTo" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.Reference" Multiplicity="*"
+                    Role="ToRole_Doc_ReferencesTo" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Doc_ReferencesTo">
                         <PropertyRef Name="LanguageKey" />
@@ -432,7 +752,8 @@
             </Association>
             <Association Name="Doc_Language" sap:content-version="1">
                 <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1" Role="FromRole_Doc_Language" />
-                <End Type="/SVT/SNO_GWS_NNF_SRV.Language" Multiplicity="*" Role="ToRole_Doc_Language" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.Language" Multiplicity="*"
+                    Role="ToRole_Doc_Language" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Doc_Language">
                         <PropertyRef Name="LanguageKey" />
@@ -446,7 +767,8 @@
             </Association>
             <Association Name="Doc_SideCau" sap:content-version="1">
                 <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1" Role="FromRole_Doc_SideCau" />
-                <End Type="/SVT/SNO_GWS_NNF_SRV.Reference" Multiplicity="*" Role="ToRole_Doc_SideCau" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.Reference" Multiplicity="*"
+                    Role="ToRole_Doc_SideCau" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Doc_SideCau">
                         <PropertyRef Name="LanguageKey" />
@@ -460,7 +782,8 @@
             </Association>
             <Association Name="Doc_SideSol" sap:content-version="1">
                 <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1" Role="FromRole_Doc_SideSol" />
-                <End Type="/SVT/SNO_GWS_NNF_SRV.Reference" Multiplicity="*" Role="ToRole_Doc_SideSol" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.Reference" Multiplicity="*"
+                    Role="ToRole_Doc_SideSol" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Doc_SideSol">
                         <PropertyRef Name="Number" />
@@ -474,7 +797,8 @@
             </Association>
             <Association Name="Doc_Attribute" sap:content-version="1">
                 <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1" Role="FromRole_Doc_Attribute" />
-                <End Type="/SVT/SNO_GWS_NNF_SRV.Attribute" Multiplicity="*" Role="ToRole_Doc_Attribute" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.Attribute" Multiplicity="*"
+                    Role="ToRole_Doc_Attribute" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Doc_Attribute">
                         <PropertyRef Name="Number" />
@@ -502,7 +826,8 @@
             </Association>
             <Association Name="Doc_RatingInfo" sap:content-version="1">
                 <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1" Role="FromRole_Doc_RatingInfo" />
-                <End Type="/SVT/SNO_GWS_NNF_SRV.RatingInfo" Multiplicity="1" Role="ToRole_Doc_RatingInfo" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.RatingInfo" Multiplicity="1"
+                    Role="ToRole_Doc_RatingInfo" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Doc_RatingInfo">
                         <PropertyRef Name="LanguageKey" />
@@ -544,7 +869,8 @@
             </Association>
             <Association Name="Doc_CVSSInfo" sap:content-version="1">
                 <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1" Role="FromRole_Doc_CVSSInfo" />
-                <End Type="/SVT/SNO_GWS_NNF_SRV.CVSSInfo" Multiplicity="0..1" Role="ToRole_Doc_CVSSInfo" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.CVSSInfo" Multiplicity="0..1"
+                    Role="ToRole_Doc_CVSSInfo" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Doc_CVSSInfo">
                         <PropertyRef Name="LanguageKey" />
@@ -557,8 +883,10 @@
                 </ReferentialConstraint>
             </Association>
             <Association Name="Doc_ManualActions" sap:content-version="1">
-                <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1" Role="FromRole_Doc_ManualActions" />
-                <End Type="/SVT/SNO_GWS_NNF_SRV.ManualActions" Multiplicity="0..1" Role="ToRole_Doc_ManualActions" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.Doc" Multiplicity="1"
+                    Role="FromRole_Doc_ManualActions" />
+                <End Type="/SVT/SNO_GWS_NNF_SRV.ManualActions" Multiplicity="0..1"
+                    Role="ToRole_Doc_ManualActions" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Doc_ManualActions">
                         <PropertyRef Name="LanguageKey" />
@@ -570,123 +898,218 @@
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
-            <EntityContainer Name="/SVT/SNO_GWS_NNF_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
-                <EntitySet Name="ManualActions" EntityType="/SVT/SNO_GWS_NNF_SRV.ManualActions" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="CorrInstructions" EntityType="/SVT/SNO_GWS_NNF_SRV.CorrInstruction" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="SoftComponents" EntityType="/SVT/SNO_GWS_NNF_SRV.SoftComponent" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="CorrectionsInfo" EntityType="/SVT/SNO_GWS_NNF_SRV.CorrectionsInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="SupportPackages" EntityType="/SVT/SNO_GWS_NNF_SRV.SpPatch" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="Patches" EntityType="/SVT/SNO_GWS_NNF_SRV.SpPatch" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="Longtexts" EntityType="/SVT/SNO_GWS_NNF_SRV.Longtext" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="ReferencedBy" EntityType="/SVT/SNO_GWS_NNF_SRV.Reference" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="ReferencesTo" EntityType="/SVT/SNO_GWS_NNF_SRV.Reference" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="SideCauSet" EntityType="/SVT/SNO_GWS_NNF_SRV.Reference" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="SideSolSet" EntityType="/SVT/SNO_GWS_NNF_SRV.Reference" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="Products" EntityType="/SVT/SNO_GWS_NNF_SRV.Product" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="Preconditions" EntityType="/SVT/SNO_GWS_NNF_SRV.Precondition" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="Header" EntityType="/SVT/SNO_GWS_NNF_SRV.Header" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="Doc" EntityType="/SVT/SNO_GWS_NNF_SRV.Doc" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="Languages" EntityType="/SVT/SNO_GWS_NNF_SRV.Language" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="Attributes" EntityType="/SVT/SNO_GWS_NNF_SRV.Attribute" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="AttachSet" EntityType="/SVT/SNO_GWS_NNF_SRV.Attach" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="RatingInfo" EntityType="/SVT/SNO_GWS_NNF_SRV.RatingInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="VersionSet" EntityType="/SVT/SNO_GWS_NNF_SRV.Version" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="RatingAnswerSet" EntityType="/SVT/SNO_GWS_NNF_SRV.RatingAnswer" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="CVSSSet" EntityType="/SVT/SNO_GWS_NNF_SRV.CVSS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <EntitySet Name="CVSSInfo" EntityType="/SVT/SNO_GWS_NNF_SRV.CVSSInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
-                <AssociationSet Name="Doc_CorrInstructions" Association="/SVT/SNO_GWS_NNF_SRV.Doc_CorrInstruction" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+            <EntityContainer Name="/SVT/SNO_GWS_NNF_SRV_Entities" m:IsDefaultEntityContainer="true"
+                sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ManualActions" EntityType="/SVT/SNO_GWS_NNF_SRV.ManualActions"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="CorrInstructions" EntityType="/SVT/SNO_GWS_NNF_SRV.CorrInstruction"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="SoftComponents" EntityType="/SVT/SNO_GWS_NNF_SRV.SoftComponent"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="CorrectionsInfo" EntityType="/SVT/SNO_GWS_NNF_SRV.CorrectionsInfo"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="SupportPackages" EntityType="/SVT/SNO_GWS_NNF_SRV.SpPatch"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="Patches" EntityType="/SVT/SNO_GWS_NNF_SRV.SpPatch"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="Longtexts" EntityType="/SVT/SNO_GWS_NNF_SRV.Longtext"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="ReferencedBy" EntityType="/SVT/SNO_GWS_NNF_SRV.Reference"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="ReferencesTo" EntityType="/SVT/SNO_GWS_NNF_SRV.Reference"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="SideCauSet" EntityType="/SVT/SNO_GWS_NNF_SRV.Reference"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="SideSolSet" EntityType="/SVT/SNO_GWS_NNF_SRV.Reference"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="Products" EntityType="/SVT/SNO_GWS_NNF_SRV.Product"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="Preconditions" EntityType="/SVT/SNO_GWS_NNF_SRV.Precondition"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="Header" EntityType="/SVT/SNO_GWS_NNF_SRV.Header"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="Doc" EntityType="/SVT/SNO_GWS_NNF_SRV.Doc" sap:creatable="false"
+                    sap:updatable="false" sap:deletable="false" sap:pageable="false"
+                    sap:content-version="1" />
+                <EntitySet Name="Languages" EntityType="/SVT/SNO_GWS_NNF_SRV.Language"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="Attributes" EntityType="/SVT/SNO_GWS_NNF_SRV.Attribute"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="AttachSet" EntityType="/SVT/SNO_GWS_NNF_SRV.Attach"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="RatingInfo" EntityType="/SVT/SNO_GWS_NNF_SRV.RatingInfo"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="VersionSet" EntityType="/SVT/SNO_GWS_NNF_SRV.Version"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="RatingAnswerSet" EntityType="/SVT/SNO_GWS_NNF_SRV.RatingAnswer"
+                    sap:creatable="false" sap:deletable="false" sap:pageable="false"
+                    sap:content-version="1" />
+                <EntitySet Name="CVSSSet" EntityType="/SVT/SNO_GWS_NNF_SRV.CVSS"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <EntitySet Name="CVSSInfo" EntityType="/SVT/SNO_GWS_NNF_SRV.CVSSInfo"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:pageable="false" sap:content-version="1" />
+                <AssociationSet Name="Doc_CorrInstructions"
+                    Association="/SVT/SNO_GWS_NNF_SRV.Doc_CorrInstruction" sap:creatable="false"
+                    sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_CorrInstruction" />
                     <End EntitySet="CorrInstructions" Role="ToRole_Doc_CorrInstruction" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_Longtexts" Association="/SVT/SNO_GWS_NNF_SRV.Doc_Longtext" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_Longtexts" Association="/SVT/SNO_GWS_NNF_SRV.Doc_Longtext"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_Longtext" />
                     <End EntitySet="Longtexts" Role="ToRole_Doc_Longtext" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_Preconditions" Association="/SVT/SNO_GWS_NNF_SRV.Doc_Precondition" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_Preconditions"
+                    Association="/SVT/SNO_GWS_NNF_SRV.Doc_Precondition" sap:creatable="false"
+                    sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_Precondition" />
                     <End EntitySet="Preconditions" Role="ToRole_Doc_Precondition" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_SideSolSet" Association="/SVT/SNO_GWS_NNF_SRV.Doc_SideSol" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_SideSolSet" Association="/SVT/SNO_GWS_NNF_SRV.Doc_SideSol"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_SideSol" />
                     <End EntitySet="SideSolSet" Role="ToRole_Doc_SideSol" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_ManualActions" Association="/SVT/SNO_GWS_NNF_SRV.Doc_ManualActions" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_ManualActions"
+                    Association="/SVT/SNO_GWS_NNF_SRV.Doc_ManualActions" sap:creatable="false"
+                    sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_ManualActions" />
                     <End EntitySet="ManualActions" Role="ToRole_Doc_ManualActions" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_SoftComponentSet" Association="/SVT/SNO_GWS_NNF_SRV.Doc_SoftComponent" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_SoftComponentSet"
+                    Association="/SVT/SNO_GWS_NNF_SRV.Doc_SoftComponent" sap:creatable="false"
+                    sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_SoftComponent" />
                     <End EntitySet="SoftComponents" Role="ToRole_Doc_SoftComponent" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_CorrectionsInfos" Association="/SVT/SNO_GWS_NNF_SRV.Doc_CorrectionsInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_CorrectionsInfos"
+                    Association="/SVT/SNO_GWS_NNF_SRV.Doc_CorrectionsInfo" sap:creatable="false"
+                    sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_CorrectionsInfo" />
                     <End EntitySet="CorrectionsInfo" Role="ToRole_Doc_CorrectionsInfo" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_CVSSInfoSet" Association="/SVT/SNO_GWS_NNF_SRV.Doc_CVSSInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_CVSSInfoSet"
+                    Association="/SVT/SNO_GWS_NNF_SRV.Doc_CVSSInfo" sap:creatable="false"
+                    sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_CVSSInfo" />
                     <End EntitySet="CVSSInfo" Role="ToRole_Doc_CVSSInfo" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_CVSSSet" Association="/SVT/SNO_GWS_NNF_SRV.Doc_CVSS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_CVSSSet" Association="/SVT/SNO_GWS_NNF_SRV.Doc_CVSS"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_CVSS" />
                     <End EntitySet="CVSSSet" Role="ToRole_Doc_CVSS" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_SupportPackages" Association="/SVT/SNO_GWS_NNF_SRV.Doc_SupportPackage" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_SupportPackages"
+                    Association="/SVT/SNO_GWS_NNF_SRV.Doc_SupportPackage" sap:creatable="false"
+                    sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_SupportPackage" />
                     <End EntitySet="SupportPackages" Role="ToRole_Doc_SupportPackage" />
                 </AssociationSet>
-                <AssociationSet Name="RatingInfo_Answers_AssocSet" Association="/SVT/SNO_GWS_NNF_SRV.RatingInfo_Answers" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="RatingInfo_Answers_AssocSet"
+                    Association="/SVT/SNO_GWS_NNF_SRV.RatingInfo_Answers" sap:creatable="false"
+                    sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="RatingInfo" Role="FromRole_RatingInfo_Answers" />
                     <End EntitySet="RatingAnswerSet" Role="ToRole_RatingInfo_Answers" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_ReferencedBySet" Association="/SVT/SNO_GWS_NNF_SRV.Doc_ReferencedBy" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_ReferencedBySet"
+                    Association="/SVT/SNO_GWS_NNF_SRV.Doc_ReferencedBy" sap:creatable="false"
+                    sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_ReferencedBy" />
                     <End EntitySet="ReferencedBy" Role="ToRole_Doc_ReferencedBy" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_Products" Association="/SVT/SNO_GWS_NNF_SRV.Doc_Product" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_Products" Association="/SVT/SNO_GWS_NNF_SRV.Doc_Product"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_Product" />
                     <End EntitySet="Products" Role="ToRole_Doc_Product" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_SideCauSet" Association="/SVT/SNO_GWS_NNF_SRV.Doc_SideCau" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_SideCauSet" Association="/SVT/SNO_GWS_NNF_SRV.Doc_SideCau"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_SideCau" />
                     <End EntitySet="SideCauSet" Role="ToRole_Doc_SideCau" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_AttachSet" Association="/SVT/SNO_GWS_NNF_SRV.Doc_Attach" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_AttachSet" Association="/SVT/SNO_GWS_NNF_SRV.Doc_Attach"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_Attach" />
                     <End EntitySet="AttachSet" Role="ToRole_Doc_Attach" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_Languages" Association="/SVT/SNO_GWS_NNF_SRV.Doc_Language" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_Languages" Association="/SVT/SNO_GWS_NNF_SRV.Doc_Language"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_Language" />
                     <End EntitySet="Languages" Role="ToRole_Doc_Language" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_VersionSet" Association="/SVT/SNO_GWS_NNF_SRV.Doc_Version" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_VersionSet" Association="/SVT/SNO_GWS_NNF_SRV.Doc_Version"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_Version" />
                     <End EntitySet="VersionSet" Role="ToRole_Doc_Version" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_Patches" Association="/SVT/SNO_GWS_NNF_SRV.Doc_Patch" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_Patches" Association="/SVT/SNO_GWS_NNF_SRV.Doc_Patch"
+                    sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                    sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_Patch" />
                     <End EntitySet="Patches" Role="ToRole_Doc_Patch" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_ReferencesToSet" Association="/SVT/SNO_GWS_NNF_SRV.Doc_ReferencesTo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_ReferencesToSet"
+                    Association="/SVT/SNO_GWS_NNF_SRV.Doc_ReferencesTo" sap:creatable="false"
+                    sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_ReferencesTo" />
                     <End EntitySet="ReferencesTo" Role="ToRole_Doc_ReferencesTo" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_AttributeSet" Association="/SVT/SNO_GWS_NNF_SRV.Doc_Attribute" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_AttributeSet"
+                    Association="/SVT/SNO_GWS_NNF_SRV.Doc_Attribute" sap:creatable="false"
+                    sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_Attribute" />
                     <End EntitySet="Attributes" Role="ToRole_Doc_Attribute" />
                 </AssociationSet>
-                <AssociationSet Name="Doc_RatingInfo" Association="/SVT/SNO_GWS_NNF_SRV.Doc_RatingInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="Doc_RatingInfo"
+                    Association="/SVT/SNO_GWS_NNF_SRV.Doc_RatingInfo" sap:creatable="false"
+                    sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="Doc" Role="FromRole_Doc_RatingInfo" />
                     <End EntitySet="RatingInfo" Role="ToRole_Doc_RatingInfo" />
                 </AssociationSet>
-                <FunctionImport Name="action_confirm" ReturnType="/SVT/SNO_GWS_NNF_SRV.Header" EntitySet="Header" m:HttpMethod="GET">
+                <FunctionImport Name="action_confirm" ReturnType="/SVT/SNO_GWS_NNF_SRV.Header"
+                    EntitySet="Header" m:HttpMethod="GET">
                     <Parameter Name="Number" Type="Edm.Int64" Mode="In" />
                 </FunctionImport>
-                <FunctionImport Name="action_relevant" ReturnType="/SVT/SNO_GWS_NNF_SRV.Header" EntitySet="Header" m:HttpMethod="GET">
+                <FunctionImport Name="action_relevant" ReturnType="/SVT/SNO_GWS_NNF_SRV.Header"
+                    EntitySet="Header" m:HttpMethod="GET">
                     <Parameter Name="Number" Type="Edm.Int64" Mode="In" />
                 </FunctionImport>
             </EntityContainer>
-            <atom:link rel="self" href="https://launchpad.support.sap.com/services/odata/svt/snogwsnnf/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
-            <atom:link rel="latest-version" href="https://launchpad.support.sap.com/services/odata/svt/snogwsnnf/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
+            <atom:link rel="self"
+                href="https://launchpad.support.sap.com/odata/v2/svt/snogwsnnf/$metadata"
+                xmlns:atom="http://www.w3.org/2005/Atom" />
+            <atom:link rel="latest-version"
+                href="https://launchpad.support.sap.com/odata/v2/svt/snogwsnnf/$metadata"
+                xmlns:atom="http://www.w3.org/2005/Atom" />
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>

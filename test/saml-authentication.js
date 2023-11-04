@@ -264,4 +264,4 @@ async function getFromLaunchpad(path) {
   }
 }
 
-logger.info(getFromLaunchpad("/services/odata/incidentws/?$format=json"));
+logger.info(getFromLaunchpad("/odata/v2/incidentws/?$format=json"));

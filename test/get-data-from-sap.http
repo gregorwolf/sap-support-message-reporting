@@ -1,8 +1,8 @@
 ### Retrieve Metadata from SAP
-GET https://launchpad.support.sap.com/services/odata/incidentws/$metadata
+GET https://launchpad.support.sap.com/odata/v2/incidentws/$metadata
 Cookie: {{$dotenv cookie}}
 ### Retrieve Messages from SAP
-GET https://launchpad.support.sap.com/services/odata/incidentws/MessageHeaderSet
+GET https://launchpad.support.sap.com/odata/v2/incidentws/MessageHeaderSet
   ?$inlinecount=allpages
   &$filter=((Source eq 'ALL')and (Status eq '3' or Status eq '5' or Status eq 'N' or Status eq 'M' or Status eq 'R' or Status eq 'S' or Status eq 'C' or Status eq '1') and (LastUpdate eq 'ALL'))
   &$skip=0
@@ -14,7 +14,7 @@ Cookie: {{$dotenv cookie}}
 #Authorization: Basic {{$dotenv username}}:{{$dotenv password}}
 
 ###Retrieve Message Log from SAP
-GET https://launchpad.support.sap.com/services/odata/incidentws/MessageAlogSet
+GET https://launchpad.support.sap.com/odata/v2/incidentws/MessageAlogSet
   ?$filter=(Pointer eq '002075129400001469512021')
   &$format=json
   &$select=Uname,Pointer,CrInsta,Aetstmp,Lfnr,Service,Servicetyp,Aenam,Tabname,Alobject,OldVal,NewVal,AeDate,AeTime,DayTxt,ActionTxt,OldTxt,NewTxt,UserTimezone
@@ -22,14 +22,14 @@ Cookie: {{$dotenv cookie}}
 
 
 ###Retrieve Message Contacts from SAP
-GET https://launchpad.support.sap.com/services/odata/incidentws/MessageContactsSet
+GET https://launchpad.support.sap.com/odata/v2/incidentws/MessageContactsSet
   ?$filter=(Pointer eq '002075129400001469512021')
   &$format=json
   &$select=Pointer,ContTyp,ContTypTxt,TimeZone,EmailNotif,SmsNotif
 Cookie: {{$dotenv cookie}}
 
 ### Retrieve Messages from CAP Mock
-GET http://localhost:4004/services/odata/incidentws/MessageHeaderSet
+GET http://localhost:4004/odata/v2/incidentws/MessageHeaderSet
   ?$inlinecount=allpages
   &$filter=((Status eq '3' or Status eq '5' or Status eq 'N' or Status eq 'M' or Status eq 'R' or Status eq 'S' or Status eq 'C' or Status eq '1'))
   &$skip=0
@@ -39,7 +39,7 @@ GET http://localhost:4004/services/odata/incidentws/MessageHeaderSet
 
 
 ###Retrieve Message Log from CAP Mock
-GET http://localhost:4004/services/odata/incidentws/MessageAlogSet
+GET http://localhost:4004/odata/v2/incidentws/MessageAlogSet
   ?$filter=(Pointer%20eq%20%27002075129400001469512021%27)
   &$format=json
   &$select=Uname,Pointer,CrInsta,Aetstmp,Lfnr,Service,Servicetyp,Aenam,Tabname,Alobject,OldVal,NewVal,AeDate,AeTime,DayTxt,ActionTxt,OldTxt,NewTxt,UserTimezone

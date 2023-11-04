@@ -9,10 +9,10 @@
     "node": "^16"
   },
   "dependencies": {
-    "@sap-cloud-sdk/http-client": "^2",
-    "@sap/cds": "^6",
-    "@sap/cds-odata-v2-adapter-proxy": "^1",
-    "cds-launchpad-plugin": "^1",
+    "@cap-js-community/odata-v2-adapter": "^1.11.8",
+    "@sap-cloud-sdk/http-client": "^3",
+    "@sap/cds": "^7",
+    "cds-launchpad-plugin": "^2",
     "cheerio": "1.0.0-rc.12",
     "date-fns": "^2",
     "express": "^4",
@@ -24,10 +24,10 @@
     "@sap/ux-specification": "^1.102.15",
     "axios": "^1",
     "npm-run-all": "^4",
-    "pino-pretty": "^9"
+    "pino-pretty": "^10"
   },
   "scripts": {
-    "start": "export NODE_ENV=development && node node_modules/@sap/cds/bin/cds.js run --with-mocks --in-memory",
+    "start": "export NODE_ENV=development && cds-serve --with-mocks --in-memory",
     "update": "run-p update:**",
     "update:root": "npm update",
     "update:app": "cd app && npm update",
@@ -53,6 +53,9 @@
     "features": {
       "odata_new_parser": true
     },
+    "cov2ap": {
+      "plugin": true
+    },
     "requires": {
       "db": {
         "kind": "sqlite",
@@ -61,7 +64,7 @@
       "incidentws": {
         "kind": "odata-v2",
         "model": "srv/external/incidentws",
-        "path": "/services/odata/incidentws",
+        "path": "/odata/v2/incidentws",
         "[hybrid,production]": {
           "credentials": {
             "destination": "OSS"
@@ -71,7 +74,7 @@
       "snogwsnnf": {
         "kind": "odata-v2",
         "model": "srv/external/snogwsnnf",
-        "path": "/services/odata/svt/snogwsnnf",
+        "path": "/odata/v2/svt/snogwsnnf",
         "[hybrid,production]": {
           "credentials": {
             "destination": "OSS"

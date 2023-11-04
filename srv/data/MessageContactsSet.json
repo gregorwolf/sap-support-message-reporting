@@ -3,8 +3,8 @@
     "results": [
       {
         "__metadata": {
-          "id": "https://launchpad.support.sap.com/services/odata/incidentws/MessageContactsSet('002075129400001469512021')",
-          "uri": "https://launchpad.support.sap.com/services/odata/incidentws/MessageContactsSet('002075129400001469512021')",
+          "id": "https://launchpad.support.sap.com/odata/v2/incidentws/MessageContactsSet('002075129400001469512021')",
+          "uri": "https://launchpad.support.sap.com/odata/v2/incidentws/MessageContactsSet('002075129400001469512021')",
           "type": "/SVT/NGMSG_WEBSERVICES_SRV.MessageContacts"
         },
         "Pointer": "002075129400001469512021",

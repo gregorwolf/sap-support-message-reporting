@@ -3,8 +3,8 @@
   "authenticationMethod": "none",
   "routes": [
     {
-      "source": "/services/odata/reporting/(.*)$",
-      "target": "/services/odata/reporting/$1",
+      "source": "/odata/v2/reporting/(.*)$",
+      "target": "/odata/v2/reporting/$1",
       "destination": "srv_api",
       "csrfProtection": true
     },

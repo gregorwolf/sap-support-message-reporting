@@ -36,7 +36,7 @@ server:
       beforeMiddleware: csp
       configuration:
         service:
-          urlPath: /services/odata/reporting
+          urlPath: /odata/v2/reporting
           metadataXmlPath: ./webapp/localService/metadata.xml
           mockdataRootPath: ./webapp/localService/data
           generateMockData: true

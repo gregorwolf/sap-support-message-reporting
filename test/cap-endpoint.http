@@ -90,11 +90,11 @@ GET http://localhost:4004/reporting/StatusVH
 ###
 GET http://localhost:4004/reporting/SystemIdVH
 ###
-GET http://localhost:4004/services/odata/reporting/MessageHeaderSet?$select=numberOfMessages&$inlinecount=allpages
+GET http://localhost:4004/odata/v2/reporting/MessageHeaderSet?$select=numberOfMessages&$inlinecount=allpages
 
 ###
-GET http://localhost:4004/services/odata/reporting/MessageHeaderSet
+GET http://localhost:4004/odata/v2/reporting/MessageHeaderSet
     ?$inlinecount=allpages
     &$select=Status,numberOfMessages
 ###
-GET http://localhost:4004/services/odata/reporting/MessageHeaderSet(aggregation'{"key":{"StatusTxt":"Not%20Sent%20to%20SAP","PriorityTxt":"Very%20High"},"value":["StatusTxt","PriorityTxt","numberOfMessages"],"filter":"((((StatusTxt%20eq%20'Not%20Sent%20to%20SAP'))))"}')
+GET http://localhost:4004/odata/v2/reporting/MessageHeaderSet(aggregation'{"key":{"StatusTxt":"Not%20Sent%20to%20SAP","PriorityTxt":"Very%20High"},"value":["StatusTxt","PriorityTxt","numberOfMessages"],"filter":"((((StatusTxt%20eq%20'Not%20Sent%20to%20SAP'))))"}')

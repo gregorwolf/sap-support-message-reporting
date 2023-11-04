@@ -24,9 +24,9 @@
   "devDependencies": {
     "@sap/ux-specification": "^1.102.15",
     "@sap/ux-ui5-tooling": "^1.8.5",
-    "@ui5/cli": "^2.14.17",
-    "@ui5/fs": "^2.0.6",
-    "@ui5/logger": "^2.0.1",
+    "@ui5/cli": "^3",
+    "@ui5/fs": "^3",
+    "@ui5/logger": "^3",
     "rimraf": "4.1.2"
   },
   "ui5": {
