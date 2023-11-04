@@ -1,16 +1,15 @@
 name: cf-deploy-production
 
-on:
-  workflow_dispatch
+on: workflow_dispatch
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: 
+    environment:
       name: production
-      # url: 
+      # url:
     env:
-      CF_API: https://api.cf.eu20.hana.ondemand.com/
-      CF_ORG: dev-azure
+      CF_API: https://api.cf.eu10.hana.ondemand.com/
+      CF_ORG: csw
       CF_SPACE: production
       CF_USERNAME: ${{ secrets.PIPER_USERNAME }}
       CF_PASSWORD: ${{ secrets.PIPER_PASSWORD }}
@@ -21,12 +20,12 @@ jobs:
         uses: dsaltares/fetch-gh-release-asset@master
         with:
           file: sap-support-message-reporting-cf.mtar
-#      - name: Download CF artifact
-#        uses: dawidd6/action-download-artifact@v2
-#        with:
-#          workflow: build-mta-cf.yml
-#          workflow_conclusion: success
-#          name: mta
+      #      - name: Download CF artifact
+      #        uses: dawidd6/action-download-artifact@v2
+      #        with:
+      #          workflow: build-mta-cf.yml
+      #          workflow_conclusion: success
+      #          name: mta
       - name: Display structure of downloaded files
         run: ls -R
       - name: CF Deploy

@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - '.github/**'
+      - ".github/**"
 
 jobs:
   build:
@@ -18,8 +18,8 @@ jobs:
         run: pwd
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
-          cache: 'npm'
+          node-version: 18
+          cache: "npm"
       - name: Check node version
         run: node --version
       - name: Install MTA Build Tool
@@ -33,18 +33,18 @@ jobs:
       - name: Upload archive file
         uses: actions/upload-artifact@v3
         with:
-           name: mta
-           path: sap-support-message-reporting-cf.mtar
+          name: mta
+          path: sap-support-message-reporting-cf.mtar
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    environment: 
+    environment:
       name: dev
-      # url: 
+      # url:
     env:
-      CF_API: https://api.cf.eu20.hana.ondemand.com/
-      CF_ORG: dev-azure
+      CF_API: https://api.cf.eu10.hana.ondemand.com/
+      CF_ORG: csw
       CF_SPACE: dev
       CF_USERNAME: ${{ secrets.PIPER_USERNAME }}
       CF_PASSWORD: ${{ secrets.PIPER_PASSWORD }}
