@@ -14,11 +14,13 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v2/reporting/",
+        "uri": "odata/v2/reporting/",
         "type": "OData",
         "settings": {
           "odataVersion": "2.0",
-          "annotations": ["annotation"],
+          "annotations": [
+            "annotation"
+          ],
           "localUri": "localService/metadata.xml"
         }
       },
@@ -66,7 +68,10 @@
       "tablet": true,
       "phone": true
     },
-    "supportedThemes": ["sap_hcb", "sap_belize"]
+    "supportedThemes": [
+      "sap_hcb",
+      "sap_belize"
+    ]
   },
   "sap.ui5": {
     "resources": {
