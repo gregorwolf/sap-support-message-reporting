@@ -9,7 +9,7 @@
     "node": "^18"
   },
   "dependencies": {
-    "@cap-js-community/odata-v2-adapter": "^1.11.8",
+    "@cap-js-community/odata-v2-adapter": "^1",
     "@sap-cloud-sdk/http-client": "^3",
     "@sap/cds": "^7",
     "cds-launchpad-plugin": "^2",
