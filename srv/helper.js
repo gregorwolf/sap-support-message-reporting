@@ -15,10 +15,11 @@ function cleanObject(obj) {
       // match the sap odata time format like "PT09H50M58S"
       const matchTime = value.match(/^PT(\d\d)H(\d\d)M(\d\d)S/);
       if (matchTime) {
-        obj[key] = matchTime[1] + ":" + matchTime[2] + ":" + matchTime[3] + ".00";
+        obj[key] =
+          matchTime[1] + ":" + matchTime[2] + ":" + matchTime[3] + ".00";
       }
     }
   });
 }
 
-exports.cleanObject = cleanObject
+exports.cleanObject = cleanObject;
