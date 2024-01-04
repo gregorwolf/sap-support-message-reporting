@@ -30,6 +30,11 @@ POST http://localhost:4004/odata/v4/reporting/loadDataFromSAP
 Content-Type: application/json
 
 {}
+###
+POST http://localhost:4004/odata/v4/reporting/loadDataFromMeSapCom
+Content-Type: application/json
+
+{}
 
 ###
 GET http://localhost:4004/odata/v4/reporting/MessageHeaderSet
@@ -104,3 +109,8 @@ GET http://localhost:4004/odata/v2/reporting/MessageHeaderSet
     &$select=Status,numberOfMessages
 ###
 GET http://localhost:4004/odata/v2/reporting/MessageHeaderSet(aggregation'{"key":{"StatusTxt":"Not%20Sent%20to%20SAP","PriorityTxt":"Very%20High"},"value":["StatusTxt","PriorityTxt","numberOfMessages"],"filter":"((((StatusTxt%20eq%20'Not%20Sent%20to%20SAP'))))"}')
+
+###
+GET http://localhost:4004/odata/v4/reporting/CaseList
+    ?$top=10
+    &$count=true

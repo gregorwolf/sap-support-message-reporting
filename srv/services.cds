@@ -1,1 +1,1 @@
-using { incidentws as external } from './external/incidentws.csn';
+using {incidentws as external} from './external/incidentws.csn';

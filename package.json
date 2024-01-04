@@ -50,6 +50,11 @@
     "watch-alpv4lrop": "cds watch --open alpv4lrop/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
+    "log": {
+      "levels": {
+        "sap-support-message-reporting": "debug"
+      }
+    },
     "launchpad": {
       "theme": "sap_horizon",
       "version": "1.120.1",
@@ -85,6 +90,10 @@
             "destination": "OSS"
           }
         }
+      },
+      "support": {
+        "kind": "odata",
+        "model": "srv/external/support"
       }
     }
   },
