@@ -1,8 +1,7 @@
 const cds = require("@sap/cds");
 const { cleanObject } = require("./helper");
 
-const thisApplication = "sap-support-message-reporting";
-const DEBUG = cds.debug(thisApplication);
+const LOG = cds.log("sap-support-message-reporting");
 
 const MessageHeaderSetData = require("./data/MessageHeaderSet.json");
 const MessageAlogSetData = require("./data/MessageAlogSet.json");
@@ -23,7 +22,7 @@ module.exports = (db) => {
     // clean up data object of unnecessary fields
     value.d.results.forEach(cleanObject);
     // write data to db
-    DEBUG && DEBUG(`Write ${value.d.results.length} entries into ${key.name}`);
+    LOG.info(`Write ${value.d.results.length} entries into ${key.name}`);
     cds.run([INSERT(value.d.results).into(key)]);
   });
 };
