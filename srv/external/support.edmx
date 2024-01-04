@@ -115,6 +115,7 @@
         <Property Name="aaEPQuesStatus" Type="Edm.String"></Property>
         <Property Name="aaEPQuesUUID" Type="Edm.String"></Property>
         <Property Name="aaEPSessStatus" Type="Edm.String"></Property>
+        <Property Name="creator" Type="Edm.String"></Property>
       </EntityType>
       <EntityType Name="CaseDiscussion">
         <Key>
@@ -131,6 +132,8 @@
         <Property Name="sourceLanguage" Type="Edm.String"></Property>
         <Property Name="targetLanguage" Type="Edm.String"></Property>
         <Property Name="selectedLanguage" Type="Edm.String"></Property>
+        <Property Name="isInitiallyMessage" Type="Edm.Boolean"></Property>
+        <Property Name="sys_created_by" Type="Edm.String"></Property>
       </EntityType>
       <EntityType Name="CaseKBASolutions">
         <Key>
@@ -787,8 +790,7 @@
           IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="CaseAlertIncident" EntityType="support.Service.CaseAlertIncident"
           IncludeInServiceDocument="false"></EntitySet>
-        <EntitySet Name="CaseAttachedSolutions"
-          EntityType="support.Service.CaseAttachedSolutions"
+        <EntitySet Name="CaseAttachedSolutions" EntityType="support.Service.CaseAttachedSolutions"
           IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="CaseAttachments" EntityType="support.Service.CaseAttachments"
           IncludeInServiceDocument="false"></EntitySet>
@@ -816,8 +818,7 @@
           IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="CaseAppointments" EntityType="support.Service.CaseAppointments"
           IncludeInServiceDocument="false"></EntitySet>
-        <EntitySet Name="CaseQualtricsAuthW7"
-          EntityType="support.Service.CaseQualtricsAuthW7"
+        <EntitySet Name="CaseQualtricsAuthW7" EntityType="support.Service.CaseQualtricsAuthW7"
           IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="CaseContactsList" EntityType="support.Service.CaseContactsList"
           IncludeInServiceDocument="false"></EntitySet>
@@ -825,15 +826,13 @@
           IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="EventAreaFilter" EntityType="support.Service.EventAreaFilter"
           IncludeInServiceDocument="false"></EntitySet>
-        <EntitySet Name="EventCardStatusFilter"
-          EntityType="support.Service.EventCardStatusFilter"
+        <EntitySet Name="EventCardStatusFilter" EntityType="support.Service.EventCardStatusFilter"
           IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="F4Help" EntityType="support.Service.F4Help"
           IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="SystemSearch" EntityType="support.Service.SystemSearch"
           IncludeInServiceDocument="false"></EntitySet>
-        <EntitySet Name="CreateCustomerAndSuser"
-          EntityType="support.Service.CreateCustomerAndSuser"
+        <EntitySet Name="CreateCustomerAndSuser" EntityType="support.Service.CreateCustomerAndSuser"
           IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="CaseList4Card" EntityType="support.Service.CaseList4Card"
           IncludeInServiceDocument="false"></EntitySet>
@@ -845,41 +844,33 @@
           IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="CaseStatusSet" EntityType="support.Service.CaseStatusSet"
           IncludeInServiceDocument="false"></EntitySet>
-        <EntitySet Name="IncidentReporterSet"
-          EntityType="support.Service.IncidentReporterSet"
+        <EntitySet Name="IncidentReporterSet" EntityType="support.Service.IncidentReporterSet"
           IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="CaseSystemSet" EntityType="support.Service.CaseSystemSet"
           IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="IncidentInstSet" EntityType="support.Service.IncidentInstSet"
           IncludeInServiceDocument="false"></EntitySet>
-        <EntitySet Name="CaseMessageTextsSet"
-          EntityType="support.Service.CaseMessageTextsSet"
+        <EntitySet Name="CaseMessageTextsSet" EntityType="support.Service.CaseMessageTextsSet"
           IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="ScheduleAnExpertBooking"
-          EntityType="support.Service.ScheduleAnExpertBooking"
-          IncludeInServiceDocument="false"></EntitySet>
+          EntityType="support.Service.ScheduleAnExpertBooking" IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="ScheduleAnExpertBookingTimeSlot"
           EntityType="support.Service.ScheduleAnExpertBookingTimeSlot"
           IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="ScheduleAManagerBooking"
-          EntityType="support.Service.ScheduleAManagerBooking"
-          IncludeInServiceDocument="false"></EntitySet>
+          EntityType="support.Service.ScheduleAManagerBooking" IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="ScheduleAManagerBookingTimeSlot"
           EntityType="support.Service.ScheduleAManagerBookingTimeSlot"
           IncludeInServiceDocument="false"></EntitySet>
-        <EntitySet Name="CaseChannelCheckSet"
-          EntityType="support.Service.CaseChannelCheckSet"
+        <EntitySet Name="CaseChannelCheckSet" EntityType="support.Service.CaseChannelCheckSet"
           IncludeInServiceDocument="false"></EntitySet>
-        <EntitySet Name="CaseSuggestedSolutions"
-          EntityType="support.Service.CaseSuggestedSolutions"
+        <EntitySet Name="CaseSuggestedSolutions" EntityType="support.Service.CaseSuggestedSolutions"
           IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="ProductKnowledge" EntityType="support.Service.ProductKnowledge"
           IncludeInServiceDocument="false"></EntitySet>
-        <EntitySet Name="UserSettingsTimeZone"
-          EntityType="support.Service.UserSettingsTimeZone"
+        <EntitySet Name="UserSettingsTimeZone" EntityType="support.Service.UserSettingsTimeZone"
           IncludeInServiceDocument="false"></EntitySet>
-        <EntitySet Name="CaseAuthPointersSet"
-          EntityType="support.Service.CaseAuthPointersSet"
+        <EntitySet Name="CaseAuthPointersSet" EntityType="support.Service.CaseAuthPointersSet"
           IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="CaseListAggregated" EntityType="support.Service.CaseListAggregated"
           IncludeInServiceDocument="false"></EntitySet>
@@ -890,8 +881,7 @@
         <EntitySet Name="ChannelRecommender" EntityType="support.Service.ChannelRecommender"
           IncludeInServiceDocument="false"></EntitySet>
         <EntitySet Name="CaseListUserPersonalization"
-          EntityType="support.Service.CaseListUserPersonalization"
-          IncludeInServiceDocument="false"></EntitySet>
+          EntityType="support.Service.CaseListUserPersonalization" IncludeInServiceDocument="false"></EntitySet>
       </EntityContainer>
     </Schema>
   </edmx:DataServices>
