@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": false,
   "engines": {
-    "node": "^18"
+    "node": "^20"
   },
   "dependencies": {
     "@cap-js-community/odata-v2-adapter": "^1",

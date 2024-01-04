@@ -23,7 +23,7 @@
     "@ui5/fs": "^3",
     "@ui5/logger": "^3",
     "@sap/ux-ui5-tooling": "^1",
-    "@sap/ux-specification": "latest"
+    "@sap/ux-specification": "^1"
   },
   "ui5": {
     "dependencies": [
