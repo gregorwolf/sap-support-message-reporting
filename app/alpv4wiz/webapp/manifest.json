@@ -1,0 +1,185 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "test.alpv4wiz",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:alp",
+      "version": "1.12.1",
+      "toolsId": "ac4668dd-dbed-4aff-877e-68fb130a1b8a"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/reporting/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.120.4",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ushell": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "test.alpv4wiz.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "MessageHeaderSetList",
+          "target": "MessageHeaderSetList"
+        },
+        {
+          "pattern": "MessageHeaderSet({key}):?query:",
+          "name": "MessageHeaderSetObjectPage",
+          "target": "MessageHeaderSetObjectPage"
+        },
+        {
+          "pattern": "MessageHeaderSet({key})/to_MessageAlogSet({key2}):?query:",
+          "name": "MessageAlogSetObjectPage",
+          "target": "MessageAlogSetObjectPage"
+        }
+      ],
+      "targets": {
+        "MessageHeaderSetList": {
+          "type": "Component",
+          "id": "MessageHeaderSetList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/MessageHeaderSet",
+              "variantManagement": "Page",
+              "navigation": {
+                "MessageHeaderSet": {
+                  "detail": {
+                    "route": "MessageHeaderSetObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "AnalyticalTable",
+                    "selectionMode": "Auto"
+                  }
+                }
+              },
+              "views": {
+                "paths": [
+                  {
+                    "primary": [
+                      {
+                        "annotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant"
+                      }
+                    ],
+                    "secondary": [
+                      {
+                        "annotationPath": "com.sap.vocabularies.UI.v1.LineItem"
+                      }
+                    ],
+                    "defaultPath": "both"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "MessageHeaderSetObjectPage": {
+          "type": "Component",
+          "id": "MessageHeaderSetObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/MessageHeaderSet",
+              "navigation": {
+                "to_MessageAlogSet": {
+                  "detail": {
+                    "route": "MessageAlogSetObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "MessageAlogSetObjectPage": {
+          "type": "Component",
+          "id": "MessageAlogSetObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/MessageHeaderSet/to_MessageAlogSet"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "analytical"
+  }
+}

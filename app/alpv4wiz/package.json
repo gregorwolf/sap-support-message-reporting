@@ -1,0 +1,15 @@
+{
+    "name": "alpv4wiz",
+    "version": "0.0.1",
+    "description": "For OData V4 CAP Service",
+    "keywords": [
+        "ui5",
+        "openui5",
+        "sapui5"
+    ],
+    "main": "webapp/index.html",
+    "scripts": {
+        "deploy-config": "npx -p @sap/ux-ui5-tooling fiori add deploy-config cf"
+    },
+    "devDependencies": { }
+}
