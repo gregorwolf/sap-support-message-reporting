@@ -25,6 +25,21 @@
           "odataVersion": "4.0"
         }
       }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "intent1": {
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          },
+          "semanticObject": "SAPIncidentReporting",
+          "action": "analyzeV4alpwiz",
+          "title": "{{appTitle}}",
+          "info": "{{appInfo}}",
+          "subTitle": "{{appSubTitle}}"
+        }
+      }
     }
   },
   "sap.ui": {
