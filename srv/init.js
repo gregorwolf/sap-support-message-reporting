@@ -7,7 +7,7 @@ const MessageHeaderSetData = require("./data/MessageHeaderSet.json");
 const MessageAlogSetData = require("./data/MessageAlogSet.json");
 const MessageContactsSetData = require("./data/MessageContactsSet.json");
 
-module.exports = (db) => {
+module.exports = async (db) =>  {
   const { MessageHeaderSet, MessageAlogSet, MessageContactsSet } = db.entities(
     "sap.incident.reporting"
   );
@@ -18,11 +18,11 @@ module.exports = (db) => {
     [MessageContactsSet, MessageContactsSetData],
   ]);
 
-  entityToData.forEach((value, key) => {
+  for (const [key, value] of entityToData.entries()) {
     // clean up data object of unnecessary fields
     value.d.results.forEach(cleanObject);
     // write data to db
     LOG.info(`Write ${value.d.results.length} entries into ${key.name}`);
-    cds.run([INSERT(value.d.results).into(key)]);
-  });
+    await cds.run([INSERT(value.d.results).into(key)]);
+  }
 };
