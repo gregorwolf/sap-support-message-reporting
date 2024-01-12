@@ -1,6 +1,8 @@
 # CAP sap-support-message-report
 _out
 *.db
+*.db-shm
+*.db-wal
 connection.properties
 default-*.json
 gen/
