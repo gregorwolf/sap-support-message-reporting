@@ -1,5 +1,8 @@
 ### Read Entities
 # Result
 # Feature is not supported: Transformation \"3\" with query option $apply
-GET http://localhost:4004/reporting/MessageHeaderSet
+GET http://localhost:4004/odata/v4/reporting/MessageHeaderSet
   ?$apply=concat(groupby((Pointer,PriorityTxt,Status,StatusTxt,SystemId,numberOfMessages))/aggregate($count%20as%20UI5__leaves),groupby((StatusTxt))/concat(aggregate($count%20as%20UI5__count),top(58)))
+###
+GET http://localhost:4004/odata/v4/reporting/MessageHeaderSet
+  ?$apply=aggregate(numberOfMessages with sum as Total)
