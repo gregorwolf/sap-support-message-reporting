@@ -19,7 +19,8 @@
     "express": "^4",
     "pino": "^8",
     "qs": "^6",
-    "sqlite3": "^5"
+    "sqlite3": "^5",
+    "@sap/cds-hana": "^2"
   },
   "devDependencies": {
     "@sap/ux-specification": "^1.120.1",
@@ -68,13 +69,6 @@
       "plugin": true
     },
     "requires": {
-      "db": {
-        "kind": "sqlite",
-        "impl": "@cap-js/sqlite",
-        "credentials": {
-          "url": "db/reporting.db"
-        }
-      },
       "incidentws": {
         "kind": "odata-v2",
         "model": "srv/external/incidentws",
@@ -98,6 +92,9 @@
       "support": {
         "kind": "odata",
         "model": "srv/external/support"
+      },
+      "[hybrid]": {
+        "db": "hana"
       }
     }
   },
