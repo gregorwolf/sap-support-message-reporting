@@ -9,7 +9,7 @@ service ReportingService {
             to_MessageAlogSet : redirected to MessageAlogSet
         };
 
-    @fiori.draft.enabled
+    @odata.draft.enabled
     entity MessageHeaderSetDraft as
         projection on reporting.MessageHeaderSet {
             *,
