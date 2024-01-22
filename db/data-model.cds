@@ -1,5 +1,6 @@
 namespace sap.incident.reporting;
 
+using {cuid} from '@sap/cds/common';
 using {incidentws} from '../srv/external/incidentws.csn';
 using {support} from '../srv/external/support';
 
@@ -21,7 +22,7 @@ using {support} from '../srv/external/support';
   'search'
 ]
 // reuse the imported data model
-entity MessageHeaderSet : incidentws.MessageHeaderSet {
+entity MessageHeaderSet : cuid, incidentws.MessageHeaderSet {
   // add aditional field that is always filled with 1 to calculate the
   // number of messages in aggregations. This is our analytic measure
   @Analytics.Measure  : true
