@@ -11,15 +11,15 @@ using {support} from '../srv/external/support';
 // With this annotation the Fiori Application Generator also works
 // with the CAP Project and shows the entity in the drop-down
 @Aggregation.ApplySupported.Transformations     : [
-    'aggregate',
-    'topcount',
-    'bottomcount',
-    'identity',
-    'concat',
-    'groupby',
-    'filter',
-    'search'
-  ]
+  'aggregate',
+  'topcount',
+  'bottomcount',
+  'identity',
+  'concat',
+  'groupby',
+  'filter',
+  'search'
+]
 // reuse the imported data model
 entity MessageHeaderSet : incidentws.MessageHeaderSet {
   // add aditional field that is always filled with 1 to calculate the
