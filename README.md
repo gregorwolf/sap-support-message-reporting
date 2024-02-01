@@ -87,7 +87,9 @@ When you've done that make sure that you've opened this project in VS Code and t
 
 First time start:
 
-`docker run --name sap-support-message-reporting -i -p 4004:4004 gregorwolf/sap-support-message-reporting:latest`
+```
+docker run --name sap-support-message-reporting -i -p 4004:4004 gregorwolf/sap-support-message-reporting:latest
+```
 
 [Load Data from Mock Service](#load-data-from-mock-service)
 
@@ -95,11 +97,15 @@ Then open http://localhost:4004 in the browser.
 
 Stop:
 
-`docker stop sap-support-message-reporting`
+```
+docker stop sap-support-message-reporting
+```
 
 Start:
 
-`docker start -i sap-support-message-reporting`
+```
+docker start -i sap-support-message-reporting
+```
 
 Remove:
 
@@ -111,22 +117,32 @@ docker rm sap-support-message-reporting
 
 Download the kubeconfig from your Kyma instance via the menu behind the account Icon in the upper right corner. Save it in _~/.kube/kubeconfig-kyma.yml_. Then run:
 
-`export KUBECONFIG=~/.kube/kubeconfig-kyma.yml`
+```
+export KUBECONFIG=~/.kube/kubeconfig-kyma.yml
+```
 
 Please note that the token in the kubeconfig is [only valid for 8 hours](https://kyma-project.io/docs/components/security#details-iam-kubeconfig-service). So you might have to redo the download whenever you want to run the commands again.
 
 To keep this project separate from your other deployments I would suggest to create a namespace:
 
-`kubectl create namespace sap-support-message-reporting`
+```
+kubectl create namespace sap-support-message-reporting
+```
 
 Deploy the configuration:
 
-`kubectl -n sap-support-message-reporting apply -f kyma/deployment.yaml`
+```
+kubectl -n sap-support-message-reporting apply -f kyma/deployment.yaml
+```
 
 Update the container:
 
-`kubectl -n sap-support-message-reporting rollout restart deployment/sap-support-message-reporting`
+```
+kubectl -n sap-support-message-reporting rollout restart deployment/sap-support-message-reporting
+```
 
 If you want to delete the deployment, then run:
 
-`kubectl -n sap-support-message-reporting delete -f kyma/deployment.yaml`
+```
+kubectl -n sap-support-message-reporting delete -f kyma/deployment.yaml
+```
