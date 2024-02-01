@@ -2,24 +2,24 @@
 ## appName = sap-support-message-reporting
 ## language=nodejs; multiTenant=false
 ## approuter=
-_schema-version: '3.1'
+_schema-version: "3.1"
 ID: sap-support-message-reporting
 version: 0.0.1
 description: "SAP Support Message Reporting"
 parameters:
   enable-parallel-deployments: true
-   
+
 build-parameters:
   before-all:
-   - builder: custom
-     commands:
-      - npm install --production
-      - npx -p @sap/cds-dk cds build --profile production
+    - builder: custom
+      commands:
+        - npm install --production
+        - npx -p @sap/cds-dk cds build --profile production
 
 modules:
   # --------------------- SERVER MODULE ------------------------
   - name: reporting-srv
-  # ------------------------------------------------------------
+    # ------------------------------------------------------------
     type: nodejs
     path: gen/srv
     build-parameters:
@@ -27,14 +27,14 @@ modules:
     parameters:
       memory: 256M
       disk-quota: 1024M
-#      routes:
-#        - route: https://${app-name}-${space}.${default-domain}
+      #      routes:
+      #        - route: https://${app-name}-${space}.${default-domain}
     provides:
-    - name: srv-api      # required by consumers of CAP services (e.g. approuter)
-      properties:
-        srv-url: ${default-url}
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
     requires:
-     - name: reporting-logging
+      - name: reporting-logging
   - name: reporting-ui
     type: nodejs
     path: app
@@ -44,10 +44,10 @@ modules:
       memory: 128M
       disk-quota: 1024M
     requires:
-     - name: reporting-logging
-     - name: srv-api
-       group: destinations
-       properties:
+      - name: reporting-logging
+      - name: srv-api
+        group: destinations
+        properties:
           forwardAuthToken: true
           strictSSL: false
           name: srv_api
@@ -57,5 +57,5 @@ resources:
   - name: reporting-logging
     type: org.cloudfoundry.managed-service
     parameters:
-       service: application-logs
-       service-plan: lite
+      service: application-logs
+      service-plan: lite
