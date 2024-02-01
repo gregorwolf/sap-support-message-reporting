@@ -13,15 +13,15 @@ spec:
     app: sap-support-message-reporting
     tier: frontend
 ---
-apiVersion: gateway.kyma-project.io/v1alpha1
+apiVersion: gateway.kyma-project.io/v1beta1
 kind: APIRule
 metadata:
   labels:
     app: sap-support-message-reporting
   name: sap-support-message-reporting
 spec:
+  host: sap-support-message-reporting
   service:
-    host: sap-support-message-reporting
     name: sap-support-message-reporting
     port: 4004
   gateway: kyma-gateway.kyma-system.svc.cluster.local
