@@ -72,12 +72,13 @@
       "incidentws": {
         "kind": "odata-v2",
         "model": "srv/external/incidentws",
-        "path": "/odata/v2/incidentws",
-        "credentials": {
-          "[hybrid]": {
+        "[hybrid]": {
+          "credentials": {
             "destination": "OSS"
-          },
-          "[production]": {
+          }
+        },
+        "[production]": {
+          "credentials": {
             "destination": "OSS"
           }
         }
@@ -85,12 +86,13 @@
       "snogwsnnf": {
         "kind": "odata-v2",
         "model": "srv/external/snogwsnnf",
-        "path": "/odata/v2/svt/snogwsnnf",
-        "credentials": {
-          "[hybrid]": {
+        "[hybrid]": {
+          "credentials": {
             "destination": "OSS"
-          },
-          "[production]": {
+          }
+        },
+        "[production]": {
+          "credentials": {
             "destination": "OSS"
           }
         }
