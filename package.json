@@ -45,6 +45,7 @@
     "build:cf": "mbt build",
     "build:docker:image": "docker build -t gregorwolf/sap-support-message-reporting:latest .",
     "push:docker": "docker push gregorwolf/sap-support-message-reporting:latest",
+    "deploy:sqlite": "cds deploy --to sqlite --with-mocks",
     "deploy:cf": "cf deploy mta_archives/sap-support-message-reporting_0.0.1.mtar",
     "start:docker": "docker run --name sap-support-message-reporting -d -p 4004:4004 gregorwolf/sap-support-message-reporting:latest",
     "stop:docker": "docker stop sap-support-message-reporting",
@@ -102,7 +103,12 @@
         "model": "srv/external/support"
       },
       "[hybrid]": {
-        "db": "hana"
+        "db": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": "db.sqlite"
+          }
+        }
       }
     }
   },
