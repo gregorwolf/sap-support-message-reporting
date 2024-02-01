@@ -13,9 +13,16 @@ POST http://localhost:4004/odata/v4/reporting/loadDataFromMock
 Content-Type: application/json
 
 {}
-
 ###
-POST https://sap-support-message-reporting.d423983.kyma.shoot.live.k8s-hana.ondemand.com/odata/v4/reporting/loadDataFromMock
+GET {{$dotenv kyma_url}}/odata/v2/support/
+###
+GET {{$dotenv kyma_url}}/odata/v2/incidentws/
+###
+GET {{$dotenv kyma_url}}/odata/v2/incidentws/MessageHeaderSet
+    ?$top=2
+    &$select=Pointer
+###
+POST {{$dotenv kyma_url}}/odata/v4/reporting/loadDataFromMock
 Content-Type: application/json
 
 {}
