@@ -33,17 +33,17 @@ spec:
       mutators:
         - handler: noop
 ---
-    apiVersion: v1
-    kind: Secret
-    metadata:
-      name: whoami-secret
-    type: opaque
-    stringData:
-      VCAP_SERVICES: >
-        {          
-        }
+apiVersion: v1
+kind: Secret
+metadata:
+  name: whoami-secret
+type: opaque
+stringData:
+  VCAP_SERVICES: >
+    {          
+    }
 ---
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: whoami
@@ -65,12 +65,12 @@ spec:
         sidecar.istio.io/inject: "true"
     spec:
       containers:
-      - image: containous/whoami
-        name: whoami
-        imagePullPolicy: "Always"
-        ports:
-        - containerPort: 80
-          name: http
-        envFrom:
-        - secretRef:
-            name: whoami-secret
+        - image: containous/whoami
+          name: whoami
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: 80
+              name: http
+          envFrom:
+            - secretRef:
+                name: whoami-secret

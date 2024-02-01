@@ -27,23 +27,23 @@ spec:
   gateway: kyma-gateway.kyma-system.svc.cluster.local
   rules:
     - path: /.*
-      methods: ["GET", "PUT", "POST", "HEAD", "PATCH", "DELETE" ]
+      methods: ["GET", "PUT", "POST", "HEAD", "PATCH", "DELETE"]
       accessStrategies:
         - handler: noop
       mutators:
         - handler: noop
 ---
-    apiVersion: v1
-    kind: Secret
-    metadata:
-      name: sap-support-message-reporting-secret
-    type: opaque
-    stringData:
-      VCAP_SERVICES: >
-        {          
-        }
+apiVersion: v1
+kind: Secret
+metadata:
+  name: sap-support-message-reporting-secret
+type: opaque
+stringData:
+  VCAP_SERVICES: >
+    {          
+    }
 ---
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sap-support-message-reporting
@@ -65,12 +65,12 @@ spec:
         sidecar.istio.io/inject: "true"
     spec:
       containers:
-      - image: gregorwolf/sap-support-message-reporting:latest
-        name: sap-support-message-reporting
-        imagePullPolicy: "Always"
-        ports:
-        - containerPort: 4004
-          name: http
-        envFrom:
-        - secretRef:
-            name: sap-support-message-reporting-secret
+        - image: gregorwolf/sap-support-message-reporting:latest
+          name: sap-support-message-reporting
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: 4004
+              name: http
+          envFrom:
+            - secretRef:
+                name: sap-support-message-reporting-secret
