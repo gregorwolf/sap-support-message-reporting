@@ -2,6 +2,8 @@ const cds = require("@sap/cds");
 const LOG = cds.log("task-load-data");
 
 async function loadDataFromMock() {
+  // start for development
+  // var test = await cds.test("", "--with-mocks");
   var test = await cds.test();
 
   const reportingService = await cds.connect.to("ReportingService");
