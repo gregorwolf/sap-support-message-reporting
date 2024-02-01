@@ -73,8 +73,11 @@
         "kind": "odata-v2",
         "model": "srv/external/incidentws",
         "path": "/odata/v2/incidentws",
-        "[hybrid,production]": {
-          "credentials": {
+        "credentials": {
+          "[hybrid]": {
+            "destination": "OSS"
+          },
+          "[production]": {
             "destination": "OSS"
           }
         }
@@ -83,8 +86,11 @@
         "kind": "odata-v2",
         "model": "srv/external/snogwsnnf",
         "path": "/odata/v2/svt/snogwsnnf",
-        "[hybrid,production]": {
-          "credentials": {
+        "credentials": {
+          "[hybrid]": {
+            "destination": "OSS"
+          },
+          "[production]": {
             "destination": "OSS"
           }
         }
