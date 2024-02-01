@@ -29,6 +29,9 @@ modules:
       disk-quota: 1024M
       #      routes:
       #        - route: https://${app-name}-${space}.${default-domain}
+      tasks: # Execute this task after staging my app
+        - name: custom-task
+          command: echo "Custom command executed in an app container!"
     provides:
       - name: srv-api # required by consumers of CAP services (e.g. approuter)
         properties:
