@@ -1,5 +1,6 @@
 # CAP sap-support-message-report
 _out
+*.sqlite
 *.db
 *.db-shm
 *.db-wal
