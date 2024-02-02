@@ -30,6 +30,7 @@
   },
   "scripts": {
     "start": "export NODE_ENV=development && cds-serve --with-mocks --in-memory",
+    "start:loadDataFromMock": "node srv/loadDataFromMock.js",
     "update": "run-p update:**",
     "update:root": "npm update",
     "update:app": "cd app && npm update",
