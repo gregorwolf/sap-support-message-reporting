@@ -40,6 +40,7 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: reporting-logging
+      - name: reporting-destination-service
   - name: reporting-ui
     type: nodejs
     path: app
@@ -64,3 +65,8 @@ resources:
     parameters:
       service: application-logs
       service-plan: lite
+  - name: reporting-destination-service
+    parameters:
+      service-plan: lite
+      service: destination
+    type: org.cloudfoundry.managed-service
