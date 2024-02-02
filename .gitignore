@@ -1,6 +1,8 @@
 # CAP sap-support-message-report
 _out
 *.sqlite
+*.sqlite-shm
+*.sqlite-wal
 *.db
 *.db-shm
 *.db-wal
@@ -38,3 +40,6 @@ s-user.crt
 s-user.key
 s-user.pfx
 s-user-decrypted.key
+
+# added by cds
+.cdsrc-private.json
