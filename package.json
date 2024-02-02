@@ -75,12 +75,14 @@
         "model": "srv/external/incidentws",
         "[hybrid]": {
           "credentials": {
-            "destination": "OSS"
+            "destination": "OSS",
+            "path": "/odata/v2/incidentws"
           }
         },
         "[production]": {
           "credentials": {
-            "destination": "OSS"
+            "destination": "OSS",
+            "path": "/odata/v2/incidentws"
           }
         }
       },
@@ -89,12 +91,14 @@
         "model": "srv/external/snogwsnnf",
         "[hybrid]": {
           "credentials": {
-            "destination": "OSS"
+            "destination": "OSS",
+            "path": "/odata/v2/snogwsnnf"
           }
         },
         "[production]": {
           "credentials": {
-            "destination": "OSS"
+            "destination": "OSS",
+            "path": "/odata/v2/snogwsnnf"
           }
         }
       },
