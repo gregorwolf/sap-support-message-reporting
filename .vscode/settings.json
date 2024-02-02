@@ -3,5 +3,13 @@
     "**/.gitignore": true,
     "**/.git": true,
     "**/.vscode": true
-  }
+  },
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "database": "${workspaceFolder:sap-support-message-reporting}/db.sqlite",
+      "name": "sap-support-message-reporting"
+    }
+  ]
 }
