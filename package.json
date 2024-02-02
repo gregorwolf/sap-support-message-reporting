@@ -55,6 +55,7 @@
   },
   "cds": {
     "log": {
+      "format": "plain",
       "levels": {
         "sap-support-message-reporting": "debug"
       }
@@ -65,12 +66,14 @@
       "template": "async"
     },
     "features": {
-      "odata_new_parser": true
+      "odata_new_parser": true,
+      "kibana_formatter": false
     },
     "cov2ap": {
       "plugin": true
     },
     "requires": {
+      "auth": "basic",
       "incidentws": {
         "kind": "odata-v2",
         "model": "srv/external/incidentws",
@@ -108,6 +111,14 @@
         "model": "srv/external/support"
       },
       "[hybrid]": {
+        "db": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": "db.sqlite"
+          }
+        }
+      },
+      "[production]": {
         "db": {
           "kind": "sqlite",
           "credentials": {
