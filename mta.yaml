@@ -41,6 +41,7 @@ modules:
     requires:
       - name: reporting-logging
       - name: reporting-destination-service
+      - name: reporting-job-scheduler
   - name: reporting-ui
     type: nodejs
     path: app
@@ -70,3 +71,8 @@ resources:
       service-plan: lite
       service: destination
     type: org.cloudfoundry.managed-service
+  - name: reporting-job-scheduler
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: jobscheduler
+      service-plan: standard
