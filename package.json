@@ -23,7 +23,7 @@
     "@sap/cds-hana": "^2"
   },
   "devDependencies": {
-    "@sap/ux-specification": "^1.120.1",
+    "@sap/ux-specification": "^1.120.3",
     "axios": "^1",
     "npm-run-all": "^4",
     "pino-pretty": "^10"
