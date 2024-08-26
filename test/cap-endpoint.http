@@ -46,7 +46,7 @@ Content-Type: application/json
 ###
 GET http://localhost:4004/odata/v4/reporting/MessageHeaderSet
     ?$top=2
-    &$select=Pointer
+#    &$select=Pointer
     &$count=true
     &$expand=to_MessageAlogSet($select=ActionTxt)
 
@@ -79,7 +79,10 @@ GET http://localhost:4004/odata/v4/reporting/MessageHeaderSetDraft
 ###
 GET http://localhost:4004/odata/v4/reporting/MessageHeaderSet
     ?$apply=groupby((PriorityTxt),aggregate(numberOfMessages with sum as numberOfMessagesTotal))
-
+### Combine Apply with Filter - Filter must be part of the groupby
+GET http://localhost:4004/odata/v4/reporting/MessageHeaderSet
+    ?$filter=CompKey eq 'BC-IAM-IDS'
+    &$apply=groupby((CompKey,PriorityTxt),aggregate(numberOfMessages with sum as numberOfMessagesTotal))
 ###
 GET http://localhost:4004/odata/v4/reporting/MessageHeaderSet
     ?$apply=groupby((PriorityTxt),aggregate($count as childCount,numberOfMessages with sum as sumQuantity))
