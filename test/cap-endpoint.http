@@ -7,7 +7,8 @@ GET http://localhost:4004/alpv4/webapp/odata/v4/reporting/$metadata?sap-language
 GET http://localhost:4004/alp/webapp/odata/v2/reporting/$metadata?sap-value-list=all&sap-language=DE
 ###
 GET http://localhost:4004/odata/v4/reporting/$metadata
-
+### Read Entities
+GET http://localhost:4004/odata/v4/reporting/PriorityVH
 ###
 POST http://localhost:4004/odata/v4/reporting/loadDataFromMock
 Content-Type: application/json
@@ -46,9 +47,9 @@ Content-Type: application/json
 ###
 GET http://localhost:4004/odata/v4/reporting/MessageHeaderSet
     ?$top=2
-#    &$select=Pointer
+    &$select=Pointer,Priority
     &$count=true
-    &$expand=to_MessageAlogSet($select=ActionTxt)
+    &$expand=to_MessageAlogSet($select=ActionTxt),to_Priority
 
 ###
 GET http://localhost:4004/odata/v4/reporting/MessageHeaderSet
@@ -78,14 +79,13 @@ GET http://localhost:4004/odata/v4/reporting/MessageHeaderSetDraft
     ?$apply=aggregate(numberOfMessages with sum as numberOfMessagesTotal)
 ###
 GET http://localhost:4004/odata/v4/reporting/MessageHeaderSet
-    ?$apply=groupby((PriorityTxt),aggregate(numberOfMessages with sum as numberOfMessagesTotal))
+    ?$apply=groupby((Priority),aggregate(numberOfMessages with sum as numberOfMessagesTotal))
 ### Combine Apply with Filter - Filter must be part of the groupby
 GET http://localhost:4004/odata/v4/reporting/MessageHeaderSet
-    ?$filter=CompKey eq 'BC-IAM-IDS'
-    &$apply=groupby((CompKey,PriorityTxt),aggregate(numberOfMessages with sum as numberOfMessagesTotal))
+    ?$apply=filter(CompKey eq 'BC-IAM-IDS')/groupby((Priority,to_Priority/Priority,to_Priority/PriorityTxt),aggregate(numberOfMessages with sum as numberOfMessagesTotal))
 ###
 GET http://localhost:4004/odata/v4/reporting/MessageHeaderSet
-    ?$apply=groupby((PriorityTxt),aggregate($count as childCount,numberOfMessages with sum as sumQuantity))
+    ?$apply=groupby((Priority),aggregate($count as childCount,numberOfMessages with sum as sumQuantity))
 ###
 GET http://localhost:4004/odata/v4/reporting/MessageHeaderSet
     ?$apply=groupby((StatusTxt),aggregate(numberOfMessages with sum as numberOfMessagesTotal))

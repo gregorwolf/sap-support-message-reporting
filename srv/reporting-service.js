@@ -18,6 +18,7 @@ module.exports = cds.service.impl(async (srv) => {
     MessageContactsSet: dbMessageContactsSet,
     CaseList: dbCaseList,
     PriorityTxtView,
+    PriorityView,
     StatusTxtView,
     StatusView,
     SystemIdView,
@@ -25,6 +26,10 @@ module.exports = cds.service.impl(async (srv) => {
 
   srv.on("READ", "PriorityTxtVH", async (req) => {
     return SELECT.from(PriorityTxtView);
+  });
+
+  srv.on("READ", "PriorityVH", async (req) => {
+    return SELECT.from(PriorityView);
   });
 
   srv.on("READ", "StatusTxtVH", async (req) => {

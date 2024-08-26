@@ -32,6 +32,8 @@ service ReportingService {
     entity CaseList              as projection on reporting.CaseList;
     // Value Helps
     entity PriorityTxtVH         as projection on reporting.PriorityTxtVH;
+    entity PriorityVH            as projection on reporting.PriorityVH;
+    entity PriorityView          as projection on reporting.PriorityView;
     entity StatusTxtVH           as projection on reporting.StatusTxtVH;
     entity StatusVH              as projection on reporting.StatusVH;
     entity SystemIdVH            as projection on reporting.SystemIdVH;

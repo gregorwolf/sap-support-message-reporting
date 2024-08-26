@@ -28,6 +28,8 @@ entity MessageHeaderSet : cuid, incidentws.MessageHeaderSet {
   @Analytics.Measure  : true
   @Aggregation.default: #SUM
   numberOfMessages  : Integer default 1 @(title: '{i18n>numberOfMessages}');
+  to_Priority       : Association to one PriorityView
+                        on to_Priority.Priority = $self.Priority;
   to_MessageAlogSet : Association to many MessageAlogSet
                         on to_MessageAlogSet.Pointer = $self.Pointer;
 }
@@ -53,6 +55,22 @@ view PriorityTxtView as select distinct PriorityTxt from MessageHeaderSet;
 entity PriorityTxtVH {
   key PriorityTxt : incidentws.MessageHeaderSet:PriorityTxt;
 };
+
+// View with distinct values for search help
+view PriorityView as
+  select distinct
+    Priority,
+    PriorityTxt
+  from MessageHeaderSet;
+
+// Entity for search help is filled with custom logic
+@readonly
+@cds.odata.valuelist
+entity PriorityVH {
+  key Priority    : incidentws.MessageHeaderSet:Priority;
+      PriorityTxt : incidentws.MessageHeaderSet:PriorityTxt;
+};
+
 
 view StatusTxtView as select distinct StatusTxt from MessageHeaderSet;
 
