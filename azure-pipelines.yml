@@ -19,3 +19,7 @@ steps:
       npm install -g mbt
       mbt build -p=cf --mtar=sap-support-message-reporting.mtar
     displayName: "npm install and build"
+
+  - publish: $(System.DefaultWorkingDirectory)/mta_archives/sap-support-message-reporting.mtar
+    artifact: sap-support-message-reporting
+    displayName: "SAP Support Message Reporting MTAR Artifact"
