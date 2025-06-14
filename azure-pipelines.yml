@@ -4,18 +4,18 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- main
+  - main
 
 pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '20.x'
-  displayName: 'Install Node.js'
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "20.x"
+    displayName: "Install Node.js"
 
-- script: |
-    npm install -g mbt
-    mbt build -p=cf -s=$(Agent.BuildDirectory)\s\mta_archives\tinyapp_0.0.1.mtar
-  displayName: 'npm install and build'
+  - script: |
+      npm install -g mbt
+      mbt build -p=cf -s=$(Agent.BuildDirectory)\s\mta_archives\sap-support-message-reporting.mtar
+    displayName: "npm install and build"
