@@ -17,5 +17,5 @@ steps:
 
   - script: |
       npm install -g mbt
-      mbt build -p=cf -s=$(Agent.BuildDirectory)\s --mtar=sap-support-message-reporting.mtar
+      mbt build -p=cf --mtar=sap-support-message-reporting.mtar
     displayName: "npm install and build"
