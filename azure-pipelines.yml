@@ -9,17 +9,47 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-  - task: NodeTool@0
-    inputs:
-      versionSpec: "20.x"
-    displayName: "Install Node.js"
+resources:
+  containers:
+    - container: cfcli
+      image: "ppiper/cf-cli"
+      options: --user 0:0 --privileged
 
-  - script: |
-      npm install -g mbt
-      mbt build -p=cf --mtar=sap-support-message-reporting.mtar
-    displayName: "npm install and build"
+variables:
+  CF_API: "https://api.cf.eu10.hana.ondemand.com" # adjust region if needed
+  CF_ORG: "your-org"
+  CF_SPACE: "your-space"
+  CF_APP_NAME: "sap-support-message-reporting"
 
-  - publish: $(System.DefaultWorkingDirectory)/mta_archives/sap-support-message-reporting.mtar
-    artifact: sap-support-message-reporting
-    displayName: "SAP Support Message Reporting MTAR Artifact"
+stages:
+  - stage: Build
+    jobs:
+      - job: Build
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "20.x"
+            displayName: "Install Node.js"
+
+          - script: |
+              npm install -g mbt
+              mbt build -p=cf --mtar=sap-support-message-reporting.mtar
+            displayName: "npm install and build"
+
+          - publish: $(System.DefaultWorkingDirectory)/mta_archives/sap-support-message-reporting.mtar
+            artifact: sap-support-message-reporting
+            displayName: "Publish MTAR file"
+  - stage: Deploy
+    dependsOn: Build
+    jobs:
+      - job: deploy
+        pool:
+          vmImage: "ubuntu-latest"
+        container: cfcli
+        steps:
+          - download: current
+            artifact: sap-support-message-reporting
+          - bash: |
+              cf login -u "$(CF-USER)" -p "$(CF-PASSWORD)" -a "$(CF-API)" -o "$(CF-ORG)" -s "$(CF-SPACE)"
+              cf deploy $(Pipeline.Workspace)/sap-support-message-reporting/sap-support-message-reporting.mtar -f
+            displayName: "Deploy MTAR file"
