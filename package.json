@@ -6,21 +6,23 @@
   "license": "MIT",
   "private": false,
   "engines": {
-    "node": "^20"
+    "node": "^22"
   },
   "dependencies": {
-    "@cap-js/sqlite": "^1",
     "@cap-js-community/odata-v2-adapter": "^1",
+    "@cap-js/hana": "^2",
+    "@cap-js/sqlite": "^2",
     "@sap-cloud-sdk/http-client": "^3",
-    "@sap/cds": "^7",
+    "@sap/cds": "^9",
+    "@sap/cds-dk": "^9.0.5",
+    "app": "file:app",
     "cds-launchpad-plugin": "^2",
     "cheerio": "^1",
-    "date-fns": "^3",
+    "date-fns": "^4",
     "express": "^4",
-    "pino": "^8",
+    "pino": "^9",
     "qs": "^6",
-    "sqlite3": "^5",
-    "@sap/cds-hana": "^2"
+    "sqlite3": "^5"
   },
   "devDependencies": {
     "@sap/ux-specification": "^1.120.1",
@@ -62,7 +64,7 @@
     },
     "launchpad": {
       "theme": "sap_horizon",
-      "version": "1.120.4",
+      "version": "1.120.31",
       "template": "async"
     },
     "features": {
