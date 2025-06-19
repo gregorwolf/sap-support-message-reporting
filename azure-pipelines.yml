@@ -12,13 +12,13 @@ pool:
 resources:
   containers:
     - container: cfcli
-      image: "ppiper/cf-cli"
+      image: "ppiper/CF_cli"
       options: --user 0:0 --privileged
 
 variables:
   CF_API: "https://api.cf.eu10.hana.ondemand.com" # adjust region if needed
-  CF_ORG: "your-org"
-  CF_SPACE: "your-space"
+  CF_ORG: "csw"
+  CF_SPACE: "dev"
   CF_APP_NAME: "sap-support-message-reporting"
 
 stages:
@@ -50,6 +50,6 @@ stages:
           - download: current
             artifact: sap-support-message-reporting
           - bash: |
-              cf login -u "$(CF-USER)" -p "$(CF-PASSWORD)" -a "$(CF-API)" -o "$(CF-ORG)" -s "$(CF-SPACE)"
+              cf login -u "$(CF_USER)" -p "$(CF_PASSWORD)" -a "$(CF_API)" -o "$(CF_ORG)" -s "$(CF_SPACE)"
               cf deploy $(Pipeline.Workspace)/sap-support-message-reporting/sap-support-message-reporting.mtar -f
             displayName: "Deploy MTAR file"
