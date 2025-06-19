@@ -22,8 +22,8 @@ service ReportingService {
     @readonly
     entity MessageAlogView       as
         select from reporting.MessageAlogSet {
-            sum(numberOfLogs) as numberOfLogs : Integer,
-            Pointer
+                sum(numberOfLogs) as numberOfLogs : Integer,
+            key Pointer
         }
         group by
             Pointer;

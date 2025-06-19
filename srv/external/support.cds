@@ -1,3 +1,5 @@
+using {cuid} from '@sap/cds/common';
+
 /* checksum : ae9ef932eb8731070ef6d5a311fc9582 */
 @cds.external        : true
 @cds.persistence.skip: true
@@ -12,7 +14,7 @@ entity support.CaseActionLogs {
 
 @cds.external        : true
 @cds.persistence.skip: true
-entity support.CaseActionPlans {
+entity support.CaseActionPlans : cuid {
   status           : LargeString not null;
   plannedNextStep  : LargeString not null;
   nextStatusUpdate : LargeString not null;
@@ -307,21 +309,21 @@ entity support.ServiceRequest {
 @cds.external        : true
 @cds.persistence.skip: true
 entity support.CaseAppointments {
-  ID             : LargeString not null;
-  type           : LargeString;
-  reporter       : LargeString;
-  startTime      : LargeString;
-  endTime        : LargeString;
-  title          : LargeString;
-  status         : LargeString;
-  teamsUrl       : LargeString;
-  additionalInfo : LargeString;
-  pointer        : LargeString;
+  key ID             : LargeString not null;
+      type           : LargeString;
+      reporter       : LargeString;
+      startTime      : LargeString;
+      endTime        : LargeString;
+      title          : LargeString;
+      status         : LargeString;
+      teamsUrl       : LargeString;
+      additionalInfo : LargeString;
+      pointer        : LargeString;
 };
 
 @cds.external        : true
 @cds.persistence.skip: true
-entity support.CaseQualtricsAuthW7 {
+entity support.CaseQualtricsAuthW7 : cuid {
   w7pUrl    : LargeString not null;
   olproUrld : LargeString not null;
 };
@@ -418,7 +420,7 @@ entity support.SystemSearch {
 
 @cds.external        : true
 @cds.persistence.skip: true
-entity support.CreateCustomerAndSuser {
+entity support.CreateCustomerAndSuser : cuid {
   customerNumber : LargeString;
   suser          : LargeString;
 };
@@ -503,7 +505,7 @@ entity support.CaseSystemSet {
 
 @cds.external        : true
 @cds.persistence.skip: true
-entity support.IncidentInstSet {
+entity support.IncidentInstSet : cuid {
   installationId  : LargeString not null;
   installationTxt : LargeString;
   inactive        : LargeString;
@@ -513,7 +515,7 @@ entity support.IncidentInstSet {
 
 @cds.external        : true
 @cds.persistence.skip: true
-entity support.CaseMessageTextsSet {
+entity support.CaseMessageTextsSet : cuid {
   pointer    : LargeString not null;
   noteType   : LargeString;
   updateDate : LargeString;
@@ -522,35 +524,35 @@ entity support.CaseMessageTextsSet {
 
 @cds.external        : true
 @cds.persistence.skip: true
-entity support.ScheduleAnExpertBooking {
+entity support.ScheduleAnExpertBooking : cuid {
   Date  : LargeString not null;
   Count : LargeString;
 };
 
 @cds.external        : true
 @cds.persistence.skip: true
-entity support.ScheduleAnExpertBookingTimeSlot {
+entity support.ScheduleAnExpertBookingTimeSlot : cuid {
   Date : LargeString not null;
   time : LargeString;
 };
 
 @cds.external        : true
 @cds.persistence.skip: true
-entity support.ScheduleAManagerBooking {
+entity support.ScheduleAManagerBooking : cuid {
   Date  : LargeString not null;
   Count : LargeString;
 };
 
 @cds.external        : true
 @cds.persistence.skip: true
-entity support.ScheduleAManagerBookingTimeSlot {
+entity support.ScheduleAManagerBookingTimeSlot : cuid {
   Date : LargeString not null;
   time : LargeString;
 };
 
 @cds.external        : true
 @cds.persistence.skip: true
-entity support.CaseChannelCheckSet {
+entity support.CaseChannelCheckSet : cuid {
   pointer             : LargeString not null;
   component           : LargeString;
   system              : LargeString;
@@ -621,7 +623,7 @@ entity support.ProductKnowledge {
 
 @cds.external        : true
 @cds.persistence.skip: true
-entity support.UserSettingsTimeZone {
+entity support.UserSettingsTimeZone : cuid {
   userTimezone        : LargeString;
   timeZoneDescription : LargeString;
   timeZoneUTCsign     : LargeString;
@@ -794,7 +796,7 @@ entity support.CaseListServiceNow {
 
 @cds.external        : true
 @cds.persistence.skip: true
-entity support.ChannelRecommender {
+entity support.ChannelRecommender : cuid {
   channelId       : LargeString;
   rank            : LargeString;
   channelText     : LargeString;
@@ -814,7 +816,7 @@ entity support.ChannelRecommender {
 
 @cds.external        : true
 @cds.persistence.skip: true
-entity support.CaseListUserPersonalization {
+entity support.CaseListUserPersonalization : cuid {
   columns : LargeString;
   sort    : LargeString;
   group   : LargeString;

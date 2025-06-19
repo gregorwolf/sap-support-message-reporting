@@ -53,22 +53,22 @@ view PriorityTxtView as select distinct PriorityTxt from MessageHeaderSet;
 @readonly
 @cds.odata.valuelist
 entity PriorityTxtVH {
-  key PriorityTxt : incidentws.MessageHeaderSet:PriorityTxt;
+  key PriorityTxt : incidentws.MessageHeaderSet : PriorityTxt;
 };
 
 // View with distinct values for search help
 view PriorityView as
   select distinct
-    Priority,
-    PriorityTxt
+    key Priority,
+        PriorityTxt
   from MessageHeaderSet;
 
 // Entity for search help is filled with custom logic
 @readonly
 @cds.odata.valuelist
 entity PriorityVH {
-  key Priority    : incidentws.MessageHeaderSet:Priority;
-      PriorityTxt : incidentws.MessageHeaderSet:PriorityTxt;
+  key Priority    : incidentws.MessageHeaderSet : Priority;
+      PriorityTxt : incidentws.MessageHeaderSet : PriorityTxt;
 };
 
 
@@ -78,7 +78,7 @@ view StatusTxtView as select distinct StatusTxt from MessageHeaderSet;
 @readonly
 @cds.odata.valuelist
 entity StatusTxtVH {
-  key StatusTxt : incidentws.MessageHeaderSet:StatusTxt;
+  key StatusTxt : incidentws.MessageHeaderSet : StatusTxt;
 };
 
 view StatusView as select distinct Status from MessageHeaderSet;
@@ -87,7 +87,7 @@ view StatusView as select distinct Status from MessageHeaderSet;
 @readonly
 @cds.odata.valuelist
 entity StatusVH {
-  key Status : incidentws.MessageHeaderSet:Status;
+  key Status : incidentws.MessageHeaderSet : Status;
 };
 
 view SystemIdView as
@@ -99,7 +99,7 @@ view SystemIdView as
 @readonly
 @cds.odata.valuelist
 entity SystemIdVH {
-  key SystemId : incidentws.MessageHeaderSet:SystemId;
+  key SystemId : incidentws.MessageHeaderSet : SystemId;
 };
 
 @cds.persistence.skip                           : false
@@ -141,7 +141,7 @@ view ContTypTxtView as select distinct ContTypTxt from MessageContactsSet;
 @readonly
 @cds.odata.valuelist
 entity ContTypTxtVH {
-  key ContTypTxt : incidentws.MessageContactsSet:ContTypTxt;
+  key ContTypTxt : incidentws.MessageContactsSet : ContTypTxt;
 };
 
 
