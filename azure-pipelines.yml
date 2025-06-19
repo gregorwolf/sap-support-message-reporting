@@ -50,6 +50,10 @@ stages:
           - download: current
             artifact: sap-support-message-reporting
           - bash: |
+              echo "CF_USER:  $(CF_USER)"
+              echo "CF_API:   $(CF_API)"
+              echo "CF_ORG:   $(CF_ORG)"
+              echo "CF_SPACE: $(CF_SPACE)"
               cf login -u "$(CF_USER)" -p "$(CF_PASSWORD)" -a "$(CF_API)" -o "$(CF_ORG)" -s "$(CF_SPACE)"
               cf deploy $(Pipeline.Workspace)/sap-support-message-reporting/sap-support-message-reporting.mtar -f
             displayName: "Deploy MTAR file"
