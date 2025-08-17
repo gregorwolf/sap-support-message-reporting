@@ -1,5 +1,5 @@
 # Borrowed from https://github.com/SAP-samples/cap-sflight
-FROM ppiper/cf-cli:v21
+FROM ppiper/cf-cli:v22
 
 # needed for cf to find its config
 # (GH resets HOME to /github/workspace)
