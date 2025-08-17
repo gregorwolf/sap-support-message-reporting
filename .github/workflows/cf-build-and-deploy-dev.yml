@@ -99,7 +99,7 @@ jobs:
 
       - name: Set Cloud Foundry API
         run: |
-          cf api ${{inputs.cfApiEndpointUrl}}
+          cf api $CF_API
 
       - name: Login to Cloud Foundry environment
         run: |
