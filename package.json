@@ -12,7 +12,7 @@
     "@cap-js-community/odata-v2-adapter": "^1",
     "@cap-js/hana": "^2",
     "@cap-js/sqlite": "^2",
-    "@sap-cloud-sdk/http-client": "^3",
+    "@sap-cloud-sdk/http-client": "^4",
     "@sap/cds": "^9",
     "@sap/cds-dk": "^9.0.5",
     "app": "file:app",
@@ -28,7 +28,7 @@
     "@sap/ux-specification": "^1.120.1",
     "axios": "^1",
     "npm-run-all": "^4",
-    "pino-pretty": "^10"
+    "pino-pretty": "^13"
   },
   "scripts": {
     "start": "export NODE_ENV=development && cds-serve --with-mocks --in-memory",
