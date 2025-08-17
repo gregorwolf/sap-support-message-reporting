@@ -1,6 +1,6 @@
 # SAP Support Message Reporting
 
-Replicate data from SAP Support Launchpad Incident OData service for local reporting.
+Replicate data from SAP Support Launchpad Incident Management OData service for local reporting.
 
 ## Architecture
 
