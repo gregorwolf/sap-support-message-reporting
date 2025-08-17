@@ -60,7 +60,17 @@ jobs:
           path: sap-support-message-reporting-cf.mtar
 
   deploy:
-    runs-on: [ubuntu-latest]
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: dev
+      # url:
+    env:
+      CF_API: https://api.cf.eu10.hana.ondemand.com/
+      CF_ORG: csw
+      CF_SPACE: dev
+      CF_ORIGIN: aqywyhweh-platform
+      CF_TENANT_ISSUER_URI: https://aqywyhweh.accounts.ondemand.com
     permissions:
       id-token: write # This is required for requesting the JWT
       contents: read # This is required for actions/checkout
@@ -83,7 +93,7 @@ jobs:
       - name: Get short-lived GitHub-issued JWT
         id: get-github-jwt
         run: |
-          githubJwt=$(curl -s -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" -H "Accept: application/json; api-version=2.0" -H "Content-Type: application/json" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=${{inputs.tenantIssuerUri}}" | jq -r '.value')
+          githubJwt=$(curl -s -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" -H "Accept: application/json; api-version=2.0" -H "Content-Type: application/json" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=$CF_TENANT_ISSUER_URI" | jq -r '.value')
           echo $githubJwt | jq -R 'split(".") | .[0],.[1] | @base64d | fromjson'
           echo "githubJwt=$githubJwt" >> $GITHUB_OUTPUT
 
@@ -93,11 +103,11 @@ jobs:
 
       - name: Login to Cloud Foundry environment
         run: |
-          cf auth --assertion ${{steps.get-github-jwt.outputs.githubJwt}} --origin ${{inputs.userOrigin}}
+          cf auth --assertion ${{steps.get-github-jwt.outputs.githubJwt}} --origin $CF_ORIGIN
 
       - name: Target Cloud Foundry org and space
         run: |
-          cf target -o '${{inputs.cfOrg}}' -s '${{inputs.cfSpace}}'
+          cf target -o '$CF_ORG' -s '$CF_SPACE'
 
       - name: Deploy to Cloud Foundry environment
         run: |
