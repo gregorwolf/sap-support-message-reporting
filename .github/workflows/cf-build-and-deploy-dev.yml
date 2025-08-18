@@ -93,7 +93,7 @@ jobs:
       - name: Install MultiApps CF CLI Plugin
         run: |
           cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org
-          cf install-plugin multiapps
+          cf install-plugin multiapps -f
 
       - name: Get short-lived GitHub-issued JWT
         id: get-github-jwt

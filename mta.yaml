@@ -4,7 +4,7 @@
 ## approuter=
 _schema-version: "3.1"
 ID: sap-support-message-reporting
-version: 0.0.7
+version: 0.0.8
 description: "SAP Support Message Reporting"
 parameters:
   enable-parallel-deployments: true
