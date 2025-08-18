@@ -83,6 +83,14 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
 
+      - name: Download MTA artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: mta
+
+      - name: Display structure of downloaded files
+        run: ls -R
+
       - name: Download CF CLI
         run: |
           cf_version="8.12.0"
