@@ -90,6 +90,11 @@ jobs:
           curl -L "https://github.com/cloudfoundry/cli/releases/download/v${cf_version}/cf8-cli_${cf_version}_linux_x86-64.tgz" | tar -zvx -C .cfcli
           echo "$(pwd)/.cfcli" >> "$GITHUB_PATH"
 
+      - name: Install MultiApps CF CLI Plugin
+        run: |
+          cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org
+          cf install-plugin multiapps
+
       - name: Get short-lived GitHub-issued JWT
         id: get-github-jwt
         run: |
@@ -111,7 +116,7 @@ jobs:
 
       - name: Deploy to Cloud Foundry environment
         run: |
-          cf push --strategy rolling
+          cf deploy sap-support-message-reporting-cf.mtar
 
       - name: Logout from Cloud Foundry environment
         if: always()
