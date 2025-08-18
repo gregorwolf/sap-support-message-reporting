@@ -107,7 +107,7 @@ jobs:
 
       - name: Target Cloud Foundry org and space
         run: |
-          cf target -o '$CF_ORG' -s '$CF_SPACE'
+          cf target -o $CF_ORG -s $CF_SPACE
 
       - name: Deploy to Cloud Foundry environment
         run: |
