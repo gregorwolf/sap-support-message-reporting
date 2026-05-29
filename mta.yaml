@@ -24,8 +24,6 @@ modules:
     # ------------------------------------------------------------
     type: nodejs
     path: gen/srv
-    build-parameters:
-      ignore: ["node_modules/"]
     parameters:
       memory: 256M
       disk-quota: 1024M
@@ -34,6 +32,11 @@ modules:
       tasks: # Execute this task after staging my app
         - name: custom-task
           command: echo "Custom command executed in an app container!"
+    properties:
+      SAP_CALM_DCI_LOG_LEVEL: debug
+      SAP_CALM_SERVICE_NAME: reporting-srv
+      SAP_CALM_SERVICE_TYPE: SAP_CP_CF
+      OTEL_RESOURCE_ATTRIBUTES: sap.tenancy.tenant_id=d3812a8d-54bb-4995-a452-fdcffed2ff81
     provides:
       - name: srv-api # required by consumers of CAP services (e.g. approuter)
         properties:

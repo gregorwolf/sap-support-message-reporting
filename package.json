@@ -9,6 +9,7 @@
     "node": "^22"
   },
   "dependencies": {
+    "@sap/xotel-agent-ext-js": "https://73555000100200018064.npmsrv.cdn.repositories.cloud.sap/@sap/xotel-agent-ext-js/-/xotel-agent-ext-js-2.0.2.tgz",
     "@cap-js-community/odata-v2-adapter": "^1",
     "@cap-js/hana": "^2",
     "@cap-js/sqlite": "^2",
@@ -31,7 +32,7 @@
     "pino-pretty": "^13"
   },
   "scripts": {
-    "start": "export NODE_ENV=development && cds-serve --with-mocks --in-memory",
+    "start": "export NODE_ENV=development && node -r @sap/xotel-agent-ext-js/dist/common/tracer ./node_modules/@sap/cds/bin/serve --with-mocks --in-memory",
     "start:loadDataFromMock": "node srv/loadDataFromMock.js",
     "update": "run-p update:**",
     "update:root": "npm update",
